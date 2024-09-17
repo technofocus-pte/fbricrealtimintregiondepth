@@ -34,7 +34,7 @@ alt="A screenshot of a computer Description automatically generated" />
 
 2.  From your workspace, click on ***+*** **New* \> *KQL Queryset** as
     shown in the below image. In the **New KQL Queryset** dialog box,
-    enter +++***StockQueryset**+++*, then click on the **Create**
+    enter ***StockQueryset***, then click on the **Create**
     button.
 
 <img src="./media/image2.png" style="width:6.5in;height:6.17431in" />
