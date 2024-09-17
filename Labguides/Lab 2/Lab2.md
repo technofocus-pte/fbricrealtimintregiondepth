@@ -374,7 +374,7 @@ style="width:6.49236in;height:4.32569in" />
 > alt="A screenshot of a graph Description automatically generated" />
 
 6.  On **Just a few details first** dialog box, in **Name your file in
-    Power BI** field, enter +++***RealTimeStocks**+++*. In **Save it to
+    Power BI** field, enter ***RealTimeStocks***. In **Save it to
     a workspace** field, click on the dropdown and select
     ***RealTimeWorkspace***. Then, click on the **Continue** button**.**
 
