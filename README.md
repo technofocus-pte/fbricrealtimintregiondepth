@@ -1,4 +1,4 @@
-# fbricrealtimintregion
+# Microsoft Fabric Real-Time Intelligence- Regional Workshop 
 Lab 01-Ingesting Data using Real-Time Intelligence
 
 Lab 02-Using KQL and building reports
