@@ -241,11 +241,11 @@ To auto-deploy the resources, use these steps below.
 
     ![](./media/image31.png)
 
-5.  Open the **Event Hub** **namespace**, which will have a name similar
+5.  Open the **Event Hub namespace**, which will have a name similar
     to**ehns-XXXXXX-fabricworkshop**.
 
      ![](./media/image32.png)
-6.  In **Event Hub** **namespace** page left-sided navigation menu,
+6.  In **Event Hub namespace** page left-sided navigation menu,
     navigate to **Settings** section and click on **Shared access
     policies**.
 
@@ -363,7 +363,7 @@ the Eventstream into the KQL DB.
     and click on, select **Eventhouse** to create Eventhouse.
 
     ![](./media/image53.png)
-3.  In the **New Eventhouse** dialog box, enter +++**StockDB+++**in
+3.  In the **New Eventhouse** dialog box, enter +++StockDB+++in
     the **Name** field, click on the **Create** button and open the new
     Eventhouse.
 
@@ -404,7 +404,7 @@ the Eventstream into the KQL DB.
 4.  On the KQL settings, select *Direct ingestion*. While we have the
     opportunity to process event data at this stage, for our purposes,
     we will ingest the data directly into the KQL database. Set the
-    destination name to +++*KQL+++*, then select your **workspace** and
+    destination name to +++KQL+++, then select your **workspace** and
     KQL database created in the above task, then click on **Save**
     button.
 
