@@ -186,8 +186,8 @@ To auto-deploy the resources, use these steps below.
 
 1.  Open a new address bar and enter the following URL. If prompted to
     Sign in, then use your O365 tenant credentials.
->
-> +++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
+
++++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
     the following details and click on the **Review+create** button.
 
