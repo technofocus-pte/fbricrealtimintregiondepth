@@ -61,12 +61,10 @@ of resources.
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL: +++https://app.fabric.microsoft.com/+++ then press
     the **Enter** button.
-
     ![]("./media/image2.png)
 2.  In the **Microsoft Fabric** window, enter your Microsoft 365
     credentials and click on the **Submit** button.
     ![](./media/image3.png)
-
     ![]("./media/image4.png)
 3.  Enter the **Administrative password** from the **Resources** tab and
     click on the **Sign in** button.
