@@ -54,7 +54,7 @@ complexity to support different business uses.
     entire text and click on the ***Run*** button to execute the query.
     After the query is executed, you will see the results.
 
-  >```**Copy**
+  >````**Copy**
   >// Use "take" to view a sample number of records in the table and check the data.
   >StockPrice
   >| take 100;
