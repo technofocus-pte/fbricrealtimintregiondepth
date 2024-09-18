@@ -26,9 +26,7 @@ integrated solution, you'll be able to quickly and securely integrate
 data, build reports, create data warehouses and lakehouses, forecast
 using ML models, and more.
 
-<img src="./media/image1.png" style="width:6.5in;height:3.65625in"
-alt="Data Lakehouse with Azure Synapse Analytics" />
-
+![](./media/image1.png)
 # Objectives
 
 - To sign up for the free Microsoft Fabric trial, redeem Azure Pass, and
