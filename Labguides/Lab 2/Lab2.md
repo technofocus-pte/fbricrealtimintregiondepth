@@ -31,7 +31,7 @@ complexity to support different business uses.
    ![](./media/image1.png)
 2.  From your workspace, click on ***+*** **New* \> *KQL Queryset** as
     shown in the below image. In the **New KQL Queryset** dialog box,
-    enter ***StockQueryset***, then click on the **Create**
+    enter +++StockQueryset+++, then click on the **Create**
     button.
 
    ![](./media/image2.png)
@@ -87,7 +87,7 @@ a semicolon (;) after the statement, as shown below.*
   ![](./media/image9.png)
 ## Task 2: New Query of StockByTime
 
-1.  Create a new tab within the queryset by clicking on the ***+* icon**
+1.  Create a new tab within the queryset by clicking on the ***+*** icon
     as shown in the below image. Rename this tab as
     ***StockByTime***
 
@@ -142,7 +142,7 @@ a semicolon (;) after the statement, as shown below.*
 
 1.  Create another new tab within the queryset by clicking on
     the ***+* icon** as shown in the below image. Rename this tab as
-    ***StockAggregate***
+    +++StockAggregate+++
 
    ![](./media/image14.png)
    ![](./media/image15.png)
@@ -182,7 +182,7 @@ a semicolon (;) after the statement, as shown below.*
 
 1.  Create another new tab within the queryset by clicking on
     the **+** icon as shown in the below image. Rename this tab as
-    ***StockBinned***
+    +++StockBinned+++
 
     ![](./media/image18.png)
 
@@ -204,8 +204,7 @@ a semicolon (;) after the statement, as shown below.*
 >
 >| summarize avg(price), min(price), max(price) by bin(timestamp, 1h),symbol
 >| sort by timestamp asc, symbol asc
-
-    ![](./media/image20.png)
+   ![](./media/image20.png)
 
 4.  This is particularly useful when creating reports that aggregate
     real-time data over a longer time period.
@@ -214,7 +213,7 @@ a semicolon (;) after the statement, as shown below.*
 
 1.  Create a final new tab within the queryset by clicking on
     the **+** icon as shown in the below image. Rename this tab as
-    ***Visualizations*** We'll use this tab to explore
+    +++Visualizations+++ We'll use this tab to explore
     visualizing data.
 
     ![](./media/image21.png)
