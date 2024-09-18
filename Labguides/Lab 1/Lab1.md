@@ -295,10 +295,14 @@ To auto-deploy the resources, use these steps below.
     have saved in your notepad)
 
     --Event Hub : **StockEventHub**
+    
     --Shared Access Key Name:**stockeventhub_sas**
+    
     --Shared Access Key- **Enter Primary Key** (the value that you have saved
-    --in your notepad in the **Task 5)**
-    --Consumer group: ***\$Default*** 
+      in your notepad in the Task 5)
+    
+    --Consumer group: ***\$Default***
+    
     --Data format: **JSON** and click on **Next** button
     ![](./media/image41.png)
 
@@ -310,23 +314,23 @@ To auto-deploy the resources, use these steps below.
 
     ![](./media/image45.png)
 
-8.  You will see a notification stating **Successfully added The source
+9.  You will see a notification stating **Successfully added The source
     “StockEventHub,Azure Event Hubs”** was added.
 
     ![](./media/image46.png)
 
-9.  With the Event Hub configured, click on ***Test result***. You
+10.  With the Event Hub configured, click on ***Test result***. You
     should see events including the stock symbol, price, and timestamp.
 
     ![](./media/image47.png)
 
-10. On the Eventstream, select **Publish.**
+11. On the Eventstream, select **Publish.**
 
     ![](./media/image48.png)
 
     ![](./media/image49.png)
 
-11. On the Eventstream, select **AzureEventHub** and click on
+12. On the Eventstream, select **AzureEventHub** and click on
     **Refresh** button.
 
     ![](./media/image50.png)
