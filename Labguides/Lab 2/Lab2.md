@@ -34,8 +34,8 @@ complexity to support different business uses.
     enter +++StockQueryset+++, then click on the **Create**
     button.
 
-   ![](./media/image2.png)
-   ![](./media/image3.png)
+    ![](./media/image2.png)
+    ![](./media/image3.png)
    
 3.  Select the ***StockDB*** and click on the **Connect** button.
     ![](./media/image4.png)
@@ -80,20 +80,20 @@ a semicolon (;) after the statement, as shown below.*
 7.  The results will be displayed in 3 different tables as shown in the
     below image. Click on each table tab to review the data.
 
-  ![](./media/image7.png)
+   ![](./media/image7.png)
 
-  ![](./media/image8.png)
+   ![](./media/image8.png)
 
-  ![](./media/image9.png)
+   ![](./media/image9.png)
 ## Task 2: New Query of StockByTime
 
 1.  Create a new tab within the queryset by clicking on the ***+*** icon
     as shown in the below image. Rename this tab as
     ***StockByTime***
 
-   ![](./media/image10.png)
-   ![](./media/image11.png)
-   ![](./media/image12.png)
+    ![](./media/image10.png)
+    ![](./media/image11.png)
+    ![](./media/image12.png)
 
 2.  We can begin to add our own calculations, such as calculating the
     change over time. For example,
@@ -144,8 +144,8 @@ a semicolon (;) after the statement, as shown below.*
     the ***+* icon** as shown in the below image. Rename this tab as
     +++StockAggregate+++
 
-   ![](./media/image14.png)
-   ![](./media/image15.png)
+    ![](./media/image14.png)
+    ![](./media/image15.png)
 2.  This query will find the biggest price gains over a 10-minute period
     for each stock, and the time it occurred. This query uses
     the [summarize](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator) operator,
