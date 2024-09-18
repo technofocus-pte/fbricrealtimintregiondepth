@@ -125,7 +125,6 @@ a semicolon (;) after the statement, as shown below.*
 >>| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
 >>| order by timestamp asc, symbol asc
     ![](./media/image13.png)
-
 4.  In this KQL query, the results are first limited to the most recent
     75 minutes. While we ultimately limit the rows to the last 60
     minutes, our initial dataset needs enough data to lookup previous
