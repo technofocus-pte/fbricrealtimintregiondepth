@@ -36,6 +36,7 @@ complexity to support different business uses.
 
    ![](./media/image2.png)
    ![](./media/image3.png)
+   
 3.  Select the ***StockDB*** and click on the **Connect** button.
     ![](./media/image4.png)
 
