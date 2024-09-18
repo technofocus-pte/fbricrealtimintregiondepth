@@ -62,33 +62,28 @@ of resources.
     the following URL: <https://app.fabric.microsoft.com/> then press
     the **Enter** button.
 
-> <img src="./media/image2.png" style="width:6.5in;height:2.89653in"
-> alt="A search engine window with a red box Description automatically generated with medium confidence" />
+![]("./media/image2.png)
 
 2.  In the **Microsoft Fabric** window, enter your Microsoft 365
     credentials and click on the **Submit** button.
 
-> <img src="./media/image3.png" style="width:6.5in;height:2.775in"
-> alt="A screenshot of a computer Description automatically generated" />
+![](./media/image3.png)
+
 >
-> <img src="./media/image4.png" style="width:6.49167in;height:3.11667in"
-> alt="A close up of a white and green object Description automatically generated" />
+![]("./media/image4.png)
 
 3.  Enter the **Administrative password** from the **Resources** tab and
     click on the **Sign in** button**.**
 
-> <img src="./media/image5.png" style="width:4.50833in;height:3.83333in"
-> alt="A login screen with a red box and blue text Description automatically generated" />
+![](./media/image5.png)
 
 4.  In **Stay signed in?** window, click on the **Yes** button.
 
-> <img src="./media/image6.png" style="width:4.58333in;height:3.66667in"
-> alt="A screenshot of a computer error Description automatically generated" />
+![](./media/image6.png)
 
 5.  You’ll be directed to Power BI Home page.
 
-<img src="./media/image7.png" style="width:7.17276in;height:3.31357in"
-alt="A screenshot of a computer Description automatically generated" />
+![](./media/image7.png)
 
 ## Task 2: Start the Microsoft Fabric trial
 
