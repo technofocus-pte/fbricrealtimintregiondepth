@@ -246,8 +246,7 @@ a semicolon (;) after the statement, as shown below.*
 >| order by timestamp asc, symbol asc
 >| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
 
-
-    ![](./media/image23.png)
+    ![](./media/image22.png)
 4.  This will render a line chart as shown in the below image.
 
     ![](./media/image24.png)
