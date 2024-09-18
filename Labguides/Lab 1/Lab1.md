@@ -63,38 +63,29 @@ of resources.
     the **Enter** button.
 
     ![]("./media/image2.png)
-
 2.  In the **Microsoft Fabric** window, enter your Microsoft 365
     credentials and click on the **Submit** button.
-
     ![](./media/image3.png)
 
     ![]("./media/image4.png)
-
 3.  Enter the **Administrative password** from the **Resources** tab and
-    click on the **Sign in** button**.**
+    click on the **Sign in** button.
 
     ![](./media/image5.png)
-
 4.  In **Stay signed in?** window, click on the **Yes** button.
 
     ![](./media/image6.png)
-
 5.  You’ll be directed to Power BI Home page.
-
     ![](./media/image7.png)
 
 ## Task 2: Start the Microsoft Fabric trial
-
 1.  On **Power BI Home** page, click on the **Account manager** **for
     MOD Administrator** icon on the top right corner of the page. In the
     Account manager blade, navigate and select **Start trial** as shown
     in the below image.
-
     ![](./media/image8.png)
 2.  On **Upgrade to a free Microsoft Fabric** trial dialog box, click on
-    **Start trial** button**.**
-
+    **Start trial** button.
     ![](./media/image9.png)
 3.  You will see a **Successfully upgraded to a free Microsoft Fabic
     trial** notification dialog box. In the dialog box, click on
