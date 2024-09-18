@@ -169,10 +169,10 @@ reports.
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-| **Name** | **+++RealTimeWorkspaceX*XX*+++** (XXX can be a unique number, you can add more numbers) |
-|----|----|
-| **Advanced** | Select Trail |
-| **Default storage format** | **Small dataset storage format** |
+ | **Name** | **RealTimeWorkspaceX*XX*** (XXX can be a unique number, you can add more numbers) |
+ |----|----|
+ | **Advanced** | Select Trail |
+ | **Default storage format** | **Small dataset storage format** |
 
    ![](./media/image25.png)
 
@@ -189,7 +189,7 @@ To auto-deploy the resources, use these steps below.
 
 1.  Open a new address bar and enter the following URL. If prompted to
     Sign in, then use your O365 tenant credentials.
-
+>````
 > [https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json](https://portal.azure.com/%23create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json)
 
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
@@ -227,7 +227,7 @@ To auto-deploy the resources, use these steps below.
    ![](./media/image28.png)
 
 3.  In the **Review + create** tab, navigate and click on the **Create**
-    button**.**
+    button.
 
    ![](./media/image29.png)
 
