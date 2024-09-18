@@ -182,7 +182,7 @@ a semicolon (;) after the statement, as shown below.*
 ## Task 4: StockBinned
 
 1.  Create another new tab within the queryset by clicking on
-    the ***+* icon** as shown in the below image. Rename this tab as
+    the **+** icon as shown in the below image. Rename this tab as
     ***StockBinned***
 
     ![](./media/image18.png)
@@ -214,8 +214,8 @@ a semicolon (;) after the statement, as shown below.*
 ## Task 5: Visualizations
 
 1.  Create a final new tab within the queryset by clicking on
-    the ***+* icon** as shown in the below image. Rename this tab as
-    ***Visualizations*.** We'll use this tab to explore
+    the **+** icon as shown in the below image. Rename this tab as
+    ***Visualizations*** We'll use this tab to explore
     visualizing data.
 
     ![](./media/image21.png)
@@ -264,14 +264,14 @@ Our Power BI tenant needs to be configured to allow for more frequent
 updating.
 
 1.  To configure this setting, navigate to the Power BI admin portal by
-    clicking on the ***Settings* **icon in the upper right corner of the
+    clicking on the ***Settings*** icon in the upper right corner of the
     **Fabric portal**. Navigate to Governance and insights section, then
     click on **Admin portal**.
 
    ![](./media/image25.png)
 
 2.  In the **Admin portal** page, navigate and click on **Capacity
-    settings***,* then click on **Trial** tab. Click on your capacity
+    settings***,then click on **Trial** tab. Click on your capacity
     name.
 
     ![](./media/image26.png)
@@ -302,12 +302,12 @@ complete.
 
     ![](./media/image30.png)
 
-2.  From the ***StockQueryset*** queryset used in the previous module,
-    select the ***StockByTime*** query tab.
+2.  From the **StockQueryset** queryset used in the previous module,
+    select the **StockByTime** query tab.
 
    ![](./media/image31.png)
-3.  Select the query and run to view the results. Click** **on the
-    ***Build Power BI report*** button in the command bar to bring this
+3.  Select the query and run to view the results. Click on the
+    **Build Power BI report** button in the command bar to bring this
     query into Power BI.
 
     ![](./media/image32.png)
@@ -332,7 +332,7 @@ complete.
 6.  On **Just a few details first** dialog box, in **Name your file in
     Power BI** field, enter ***RealTimeStocks***. In **Save it to
     a workspace** field, click on the dropdown and select
-    ***RealTimeWorkspace***. Then, click on the **Continue** button**.**
+    ***RealTimeWorkspace***. Then, click on the **Continue** button.
 
     ![](./media/image36.png)
 7.  In the Power BI (preview) page, click on **Open the file in Power BI
