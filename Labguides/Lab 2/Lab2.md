@@ -76,33 +76,24 @@ the query, click *Run* in the toolbar. If you'd like to run all 3 to
 display the results in 3 different tables, each query will need to have
 a semicolon (;) after the statement, as shown below.*
 
-<img src="./media/image6.png" style="width:6.5in;height:2.73472in" />
-
-8.  The results will be displayed in 3 different tables as shown in the
+   ![](./media/image6.png)
+7.  The results will be displayed in 3 different tables as shown in the
     below image. Click on each table tab to review the data.
 
-<img src="./media/image7.png" style="width:6.49236in;height:4.34861in"
-alt="A screenshot of a computer Description automatically generated" />
+  ![](./media/image7.png)
 
-> <img src="./media/image8.png" style="width:6.5in;height:5.39375in" />
->
-> <img src="./media/image9.png"
-> style="width:6.49236in;height:4.56806in" />
+  ![](./media/image8.png)
 
+  ![](./media/image9.png)
 ## Task 2: New Query of StockByTime
 
 1.  Create a new tab within the queryset by clicking on the ***+* icon**
     as shown in the below image. Rename this tab as
-    +++***StockByTime***+++
+    ***StockByTime***
 
-> <img src="./media/image10.png"
-> style="width:6.49236in;height:5.06806in" />
->
-> <img src="./media/image11.png"
-> style="width:6.49236in;height:4.95486in" />
->
-> <img src="./media/image12.png"
-> style="width:6.22083in;height:3.9272in" />
+   ![](./media/image10.png)
+  ![](./media/image11.png)
+  ![](./media/image12.png)
 
 2.  We can begin to add our own calculations, such as calculating the
     change over time. For example,
@@ -135,8 +126,7 @@ alt="A screenshot of a computer Description automatically generated" />
 >>| order by timestamp asc, symbol asc
 
 
-<img src="./media/image13.png"
-style="width:6.49236in;height:4.32569in" />
+    ![](./media/image13.png)
 
 4.  In this KQL query, the results are first limited to the most recent
     75 minutes. While we ultimately limit the rows to the last 60
@@ -153,14 +143,10 @@ style="width:6.49236in;height:4.32569in" />
 
 1.  Create another new tab within the queryset by clicking on
     the ***+* icon** as shown in the below image. Rename this tab as
-    **+++*StockAggregate*+++**
+    ***StockAggregate***
 
-> <img src="./media/image14.png"
-> style="width:6.49236in;height:3.79514in" />
->
-> <img src="./media/image15.png" style="width:6.5in;height:3.90903in"
-> alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image14.png)
+   ![](./media/image15.png)
 2.  This query will find the biggest price gains over a 10-minute period
     for each stock, and the time it occurred. This query uses
     the [summarize](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/summarizeoperator) operator,
@@ -189,11 +175,9 @@ style="width:6.49236in;height:4.32569in" />
 >| order by timestamp asc, symbol asc
 >| summarize arg_max(pricedifference_10min, *) by symbol
 
-<img src="./media/image16.png" style="width:6.49236in;height:3.46944in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image16.png)
 
-<img src="./media/image17.png" style="width:6.5in;height:3.86389in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image17.png)
 
 ## Task 4: StockBinned
 
@@ -201,10 +185,9 @@ alt="A screenshot of a computer Description automatically generated" />
     the ***+* icon** as shown in the below image. Rename this tab as
     ***StockBinned***
 
-<img src="./media/image18.png" style="width:6.5in;height:3.90903in" />
+    ![](./media/image18.png)
 
-<img src="./media/image19.png"
-style="width:6.49236in;height:3.85625in" />
+   ![](./media/image19.png)
 
 2.  KQL also has a [bin()
     function](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/bin-function),
@@ -223,8 +206,7 @@ style="width:6.49236in;height:3.85625in" />
 >| summarize avg(price), min(price), max(price) by bin(timestamp, 1h),symbol
 >| sort by timestamp asc, symbol asc
 
-<img src="./media/image20.png" style="width:7.20076in;height:5.10038in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image20.png)
 
 4.  This is particularly useful when creating reports that aggregate
     real-time data over a longer time period.
@@ -236,11 +218,8 @@ alt="A screenshot of a computer Description automatically generated" />
     ***Visualizations*.** We'll use this tab to explore
     visualizing data.
 
-> <img src="./media/image21.png"
-> style="width:6.49236in;height:2.79514in" />
->
-> <img src="./media/image22.png" style="width:6.5in;height:2.41667in" />
-
+    ![](./media/image21.png)
+    ![](./media/image22.png)
 2.  KQL supports a large number
     of [visualizations](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/render-operator?pivots=fabric) by
     using the *render* operator. Run the below query, which is the same
@@ -269,13 +248,10 @@ alt="A screenshot of a computer Description automatically generated" />
 >| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
 
 
-<img src="./media/image23.png" style="width:7.2814in;height:3.54735in"
-alt="A screenshot of a computer Description automatically generated" />
-
+    ![](./media/image23.png)
 4.  This will render a line chart as shown in the below image.
 
-<img src="./media/image24.png" style="width:7.35905in;height:3.641in"
-alt="A screenshot of a graph Description automatically generated" />
+    ![](./media/image24.png)
 
 # Exercise 2: Optimizing Power BI Reporting Efficiency
 
@@ -292,15 +268,13 @@ updating.
     **Fabric portal**. Navigate to Governance and insights section, then
     click on **Admin portal**.
 
-<img src="./media/image25.png"
-style="width:3.9125in;height:6.35976in" />
+   ![](./media/image25.png)
 
 2.  In the **Admin portal** page, navigate and click on **Capacity
     settings***,* then click on **Trial** tab. Click on your capacity
     name.
 
-> <img src="./media/image26.png"
-> style="width:7.17657in;height:3.0125in" />
+    ![](./media/image26.png)
 
 3.  Scroll down and click on ***Power BI workloads***, and
     under ***Semantic Models*** (recently renamed from *Datasets*),
@@ -312,38 +286,32 @@ style="width:3.9125in;height:6.35976in" />
 not be available. Note that this change may take several minutes to
 complete.
 
-<img src="./media/image27.png"
-style="width:6.49236in;height:5.40139in" />
+    ![](./media/image27.png)
 
-<img src="./media/image28.png" style="width:6.5in;height:5.93958in" />
+    ![](./media/image28.png)
 
 4.  On **Update your capacity workloads** dialog box, click on the
     **Yes** button.
 
-<img src="./media/image29.png"
-style="width:5.74236in;height:1.44722in" />
+    ![](./media/image29.png)
 
 ## Task 2: Creating a basic Power BI report
 
 1.  In the **Microsoft Fabric** page menu bar on the left side, select
     **StockQueryset**.
 
-<img src="./media/image30.png" style="width:6.06042in;height:7.32008in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image30.png)
 
 2.  From the ***StockQueryset*** queryset used in the previous module,
     select the ***StockByTime*** query tab.
 
-<img src="./media/image31.png" style="width:6.5in;height:3.38333in" />
-
+   ![](./media/image31.png)
 3.  Select the query and run to view the results. Click** **on the
     ***Build Power BI report*** button in the command bar to bring this
     query into Power BI.
 
-<img src="./media/image32.png" style="width:6.49167in;height:4.05in" />
-
-<img src="./media/image33.png" style="width:6.5in;height:4.46319in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image32.png)
+    ![](./media/image33.png)
 
 4.  On the report preview page, we can configure our initial chart,
     select a **line chart** to the design surface, and configure the
@@ -355,48 +323,39 @@ alt="A screenshot of a computer Description automatically generated" />
 
 - Y-axis**: price**
 
-<img src="./media/image34.png"
-style="width:6.49236in;height:4.32569in" />
+    ![](./media/image34.png)
 
 5.  In the Power BI (preview) page, from the ribbon, click on
     **File** and select **Save**.
 
-> <img src="./media/image35.png" style="width:5.9425in;height:3.7375in"
-> alt="A screenshot of a graph Description automatically generated" />
-
+    ![](./media/image35.png)
 6.  On **Just a few details first** dialog box, in **Name your file in
     Power BI** field, enter ***RealTimeStocks***. In **Save it to
     a workspace** field, click on the dropdown and select
     ***RealTimeWorkspace***. Then, click on the **Continue** button**.**
 
-<img src="./media/image36.png" style="width:3.17917in;height:2.63638in"
-alt="A screenshot of a computer Description automatically generated" />
-
+    ![](./media/image36.png)
 7.  In the Power BI (preview) page, click on **Open the file in Power BI
     to view, edit and get a shareable link.**
 
-<img src="./media/image37.png"
-style="width:6.49236in;height:4.70486in" />
+    ![](./media/image37.png)
 
 8.  On the **RealTimeStock** page, click on the **Edit** button in the
     command bar to open the report editor.
 
-> <img src="./media/image38.png" style="width:6.49236in;height:3.81806in"
-> alt="A graph of different colored lines Description automatically generated" />
-
+    ![](./media/image38.png)
 9.  Select the line chart on the report. Configure a **Filter**
     for ***timestamp*** to display data for the last 5 minutes using
     these settings:
 
-- Filter type: Relative time
+   - Filter type: Relative time
 
-- Show items when the value: is in the last 5 minutes
+   - Show items when the value: is in the last 5 minutes
 
 Click on ***Apply filter*** to enable the filter. You will see a similar
 type of output as shown in the below image.
 
-<img src="./media/image39.png" style="width:7.4018in;height:3.10038in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image39.png)
 
 ## Task 3: Creating a second visual for percent change
 
@@ -415,19 +374,15 @@ alt="A screenshot of a computer Description automatically generated" />
 
 - Y-axis: **average of percentdifference_10min**
 
-<img src="./media/image40.png"
-style="width:6.05833in;height:6.78333in" />
-
-<img src="./media/image41.png" style="width:7.40867in;height:3.39801in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image40.png)
+    ![](./media/image41.png)
 
 3.  Under the **Visualization,** select the **Analytics** represented by
     a magnifier-like icon as shown in the below image, then click on
     **Y-Axis Constant Line(1).** In the **Apply settings to**
     section**,** click on **+Add line,** then enter **Value 0.**
 
-<img src="./media/image42.png"
-style="width:7.07083in;height:5.00132in" />
+    ![](./media/image42.png)
 
 4.  Select the line chart on the report. Configure a **Filter**
     for ***timestamp*** to display data for the last 5 minutes using
@@ -437,8 +392,7 @@ style="width:7.07083in;height:5.00132in" />
 
 - Show items when the value: is in the last 5 minutes
 
-<img src="./media/image43.png"
-style="width:7.16929in;height:4.95417in" />
+   ![](./media/image43.png)
 
 ## Task 4: Configuring the report to auto-refresh
 
@@ -452,14 +406,12 @@ style="width:7.16929in;height:4.95417in" />
     **Page refresh**. Turn on the toggle. Set the Auto page refresh
     value as **2 Seconds** as shown in the below image.
 
-<img src="./media/image44.png"
-style="width:7.3928in;height:3.52083in" />
+   ![](./media/image44.png)
 
 3.  In the Power BI (preview) page, from the ribbon, click on
     **File** and select **Save**.
 
-<img src="./media/image45.png"
-style="width:6.49167in;height:5.55833in" />
+   ![](./media/image45.png)
 
 **Summary**
 
