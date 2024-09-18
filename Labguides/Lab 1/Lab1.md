@@ -116,7 +116,7 @@ Azure Pass, another Azure Pass will not be issued.
 
 5.  Click on the **Resources** tab and copy the **Promo Code**. Navigate
     to **Enter Promo code** box and paste the Promo Code that have you
-    copied, then click on the **Claim Promo Code** button**.**
+    copied, then click on the **Claim Promo Code** button.
 
    ![](./media/image16.png)
 
@@ -242,7 +242,7 @@ To auto-deploy the resources, use these steps below.
     ![](./media/image31.png)
 
 5.  Open the **Event Hub** **namespace**, which will have a name similar
-    to** *ehns-XXXXXX-fabricworkshop***.
+    to**ehns-XXXXXX-fabricworkshop**.
 
      ![](./media/image32.png)
 6.  In **Event Hub** **namespace** page left-sided navigation menu,
