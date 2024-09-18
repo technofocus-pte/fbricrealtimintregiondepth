@@ -189,7 +189,7 @@ To auto-deploy the resources, use these steps below.
 
 1.  Open a new address bar and enter the following URL. If prompted to
     Sign in, then use your O365 tenant credentials.
->````
+>
 > [https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json](https://portal.azure.com/%23create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json)
 
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
@@ -212,7 +212,7 @@ To auto-deploy the resources, use these steps below.
 <tr class="odd">
 <td><strong>Resource group</strong></td>
 <td>Click on <strong>Create new</strong>&gt; enter
-+++<strong>realtimeworkshop+++</strong> and select
+<strong>realtimeworkshop</strong> and select
 <strong>Ok</strong></td>
 </tr>
 <tr class="even">
