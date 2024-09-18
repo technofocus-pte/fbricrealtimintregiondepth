@@ -62,28 +62,27 @@ of resources.
     the following URL: <https://app.fabric.microsoft.com/> then press
     the **Enter** button.
 
-![]("./media/image2.png)
+    ![]("./media/image2.png)
 
 2.  In the **Microsoft Fabric** window, enter your Microsoft 365
     credentials and click on the **Submit** button.
 
-![](./media/image3.png)
+    ![](./media/image3.png)
 
->
-![]("./media/image4.png)
+    ![]("./media/image4.png)
 
 3.  Enter the **Administrative password** from the **Resources** tab and
     click on the **Sign in** button**.**
 
-![](./media/image5.png)
+    ![](./media/image5.png)
 
 4.  In **Stay signed in?** window, click on the **Yes** button.
 
-![](./media/image6.png)
+    ![](./media/image6.png)
 
 5.  You’ll be directed to Power BI Home page.
 
-![](./media/image7.png)
+    ![](./media/image7.png)
 
 ## Task 2: Start the Microsoft Fabric trial
 
