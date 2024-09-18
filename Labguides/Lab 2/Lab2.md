@@ -29,52 +29,43 @@ complexity to support different business uses.
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation pane.
 
-<img src="./media/image1.png" style="width:6.5in;height:6.40139in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image1.png)
 2.  From your workspace, click on ***+*** **New* \> *KQL Queryset** as
     shown in the below image. In the **New KQL Queryset** dialog box,
     enter ***StockQueryset***, then click on the **Create**
     button.
 
-<img src="./media/image2.png" style="width:6.5in;height:6.17431in" />
-
-<img src="./media/image3.png" style="width:3.69722in;height:2.21944in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image2.png)
+   ![](./media/image3.png)
 3.  Select the ***StockDB*** and click on the **Connect** button.
-    <img src="./media/image4.png" style="width:6.49236in;height:3.63611in"
-    alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image4.png)
 
 4.  The KQL query window will open, allowing you to query the data.
 
-> <img src="./media/image5.png" style="width:6.5in;height:3.94167in"
-> alt="A screenshot of a computer Description automatically generated" />
-
+    ![](./media/image5.png)
 5.  The default query code will look like the code shown in the below
     image; it contains 3 distinct KQL queries. You may
     see *YOUR_TABLE_HERE* instead of the ***StockPrice*** table. Select
     and delete them.
 
-6.  <img src="./media/image5.png" style="width:6.86286in;height:2.86776in"
-    alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image5.png)
 
-7.  In the query editor, copy and paste the following code. Select the
+6.  In the query editor, copy and paste the following code. Select the
     entire text and click on the ***Run*** button to execute the query.
     After the query is executed, you will see the results.
 
->>```**Copy**
->>// Use "take" to view a sample number of records in the table and check the data.
->>StockPrice
->>| take 100;
->>
->>// See how many records are in the table.
->>StockPrice
->>| count;
->>
->>// This query returns the number of ingestions per hour in the given table.
->>StockPrice
->>| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+  >>```**Copy**
+ >>// Use "take" to view a sample number of records in the table and check the data.
+ >>StockPrice
+ >>| take 100;
+ >>
+ >>// See how many records are in the table.
+ >>StockPrice
+ >>| count;
+ >>
+ >>// This query returns the number of ingestions per hour in the given table.
+ >>StockPrice
+ >>| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
 
 
 ***Note:** To run a single query when there are multiple queries in the
