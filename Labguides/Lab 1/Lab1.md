@@ -63,7 +63,7 @@ of resources.
     the **Enter** button.
 
 ![]("./media/image2.png)
-
+>
 2.  In the **Microsoft Fabric** window, enter your Microsoft 365
     credentials and click on the **Submit** button.
 
