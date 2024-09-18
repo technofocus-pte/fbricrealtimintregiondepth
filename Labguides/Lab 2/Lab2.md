@@ -54,18 +54,18 @@ complexity to support different business uses.
     entire text and click on the ***Run*** button to execute the query.
     After the query is executed, you will see the results.
 
-  >>```**Copy**
- >>// Use "take" to view a sample number of records in the table and check the data.
- >>StockPrice
- >>| take 100;
- >>
- >>// See how many records are in the table.
- >>StockPrice
- >>| count;
- >>
- >>// This query returns the number of ingestions per hour in the given table.
- >>StockPrice
- >>| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+  >```**Copy**
+  >// Use "take" to view a sample number of records in the table and check the data.
+  >StockPrice
+  >| take 100;
+  >
+  >// See how many records are in the table.
+  >StockPrice
+  >| count;
+  >
+  >// This query returns the number of ingestions per hour in the given table.
+  >StockPrice
+  >| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
 
 
 ***Note:** To run a single query when there are multiple queries in the
