@@ -294,9 +294,9 @@ To auto-deploy the resources, use these steps below.
 7.  In Event Hub namespace-Enter Event Hub name (the values that you
     have saved in your notepad)
 
-    --Event Hub : **StockEventHub**
+    --Event Hub : +++StockEventHub++
     
-    --Shared Access Key Name:**stockeventhub_sas**
+    --Shared Access Key Name:+++stockeventhub_sas+++
     
     --Shared Access Key- **Enter Primary Key** (the value that you have saved
       in your notepad in the Task 5)
