@@ -19,8 +19,7 @@ process where the data is incrementally processed, until it reaches the
 curated gold layer for reporting. A typical architecture may look
 similar to:
 
-<img src="./media/image1.png" style="width:6.5in;height:2.6625in"
-alt="Medallion Architecture" />
+![](./media/image1.png)
 
 These layers are not intended to be a hard rule, but rather a guiding
 principle. Layers are often separated into different Lakehouses, but for
@@ -72,23 +71,20 @@ across all modules.*
 1.  Within your Fabric workspace, switch to the **Data engineering**
     persona (bottom left) as shown in the below image.
 
-> <img src="./media/image2.png" style="width:4.1in;height:6.475in" />
+   ![](./media/image2.png)
 
 2.  In Synapse Data Engineering Home page, navigate and click on
-    ***Lakehouse* **tile.
+    **Lakehouse** tile.
 
-<img src="./media/image3.png" style="width:6.5in;height:5.48472in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image3.png)
 
-3.  In the **New lakehouse** dialog box, enter ***StocksLakehouse*** in
+3.  In the **New lakehouse** dialog box, enter **StocksLakehouse** in
     the **Name** field, then click on the **Create** button. A
     **StocksLakehouse** page will appear.
 
-<img src="./media/image4.png" style="width:3.01528in;height:1.69722in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image4.png)
 
-<img src="./media/image5.png" style="width:6.5in;height:5.38056in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image5.png)
 
 4.  You will see a notification stating - **Successfully created SQL
     endpoint**.
@@ -96,9 +92,7 @@ alt="A screenshot of a computer Description automatically generated" />
 > **Note**: In case, you did not see the Notifications, then wait for
 > few minutes.
 
-<img src="./media/image6.png" style="width:3.37529in;height:2.55022in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image6.png)
 ## Task 2. Add Lakehouse to the Eventstream
 
 From an architecture perspective, we'll implement a Lambda architecture
@@ -115,14 +109,12 @@ across all modules.*
 1.  Within your Fabric workspace, switch to the **Data engineering**
     persona (bottom left) as shown in the below image.
 
-> <img src="./media/image7.png" style="width:2.85319in;height:5.87917in"
-> alt="A screenshot of a graph Description automatically generated" />
+   ![](./media/image7.png)
 
 2.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     pane and select **StockEventStream** as shown in the below image.
 
-<img src="./media/image8.png" style="width:5.27917in;height:4.7191in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image8.png)
 
 3.  In addition to adding Lakehouse to the Eventstream, we'll do some
     cleanup of the data using some of the functions available in the
@@ -130,15 +122,12 @@ alt="A screenshot of a computer Description automatically generated" />
 
 4.  On the **StockEventStream** page, select **Edit**
 
-<img src="./media/image9.png" style="width:7.1875in;height:4.15196in"
-alt="A screenshot of a computer Description automatically generated" />
-
+    ![](./media/image9.png)
 5.  On the **StockEventStream** page, click on the **Add destination**
     on the output of the Eventstream to add a new destination.
-    Select *Lakehouse*** **from the context menu.
+    Select **Lakehouse** from the context menu.
 
-<img src="./media/image10.png" style="width:6.9892in;height:3.6875in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image10.png)
 
 6.  In the Lakehouse pane that appears on the right side, enter the
     following details and click on **Save.**
@@ -147,73 +136,46 @@ alt="A screenshot of a computer Description automatically generated" />
 |----|----|
 | **Workspace** | RealTimeWorkspace |
 | **Lakehouse** | StockLakehouse |
-| **Delta table** | Click on **Create new**\> enter ***raw_stock_data*** |
+| **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
 | **Input data format** | Json |
 
-> <img src="./media/image11.png" style="width:6.4375in;height:5.61525in"
-> alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image12.png" style="width:3.6in;height:5.63333in"
-alt="A screenshot of a computer Description automatically generated" />
-
+  ![](./media/image11.png)
+  ![](./media/image12.png)
 6.  Connect **StockEventStream** and **Lakehouse**
 
-<img src="./media/image13.png" style="width:7.1375in;height:3.90318in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image14.png" style="width:7.12931in;height:3.92112in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image15.png" style="width:7.3473in;height:3.65088in"
-alt="A screenshot of a computer Description automatically generated" />
+  ![](./media/image13.png)
+  ![](./media/image14.png)
+  ![](./media/image15.png)
 
 7.  Select the Lakehouse and click on **Refresh** button
 
-<img src="./media/image16.png" style="width:7.31512in;height:3.8125in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image16.png)
 
-8.  After clicking *Open event processor*, various processing can be
+8.  After clicking **Open event processor**, various processing can be
     added that perform aggregations, filtering, and changing datatypes.
 
-<img src="./media/image17.png" style="width:6.5in;height:2.5375in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image17.png)
 
 9.  On the **StockEventStream** page, select **stockEventStream**, and
     click the **plus (+)** icon to add a **Mange field**. Then, select
     **Mange field.**
 
-<img src="./media/image18.png" style="width:6.5in;height:4.03862in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image19.png" style="width:6.5in;height:4.425in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image18.png)
+   ![](./media/image19.png)
 10. In the eventstreem pane select **Managefields1** pencil icon.
 
-<img src="./media/image20.png" style="width:7.03788in;height:3.87083in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image20.png)
 11. In the *Manage fields* pane that opens, click ***Add all
     fields*** to add all columns. Then, remove the fields
     **EventProcessedUtcTime**, **PartitionId**, and
     **EventEnqueuedUtcTime** by clicking the **ellipsis (...)** to the
-    right of the field name, and click *Remove*
+    right of the field name, and click **Remove**
 
-<img src="./media/image21.png" style="width:3.95417in;height:4.27144in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image22.png" style="width:7.14896in;height:4.39583in"
-alt="A screenshot of a computer Description automatically generated" />
-
-> <img src="./media/image23.png" style="width:6.49167in;height:3.63333in"
-> alt="A screenshot of a computer Description automatically generated" />
->
-> <img src="./media/image24.png" style="width:6.49167in;height:4.61667in"
-> alt="A screenshot of a computer Description automatically generated" />
->
-> <img src="./media/image25.png" style="width:4.9625in;height:4.02568in"
-> alt="A screenshot of a computer Description automatically generated" />
-
+  ![](./media/image21.png)
+  ![](./media/image22.png)
+  ![](./media/image23.png)
+  ![](./media/image24.png)
+  ![](./media/image25.png)
 12. Now change the *timestamp* column to a *DateTime*** **as it is
     likely classified as a string. Click the **three ellipsis (...)** to
     the right of the *timestamp*** column** and select *Yes change
@@ -221,26 +183,20 @@ alt="A screenshot of a computer Description automatically generated" />
     select *DateTime***,** as shown in the below image. Click on
     **Done**
 
-> <img src="./media/image26.png" style="width:5.225in;height:4.63333in"
-> alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image26.png)
 >
-> <img src="./media/image27.png" style="width:3.50833in;height:5.975in"
-> alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image27.png)
 
 12. Now, click on the **Publish** button to close the event processor
 
-<img src="./media/image28.png" style="width:7.20548in;height:3.69583in"
-alt="A screenshot of a computer Description automatically generated" />
+  ![](./media/image28.png)
 
-<img src="./media/image29.png" style="width:7.35082in;height:3.68169in"
-alt="A screenshot of a computer Description automatically generated" />
+  ![](./media/image29.png)
 
 13. Once it is completed, the Lakehouse will receive the symbol, price,
     and timestamp.
 
-<img src="./media/image30.png" style="width:7.0683in;height:4.38892in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image30.png)
 Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
 take a minute or two for data to be visible in the Lakehouse.
 
@@ -253,34 +209,27 @@ is displaying the notebook.
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-<img src="./media/image31.png" style="width:6.5in;height:7.25764in"
-alt="A screenshot of a computer Description automatically generated" />
+ ![](./media/image31.png)
 
 2.  In the **Synapse Data Engineering** **RealTimeWorkspace** page,
     navigate and click on **Import** button, then select **Notebook**
     and select the **From this computer** as shown in the below image.
 
-<img src="./media/image32.png" style="width:6.5in;height:2.26667in" />
+  ![](./media/image32.png)
 
 3.  Select **Upload** from the **Import status** pane that appears on
     the right side of the screen.
 
-<img src="./media/image33.png" style="width:3.34861in;height:2.93958in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image33.png)
 4.  Navigate and select **Lakehouse 1-Import Data, Lakehouse 2-Build
     Aggregation, Lakehouse 3-Create Star Schema** and **Lakehouse 4-Load
     Star Schema** notebooks from **C:\LabFiles\Lab 04** and click on the
     **Open** button.
 
-<img src="./media/image34.png" style="width:6.49236in;height:4.07569in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image34.png)
 5.  You will see a notification stating **Imported successfully.**
 
-<img src="./media/image35.png" style="width:7.22809in;height:2.15341in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image35.png)
 ## Task 4. Import additional data
 
 In order the make the reports more interesting, we need a bit more data
@@ -293,13 +242,10 @@ the table, prepending the historical data.
     on the **Filter** at the top right corner of the page, then select
     **Notebook.**
 
-<img src="./media/image36.png" style="width:7.31575in;height:2.94886in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image36.png)
 2.  Then, select the ***Lakehouse 1 - Import Data* **notebook.
 
-<img src="./media/image37.png" style="width:6.5in;height:3.56042in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image37.png)
 
 3.  Under **Explorer**, navigate and select the **Lakehouse**, then
     click on the **Add* ***button as shown in the below images*.*
@@ -307,86 +253,58 @@ alt="A screenshot of a computer Description automatically generated" />
 > **Important Note**: You’ll need to add the Lakehouse to every imported
 > notebook -- do this each time you open a notebook for the first time.
 
-<img src="./media/image38.png" style="width:6.49236in;height:4.90139in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image39.png" style="width:6.5in;height:6.49236in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image38.png)
+   ![](./media/image39.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
 
-<img src="./media/image40.png" style="width:3.03056in;height:1.80278in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image40.png)
 
 5.  On the **OneLake data hub** window, select **StockLakehouse** and
     click on the **Add** button.
-    <img src="./media/image41.png" style="width:6.48472in;height:3.90139in"
-    alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image41.png)
 
 6.  The **raw_stock_data** table was created when the Eventstream was
     configured, and is the landing place for the data that is ingested
     from the Event Hub.
 
-<img src="./media/image42.png" style="width:6.49236in;height:4.28819in"
-alt="A screenshot of a computer Description automatically generated" />
-
+    ![](./media/image42.png)
 **Note**: You will see the **Run** button when you hover your mouse over
 the cell in the notebook.
 
 7.  To start the notebook and execute the cell, select the **Run** icon
     that appears on the left side of the cell.
 
-<img src="./media/image43.png" style="width:6.49236in;height:3.37847in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image44.png" style="width:6.5in;height:3.2in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image43.png)
+   ![](./media/image44.png)
 8.  Similarly, run the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
 
-<img src="./media/image45.png" style="width:6.49236in;height:2.79514in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image46.png" style="width:6.80272in;height:3.7822in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image45.png)
+   ![](./media/image46.png)
 9.  To download and unzip historical data to the Lakehouse unmanaged
     files, run 4<sup>th</sup> and 5<sup>th</sup> <sup>d</sup> cells as
     shown in the below images.
 
-<img src="./media/image47.png" style="width:7.01705in;height:4.94792in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image48.png" style="width:7.3826in;height:4.95644in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image49.png" style="width:6.72454in;height:4.47297in"
-alt="A screenshot of a computer Description automatically generated" />
+  ![](./media/image47.png)
+  ![](./media/image48.png)
+  ![](./media/image49.png)
 
 10. To verify csv files are available, select and run the 6<sup>th</sup>
     cell.
 
-<img src="./media/image50.png" style="width:6.49236in;height:3.28056in"
-alt="A screenshot of a computer Description automatically generated" />
-
+   ![](./media/image50.png)
 11. Run the 7<sup>th</sup> cell, 8<sup>th</sup> cell , and
     9<sup>th</sup> cell.
 
-<img src="./media/image51.png" style="width:6.49236in;height:4.12847in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image52.png" style="width:6.5in;height:2.73472in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image53.png" style="width:6.49236in;height:2.94722in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image51.png)
+   ![](./media/image52.png)
+   ![](./media/image53.png)
 
 12. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
 
-<img src="./media/image54.png"
-style="width:6.49167in;height:4.48333in" />
+  ![](./media/image54.png)
 
 # Exercise 2: Building the Aggregation Tables
 
