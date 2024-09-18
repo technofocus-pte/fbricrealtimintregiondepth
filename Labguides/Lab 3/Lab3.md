@@ -71,20 +71,20 @@ across all modules.*
 1.  Within your Fabric workspace, switch to the **Data engineering**
     persona (bottom left) as shown in the below image.
 
-   ![](./media/image2.png)
+    ![](./media/image2.png)
 
 2.  In Synapse Data Engineering Home page, navigate and click on
     **Lakehouse** tile.
 
-   ![](./media/image3.png)
+    ![](./media/image3.png)
 
 3.  In the **New lakehouse** dialog box, enter **StocksLakehouse** in
     the **Name** field, then click on the **Create** button. A
     **StocksLakehouse** page will appear.
 
-   ![](./media/image4.png)
+    ![](./media/image4.png)
 
-   ![](./media/image5.png)
+    ![](./media/image5.png)
 
 4.  You will see a notification stating - **Successfully created SQL
     endpoint**.
@@ -92,7 +92,7 @@ across all modules.*
 > **Note**: In case, you did not see the Notifications, then wait for
 > few minutes.
 
-   ![](./media/image6.png)
+  ![](./media/image6.png)
 ## Task 2. Add Lakehouse to the Eventstream
 
 From an architecture perspective, we'll implement a Lambda architecture
@@ -109,12 +109,12 @@ across all modules.*
 1.  Within your Fabric workspace, switch to the **Data engineering**
     persona (bottom left) as shown in the below image.
 
-   ![](./media/image7.png)
+    ![](./media/image7.png)
 
 2.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     pane and select **StockEventStream** as shown in the below image.
 
-   ![](./media/image8.png)
+    ![](./media/image8.png)
 
 3.  In addition to adding Lakehouse to the Eventstream, we'll do some
     cleanup of the data using some of the functions available in the
@@ -122,12 +122,12 @@ across all modules.*
 
 4.  On the **StockEventStream** page, select **Edit**
 
-    ![](./media/image9.png)
+     ![](./media/image9.png)
 5.  On the **StockEventStream** page, click on the **Add destination**
     on the output of the Eventstream to add a new destination.
     Select **Lakehouse** from the context menu.
 
-    ![](./media/image10.png)
+     ![](./media/image10.png)
 
 6.  In the Lakehouse pane that appears on the right side, enter the
     following details and click on **Save.**
@@ -139,43 +139,43 @@ across all modules.*
 | **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
 | **Input data format** | Json |
 
-  ![](./media/image11.png)
-  ![](./media/image12.png)
+   ![](./media/image11.png)
+   ![](./media/image12.png)
 6.  Connect **StockEventStream** and **Lakehouse**
 
-  ![](./media/image13.png)
-  ![](./media/image14.png)
-  ![](./media/image15.png)
+   ![](./media/image13.png)
+   ![](./media/image14.png)
+   ![](./media/image15.png)
 
 7.  Select the Lakehouse and click on **Refresh** button
 
-   ![](./media/image16.png)
+    ![](./media/image16.png)
 
 8.  After clicking **Open event processor**, various processing can be
     added that perform aggregations, filtering, and changing datatypes.
 
-   ![](./media/image17.png)
+    ![](./media/image17.png)
 
 9.  On the **StockEventStream** page, select **stockEventStream**, and
     click the **plus (+)** icon to add a **Mange field**. Then, select
     **Mange field.**
 
-   ![](./media/image18.png)
-   ![](./media/image19.png)
+    ![](./media/image18.png)
+    ![](./media/image19.png)
 10. In the eventstreem pane select **Managefields1** pencil icon.
 
-   ![](./media/image20.png)
+    ![](./media/image20.png)
 11. In the *Manage fields* pane that opens, click ***Add all
     fields*** to add all columns. Then, remove the fields
     **EventProcessedUtcTime**, **PartitionId**, and
     **EventEnqueuedUtcTime** by clicking the **ellipsis (...)** to the
     right of the field name, and click **Remove**
 
-  ![](./media/image21.png)
-  ![](./media/image22.png)
-  ![](./media/image23.png)
-  ![](./media/image24.png)
-  ![](./media/image25.png)
+    ![](./media/image21.png)
+    ![](./media/image22.png)
+    ![](./media/image23.png)
+    ![](./media/image24.png)
+    ![](./media/image25.png)
 12. Now change the *timestamp* column to a *DateTime*** **as it is
     likely classified as a string. Click the **three ellipsis (...)** to
     the right of the *timestamp*** column** and select *Yes change
@@ -183,20 +183,20 @@ across all modules.*
     select *DateTime***,** as shown in the below image. Click on
     **Done**
 
-   ![](./media/image26.png)
+    ![](./media/image26.png)
 >
-   ![](./media/image27.png)
+    ![](./media/image27.png)
 
 12. Now, click on the **Publish** button to close the event processor
 
-  ![](./media/image28.png)
+    ![](./media/image28.png)
 
-  ![](./media/image29.png)
+    ![](./media/image29.png)
 
 13. Once it is completed, the Lakehouse will receive the symbol, price,
     and timestamp.
 
-   ![](./media/image30.png)
+    ![](./media/image30.png)
 Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
 take a minute or two for data to be visible in the Lakehouse.
 
@@ -209,27 +209,27 @@ is displaying the notebook.
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
- ![](./media/image31.png)
+    ![](./media/image31.png)
 
 2.  In the **Synapse Data Engineering** **RealTimeWorkspace** page,
     navigate and click on **Import** button, then select **Notebook**
     and select the **From this computer** as shown in the below image.
 
-  ![](./media/image32.png)
+    ![](./media/image32.png)
 
 3.  Select **Upload** from the **Import status** pane that appears on
     the right side of the screen.
 
-   ![](./media/image33.png)
+     ![](./media/image33.png)
 4.  Navigate and select **Lakehouse 1-Import Data, Lakehouse 2-Build
     Aggregation, Lakehouse 3-Create Star Schema** and **Lakehouse 4-Load
     Star Schema** notebooks from **C:\LabFiles\Lab 04** and click on the
     **Open** button.
 
-   ![](./media/image34.png)
+     ![](./media/image34.png)
 5.  You will see a notification stating **Imported successfully.**
 
-   ![](./media/image35.png)
+     ![](./media/image35.png)
 ## Task 4. Import additional data
 
 In order the make the reports more interesting, we need a bit more data
@@ -242,10 +242,10 @@ the table, prepending the historical data.
     on the **Filter** at the top right corner of the page, then select
     **Notebook.**
 
-   ![](./media/image36.png)
+     ![](./media/image36.png)
 2.  Then, select the ***Lakehouse 1 - Import Data* **notebook.
 
-   ![](./media/image37.png)
+     ![](./media/image37.png)
 
 3.  Under **Explorer**, navigate and select the **Lakehouse**, then
     click on the **Add* ***button as shown in the below images*.*
@@ -253,31 +253,31 @@ the table, prepending the historical data.
 > **Important Note**: You’ll need to add the Lakehouse to every imported
 > notebook -- do this each time you open a notebook for the first time.
 
-   ![](./media/image38.png)
-   ![](./media/image39.png)
+    ![](./media/image38.png)
+    ![](./media/image39.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
 
-   ![](./media/image40.png)
+    ![](./media/image40.png)
 
 5.  On the **OneLake data hub** window, select **StockLakehouse** and
     click on the **Add** button.
-    ![](./media/image41.png)
+     ![](./media/image41.png)
 
 6.  The **raw_stock_data** table was created when the Eventstream was
     configured, and is the landing place for the data that is ingested
     from the Event Hub.
 
-    ![](./media/image42.png)
+     ![](./media/image42.png)
 **Note**: You will see the **Run** button when you hover your mouse over
 the cell in the notebook.
 
 7.  To start the notebook and execute the cell, select the **Run** icon
     that appears on the left side of the cell.
 
-   ![](./media/image43.png)
-   ![](./media/image44.png)
+    ![](./media/image43.png)
+    ![](./media/image44.png)
 8.  Similarly, run the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
 
    ![](./media/image45.png)
@@ -286,25 +286,25 @@ the cell in the notebook.
     files, run 4<sup>th</sup> and 5<sup>th</sup> <sup>d</sup> cells as
     shown in the below images.
 
-  ![](./media/image47.png)
-  ![](./media/image48.png)
-  ![](./media/image49.png)
+    ![](./media/image47.png)
+    ![](./media/image48.png)
+    ![](./media/image49.png)
 
 10. To verify csv files are available, select and run the 6<sup>th</sup>
     cell.
 
-   ![](./media/image50.png)
+    ![](./media/image50.png)
 11. Run the 7<sup>th</sup> cell, 8<sup>th</sup> cell , and
     9<sup>th</sup> cell.
 
-   ![](./media/image51.png)
-   ![](./media/image52.png)
-   ![](./media/image53.png)
+    ![](./media/image51.png)
+    ![](./media/image52.png)
+    ![](./media/image53.png)
 
 12. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
 
-  ![](./media/image54.png)
+   ![](./media/image54.png)
 
 # Exercise 2: Building the Aggregation Tables
 
