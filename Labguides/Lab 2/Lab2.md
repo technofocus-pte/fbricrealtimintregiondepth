@@ -28,7 +28,6 @@ complexity to support different business uses.
 ## Task 1: Create KQL queryset: StockQueryset
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation pane.
-
    ![](./media/image1.png)
 2.  From your workspace, click on ***+*** **New* \> *KQL Queryset** as
     shown in the below image. In the **New KQL Queryset** dialog box,
