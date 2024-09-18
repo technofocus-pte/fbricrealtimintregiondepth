@@ -61,19 +61,20 @@ of resources.
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL: +++https://app.fabric.microsoft.com/+++ then press
     the **Enter** button.
+    
     ![]("./media/image2.png)
-2.  In the **Microsoft Fabric** window, enter your Microsoft 365
+3.  In the **Microsoft Fabric** window, enter your Microsoft 365
     credentials and click on the **Submit** button.
     ![](./media/image3.png)
     ![]("./media/image4.png)
-3.  Enter the **Administrative password** from the **Resources** tab and
+4.  Enter the **Administrative password** from the **Resources** tab and
     click on the **Sign in** button.
 
     ![](./media/image5.png)
-4.  In **Stay signed in?** window, click on the **Yes** button.
+5.  In **Stay signed in?** window, click on the **Yes** button.
 
     ![](./media/image6.png)
-5.  You’ll be directed to Power BI Home page.
+6.  You’ll be directed to Power BI Home page.
     ![](./media/image7.png)
 
 ## Task 2: Start the Microsoft Fabric trial
@@ -94,7 +95,7 @@ of resources.
 ## Task 3: Redeem Azure Pass
 
 1.  Open a new tab on your browser and enter the following link in the
-    address bar: <https://www.microsoftazurepass.com/>
+    address bar: +++https://www.microsoftazurepass.com/+++
 
 2.  Then, click on the **Start** button.
 
@@ -148,8 +149,7 @@ dataflows, Data Factory pipelines, the notebooks, Power BI datasets, and
 reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL:
-    [https://app.fabric.microsoft.com/](https://app.fabric.microsoft.com/,)
+    the following URL:+++https://app.fabric.microsoft.com/+++
     then press the **Enter** button. In the **Microsoft Fabric Home**
     page, navigate and click on **Power BI** tile.
 
@@ -167,7 +167,7 @@ reports.
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
- | **Name** | **RealTimeWorkspaceX*XX*** (XXX can be a unique number, you can add more numbers) |
+ | **Name** | **+++RealTimeWorkspaceXXX+++** (XXX can be a unique number, you can add more numbers) |
  |----|----|
  | **Advanced** | Select Trail |
  | **Default storage format** | **Small dataset storage format** |
@@ -188,8 +188,7 @@ To auto-deploy the resources, use these steps below.
 1.  Open a new address bar and enter the following URL. If prompted to
     Sign in, then use your O365 tenant credentials.
 >
-> [https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json](https://portal.azure.com/%23create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json)
-
+> +++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
     the following details and click on the **Review+create** button.
 
