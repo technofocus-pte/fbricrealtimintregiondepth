@@ -126,20 +126,20 @@ Azure Pass, another Azure Pass will not be issued.
 6.  Enter correct details in **Your Profile** page, tick all the check
     boxes, and then click on **Sign up** button.
 
-  ![](./media/image18.jpeg)
+   ![](./media/image18.jpeg)
 
-  ![](./media/image19.png)
+   ![](./media/image19.png)
 
 7.  On **Are you satisfied with your signup experience** window, enter
     your feedback and click on the **Submit** button.
 
-  ![](./media/image20.png)
+   ![](./media/image20.png)
 
 8.  It would automatically redirect you to the Azure Portal and now you
     are ready to use Azure services. On **Welcome to Microsoft Azure**
     dialog box, click on the **Maybe later** button.
 
-  ![](./media/image21.png)
+   ![](./media/image21.png)
 
 ## **Task 4: Create a Fabric workspace**
 
@@ -167,10 +167,10 @@ reports.
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
- | **Name** | **+++RealTimeWorkspaceXXX+++** (XXX can be a unique number, you can add more numbers) |
- |----|----|
- | **Advanced** | Select Trail |
- | **Default storage format** | **Small dataset storage format** |
+   | **Name** | **+++RealTimeWorkspaceXXX+++** (XXX can be a unique number, you can add more numbers) |
+   |----|----|
+   | **Advanced** | Select Trail |
+   | **Default storage format** | **Small dataset storage format** |
 
    ![](./media/image25.png)
 
