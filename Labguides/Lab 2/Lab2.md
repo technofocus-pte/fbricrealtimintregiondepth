@@ -245,10 +245,8 @@ a semicolon (;) after the statement, as shown below.*
 >| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
 >| order by timestamp asc, symbol asc
 >| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
-
-    ![](./media/image22.png)
+   ![](./media/image23.png)
 4.  This will render a line chart as shown in the below image.
-
     ![](./media/image24.png)
 
 # Exercise 2: Optimizing Power BI Reporting Efficiency
