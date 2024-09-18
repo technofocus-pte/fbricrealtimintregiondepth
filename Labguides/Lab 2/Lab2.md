@@ -92,8 +92,8 @@ a semicolon (;) after the statement, as shown below.*
     ***StockByTime***
 
    ![](./media/image10.png)
-  ![](./media/image11.png)
-  ![](./media/image12.png)
+   ![](./media/image11.png)
+   ![](./media/image12.png)
 
 2.  We can begin to add our own calculations, such as calculating the
     change over time. For example,
@@ -124,8 +124,6 @@ a semicolon (;) after the statement, as shown below.*
 >>| extend pricedifference_10min = round(price - prev_price_10min, 2)
 >>| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
 >>| order by timestamp asc, symbol asc
-
-
     ![](./media/image13.png)
 
 4.  In this KQL query, the results are first limited to the most recent
