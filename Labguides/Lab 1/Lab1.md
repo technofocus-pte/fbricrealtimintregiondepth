@@ -308,13 +308,8 @@ To auto-deploy the resources, use these steps below.
 
 10.  Shared Access Key- Enter Primary Key (the value that you have saved
     in your notepad in the **Task 5)**
-
-    <!-- -->
-
 11.  Consumer group: ***\$Default*** 
-
 12.  Data format: **JSON** and click on **Next** button
-
     ![](./media/image41.png)
 
     ![](./media/image42.png)
