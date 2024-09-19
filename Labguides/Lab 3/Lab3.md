@@ -138,8 +138,8 @@ across all modules.*
 | **Lakehouse** | StockLakehouse |
 | **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
 | **Input data format** | Json |
-    ![](./media/image11.png)
-    ![](./media/image12.png)
+     ![](./media/image11.png)
+     ![](./media/image12.png)
 6.  Connect **StockEventStream** and **Lakehouse**
      ![](./media/image13.png)
      ![](./media/image14.png)
