@@ -458,7 +458,9 @@ but this can be any dataframe that matches the schema.
 > remove_invalid_rows(df_stocks)</span>
 >
 > <span class="mark">display(df_stocks_clean)</span>
-    ![](./media/image79.png)
+
+  ![](./media/image79.png)
+    
 20. This function will now remove the invalid rows from
     our *df_stocks* dataframe and return a new dataframe
     called *df_stocks_clean*. It is common to use a different name for
