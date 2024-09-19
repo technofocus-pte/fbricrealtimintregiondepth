@@ -1,4 +1,4 @@
-
+# Lab 07-Advanced KQL
 **Introduction**
 
 In this lab, you’ll explore additional KQL concepts.
@@ -19,58 +19,37 @@ In this lab, you’ll explore additional KQL concepts.
 
 1.  Click on **RealTimeWorkspace** Workspace on the left-sided
     navigation menu.
-
-> <img src="./media/image1.png" style="width:3.7375in;height:5.18666in" />
+     ![](./media/image1.png)
 
 2.  In the **RealTimeWorkspace** pane, select **StockQueryset** of KQL
     Queryset type.
-
-> <img src="./media/image2.png" style="width:6.5in;height:4.75833in" />
->
-> <img src="./media/image3.png" style="width:7.06648in;height:3.5491in" />
+     ![](./media/image2.png)
+     ![](./media/image3.png)
 
 3.  Recall the original **StockByTime** query, select the query and
     click on the **Run** button to execute the query. After the query is
     successfully executed, you will see the results.
-
+```
 StockPrice
-
-\| where timestamp \> ago(75m)
-
-\| project symbol, price, timestamp
-
-\| partition by symbol
-
+| where timestamp > ago(75m)
+| project symbol, price, timestamp
+| partition by symbol
 (
-
-order by timestamp asc
-
-\| extend prev_price = prev(price, 1)
-
-\| extend prev_price_10min = prev(price, 600)
-
+    order by timestamp asc
+    | extend prev_price = prev(price, 1)
+    | extend prev_price_10min = prev(price, 600)
 )
-
-\| where timestamp \> ago(60m)
-
-\| order by timestamp asc, symbol asc
-
-\| extend pricedifference_10min = round(price - prev_price_10min, 2)
-
-\| extend percentdifference_10min = round(round(price -
-prev_price_10min, 2) / prev_price_10min, 4)
-
-\| order by timestamp asc, symbol asc
-
-<img src="./media/image4.png"
-style="width:7.21008in;height:3.47083in" />
-
+| where timestamp > ago(60m)
+| order by timestamp asc, symbol asc
+| extend pricedifference_10min = round(price - prev_price_10min, 2)
+| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+| order by timestamp asc, symbol asc
+```
+     ![](./media/image4.png)
 4.  This query takes advantage of both partitioning and previous
     functions. The data is partitioned to ensure that the previous
     function only considers rows matching the same symbol.
-
-> <img src="./media/image5.png" style="width:7.1818in;height:3.74743in"
-> alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image5.png)
 
 ## Task 2: Using the scan operator
 
@@ -95,53 +74,32 @@ these steps and predicates can be chained.
 
 2.  Create a new tab within the queryset by clicking the ***+* icon**
     near the top of the window.
-
-<img src="./media/image6.png" style="width:6.5in;height:2.85833in" />
-
+     ![](.media/image6.png)
 3.  In the query editor, copy and paste the following code. Click on the
     **Run** button to execute the query.
-
-Copy
-
+```
 StockPrice
-
-\| where timestamp \> ago(60m)
-
-\| project timestamp, price, symbol
-
-,previousprice = 0.00
-
-,pricedifference = 0.00
-
-,percentdifference = 0.00
-
-\| partition hint.strategy=native by symbol
-
-(
-
-order by timestamp asc
-
-\| scan with (step s: true =\> previousprice = s.price;)
-
-)
-
-\| project timestamp, symbol, price, previousprice
-
-,pricedifference = round((price-previousprice),2)
-
-,percentdifference = round((price-previousprice)/previousprice,4)
-
-\| order by timestamp asc, symbol asc
-
-<img src="./media/image7.png"
-style="width:7.12083in;height:3.24505in" />
+| where timestamp > ago(60m)
+| project timestamp, price, symbol
+ ,previousprice = 0.00
+ ,pricedifference = 0.00
+ ,percentdifference = 0.00
+| partition hint.strategy=native by symbol
+  (
+    order by timestamp asc 
+    | scan with (step s: true => previousprice = s.price;)
+  )
+| project timestamp, symbol, price, previousprice
+    ,pricedifference = round((price-previousprice),2)
+    ,percentdifference = round((price-previousprice)/previousprice,4)
+| order by timestamp asc, symbol asc
+```
+  ![](./media/image7.png)
 
 4.  This query is similar in structure to our original query, except
     instead of using the prev() function to look at the previous row of
     the partitioned data, the scan operator can scan the previous rows. 
-
-<img src="./media/image8.png" style="width:7.33905in;height:4.7696in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image8.png)
 
 ## Task 3: Mining the data with scan
 
@@ -165,76 +123,39 @@ keeps increasing, we'd like to examine these rallies.
 
 2.  Create a new tab within the queryset by clicking the ***+* icon**
     near the top of the window.
-
-<img src="./media/image9.png" style="width:6.95089in;height:2.1625in" />
-
+     ![](./media/image9.png)
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query.
-
-**Copy**
-
-> StockPrice
->
-> \| project symbol, price, timestamp
->
-> \| partition by symbol
->
-> (
->
-> order by timestamp asc
->
-> \| extend prev_timestamp=prev(timestamp), prev_price=prev(price)
->
-> \| extend delta = round(price - prev_price,2)
->
-> \| scan with_match_id=m_id declare(down:bool=false, step:string) with
->
-> (
->
-> // if state of s1 is empty we require price increase, else continue as
-> long as price doesn't decrease
->
-> step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-> step = 's1';
->
-> // exit the 'rally' when price decrease, also forcing a single match
->
-> step s2: delta \< 0.0 and s2.down == false =\> down = true, step =
-> 's2';
->
-> )
->
-> )
->
-> \| where step == 's1' // select only records with price increase
->
-> \| summarize
->
-> (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
->
-> (end_timestamp, end_price)=arg_max(timestamp, price),
->
-> run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
->
-> \| extend delta_pct = round(total_delta\*100.0/start_price,4)
->
-> \| extend run_duration_s = datetime_diff('second', end_timestamp,
-> start_timestamp)
->
-> \| summarize arg_max(delta_pct, \*) by symbol
->
-> \| project symbol, start_timestamp, start_price, end_timestamp,
-> end_price,
->
-> total_delta, delta_pct, run_duration_s, run_length
->
-> \| order by delta_pct
->
-> <img src="./media/image10.png"
-> style="width:7.03808in;height:4.0875in" />
->
-> <img src="./media/image11.png"
-> style="width:7.02068in;height:3.2625in" />
+```
+StockPrice
+| project symbol, price, timestamp
+| partition by symbol
+(
+    order by timestamp asc 
+    | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+    | extend delta = round(price - prev_price,2)
+    | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+    (
+        // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+        step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+        // exit the 'rally' when price decrease, also forcing a single match 
+        step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+    )
+)
+| where step == 's1' // select only records with price increase
+| summarize 
+    (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+    (end_timestamp, end_price)=arg_max(timestamp, price),
+    run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+| extend delta_pct = round(total_delta*100.0/start_price,4)
+| extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+| summarize arg_max(delta_pct, *) by symbol
+| project symbol, start_timestamp, start_price, end_timestamp, end_price,
+    total_delta, delta_pct, run_duration_s, run_length
+| order by delta_pct
+```
+ ![](./media/image10.png)
+ ![](./media/image11.png)
 
 4.  The result above looks for the largest percentage gain in a rally,
     regardless of length. If we'd like to see the longest rally, we can
@@ -242,77 +163,40 @@ keeps increasing, we'd like to examine these rallies.
 
 5.  Create a new tab within the queryset by clicking the ***+* icon** as
     shown in the below image.
-
-<img src="./media/image9.png" style="width:6.95089in;height:2.1625in" />
+     ![](./media/image9.png)
 
 6.  In the query editor, copy and paste the following code. Select
     the **Run** button to execute the query
-
-> **Copy**
->
-> StockPrice
->
-> \| project symbol, price, timestamp
->
-> \| partition by symbol
->
-> (
->
-> order by timestamp asc
->
-> \| extend prev_timestamp=prev(timestamp), prev_price=prev(price)
->
-> \| extend delta = round(price - prev_price,2)
->
-> \| scan with_match_id=m_id declare(down:bool=false, step:string) with
->
-> (
->
-> // if state of s1 is empty we require price increase, else continue as
-> long as price doesn't decrease
->
-> step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-> step = 's1';
->
-> // exit the 'rally' when price decrease, also forcing a single match
->
-> step s2: delta \< 0.0 and s2.down == false =\> down = true, step =
-> 's2';
->
-> )
->
-> )
->
-> \| where step == 's1' // select only records with price increase
->
-> \| summarize
->
-> (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
->
-> (end_timestamp, end_price)=arg_max(timestamp, price),
->
-> run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
->
-> \| extend delta_pct = round(total_delta\*100.0/start_price,4)
->
-> \| extend run_duration_s = datetime_diff('second', end_timestamp,
-> start_timestamp)
->
-> \| summarize arg_max(run_duration_s, \*) by symbol
->
-> \| project symbol, start_timestamp, start_price, end_timestamp,
-> end_price,
->
-> total_delta, delta_pct, run_duration_s, run_length
->
-> \| order by run_duration_s
->
-> <img src="./media/image12.png"
-> style="width:7.10883in;height:3.8875in" />
-
-<img src="./media/image13.png" style="width:7.15323in;height:3.047in"
-alt="A screenshot of a computer Description automatically generated" />
-
+```
+StockPrice
+| project symbol, price, timestamp
+| partition by symbol
+(
+    order by timestamp asc 
+    | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+    | extend delta = round(price - prev_price,2)
+    | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+    (
+        // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+        step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+        // exit the 'rally' when price decrease, also forcing a single match 
+        step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+    )
+)
+| where step == 's1' // select only records with price increase
+| summarize 
+    (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+    (end_timestamp, end_price)=arg_max(timestamp, price),
+    run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+| extend delta_pct = round(total_delta*100.0/start_price,4)
+| extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+| summarize arg_max(run_duration_s, *) by symbol
+| project symbol, start_timestamp, start_price, end_timestamp, end_price,
+    total_delta, delta_pct, run_duration_s, run_length
+| order by run_duration_s
+```
+![](./media/image12.png)
+![](./media/image13.png)
 ## Task 4: Adding bin to the mix
 
 In this task, let's look more closely at a fundamental KQL aggregation
@@ -335,44 +219,27 @@ the *summarize* operator to create broader views of our data.
 
 3.  Create a new tab within the queryset by clicking the ***+* icon**
     near the top of the window.
-
-<img src="./media/image9.png" style="width:6.95089in;height:2.1625in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image9.png)
 
 4.  In the query editor, copy and paste the following code. Select
     the **Run** button to execute the query
-
-**Copy**
-
-> StockPrice
->
-> \| summarize arg_max(timestamp,\*) by bin(timestamp, 1d), symbol
->
-> \| project symbol, price, timestamp
->
-> ,previousprice = 0.00
->
-> ,pricedifference = 0.00
->
-> ,percentdifference = 0.00
->
-> \| partition hint.strategy=native by symbol
->
-> (
->
-> order by timestamp asc
->
-> \| scan with (step s output=all: true =\> previousprice = s.price;)
->
-> )
->
-> \| project timestamp, symbol, price, previousprice
->
-> ,pricedifference = round((price-previousprice),2)
->
-> ,percentdifference = round((price-previousprice)/previousprice,4)
->
-> \| order by timestamp asc, symbol asc
+```
+StockPrice
+| summarize arg_max(timestamp,*) by bin(timestamp, 1d), symbol
+| project symbol, price, timestamp
+,previousprice = 0.00
+,pricedifference = 0.00
+,percentdifference = 0.00
+| partition hint.strategy=native by symbol
+  (
+    order by timestamp asc 
+    | scan with (step s output=all: true => previousprice = s.price;)
+  )
+| project timestamp, symbol, price, previousprice
+    ,pricedifference = round((price-previousprice),2)
+    ,percentdifference = round((price-previousprice)/previousprice,4)
+| order by timestamp asc, symbol asc
+```
 
 <img src="./media/image14.png"
 style="width:7.40543in;height:3.2375in" />
@@ -382,8 +249,7 @@ style="width:7.40543in;height:3.2375in" />
     stock price per day. We can also add min/max/avg prices as needed,
     and alter the binning time as needed.
 
-<img src="./media/image15.png"
-style="width:7.34811in;height:4.25417in" />
+     ![](./media/image15.png)
 
 ## Task 5:Combining bin and scan
 
@@ -394,78 +260,41 @@ style="width:7.34811in;height:4.25417in" />
 
 2.  Create a new tab within the queryset by clicking the ***+* icon**.
 
-<img src="./media/image9.png" style="width:6.95089in;height:2.1625in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image9.png)
 
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query.
-
-**Copy**
-
+```
 StockPrice
-
-\| summarize arg_max(timestamp,\*) by bin(timestamp, 1m), symbol
-
-\| project symbol, price, timestamp
-
-\| partition by symbol
-
+| summarize arg_max(timestamp,*) by bin(timestamp, 1m), symbol
+| project symbol, price, timestamp
+| partition by symbol
 (
-
-order by timestamp asc
-
-\| extend prev_timestamp=prev(timestamp), prev_price=prev(price)
-
-\| extend delta = round(price - prev_price,2)
-
-\| scan with_match_id=m_id declare(down:bool=false, step:string) with
-
-(
-
-// if state of s1 is empty we require price increase, else continue as
-long as price doesn't decrease
-
-step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-step = 's1';
-
-// exit the 'rally' when price decrease, also forcing a single match
-
-step s2: delta \< 0.0 and s2.down == false =\> down = true, step = 's2';
-
+    order by timestamp asc 
+    | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+    | extend delta = round(price - prev_price,2)
+    | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+    (
+        // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+        step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+        // exit the 'rally' when price decrease, also forcing a single match 
+        step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+    )
 )
-
-)
-
-\| where step == 's1' // select only records with price increase
-
-\| summarize
-
-(start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
-
-(end_timestamp, end_price)=arg_max(timestamp, price),
-
-run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
-
-\| extend delta_pct = round(total_delta\*100.0/start_price,4)
-
-\| extend run_duration_s = datetime_diff('second', end_timestamp,
-start_timestamp)
-
-\| summarize arg_max(delta_pct, \*) by symbol
-
-\| project symbol, start_timestamp, start_price, end_timestamp,
-end_price,
-
-total_delta, delta_pct, run_duration_s, run_length
-
-\| order by delta_pct
-
-<img src="./media/image16.png"
-style="width:6.49167in;height:3.73333in" />
-
-<img src="./media/image17.png"
-style="width:7.29346in;height:3.14583in" />
-
+| where step == 's1' // select only records with price increase
+| summarize 
+    (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+    (end_timestamp, end_price)=arg_max(timestamp, price),
+    run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+| extend delta_pct = round(total_delta*100.0/start_price,4)
+| extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+| summarize arg_max(delta_pct, *) by symbol
+| project symbol, start_timestamp, start_price, end_timestamp, end_price,
+    total_delta, delta_pct, run_duration_s, run_length
+| order by delta_pct
+```
+  ![](./media/image16.png)
+  ![](./media/image17.png)
 ## **Summary**
 
 This lab aims to enhance your understanding and proficiency in using
