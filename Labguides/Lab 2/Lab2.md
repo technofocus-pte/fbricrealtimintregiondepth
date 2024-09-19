@@ -107,23 +107,19 @@ a semicolon (;) after the statement, as shown below.*
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
+```
+// Use "take" to view a sample number of records in the table and check the data.
+StockPrice
+| take 100;
 
->>````Copy
->>
->>StockPrice
->>| where timestamp > ago(75m)
->>| project symbol, price, timestamp
->>| partition by symbol
->>(
->>    order by timestamp asc
->>    | extend prev_price = prev(price, 1)
->>    | extend prev_price_10min = prev(price, 600)
->>)
->>| where timestamp > ago(60m)
->>| order by timestamp asc, symbol asc
->>| extend pricedifference_10min = round(price - prev_price_10min, 2)
->>| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
->>| order by timestamp asc, symbol asc
+// See how many records are in the table.
+StockPrice
+| count;
+
+// This query returns the number of ingestions per hour in the given table.
+StockPrice
+| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+```
 
    ![](./media/image13.png)
     
