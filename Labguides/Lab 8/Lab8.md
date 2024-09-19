@@ -1,4 +1,4 @@
-**Lab 08-Delta File Maintenance**
+# Lab 08-Delta File Maintenance
 
 **Introduction**
 
@@ -23,8 +23,7 @@ larger files.
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation menu.
 
-<img src="./media/image1.png"
-style="width:4.76206in;height:4.30417in" />
+      ![](./media/image1.png)
 
 2.  Delta Lake makes performing small file compaction very easy and can
     be executed in either Spark SQL, Python, or Scala.
@@ -35,44 +34,32 @@ style="width:4.76206in;height:4.30417in" />
 3.  To compact small files using Python, in the **Synapse Data
     Engineering** workspace page, navigate and click on **+New** button,
     then select N**otebook.**
-
-> <img src="./media/image2.png"
-> style="width:4.99167in;height:7.71667in" />
+      ![](./media/image2.png)
 
 4.  Under the Explorer, select the **Lakehouse**, then click on the
-    ***Add ***button.
+    **Add** button.
 
-> <img src="./media/image3.png" style="width:6.49167in;height:4.175in" />
->
-> <img src="./media/image4.png"
-> style="width:6.49167in;height:5.16667in" />
+      ![](./media/image3.png)
+      ![](./media/image4.png)
 
 5.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button and click on the **Add** button.
-
-<img src="./media/image5.png" style="width:3.03056in;height:1.80278in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image5.png)
 
 6.  On the **OneLake data hub** window, select ***StockLakehouse*** and
     click on the **Add** button.
-    <img src="./media/image6.png" style="width:7.11265in;height:4.27917in"
-    alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image6.png)
 
 7.  In the query editor, copy and paste the following code. Select and
     **Run** the cell to execute the query. After the query is
     successfully executed, you will see the results.
-
-> <span class="mark">from delta.tables import \*</span>
->
-> <span class="mark">raw_stock_data = DeltaTable.forName (spark,
-> "raw_stock_data”)</span>
->
-> <span class="mark">raw_stock_data.optimize().executeCompaction()</span>
->
-> <img src="./media/image7.png"
-> style="width:6.88487in;height:3.35417in" />
-
-<img src="./media/image8.png" style="width:7.38824in;height:2.7125in" />
+```
+from delta.tables import *
+raw_stock_data = DeltaTable.forName (spark, "raw_stock_data”)
+raw_stock_data.optimize().executeCompaction()
+```
+   ![](./media/image7.png)
+   ![](./media/image8.png)
 
 8.  Run small file compaction ad-hoc by navigating to the Lakehouse in
     your Fabric workspace, and click the ellipsis to the right of the
@@ -82,41 +69,28 @@ alt="A screenshot of a computer Description automatically generated" />
     code and use the **▷ Run cell** button on the left of the cell to
     run it.
 
-> <img src="./media/image9.png" style="width:6.5in;height:4.15833in" />
->
-> **Copy**
->
-> from delta.tables import \*
->
-> if spark.catalog.tableExists("dim_date"):
->
-> table = DeltaTable.forName(spark, "dim_date")
->
-> table.optimize().executeCompaction()
->
-> if spark.catalog.tableExists("dim_symbol"):
->
-> table = DeltaTable.forName(spark, "dim_symbol")
->
-> table.optimize().executeCompaction()
->
-> if spark.catalog.tableExists("fact_stocks_daily_prices"):
->
-> table = DeltaTable.forName(spark, "fact_stocks_daily_prices")
->
-> table.optimize().executeCompaction()
->
-> if spark.catalog.tableExists("raw_stock_data"):
->
-> table = DeltaTable.forName(spark, "raw_stock_data")
->
-> table.optimize().executeCompaction()
->
-> table.vacuum()
->
-> <img src="./media/image10.png"
-> style="width:7.18219in;height:3.55417in" />
->
+      ![](./media/image9.png)
+```    
+from delta.tables import *
+
+if spark.catalog.tableExists("dim_date"):
+    table = DeltaTable.forName(spark, "dim_date")
+    table.optimize().executeCompaction()
+
+if spark.catalog.tableExists("dim_symbol"):
+    table = DeltaTable.forName(spark, "dim_symbol")
+    table.optimize().executeCompaction()
+
+if spark.catalog.tableExists("fact_stocks_daily_prices"):
+    table = DeltaTable.forName(spark, "fact_stocks_daily_prices")
+    table.optimize().executeCompaction()
+
+if spark.catalog.tableExists("raw_stock_data"):
+    table = DeltaTable.forName(spark, "raw_stock_data")
+    table.optimize().executeCompaction()
+    table.vacuum()
+```
+![](./media/image10.png)
 > The *raw_stock_data* table will take the most time to optimize, and is
 > also the most important to optimize regularly. Also, notice the use
 > of *vacuum*. The *vacuum* command removes files older than the
