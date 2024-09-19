@@ -340,134 +340,97 @@ Lakehouse if it is not already added.
 3.  Under Explorer, navigate and select the **Lakehouse**, then click on
     the **Add* ***button.
 
-<img src="./media/image56.png" style="width:6.57917in;height:3.63125in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image56.png)
 
-<img src="./media/image57.png" style="width:5.43674in;height:6.2125in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image57.png)
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** dialog box, then click on the **Add** button.
 
-<img src="./media/image40.png" style="width:2.52083in;height:1.49956in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image40.png)
 
 5.  On the **OneLake data hub** window, select the **StockLakehouse**,
     and click on the **Add** button.
 
-<img src="./media/image41.png" style="width:6.48472in;height:3.90139in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image41.png)
 
 6.  To build Aggregate Tables, select and run the 1<sup>st</sup> ,
     2<sup>nd</sup> , 3<sup>rd</sup> , and 4<sup>th</sup> cells.
 
-<img src="./media/image58.png" style="width:6.5in;height:3.38611in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image58.png)
 
-<img src="./media/image59.png" style="width:7.22159in;height:4.35147in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image60.png" style="width:7.13503in;height:3.55492in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image61.png" style="width:6.5in;height:3.34097in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image59.png)
+     ![](./media/image60.png)
+     ![](./media/image61.png)
 
 7.  Then, select and run the 5<sup>th</sup> , 6<sup>th</sup>,
     7<sup>th</sup> , and 8<sup>th</sup> cells.
 
-<img src="./media/image62.png" style="width:7.22721in;height:3.55492in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image62.png" style="width:7.0625in;height:3.47391in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image63.png" style="width:6.49236in;height:4.58333in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image64.png" style="width:6.96401in;height:4.79669in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image62.png)
+    ![](./media/image62.png)
+    ![](./media/image63.png)
+    ![](./media/image64.png)
 
 8.  Add data wrangler, select **9<sup>th</sup>** cell, navigate dropdown
     **Data Wrangler**. Navigate and click on **anomaly_df** to load the
-    dataframe in data wrangler**.**
+    dataframe in data wrangler.
 
-9.  We'll use the *anomaly_df* because it was intentionally created with
+9.  We'll use the **anomaly_df** because it was intentionally created with
     a few invalid rows that can be tested. 
 
-<img src="./media/image65.png" style="width:6.49167in;height:3.575in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image65.png)
 
 10. In data wrangler, we'll record a number of steps to process data.
     Notice the data is visualized in the central column. Operations are
     in the top left, while an overview of each step is in the
     bottom left.
 
-<img src="./media/image66.png" style="width:7.31131in;height:3.66856in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image66.png)
 
 11. To remove null/empty values, under *Operations*, click on the
     dropdown beside **Find and replace**, then navigate and click on
     **Drop missing values**.
 
-<img src="./media/image67.png" style="width:7.30724in;height:3.68371in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image67.png)
 
 12. From the **Target columns** dropdown, select
-    the ***symbol*** and ***price* **columns and then click on **Apply
-    button** below it as shown in the image***.***
+    the ***symbol*** and ***price***columns and then click on **Apply
+    button** below it as shown in the image.
 
-<img src="./media/image68.png" style="width:7.29469in;height:4.49432in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image69.png" style="width:6.71401in;height:4.10189in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image70.png" style="width:7.12291in;height:4.21401in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image68.png)
+     ![](./media/image69.png)
+     ![](./media/image70.png)
 
 13. Under **Operations** dropdown, navigate and click on **Sort and
     filter**, then click on **Filter** as shown in the below image. 
 
-> <img src="./media/image71.png" style="width:5.89759in;height:4.3375in"
-> alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image71.png)
 14. **Uncheck** *Keep matching rows*, select **price** as the target
     column, and set the condition to ***Equal* to *0*.**
-    Click ***Apply* **in the *Operations* panel beneath the Filter
+    Click ***Apply***in the *Operations* panel beneath the Filter
 
 > Note: The rows with zero are marked red as they will be dropped (if
 > the other rows are marked red, ensure to uncheck the *Keep matching
 > rows* checkbox).
 
-<img src="./media/image72.png"
-style="width:6.49167in;height:4.35833in" />
-
-<img src="./media/image73.png" style="width:6.5in;height:3.66667in"
-alt="A screenshot of a computer Description automatically generated" />
+   ![](./media/image72.png)
+    ![](./media/image73.png)
 
 15. Click on **+Add code to notebook** in the upper left side of the
     page. On the ***Add code to notebook* **window, ensure that *Include
     pandas code* is unchecked and click on the **Add** button.
 
-<img src="./media/image74.png" style="width:6.5in;height:3.86389in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image74.png)
 
-<img src="./media/image75.png" style="width:5.25in;height:4.05278in"
-alt="A screenshot of a computer code Description automatically generated" />
-
+    ![](./media/image75.png)
 16. The code inserted will look similar to the below.
 
-<img src="./media/image76.png"
-style="width:6.49167in;height:3.39167in" />
+     ![](/media/image76.png)
 
 17. Run the cell and observe the output. You’ll observe that the invalid
     rows were removed.
 
-> <img src="./media/image77.png" style="width:6.5in;height:3.40833in" />
-
-<img src="./media/image78.png" style="width:6.5in;height:3.47639in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image77.png)
+    ![](./media/image78.png)
 
 The function created, *clean_data*, contains all of the steps in
 sequence and can be modified as needed. Notice that each step performed
@@ -504,20 +467,14 @@ but this can be any dataframe that matches the schema.
 > remove_invalid_rows(df_stocks)</span>
 >
 > <span class="mark">display(df_stocks_clean)</span>
-
-<img src="./media/image79.png" style="width:6.5in;height:3.15903in"
-alt="A screenshot of a computer Description automatically generated" />
-
+    ![](./media/image79.png)
 20. This function will now remove the invalid rows from
     our *df_stocks* dataframe and return a new dataframe
     called *df_stocks_clean*. It is common to use a different name for
     the output dataframe (such as *df_stocks_clean*) to make the cell
     idempotent -- this way, we can go back and re-run the cell, make
     modifications, etc., without having to reload our original data.
-
-<img src="./media/image80.png" style="width:5.82917in;height:4.55185in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image80.png)
 ## Task 2: Build aggregation routine
 
 In this task, you’ll be more involved because we'll build a number of
@@ -530,56 +487,42 @@ the notebook to help fix any issues after.
     here* cell and select the cell. Dropdown the **Data Wrangler**.
     Navigate and click on **df_stocks_clean** as shown in the below
     image.
-
-> <img src="./media/image81.png"
-> style="width:6.49167in;height:4.31667in" />
->
-> <img src="./media/image82.png" style="width:6.5in;height:2.98472in"
-> alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image81.png)
+     ![](./media/image82.png)
 
 2.  In **Data Wrangler:df_stocks_clean** pane, select **Operations**,
     then select **New column by example.**
-
-> <img src="./media/image83.png" style="width:6.5in;height:3.59167in" />
+     ![](./media/image83.png)
 
 3.  Under ***Target columns*** field, click on the dropdown and select
-    ***timestamp***. Then, in the ***Derived column** **name*** field,
-    enter +++***datestamp+++***
-
-<img src="./media/image84.png" style="width:6.5in;height:4.01667in" />
-
+    ***timestamp***. Then, in the ***Derived column*** ***name*** field,
+    enter ***+++datestamp+++***
+     ![](../media/image84.png)
 4.  In the new ***datestamp*** column, enter an example value for any
-    given row. For example, if the *timestamp* is *2024-02-07
+    given row. For example, if the ***timestamp*** is ***2024-02-07***
     09:54:00* enter ***2024-02-07***. This allows data wrangler to infer
     we are looking for the date without a time component; once the
     columns autofill, click on the ***Apply*** button.
-
-<img src="./media/image85.png"
-style="width:7.16408in;height:3.74583in" />
-
-<img src="./media/image86.png"
-style="width:7.37696in;height:3.86502in" />
+     ![](./media/image85.png)
+     ![](./media/image86.png)
 
 5.  Similar to adding the **datestamp** column as mentioned in the above
     steps, click again on **New column by example** as shown in the
     below image.
+     ![](../media/image87.png)
 
-<img src="./media/image87.png" style="width:6.5in;height:3.65833in" />
+6.  Under **Target columns**, choose ***timestamp***. Enter a **Derived
+    column **name** of ***+++hour+++***.
 
-6.  Under *Target columns*, choose ***timestamp***. Enter a ***Derived
-    column** name* of +++***hour+++*.**
+     ![](./media/image88.png)
 
-> <img src="./media/image88.png"
-> style="width:6.49167in;height:3.81667in" />
-
-7.  In the new **hour* ***column that appear in the data preview, enter
+7.  In the new **hour**column that appear in the data preview, enter
     an hour for any given row -- but try to pick a row that has a unique
     hour value. For example, if the *timestamp* is *2024-02-07
     09:54:00* enter ***9***. You may need to enter example values for
     several rows, as shown here. Click on **Apply** button.
 
-> <img src="./media/image89.png"
-> style="width:6.48333in;height:3.68333in" />
+      ![](./media/image89.png)
 
 8.  Data wrangler should infer we are looking for the hour component,
     and build code similar to:
@@ -605,9 +548,7 @@ def hour(timestamp):
 pandas_df_stocks_clean.insert(3, "hour",
 pandas_df_stocks_clean.apply(lambda row : hour(row\["timestamp"\]),
 axis=1))
-
-<img src="./media/image90.png"
-style="width:7.24178in;height:4.30417in" />
+     ![](./media/image90.png)
 
  
 
