@@ -259,13 +259,13 @@ updating.
     **Fabric portal**. Navigate to Governance and insights section, then
     click on **Admin portal**.
 
-   ![](./media/image25.png)
+      ![](./media/image25.png)
 
 2.  In the **Admin portal** page, navigate and click on **Capacity
     settings***,then click on **Trial** tab. Click on your capacity
     name.
 
-    ![](./media/image26.png)
+      ![](./media/image26.png)
 
 3.  Scroll down and click on ***Power BI workloads***, and
     under ***Semantic Models*** (recently renamed from *Datasets*),
@@ -276,9 +276,7 @@ updating.
 **Note**: Depending on your administrative permissions, this setting may
 not be available. Note that this change may take several minutes to
 complete.
-
     ![](./media/image27.png)
-
     ![](./media/image28.png)
 
 4.  On **Update your capacity workloads** dialog box, click on the
