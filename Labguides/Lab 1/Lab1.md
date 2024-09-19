@@ -62,11 +62,11 @@ of resources.
     the following URL: +++https://app.fabric.microsoft.com/+++ then press
     the **Enter** button.
     ![]("./media/image2.png)
-2.  In the **Microsoft Fabric** window, enter your Microsoft 365
+2.  In the **Microsoft Fabric** window, enter your given
     credentials and click on the **Submit** button.
     ![](./media/image3.png)
     ![]("./media/image4.png)
-3.  Enter the **Administrative password** from the **Resources** tab and
+3.  Enter the ** password** from the **Resources** tab and
     click on the **Sign in** button.
 
     ![](./media/image5.png)
@@ -91,56 +91,7 @@ of resources.
 
    ![](./media/image10.png)
    ![](./media/image11.png)
-## Task 3: Redeem Azure Pass
-
-1.  Open a new tab on your browser and enter the following link in the
-    address bar: +++https://www.microsoftazurepass.com/+++
-
-2.  Then, click on the **Start** button.
-
-    ![](./media/image12.png)
-
-**Note**: Do not use your Company/Work Account to login to redeem the
-Azure Pass, another Azure Pass will not be issued.
-
-3.  Click on the **Resources** tab of the Lab VM and enter the **Office
-    365 tenant credentials** to **Sign In**.
-
-    ![](./media/image13.png)
-
-    ![](./media/image14.png)
-4.  Crosscheck the Email ID and then click on the **Confirm Microsoft
-    Account**.
-
-   ![](./media/image15.png)
-
-5.  Click on the **Resources** tab and copy the **Promo Code**. Navigate
-    to **Enter Promo code** box and paste the Promo Code that have you
-    copied, then click on the **Claim Promo Code** button.
-
-   ![](./media/image16.png)
-
-   ![](./media/image17.png)
-
-6.  Enter correct details in **Your Profile** page, tick all the check
-    boxes, and then click on **Sign up** button.
-
-   ![](./media/image18.jpeg)
-
-   ![](./media/image19.png)
-
-7.  On **Are you satisfied with your signup experience** window, enter
-    your feedback and click on the **Submit** button.
-
-   ![](./media/image20.png)
-
-8.  It would automatically redirect you to the Azure Portal and now you
-    are ready to use Azure services. On **Welcome to Microsoft Azure**
-    dialog box, click on the **Maybe later** button.
-
-   ![](./media/image21.png)
-
-## **Task 4: Create a Fabric workspace**
+## **Task 3: Create a Fabric workspace**
 
 In this task, you create a Fabric workspace. The workspace contains all
 the items needed for this lakehouse tutorial, which includes lakehouse,
@@ -175,7 +126,7 @@ reports.
 
    ![](./media/image26.png)
 
-## **Task 5: Deploy the app via Azure Container Instance**
+## **Task 4: Deploy the app via Azure Container Instance**
 
 This task deploys the stock generator app to an Azure Container Instance
 using an ARM template. The app will generate stock data that publishes
@@ -261,7 +212,7 @@ To auto-deploy the resources, use these steps below.
     ![](./media/image34.png)
 
     ![](./media/image35.png)
-## **Task 6: Get data with Eventstream**
+## **Task 5: Get data with Eventstream**
 
 1.  Go back to the Microsoft Fabric, navigate and click on **Power BI**
     at the bottom of the page, then select **Real-Time Intelligence**.
