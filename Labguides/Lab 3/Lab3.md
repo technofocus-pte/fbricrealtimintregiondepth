@@ -138,63 +138,52 @@ across all modules.*
 | **Lakehouse** | StockLakehouse |
 | **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
 | **Input data format** | Json |
-
-   ![](./media/image11.png)
-   ![](./media/image12.png)
+    ![](./media/image11.png)
+    ![](./media/image12.png)
 6.  Connect **StockEventStream** and **Lakehouse**
-
-   ![](./media/image13.png)
-   ![](./media/image14.png)
-   ![](./media/image15.png)
+     ![](./media/image13.png)
+     ![](./media/image14.png)
+     ![](./media/image15.png)
 
 7.  Select the Lakehouse and click on **Refresh** button
-
-    ![](./media/image16.png)
+     ![](./media/image16.png)
 
 8.  After clicking **Open event processor**, various processing can be
     added that perform aggregations, filtering, and changing datatypes.
-
-    ![](./media/image17.png)
+     ![](./media/image17.png)
 
 9.  On the **StockEventStream** page, select **stockEventStream**, and
     click the **plus (+)** icon to add a **Mange field**. Then, select
     **Mange field.**
-
-    ![](./media/image18.png)
-    ![](./media/image19.png)
+     ![](./media/image18.png)
+     ![](./media/image19.png)
 10. In the eventstreem pane select **Managefields1** pencil icon.
-
-    ![](./media/image20.png)
+     ![](./media/image20.png)
 11. In the *Manage fields* pane that opens, click ***Add all
     fields*** to add all columns. Then, remove the fields
     **EventProcessedUtcTime**, **PartitionId**, and
     **EventEnqueuedUtcTime** by clicking the **ellipsis (...)** to the
     right of the field name, and click **Remove**
-
-    ![](./media/image21.png)
-    ![](./media/image22.png)
-    ![](./media/image23.png)
-    ![](./media/image24.png)
-    ![](./media/image25.png)
+     ![](./media/image21.png)
+     ![](./media/image22.png)
+     ![](./media/image23.png)
+     ![](./media/image24.png)
+     ![](./media/image25.png)
 12. Now change the *timestamp* column to a *DateTime*** **as it is
     likely classified as a string. Click the **three ellipsis (...)** to
     the right of the *timestamp*** column** and select *Yes change
     type*. This will allow us to change the datatype:
     select *DateTime***,** as shown in the below image. Click on
     **Done**
-
-    ![](./media/image26.png)
-    ![](./media/image27.png)
-
+     ![](./media/image26.png)
+     ![](./media/image27.png)
 12. Now, click on the **Publish** button to close the event processor
-
-    ![](./media/image28.png)
-    ![](./media/image29.png)
+     ![](./media/image28.png)
+     ![](./media/image29.png)
 
 13. Once it is completed, the Lakehouse will receive the symbol, price,
     and timestamp.
-
-    ![](./media/image30.png)
+      ![](./media/image30.png)
 Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
 take a minute or two for data to be visible in the Lakehouse.
 
@@ -206,18 +195,15 @@ is displaying the notebook.
 
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
-
-    ![](./media/image31.png)
+     ![](./media/image31.png)
 
 2.  In the **Synapse Data Engineering** **RealTimeWorkspace** page,
     navigate and click on **Import** button, then select **Notebook**
     and select the **From this computer** as shown in the below image.
-
-    ![](./media/image32.png)
+     ![](./media/image32.png)
 
 3.  Select **Upload** from the **Import status** pane that appears on
     the right side of the screen.
-
      ![](./media/image33.png)
 4.  Navigate and select **Lakehouse 1-Import Data, Lakehouse 2-Build
     Aggregation, Lakehouse 3-Create Star Schema** and **Lakehouse 4-Load
@@ -241,7 +227,7 @@ the table, prepending the historical data.
     **Notebook.**
 
      ![](./media/image36.png)
-2.  Then, select the ***Lakehouse 1 - Import Data* **notebook.
+2.  Then, select the ***Lakehouse 1 - Import Data***notebook.
 
      ![](./media/image37.png)
 
@@ -250,54 +236,47 @@ the table, prepending the historical data.
 
 > **Important Note**: You’ll need to add the Lakehouse to every imported
 > notebook -- do this each time you open a notebook for the first time.
-    ![](./media/image38.png)
-    ![](./media/image39.png)
-
+     ![](./media/image38.png)
+     ![](./media/image39.png)
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
-    ![](./media/image40.png)
-
+     ![](./media/image40.png)
 5.  On the **OneLake data hub** window, select **StockLakehouse** and
     click on the **Add** button.
-     ![](./media/image41.png)
+      ![](./media/image41.png)
 
 6.  The **raw_stock_data** table was created when the Eventstream was
     configured, and is the landing place for the data that is ingested
     from the Event Hub.
-
      ![](./media/image42.png)
 **Note**: You will see the **Run** button when you hover your mouse over
 the cell in the notebook.
 
 7.  To start the notebook and execute the cell, select the **Run** icon
     that appears on the left side of the cell.
-
-    ![](./media/image43.png)
-    ![](./media/image44.png)
+     ![](./media/image43.png)
+     ![](./media/image44.png)
 8.  Similarly, run the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
-
-   ![](./media/image45.png)
-   ![](./media/image46.png)
+     ![](./media/image45.png)
+     ![](./media/image46.png)
 9.  To download and unzip historical data to the Lakehouse unmanaged
     files, run 4<sup>th</sup> and 5<sup>th</sup> <sup>d</sup> cells as
     shown in the below images.
-    ![](./media/image47.png)
-    ![](./media/image48.png)
-    ![](./media/image49.png)
-
+     ![](./media/image47.png)
+     ![](./media/image48.png)
+     ![](./media/image49.png)
 10. To verify csv files are available, select and run the 6<sup>th</sup>
     cell.
-    ![](./media/image50.png)
+     ![](./media/image50.png)
 11. Run the 7<sup>th</sup> cell, 8<sup>th</sup> cell , and
     9<sup>th</sup> cell.
-    ![](./media/image51.png)
-    ![](./media/image52.png)
-    ![](./media/image53.png)
+     ![](./media/image51.png)
+     ![](./media/image52.png)
+     ![](./media/image53.png)
 
 12. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
-
-    ![](./media/image54.png)
+     ![](./media/image54.png)
 
 # Exercise 2: Building the Aggregation Tables
 
@@ -323,11 +302,11 @@ Lakehouse if it is not already added.
 
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
-     ![](../media/image31.png)
+     ![](./media/image31.png)
 2.  In the **RealTimeWorkspace** page, click on **Lakehouse 2 – Build
     Aggregation Tables** notebook.
 
-    ![](../media/image55.png)
+    ![](./media/image55.png)
 
 3.  Under Explorer, navigate and select the **Lakehouse**, then click on
     the **Add* ***button.
@@ -338,7 +317,7 @@ Lakehouse if it is not already added.
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** dialog box, then click on the **Add** button.
 
-     ![](./media/image40.png)
+      ![](./media/image40.png)
 
 5.  On the **OneLake data hub** window, select the **StockLakehouse**,
     and click on the **Add** button.
@@ -384,7 +363,7 @@ Lakehouse if it is not already added.
      ![](./media/image67.png)
 
 12. From the **Target columns** dropdown, select
-    the ***symbol*** and ***price***columns and then click on **Apply
+    the **symbol** and **price**columns and then click on **Apply
     button** below it as shown in the image.
 
      ![](./media/image68.png)
@@ -397,31 +376,27 @@ Lakehouse if it is not already added.
      ![](./media/image71.png)
 14. **Uncheck** *Keep matching rows*, select **price** as the target
     column, and set the condition to ***Equal* to *0*.**
-    Click ***Apply***in the *Operations* panel beneath the Filter
+    Click **Apply**in the **Operations** panel beneath the Filter
 
 > Note: The rows with zero are marked red as they will be dropped (if
 > the other rows are marked red, ensure to uncheck the *Keep matching
 > rows* checkbox).
-
-   ![](./media/image72.png)
-    ![](./media/image73.png)
+     ![](./media/image72.png)
+     ![](./media/image73.png)
 
 15. Click on **+Add code to notebook** in the upper left side of the
     page. On the ***Add code to notebook* **window, ensure that *Include
     pandas code* is unchecked and click on the **Add** button.
-
-    ![](./media/image74.png)
-
-    ![](./media/image75.png)
+     ![](./media/image74.png)
+     ![](./media/image75.png)
 16. The code inserted will look similar to the below.
-
      ![](/media/image76.png)
 
 17. Run the cell and observe the output. You’ll observe that the invalid
     rows were removed.
 
-    ![](./media/image77.png)
-    ![](./media/image78.png)
+     ![](./media/image77.png)
+     ![](./media/image78.png)
 
 The function created, *clean_data*, contains all of the steps in
 sequence and can be modified as needed. Notice that each step performed
@@ -458,8 +433,7 @@ but this can be any dataframe that matches the schema.
 > remove_invalid_rows(df_stocks)</span>
 >
 > <span class="mark">display(df_stocks_clean)</span>
-
-  ![](./media/image79.png)
+     ![](./media/image79.png)
     
 20. This function will now remove the invalid rows from
     our *df_stocks* dataframe and return a new dataframe
