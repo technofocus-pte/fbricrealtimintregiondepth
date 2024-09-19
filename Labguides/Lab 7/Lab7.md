@@ -45,7 +45,7 @@ StockPrice
 | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
 | order by timestamp asc, symbol asc
 ```
-     ![](./media/image4.png)
+  ![](./media/image4.png)
 4.  This query takes advantage of both partitioning and previous
     functions. The data is partitioned to ensure that the previous
     function only considers rows matching the same symbol.
