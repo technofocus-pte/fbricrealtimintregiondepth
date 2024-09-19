@@ -304,7 +304,7 @@ the cell in the notebook.
 12. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
 
-   ![](./media/image54.png)
+    ![](./media/image54.png)
 
 # Exercise 2: Building the Aggregation Tables
 
@@ -331,14 +331,11 @@ Lakehouse if it is not already added.
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-<img src="./media/image31.png" style="width:5.22948in;height:4.2875in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](../media/image31.png)
 2.  In the **RealTimeWorkspace** page, click on **Lakehouse 2 – Build
     Aggregation Tables** notebook.
 
-<img src="./media/image55.png" style="width:6.49236in;height:3.4125in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](../media/image55.png)
 
 3.  Under Explorer, navigate and select the **Lakehouse**, then click on
     the **Add* ***button.
