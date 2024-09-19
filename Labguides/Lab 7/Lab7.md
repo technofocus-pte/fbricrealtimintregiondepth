@@ -1,3 +1,4 @@
+
 **Introduction**
 
 In this lab, you’ll explore additional KQL concepts.
