@@ -133,7 +133,7 @@ the model as necessary (daily/weekly/monthly).
 
      ![](./media/image13.png)
 
-2.  Click ***Run all*** in the top toolbar and follow along as the work
+2.  Click **Run all** in the top toolbar and follow along as the work
     progresses.
 
 3.  The notebook will take roughly **15-20** minutes to execute -- some
