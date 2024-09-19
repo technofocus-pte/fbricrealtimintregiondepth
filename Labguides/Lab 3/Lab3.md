@@ -730,20 +730,15 @@ per-hour frequency, reducing the data to 24 rows/day per stock symbol.
     naming the columns like price_max_max, price_min_min; we will modify
     the aliases to keep the names the same for clarity.
 
-<img src="./media/image114.png"
-style="width:7.27027in;height:3.3625in" />
+     ![](./media/image114.png)
 
 5.  Click **Add code to notebook** in the upper left corner of the
     page. On the ***Add code to notebook* window**, ensure *Include
     pandas code* is unchecked and click on the **Add** button.
 
-<img src="./media/image115.png"
-style="width:6.49167in;height:3.06667in" />
-
-<img src="./media/image116.png"
-style="width:5.76667in;height:4.54167in" />
-
-<img src="./media/image117.png" style="width:6.5in;height:2.44236in" />
+     ![](./media/image115.png)
+     ![](./media/image116.png)
+     ![](./media/image117.png)
 
 6.  In the cell that is added, in the last two lines of the cell, notice
     the dataframe returned is named def
@@ -792,35 +787,28 @@ df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)
 
 display(df_stocks_agg_hour)
 
-<img src="./media/image118.png"
-style="width:7.02419in;height:1.95417in" />
+    ![](./media/image118.png)
 
-2.  Select and **Run** the cell.
+8.  Select and **Run** the cell.
 
-<img src="./media/image119.png" style="width:6.5in;height:3.16667in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image119.png)
 
-3.  The code to merge the hour aggregated data is in the next cell:
+9.  The code to merge the hour aggregated data is in the next cell:
     **merge_hour_agg(df_stocks_agg_hour)**
 
-4.  Run the cell to complete the merge. There are a few utility cells at
+10.  Run the cell to complete the merge. There are a few utility cells at
     the bottom for checking the data in the tables -- explore the data a
     bit and feel free to experiment.
 
-<img src="./media/image120.png"
-style="width:6.49167in;height:2.11667in" />
+     ![](./media/image120.png)
 
-21. Use **Handy SQL Commands for testing** section for testing, cleaning
+11. Use **Handy SQL Commands for testing** section for testing, cleaning
     out tables to re-run, etc. Select and **Run** the cells in this
     section.
 
-<img src="./media/image121.png" style="width:6.5in;height:3.875in" />
-
-<img src="./media/image122.png" style="width:6.5in;height:4.08819in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image123.png"
-style="width:6.30833in;height:3.525in" />
+    ![](./media/image121.png)
+    ![](./media/image122.png)
+    ![](./media/image123.png)
 
 # Exercise 3: Building the Dimensional Model
 
@@ -844,82 +832,61 @@ be overwritten.
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation menu.
 
-<img src="./media/image124.png"
-style="width:4.4375in;height:3.50417in" />
+     ![](./media/image124.png)
 
 2.  In the RealTimeWorkshop workspace, select the ***Lakehouse 3 –
-    Create Star Schema*  **notebook.
+    Create Star Schema** notebook.
 
-<img src="./media/image125.png"
-style="width:6.42917in;height:3.82917in" />
+     ![](./media/image125.png)
 
 3.  Under the Explorer, navigate and click on the **Lakehouses**, then
-    click on the **Add** button*.*
+    click on the **Add** button.
 
-<img src="./media/image126.png"
-style="width:4.9625in;height:4.07407in" />
+      ![](./media/image126.png)
 
-<img src="./media/image127.png" style="width:6.5in;height:6.125in" />
+      ![](./media/image127.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
 
-<img src="./media/image40.png" style="width:2.52083in;height:1.49956in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image40.png)
 
 5.  On the OneLake data hub window, select **StockLakehouse**  and click
     on the **Add** button.
 
-<img src="./media/image41.png" style="width:6.48472in;height:3.90139in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image41.png)
 
 6.  With the notebook loaded and the Lakehouse attached, notice the
     schema on the left. In addition to the **raw_stock_data** table,
     there should be the **stocks_minute_agg** and **stocks_hour_agg**
     tables.
 
-<img src="./media/image128.png"
-style="width:4.20417in;height:5.125in" />
+     ![](./media/image128.png)
 
 7.  Run each cell individually by clicking the **play** button on the
     left side of each cell to follow along with the process.
 
-<img src="./media/image129.png"
-style="width:6.49167in;height:3.70833in" />
-
-<img src="./media/image130.png" style="width:6.5in;height:3.55in" />
-
-<img src="./media/image131.png" style="width:6.5in;height:3.18333in" />
-
-<img src="./media/image132.png"
-style="width:6.49167in;height:3.84167in" />
-
-<img src="./media/image133.png"
-style="width:7.31744in;height:4.52102in" />
-
-<img src="./media/image134.png"
-style="width:7.04583in;height:5.07409in" />
-
-<img src="./media/image135.png" style="width:7.25719in;height:5.02343in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image136.png" style="width:6.5in;height:2.93333in" />
-
-<img src="./media/image137.png"
-style="width:7.24583in;height:3.89731in" />
+     ![](./media/image129.png)
+     ![](./media/image130.png)
+     ![](./media/image131.png)
+     ![](./media/image132.png)
+     ![](./media/image133.png)
+     ![](./media/image134.png)
+     ![](./media/image135.png)
+     ![](./media/image136.png)
+     ![](./media/image137.png)
 
 8.  When all cells have been run successfully, navigate to
     **StocksLakehouse** section, click on the horizontal ellipsis beside
-    **Tables** **(...)**, then navigate and click on ***Refresh*** as
+    **Tables** **(...)**, then navigate and click on **Refresh** as
     shown in the below image.
 
-<img src="./media/image138.png" style="width:6.49167in;height:6.3in" />
+    ![](../media/image138.png)
 
 9.  Now, you can see all additional tables ***dim_symbol*, *dim_date*,
     and *fact_stocks_daily_prices*** for our dimensional model.
 
-<img src="./media/image139.png"
-style="width:5.775in;height:7.51667in" />
+    ![](./media/image139.png)
 
 ## Task 2: Load fact table
 
@@ -932,113 +899,90 @@ applied to larger datasets.
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-<img src="./media/image140.png"
-style="width:5.74583in;height:4.87917in" />
+    ![](./media/image140.png)
 
 2.  In the RealTimeWorkshop workspace, select the ***Lakehouse 4 – Load
     fact table*  **notebook.
 
-<img src="./media/image141.png"
-style="width:5.65417in;height:4.02917in" />
+    ![](./media/image141.png)
 
 3.  Under the Explorer, select **Lakehouse**, then click on the **Add**
-    button*.*
+    button.
 
-<img src="./media/image142.png"
-style="width:5.2125in;height:3.74711in" />
+    ![](./media/image142.png)
 
-<img src="./media/image143.png" style="width:6.49167in;height:5.55in" />
+    ![](./media/image143.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
 
-<img src="./media/image40.png" style="width:2.52083in;height:1.49956in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image40.png)
 
 5.  On the OneLake data hub tab, select the **StockLakehouse**  and
     click on the **Add** button.
 
-<img src="./media/image41.png" style="width:6.48472in;height:3.90139in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image41.png)
 
 6.  Select and run each cell individually.
 
-<img src="./media/image144.png" style="width:6.5in;height:3.3in" />
-
+    ![](./media/image144.png)
 7.  Function adds symbols to dim_symbol that may not exist in table,
     select and **Run** the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
 
-<img src="./media/image145.png" style="width:6.49167in;height:3.7in" />
-
-<img src="./media/image146.png"
-style="width:6.49167in;height:4.23333in" />
+    ![](./media/image145.png)
+    ![](./media/image146.png)
 
 8.  To get new stock data to ingest, starting at watermark, select and
     run the 4<sup>th</sup> cell.
 
-<img src="./media/image147.png"
-style="width:6.49167in;height:4.19167in" />
+    ![](./media/image147.png)
 
 9.  Load the date dimension for later joins, select and **Run** the
     5<sup>th</sup>, 6<sup>th</sup>, and 7<sup>th</sup> cells.
 
-<img src="./media/image148.png"
-style="width:6.49167in;height:4.26667in" />
+    ![](./media/image148.png)
 
-<img src="./media/image149.png" style="width:6.5in;height:3.46389in" />
+    ![](./media/image149.png)
 
-<img src="./media/image150.png" style="width:6.5in;height:4.77153in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image150.png)
 
-<img src="./media/image151.png"
-style="width:7.14583in;height:3.99947in" />
+    ![](./media/image151.png)
 
 10. To join the aggregated data to the date dimension, select and
     **Run** the 8<sup>th</sup> and 9<sup>th</sup> cells.
 
-<img src="./media/image152.png"
-style="width:7.24934in;height:3.22917in" />
+    ![](./media/image152.png)
 
-<img src="./media/image153.png"
-style="width:7.38358in;height:3.34583in" />
+    ![](./media/image153.png)
 
 11. Create a final view with cleaned names for processing ease, select
     and **Run** the 10<sup>th</sup>, 11<sup>th</sup> , and
     12<sup>th</sup> cells.
 
-<img src="./media/image154.png"
-style="width:7.24583in;height:3.34423in" />
+    ![](./media/image154.png)
 
-<img src="./media/image155.png"
-style="width:7.1862in;height:3.97083in" />
+    ![](./media/image155.png)
 
-<img src="./media/image156.png"
-style="width:7.16715in;height:3.40417in" />
+    ![](./media/image156.png)
 
 12. To obtain the result and plot a graph, select and
     **Run** 13<sup>th</sup> and 14<sup>th</sup> cells.
 
-<img src="./media/image157.png"
-style="width:6.49167in;height:3.775in" />
-
-<img src="./media/image158.png"
-style="width:7.27514in;height:2.97917in" />
-
-<img src="./media/image159.png" style="width:6.5in;height:3.12014in" />
+    ![](./media/image157.png)
+    ![](./media/image158.png)
+    ![](./media/image159.png)
 
 13. To validate the created tables, right click on the horizontal
     ellipsis (…) beside **Tables,** then navigate and click on
     **Refresh.** The tables will appear.
 
-<img src="./media/image160.png"
-style="width:6.49167in;height:6.49167in" />
+     ![](./media/image160.png)
 
 14. To schedule the notebook to run periodically, click on
     the ***Run*** tab, and click on ***Schedule*** as shown in the below
     image*.*
 
-<img src="./media/image161.png"
-style="width:6.49167in;height:3.99167in" />
+     ![](./media/image161.png)
 
 15. In Lackhouse 4-Load Star Schema tab, select the below details and
     click on the **Apply** button.
@@ -1051,8 +995,7 @@ style="width:6.49167in;height:3.99167in" />
 
 - Select today date
 
-<img src="./media/image162.png"
-style="width:6.49167in;height:5.50833in" />
+     ![](./media/image162.png)
 
 ## Task 3: Build semantic model and simple report
 
@@ -1061,23 +1004,19 @@ reporting, and create a simple Power BI report.
 
 1.  Now, click on **StocksLakehouse** on the left-sided navigation menu.
 
-<img src="./media/image163.png"
-style="width:6.49167in;height:5.7625in" />
+    ![](./media/image163.png)
 
 2.  In the ***StocksLakehouse*** window*,* navigate and click on ***New
     semantic model*** in the command bar*.*
 
-<img src="./media/image164.png"
-style="width:7.26479in;height:4.7375in" />
+     ![](./media/image164.png)
 
 3.  Name the model ***StocksDimensionalModel* **and select the
     **fact_stocks_daily_prices**, **dim_date** and **dim_symbol**
     tables. Then, click on the **Confirm** button.
 
-<img src="./media/image165.png" style="width:3.6in;height:5.54167in" />
-
-<img src="./media/image166.png" style="width:6.5in;height:3.00694in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image165.png)
+     ![](./media/image166.png)
 
 4.  When the semantic model opens, we need to define relationships
     between the fact and dimension tables.
@@ -1087,8 +1026,7 @@ alt="A screenshot of a computer Description automatically generated" />
     the ***Symbol_SK***   field in the **dim_Symbol** table to create a
     relationship. The **New relationship** dialog box appears.
 
-<img src="./media/image167.png"
-style="width:6.49167in;height:4.91667in" />
+    ![](./media/image167.png)
 
 6.  In the **New relationship** dialog box:
 
@@ -1106,19 +1044,14 @@ style="width:6.49167in;height:4.91667in" />
 
 - Select **Save.**
 
-<img src="./media/image168.png"
-style="width:5.58333in;height:6.125in" />
-
-<img src="./media/image169.png" style="width:6.5in;height:3.11319in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image168.png)
+     ![](./media/image169.png)
 7.  From the **fact_Stocks_Daily_Prices** table, drag
     the **PrinceDateKey**  field and drop it on
     the ***DateKey***   field in the **dim_date** table to create a
     relationship. The **New relationship** dialog box appears.
 
-<img src="./media/image170.png"
-style="width:6.49167in;height:3.98333in" />
+     ![](./media/image170.png)
 
 8.  In the **New relationship** dialog box:
 
@@ -1136,15 +1069,13 @@ style="width:6.49167in;height:3.98333in" />
 
 - Select **Save.**
 
-<img src="./media/image171.png" style="width:5.6in;height:6.21667in" />
+    ![](./media/image171.png)
 
-<img src="./media/image172.png" style="width:6.5in;height:4.2625in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image172.png)
 
 9.  Click ***New Report*** to load the semantic model in Power BI.
 
-<img src="./media/image173.png"
-style="width:6.49167in;height:4.13333in" />
+      ![](./media/image173.png)
 
 10. In the **Power BI** page, under **Visualizations**, click to the
     **Line chart** icon to add a **Column chart** to your report.
@@ -1158,37 +1089,29 @@ style="width:6.49167in;height:4.13333in" />
 
 - On the **Data** pane, expand **dim_Symbol** and check the box next
   to **Symbol**. This adds the field to the **Legend**.
-
-<img src="./media/image174.png"
-style="width:5.7375in;height:6.75241in" />
+      ![](./media/image174.png)
 
 11. Under **Filters,** select **PriceDateKey** and enter the below
-    details. Click on the **Apply filte**r
+    details. Click on the **Apply filter**
 
 - Filter type: **Relative date**
 
 - Show items when the value: **is in the last 45 days**
 
-<img src="./media/image175.png" style="width:5.35in;height:5.66667in" />
-
-<img src="./media/image176.png"
-style="width:7.36665in;height:3.81633in" />
+     ![](./media/image175.png)
+     ![](./media/image176.png)
 
 12. From the ribbon, select **File** \> **Save as.**
 
-<img src="./media/image177.png"
-style="width:7.09665in;height:4.2125in" />
+     ![](./media/image177.png)
 
 13. In the Save your report dialog box, enter +++
     **StocksDimensional** +++ as the name of your report and select
     **your workspace**. Click on the **Save** button**.**
 
-<img src="./media/image178.png"
-style="width:7.22083in;height:3.57797in" />
+     ![](./media/image178.png)
 
-<img src="./media/image179.png" style="width:7.38292in;height:3.52187in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image179.png)
 **Summary**
 
 In this lab, you’ve configured a comprehensive Lakehouse infrastructure
