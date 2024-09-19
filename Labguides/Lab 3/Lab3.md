@@ -184,13 +184,11 @@ across all modules.*
     **Done**
 
     ![](./media/image26.png)
->
     ![](./media/image27.png)
 
 12. Now, click on the **Publish** button to close the event processor
 
     ![](./media/image28.png)
-
     ![](./media/image29.png)
 
 13. Once it is completed, the Lakehouse will receive the symbol, price,
