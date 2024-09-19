@@ -50,63 +50,51 @@ kind of exploration.
 1.  In the **StockDimensionalModel** page, click on
     **RealTimeWorkspace** on the left-sided navigation menu.
 
-<img src="./media/image1.png"
-style="width:4.75417in;height:4.19583in" />
+     ![](./media/image1.png)
 
 2.  In the **Synapse Data Engineering** **RealTimeWorkspace** page,
     navigate and click on **Import** button, then select **Notebook**
     and select the **From this computer as shown in the below image.**
 
-<img src="./media/image2.png" style="width:6.5in;height:2.26667in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image2.png)
 
 3.  In the **Import status** pane that appear on the right side, click
     on **Upload** .
 
-<img src="./media/image3.png"
-style="width:5.55833in;height:4.40833in" />
+      ![](./media/image3.png)
 
 4.  Navigate to **C:\LabFiles\Lab 05** and select **DS 1-Build Model, DS
     2-Predict Stock Prices and DS 3-Forecast All** notebooks, then click
     on the **Open** button.
 
-<img src="./media/image4.png" style="width:6.5in;height:2.93681in" />
-
+      ![](./media/image4.png)
 5.  You will see a notification stating - **Imported successfully.**
 
-<img src="./media/image5.png" style="width:3.9625in;height:1.72083in" />
+      ![](./media/image5.png)
 
-<img src="./media/image6.png" style="width:6.5in;height:4.78333in" />
+      ![](./media/image6.png)
 
 6.  In the **RealTimeWorkspace**, click on **DS 1-Build Model**
     notebook.
 
-<img src="./media/image7.png" style="width:6.49167in;height:4.2in" />
+     ![](./media/image7.png)
 
 7.  Under the Explorer, select **Lakehouse** and click on the
     **Add* *button.**
 
 > ***Important*:** You will need to add the Lakehouse to every imported
 > notebook -- do this each time you open a notebook for the first time.
-
-<img src="./media/image8.png"
-style="width:5.80417in;height:3.60113in" />
-
-<img src="./media/image9.png" style="width:6.5in;height:3.70833in" />
+     ![](./media/image8.png)
+     ![](./media/image9.png)
 
 8.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
     radio button, then click on the **Add** button.
-
-<img src="./media/image10.png"
-style="width:3.00833in;height:1.83333in" />
+     ![](./media/image10.png)
 
 9.  On the OneLake data hub window, select the ***StockLakehouse*** and
     click on the **Add** button.
-
-<img src="./media/image11.png"
-style="width:6.49167in;height:3.91667in" />
-
-<img src="./media/image12.png" style="width:6.5in;height:3.66667in" />
+     ![](../media/image11.png)
+     ![](./media/image12.png)
 
 ## Task 2: Explore and run the notebook
 
@@ -143,8 +131,7 @@ the model as necessary (daily/weekly/monthly).
 1.  In 1<sup>st</sup> cell uncomment the STOCK_SYMBOL=”IDGD” and
     STOCK_SYMBOL=”BCUZ”, then select and **Run** the cell.
 
-<img src="./media/image13.png"
-style="width:6.97485in;height:3.77917in" />
+     ![](./media/image13.png)
 
 2.  Click ***Run all*** in the top toolbar and follow along as the work
     progresses.
@@ -153,99 +140,40 @@ style="width:6.97485in;height:3.77917in" />
     steps, like **training the model** and **cross validation**, will
     take some time.
 
-<img src="./media/image14.png"
-style="width:7.24624in;height:4.32917in" />
-
-<img src="./media/image15.png" style="width:6.5in;height:3.90694in" />
-
-<img src="./media/image16.png" style="width:7.23529in;height:4.5638in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image17.png"
-style="width:6.2625in;height:4.02245in" />
-
-<img src="./media/image18.png" style="width:6.5in;height:3.35in" />
-
-<img src="./media/image19.png"
-style="width:6.49167in;height:3.79167in" />
-
-<img src="./media/image20.png"
-style="width:6.49167in;height:5.55833in" />
-
-<img src="./media/image21.png"
-style="width:6.49167in;height:3.85833in" />
-
-<img src="./media/image22.png"
-style="width:6.49167in;height:3.35833in" />
-
-<img src="./media/image23.png"
-style="width:6.49167in;height:2.69167in" />
-
-<img src="./media/image24.png" style="width:6.5in;height:4.88819in"
-alt="A screen shot of a computer Description automatically generated" />
-
-<img src="./media/image25.png" style="width:6.5in;height:4.16111in"
-alt="A screen shot of a graph Description automatically generated" />
-
-<img src="./media/image26.png" style="width:6.5in;height:4.02222in" />
-
-<img src="./media/image27.png" style="width:6.5in;height:2.03125in"
-alt="A graph of a graph Description automatically generated with medium confidence" />
-
-<img src="./media/image28.png" style="width:7.28625in;height:2.73935in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image29.png" style="width:7.1626in;height:3.63946in"
-alt="A screen shot of a graph Description automatically generated" />
-
-<img src="./media/image30.png"
-style="width:6.83274in;height:3.67917in" />
-
-<img src="./media/image31.png"
-style="width:7.30775in;height:3.20417in" />
-
-<img src="./media/image32.png" style="width:6.49167in;height:4.8in" />
-
-<img src="./media/image33.png"
-style="width:6.49167in;height:4.86667in" />
-
-<img src="./media/image34.png" style="width:6.5in;height:4.15833in"
-alt="A graph with a blue line Description automatically generated" />
-
-<img src="./media/image35.png" style="width:6.5in;height:4.21111in"
-alt="A graph showing a graph Description automatically generated with medium confidence" />
-
-<img src="./media/image36.png" style="width:6.5in;height:4.45556in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image37.png"
-style="width:7.24755in;height:2.0375in" />
-
-<img src="./media/image38.png"
-style="width:7.36209in;height:4.02083in" />
-
-<img src="./media/image39.png"
-style="width:7.15286in;height:4.4625in" />
-
-<img src="./media/image40.png" style="width:6.49167in;height:2.65in" />
-
-<img src="./media/image41.png" style="width:6.5in;height:4.99167in" />
-
-<img src="./media/image42.png"
-style="width:7.2625in;height:3.31893in" />
-
-<img src="./media/image43.png"
-style="width:7.28305in;height:2.64583in" />
-
-<img src="./media/image44.png"
-style="width:6.49167in;height:2.61667in" />
-
-<img src="./media/image45.png" style="width:6.49167in;height:3.55in" />
-
-<img src="./media/image46.png" style="width:6.5in;height:2.63333in" />
-
-<img src="./media/image47.png"
-style="width:6.49167in;height:2.18333in" />
+    ![](./media/image14.png)
+    ![](./media/image15.png)
+    ![](./media/image16.png)
+    ![](./media/image17.png)
+    ![](./media/image18.png)
+    ![](./media/image19.png)
+    ![](./media/image20.png)
+    ![](./media/image21.png)
+    ![](./media/image22.png)
+    ![](./media/image23.png)
+    ![](./media/image24.png)
+    ![](./media/image25.png)
+    ![](./media/image26.png)
+    ![](./media/image27.png)
+    ![](./media/image28.png)
+    ![](./media/image29.png)
+    ![](./media/image30.png)
+    ![](./media/image31.png)
+    ![](./media/image32.png)
+    ![](./media/image33.png)
+    ![](./media/image34.png)
+    ![](./media/image35.png)
+    ![](./media/image36.png)
+    ![](./media/image37.png)
+    ![](./media/image38.png)
+    ![](./media/image39.png)
+    ![](./media/image40.png)
+    ![](./media/image41.png)
+    ![](./media/image42.png)
+    ![](./media/image43.png)
+    ![](./media/image44.png)
+    ![](./media/image45.png)
+    ![](./media/image46.png)
+    ![](./media/image47.png)
 
 ##  Task 3: Examine the model and runs
 
