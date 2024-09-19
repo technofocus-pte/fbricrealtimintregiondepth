@@ -283,18 +283,15 @@ the cell in the notebook.
 9.  To download and unzip historical data to the Lakehouse unmanaged
     files, run 4<sup>th</sup> and 5<sup>th</sup> <sup>d</sup> cells as
     shown in the below images.
-
     ![](./media/image47.png)
     ![](./media/image48.png)
     ![](./media/image49.png)
 
 10. To verify csv files are available, select and run the 6<sup>th</sup>
     cell.
-
     ![](./media/image50.png)
 11. Run the 7<sup>th</sup> cell, 8<sup>th</sup> cell , and
     9<sup>th</sup> cell.
-
     ![](./media/image51.png)
     ![](./media/image52.png)
     ![](./media/image53.png)
@@ -328,7 +325,6 @@ Lakehouse if it is not already added.
 
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
-
      ![](../media/image31.png)
 2.  In the **RealTimeWorkspace** page, click on **Lakehouse 2 – Build
     Aggregation Tables** notebook.
@@ -355,7 +351,6 @@ Lakehouse if it is not already added.
     2<sup>nd</sup> , 3<sup>rd</sup> , and 4<sup>th</sup> cells.
 
      ![](./media/image58.png)
-
      ![](./media/image59.png)
      ![](./media/image60.png)
      ![](./media/image61.png)
@@ -548,9 +543,7 @@ pandas_df_stocks_clean.apply(lambda row : hour(row\["timestamp"\]),
 axis=1))
      ![](./media/image90.png)
 
- 
-
-9.  Same as with the hour column, create a new ***minute* **column. In
+ 9.  Same as with the hour column, create a new ***minute* **column. In
     the new *minute* column, enter a minute for any given row. For
     example, if the *timestamp* is *2024-02-07 09:54:00* enter *54*. You
     may need to enter example values for several rows.
@@ -579,7 +572,6 @@ def minute(timestamp):
 pandas_df_stocks_clean.insert(3, "minute",
 pandas_df_stocks_clean.apply(lambda row : minute(row\["timestamp"\]),
 axis=1))
-
      ![](./media/image92.png)
 
 11. Next, convert the hour column to an integer. Click on the **ellipsis
@@ -786,11 +778,9 @@ return df_stocks_agg_minute
 df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)
 
 display(df_stocks_agg_hour)
-
     ![](./media/image118.png)
 
 8.  Select and **Run** the cell.
-
      ![](./media/image119.png)
 
 9.  The code to merge the hour aggregated data is in the next cell:
@@ -831,12 +821,10 @@ tables, rebuilding the schema: existing fact and dimension tables will
 be overwritten.
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation menu.
-
      ![](./media/image124.png)
 
 2.  In the RealTimeWorkshop workspace, select the ***Lakehouse 3 –
     Create Star Schema** notebook.
-
      ![](./media/image125.png)
 
 3.  Under the Explorer, navigate and click on the **Lakehouses**, then
@@ -898,17 +886,14 @@ applied to larger datasets.
 
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
-
     ![](./media/image140.png)
 
 2.  In the RealTimeWorkshop workspace, select the ***Lakehouse 4 – Load
     fact table*  **notebook.
-
     ![](./media/image141.png)
 
 3.  Under the Explorer, select **Lakehouse**, then click on the **Add**
     button.
-
     ![](./media/image142.png)
 
     ![](./media/image143.png)
