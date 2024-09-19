@@ -180,20 +180,18 @@ the model as necessary (daily/weekly/monthly).
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-<img src="./media/image48.png" style="width:6.5in;height:4.75833in" />
+     ![](./media/image48.png)
 
 2.  Experiments and runs can be viewed in the workspace resource list.
 
-<img src="./media/image49.png"
-style="width:6.49167in;height:4.61667in" />
+    ![](./media/image49.png)
 
 3.  In the **RealTimeWorkspace** page, select
     **WHO-stock-prediction-model** of ML model type.
 
-<img src="./media/image50.png" style="width:6.5in;height:5.23333in" />
+     ![](./media/image50.png)
 
-<img src="./media/image51.png" style="width:6.20214in;height:3.1501in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image51.png)
 
 4.  Metadata, in our case, includes input parameters we may tune for our
     model, as well as metrics on the model's accuracy, such as root mean
@@ -202,8 +200,7 @@ alt="A screenshot of a computer Description automatically generated" />
     numbers show an increase error. While lower numbers are better, a
     "good" number is subjective based on the scenario.
 
-<img src="./media/image52.png"
-style="width:6.49167in;height:4.39167in" />
+     ![](./media/image52.png)
 
 # Exercise 2-Using models, saving to Lakehouse, building a report
 
@@ -231,85 +228,68 @@ completes these tasks at a high level:
 1.  Now,click on **RealTimeWorkspace** on the left-sided navigation
     pane.
 
-<img src="./media/image48.png"
-style="width:4.12917in;height:2.8375in" />
+    ![](./media/image48.png)
 
 2.  In the **RealTimeWorkspace**, click on the **DS 2-Predict Stock
     Prices** notebook.
 
-<img src="./media/image53.png" style="width:6.5in;height:4.88333in" />
-
+     ![](./media/image53.png)
 3.  Under the Explorer, select the **Lakehouse**, then click on the
     **Add* ***button*.*
 
-<img src="./media/image54.png"
-style="width:5.61891in;height:4.4375in" />
+     ![](./media/image54.png)
 
-<img src="./media/image55.png"
-style="width:4.7625in;height:4.21227in" />
+     ![](./media/image55.png)
 
 4.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
     radio button, then click on the **Add** button.
 
-<img src="./media/image10.png" style="width:3.00833in;height:1.83333in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image10.png)
 
 5.  On the OneLake data hub window, select the ***StockLakehouse*** and
     click on the **Add** button.
 
-<img src="./media/image11.png" style="width:6.49167in;height:3.91667in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image11.png)
 
-<img src="./media/image56.png" style="width:6.5in;height:4.65347in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image56.png)
 ## Task 2: Run the notebook
 
 1.  Creates the stock predictions table in the Lakehouse, select and
     **Run** the 1<sup>st</sup> and 2<sup>nd</sup> cells.
 
-<img src="./media/image57.png"
-style="width:6.49167in;height:3.99167in" />
-
-<img src="./media/image58.png" style="width:6.5in;height:4.08333in" />
+     ![](./media/image57.png)
+     ![](./media/image58.png)
 
 2.  Gets a list of all stock symbols, select and **Run** the
     3<sup>rd</sup> and 4<sup>th</sup> cells.
 
-<img src="./media/image59.png"
-style="width:6.49167in;height:2.80833in" />
+     ![](./media/image59.png)
 
-<img src="./media/image60.png"
-style="width:6.49167in;height:3.06667in" />
+     ![](./media/image60.png)
 
 3.  Creates a prediction list by examining available ML models in
     MLflow, select and **Run** the 7<sup>th</sup>, 8<sup>th</sup> ,
     9<sup>th</sup> , and 10<sup>th</sup> cells.
 
-<img src="./media/image61.png" style="width:6.5in;height:3.93333in" />
+     ![](./media/image61.png)
 
-<img src="./media/image62.png" style="width:6.5in;height:4.78333in" />
+     ![](./media/image62.png)
 
-<img src="./media/image63.png" style="width:6.5in;height:2.91667in" />
+     ![](./media/image63.png)
 
-<img src="./media/image64.png" style="width:6.5in;height:3.65833in" />
+     ![](./media/image64.png)
 
 4.  To build predictions for each model store in Lakehouse , select and
     **Run** the 11<sup>th</sup> and 12<sup>th</sup> cells.
 
-<img src="./media/image65.png" style="width:6.5in;height:3.125in" />
-
-<img src="./media/image66.png"
-style="width:6.49167in;height:4.74167in" />
+      ![](./media/image65.png)
+      ![](./media/image66.png)
 
 5.  When all cells have been run, refresh the schema by clicking on the
     three dots **(...)** beside *Tables,* then navigate and click on
-    ***Refresh*.**
-
-<img src="./media/image67.png" style="width:5.44167in;height:5.4in" />
-
-<img src="./media/image68.png"
-style="width:6.49167in;height:6.81667in" />
+    **Refresh**.
+      ![](./media/image67.png)
+      ![](./media/image68.png)
 
 # Exercise 3: Solution in practice
 
@@ -362,93 +342,55 @@ a few key things:
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-<img src="./media/image48.png"
-style="width:4.12917in;height:2.8375in" />
+     ![](./media/image48.png)
 
 2.  *In the **RealTimeWorkspace***, click on the **DS 3-Forecast All**
     notebook.
 
-<img src="./media/image69.png"
-style="width:5.79583in;height:3.9375in" />
+     ![](./media/image69.png)
 
 3.  Under the Explorer select the **Lakehouse** and click on the
-    ***Add .***
-
-<img src="./media/image54.png" style="width:5.61891in;height:4.4375in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image55.png" style="width:4.7625in;height:4.21227in"
-alt="A screenshot of a computer Description automatically generated" />
-
+    **Add**
+     ![](./media/image54.png)
+     ![](./media/image55.png)
 4.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
     radio button, then click on the **Add** button.
-
-<img src="./media/image10.png" style="width:3.00833in;height:1.83333in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image10.png)
 5.  On the OneLake data hub window, select the ***StockLakehouse*** and
     click on the **Add** button.
 
-<img src="./media/image11.png" style="width:6.49167in;height:3.91667in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image11.png)
 
 6.  Select and **Run** the 1<sup>st</sup> cell.
 
-<img src="./media/image70.png"
-style="width:6.49167in;height:3.49167in" />
+     ![](./media/image70.png)
 
-7.  Click ***Run all*** in the command and follow along as the work
+7.  Click **Run all** in the command and follow along as the work
     progresses.
 
 8.  Running the notebook for all symbols could take 10 minutes.
-    <img src="./media/image71.png" style="width:6.5in;height:3.89167in" />
-
-<img src="./media/image72.png" style="width:6.5in;height:4.32014in" />
-
-<img src="./media/image73.png" style="width:6.49167in;height:3.35in" />
-
-<img src="./media/image74.png" style="width:6.5in;height:5.11667in" />
-
-<img src="./media/image75.png" style="width:6.5in;height:2.86667in" />
-
-<img src="./media/image76.png" style="width:6.5in;height:5.43333in" />
-
-<img src="./media/image77.png" style="width:6.5in;height:4.19583in" />
-
-<img src="./media/image78.png" style="width:7.39029in;height:3.53881in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image79.png" style="width:6.5in;height:3.02639in"
-alt="A graph showing the growth of the stock market Description automatically generated" />
-
-<img src="./media/image80.png" style="width:6.5in;height:2.58403in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image81.png" style="width:6.5in;height:2.72917in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image82.png" style="width:6.5in;height:2.70208in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image83.png" style="width:6.5in;height:2.57569in"
-alt="A graph of different colored lines Description automatically generated" />
-
-<img src="./media/image84.png" style="width:6.5in;height:2.71458in"
-alt="A graph showing the growth of a company Description automatically generated" />
-
-<img src="./media/image85.png" style="width:6.5in;height:2.88333in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image86.png" style="width:6.5in;height:2.59583in"
-alt="A graph showing different colored lines Description automatically generated" />
+    ![](./media/image71.png)
+    ![](./media/image72.png)
+    ![](./media/image73.png)
+    ![](./media/image74.png)
+    ![](./media/image75.png)
+    ![](./media/image76.png)
+    ![](./media/image77.png)
+    ![](./media/image78.png)
+    ![](./media/image79.png)
+    ![](./media/image80.png)
+    ![](./media/image81.png)
+    ![](./media/image82.png)
+    ![](./media/image83.png)
+    ![](./media/image84.png)
+    ![](./media/image85.png)
+    ![](./media/image86.png)
 
 9.  When all cells have been run, refresh the schema by clicking the
-    three dots **(...)** dots to the right of the *Tables*, then
-    navigate and click on ***Refresh*.**
+    three dots **(...)** dots to the right of the **Tables**, then
+    navigate and click on ***Refresh**.
 
-<img src="./media/image87.png"
-style="width:6.49167in;height:6.00833in" />
-
+     ![](./media/image87.png)
 # Exercise 4: Building a Prediction Report
 
 ## Task 1: Build a semantic model
@@ -462,31 +404,25 @@ and enrichments like measures to make developing reports easier
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation menu.
 
-<img src="./media/image88.png" style="width:6.5in;height:5.6in" />
-
+     ![](./media/image88.png)
 2.  To create a semantic model, navigate and click on the Lakehouse
     i.e., **StackLakehouse.**
+     ![](./media/image89.png)
 
-<img src="./media/image89.png"
-style="width:6.49167in;height:4.63333in" />
+     ![](./media/image90.png)
 
-<img src="./media/image90.png"
-style="width:7.34187in;height:3.56504in" />
+3.  In the ***StocksLakehouse*** page*,* click on **New semantic
+    model** in the command bar.
 
-3.  In the ***StocksLakehouse*** page*,* click on ***New semantic
-    model*** in the command bar.
-
-<img src="./media/image91.png" style="width:6.5in;height:4.73333in" />
+     ![](./media/image91.png)
 
 4.  In the **New semantic model** pane **Name** field, enter the name of
     the model as ***StocksLakehousePredictions***, select the
     **stock_prediction**, and **dim_symbol** tables. Then, click on the
     **Confirm** button as shown in the below image.
 
-<img src="./media/image92.png" style="width:4.61667in;height:5.75in" />
-
-<img src="./media/image93.png" style="width:7.39637in;height:3.58281in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image92.png)
+      ![](./media/image93.png)
 
 5.  When the semantic model opens, we need to define relationships
     between the stock_prediction and dim_symbol tables.
@@ -496,8 +432,7 @@ alt="A screenshot of a computer Description automatically generated" />
     to create a relationship. The **New relationship** dialog box
     appears.
 
-<img src="./media/image94.png"
-style="width:7.0993in;height:3.84583in" />
+     ![](./media/image94.png)
 
 7.  In the **New relationship** dialog box:
 
@@ -515,11 +450,9 @@ style="width:7.0993in;height:3.84583in" />
 
 - Select **Save**
 
-<img src="./media/image95.png"
-style="width:6.60417in;height:7.72544in" />
+    ![](./media/image95.png)
 
-<img src="./media/image96.png"
-style="width:7.37104in;height:3.27917in" />
+    ![](./media/image96.png)
 
 ## Task 2: Build the report in Power BI Desktop
 
@@ -529,110 +462,93 @@ style="width:7.37104in;height:3.27917in" />
 
 2.  Click on the **Download now** button.
 
-> <img src="./media/image97.png"
-> style="width:6.49167in;height:3.76667in" />
+     ![](./media/image97.png)
 
 3.  In case, **This site is trying to open Microsoft Store** dialog box
     appears, then click on **Open** button.
 
-<img src="./media/image98.png"
-style="width:6.49167in;height:1.40833in" />
+     ![](./media/image98.png)
 
 4.  Under **Power BI Desktop**, click on the **Get** button.
 
-<img src="./media/image99.png" style="width:4.95in;height:5.23333in" />
+     ![](./media/image99.png)
 
 5.  Now, click on the **Open** button.
 
-<img src="./media/image100.png"
-style="width:4.90833in;height:5.31667in" />
+     ![](./media/image100.png)
 
 6.  Enter your **Microsoft Office 365** **tenant** credentials and click
     on the **Next** button.
 
-<img src="./media/image101.png"
-style="width:6.25833in;height:6.05833in" />
+      ![](./media/image101.png)
 
 7.  Enter the **Administrative password** from the **Resources** tab and
     click on the **Sign in** button**.**
 
-<img src="./media/image102.png" style="width:5.95in;height:5.175in" />
-
+     ![](./media/image102.png)
 8.  In Power BI Desktop, select **Blank report.**
 
-<img src="./media/image103.png"
-style="width:7.27361in;height:4.40712in" />
+     ![](./media/image103.png)
 
-9.  , On the *Home* ribbon, click the ***OneLake data hub*** and select
+9.  On the *Home* ribbon, click the ***OneLake data hub*** and select
     **KQL Database.**
 
-<img src="./media/image104.png"
-style="width:7.27414in;height:3.1375in" />
+     ![](./media/image104.png)
 
 10. On the **OneLake data hub** window, select the **StockDB**  and
     click on the **Connect** button.
 
-<img src="./media/image105.png"
-style="width:6.49167in;height:3.40833in" />
+      ![](./media/image105.png)
 
 11. Enter your **Microsoft Office 365** tenant credentials and click on
     the **Next** button.
 
-<img src="./media/image106.png" style="width:6.5in;height:6.975in" />
+     ![](./media/image106.png)
 
 12. Enter the **Administrative password** from the **Resources** tab and
     click on the **Sign in** button**.**
 
-<img src="./media/image107.png"
-style="width:4.59167in;height:5.26667in" />
+      ![](./media/image107.png)
 
 13. In the Navigator page, under **Display Options**, select
     **StockPrice** table, then click on the **Load** button.
 
-<img src="./media/image108.png" style="width:6.5in;height:5.275in" />
+     ![](./media/image108.png)
 
 14. In the ***Connection settings*** dialog box, select
     ***DirectQuery*** radio button and click on **OK** button.
 
-<img src="./media/image109.png"
-style="width:4.22083in;height:2.56858in" />
+     ![](./media/image109.png)
 
 15. On the ***Home*** ribbon, click the ***OneLake data hub*** and
     select **Power BI semantic models** as shown in the below image.
 
-<img src="./media/image110.png" style="width:6.5in;height:4.19167in" />
+     ![](./media/image110.png)
 
 16. On the **OneLake data hub** window, select
     the **StockLakehousePredictions** from the list and click on the
     **Connect** button.
-
-<img src="./media/image111.png"
-style="width:6.49167in;height:3.38333in" />
-
+      ![](./media/image111.png)
 17. In the **Connect to your data** page, select **dim_symbol,
     stock_prediction**, and click on the **Submit** button.
 
-<img src="./media/image112.png"
-style="width:5.55833in;height:5.88333in" />
+      ![](./media/image112.png)
 
 18. In this case, we can dismiss the **Potential security risk** warning
     by clicking on the **OK** button.
 
-<img src="./media/image113.png" style="width:6.5in;height:1.40833in" />
+     ![](./media/image113.png)
 
-<img src="./media/image114.png" style="width:7.20263in;height:3.5236in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image114.png)
 19. Click on ***Modeling*** in the command bar, then click on ***Manage
     relationships.***
 
-<img src="./media/image115.png" style="width:6.5in;height:3.40833in" />
+     ![](./media/image115.png)
 
 20. In the **Manage relationships** pane, select +**New relationship**
     as shown in the below image.
 
-<img src="./media/image116.png"
-style="width:6.49167in;height:4.99167in" />
+      ![](./media/image116.png)
 
 21. Create a **New relationship** between the ***StockPrice*** -**From
     table** and the ***stocks_prediction*** – ***To table* **(after
@@ -641,12 +557,12 @@ style="width:6.49167in;height:4.99167in" />
     the cardinality is set to ***Many-to-many*.** Then, click on the
     **Save** button.
 
-> <img src="./media/image117.png" style="width:6.5in;height:6.38333in" />
+      ![](./media/image117.png)
 
-22. In **Mange relationships** page, select ***StockPrice***,
-    ***stocks_prediction*** tables and click on the **Close** button.
+22. In **Mange relationships** page, select **StockPrice**,
+    **stocks_prediction** tables and click on the **Close** button.
 
-<img src="./media/image118.png" style="width:6.5in;height:4.85833in" />
+      ![](./media/image118.png)
 
 23. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
@@ -664,11 +580,9 @@ style="width:6.49167in;height:4.99167in" />
 - **Filter**: **timestamp** to ***Relative time** is in the last* **15
   minutes**.
 
-<img src="./media/image119.png"
-style="width:5.675in;height:6.80833in" />
+     ![](./media/image119.png)
 
-<img src="./media/image120.png"
-style="width:7.1554in;height:4.06467in" />
+     ![](./media/image120.png)
 
 24. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
@@ -686,17 +600,10 @@ style="width:7.1554in;height:4.06467in" />
 - **Filter**: **timestamp** to ***Relative time** is in the last* **1
   hour**.
 
-<img src="./media/image121.png"
-style="width:7.18155in;height:2.64583in" />
-
-<img src="./media/image122.png"
-style="width:5.25417in;height:5.53899in" />
-
-<img src="./media/image123.png" style="width:5.8in;height:6.025in" />
-
-<img src="./media/image124.png"
-style="width:7.32714in;height:4.17083in" />
-
+     ![](./media/image121.png)
+     ![](./media/image122.png)
+     ![](./media/image123.png)
+     ![](./media/image124.png)
 25. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
 
@@ -713,79 +620,67 @@ style="width:7.32714in;height:4.17083in" />
 - **Filter**: **predict_time** to ***Relative date** in the last* **3
   days**.
 
-<img src="./media/image125.png"
-style="width:5.60833in;height:6.90833in" />
-
-<img src="./media/image126.png"
-style="width:6.49167in;height:3.54167in" />
-
-<img src="./media/image127.png"
-style="width:4.44583in;height:5.09322in" />
-
-<img src="./media/image128.png" style="width:6.5in;height:4.03333in" />
+     ![](./media/image125.png)
+     ![](./media/image126.png)
+     ![](./media/image127.png)
+     ![](./media/image128.png)
 
 26. In the **Power BI** page, under **Data,** right click
     the ***stocks_prediction*** table and select ***New measure.***
 
-<img src="./media/image129.png" style="width:6.5in;height:5.35in" />
+      ![](./media/image129.png)
 
 27. Measures are formulas written in the Data Analysis Expressions (DAX)
     language; for this DAX formula, enter +++***currdate = NOW()+++* **
 
-<img src="./media/image130.png" style="width:6.49167in;height:4in" />
+      ![](./media/image130.png)
 
 28. With the prediction chart selected, navigate to the additional
     visualization options i.e., the magnifying glass/chart icon and add
     a **new *X-Axis Constant Line***.
 
-<img src="./media/image131.png" style="width:5.75in;height:5.9in" />
+      ![](./media/image131.png)
 
 29. Under *Value*, use the formula button **(fx)** to choose a field.
 
-<img src="./media/image132.png"
-style="width:5.89583in;height:3.65557in" />
+     ![](./media/image132.png)
 
 30. In **Value -Apply settings to** page, click on the dropdown under
     **what field should we base this on?**, then click on the dropdown
     of **stocks_prediction**, select the ***currdate* **measure. Then,
     click on the **OK** button.
 
-<img src="./media/image133.png"
-style="width:6.41495in;height:4.52917in" />
+     ![](./media/image133.png)
 
-<img src="./media/image134.png"
-style="width:7.38149in;height:4.0125in" />
+     ![](./media/image134.png)
 
 31. Navigate to the additional visualization options i.e., the
     magnifying glass/chart icon, turn On the **Shade
-    area**.<img src="./media/image135.png"
-    style="width:6.91875in;height:3.7125in" />
+    area**.
+      ![](./media/image135.png)
 
-32. Configured the relationships between tables, all visual should cross
+33. Configured the relationships between tables, all visual should cross
     filter; when selecting either a symbol or market on a chart, all
     visuals should react accordingly. As shown in the below image, the
     **NASDAQ** market is selected on the upper-right market chart:
 
-<img src="./media/image136.png" style="width:6.5in;height:4.01667in" />
-
-<img src="./media/image137.png"
-style="width:7.31785in;height:4.51424in" />
+     ![](./media/image136.png)
+     ![](./media/image137.png)
 
 33. Click on the **Publish** in the command bar.
 
-<img src="./media/image138.png" style="width:6.5in;height:3.69167in" />
+      ![](./media/image138.png)
 
 34. In **Microsoft Power BI Desktop** dialog box, click on the **Save**
     button.
 
-<img src="./media/image139.png"
-style="width:5.09167in;height:1.80833in" />
+     ![](./media/image139.png)
 
 35. In **Save this file** dialog box, enter the Name as **Prediction
     Report** and select the location. Then, click on the **Save**
     button.
 
-<img src="./media/image140.png" style="width:4.95in;height:4.73333in" />
+     ![](./media/image140.png)
 
 ## **Summary**
 
