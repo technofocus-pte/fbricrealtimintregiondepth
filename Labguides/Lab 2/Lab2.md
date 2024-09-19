@@ -53,21 +53,19 @@ complexity to support different business uses.
 6.  In the query editor, copy and paste the following code. Select the
     entire text and click on the ***Run*** button to execute the query.
     After the query is executed, you will see the results.
+```
+// Use "take" to view a sample number of records in the table and check the data.
+StockPrice
+| take 100;
 
-  >````**Copy**
-  >// Use "take" to view a sample number of records in the table and check the data.
-  >StockPrice
-  >| take 100;
-  >
-  >// See how many records are in the table.
-  >StockPrice
-  >| count;
-  >
-  >// This query returns the number of ingestions per hour in the given table.
-  >StockPrice
-  >| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+// See how many records are in the table.
+StockPrice
+| count;
 
-
+// This query returns the number of ingestions per hour in the given table.
+StockPrice
+| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+```
 ***Note:** To run a single query when there are multiple queries in the
 editor, you can highlight the query text or place your cursor so the
 cursor is in the context of the query (for example, at the beginning or
@@ -108,17 +106,21 @@ a semicolon (;) after the statement, as shown below.*
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
 ```
-// Use "take" to view a sample number of records in the table and check the data.
 StockPrice
-| take 100;
+| where timestamp > ago(75m)
+| project symbol, price, timestamp
+| partition by symbol
+(
+    order by timestamp asc
+    | extend prev_price = prev(price, 1)
+    | extend prev_price_10min = prev(price, 600)
+)
+| where timestamp > ago(60m)
+| order by timestamp asc, symbol asc
+| extend pricedifference_10min = round(price - prev_price_10min, 2)
+| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+| order by timestamp asc, symbol asc
 
-// See how many records are in the table.
-StockPrice
-| count;
-
-// This query returns the number of ingestions per hour in the given table.
-StockPrice
-| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
 ```
 
    ![](./media/image13.png)
@@ -153,22 +155,21 @@ StockPrice
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-
-> ````**Copy**
->
-> StockPrice
->| project symbol, price, timestamp
->| partition by symbol
->(
->    order by timestamp asc
->    | extend prev_price = prev(price, 1)
->    | extend prev_price_10min = prev(price, 600)
->)
->| order by timestamp asc, symbol asc
->| extend pricedifference_10min = round(price - prev_price_10min, 2)
->| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
->| order by timestamp asc, symbol asc
->| summarize arg_max(pricedifference_10min, *) by symbol
+```
+StockPrice
+| project symbol, price, timestamp
+| partition by symbol
+(
+    order by timestamp asc
+    | extend prev_price = prev(price, 1)
+    | extend prev_price_10min = prev(price, 600)
+)
+| order by timestamp asc, symbol asc
+| extend pricedifference_10min = round(price - prev_price_10min, 2)
+| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+| order by timestamp asc, symbol asc
+| summarize arg_max(pricedifference_10min, *) by symbol
+```
 
    ![](./media/image16.png)
 
@@ -194,12 +195,11 @@ StockPrice
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-
-> ````**Copy**
->StockPrice
->
->| summarize avg(price), min(price), max(price) by bin(timestamp, 1h),symbol
->| sort by timestamp asc, symbol asc
+```
+StockPrice
+| summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
+| sort by timestamp asc, symbol asc
+```
    ![](./media/image20.png)
 
 4.  This is particularly useful when creating reports that aggregate
@@ -223,23 +223,23 @@ StockPrice
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-
->```` Copy
->StockPrice
->| where timestamp > ago(75m)
->| project symbol, price, timestamp
->| partition by symbol
->(
->    order by timestamp asc
->    | extend prev_price = prev(price, 1)
->    | extend prev_price_10min = prev(price, 600)
->)
->| where timestamp > ago(60m)
->| order by timestamp asc, symbol asc
->| extend pricedifference_10min = round(price - prev_price_10min, 2)
->| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
->| order by timestamp asc, symbol asc
->| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
+```
+StockPrice
+| where timestamp > ago(75m)
+| project symbol, price, timestamp
+| partition by symbol
+(
+    order by timestamp asc
+    | extend prev_price = prev(price, 1)
+    | extend prev_price_10min = prev(price, 600)
+)
+| where timestamp > ago(60m)
+| order by timestamp asc, symbol asc
+| extend pricedifference_10min = round(price - prev_price_10min, 2)
+| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+| order by timestamp asc, symbol asc
+| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
+```
    ![](./media/image23.png)
 4.  This will render a line chart as shown in the below image.
     ![](./media/image24.png)
