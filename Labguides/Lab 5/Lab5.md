@@ -66,30 +66,25 @@ workspace.
     on the left side, navigate and click on **Data Warehouse** as shown
     in the below image.
 
-<img src="./media/image1.png" style="width:5.10833in;height:7.625in" />
-
-2.  Select the ***Warehouse* **tile to create a new Synapse Data
+     ![](./media/image1.png)
+2.  Select the **Warehouse**tile to create a new Synapse Data
     Warehouse.
-
-<img src="./media/image2.png"
-style="width:6.49236in;height:6.17431in" />
+     ![](./media/image2.png)
 
 3.  On the **New warehouse** dialog box, enter +++***StocksDW+++*** as
     the name and click on the **Create** button.
 
-<img src="./media/image3.png"
-style="width:2.78056in;height:1.68194in" />
+     ![](./media/image3.png)
 
 4.  The warehouse is largely empty.
 
-<img src="./media/image4.png" style="width:6.5in;height:4.85833in" />
+     ![](./media/image4.png)
 
 5.  Click on ***New SQL query*** dropdown in the command bar, then
     select **New SQL query** under **Blank** section. We'll start
     building our schema in the next task.
 
-<img src="./media/image5.png" style="width:6.5in;height:5.18958in" />
-
+     ![](./media/image5.png)
 ## Task 2: Create the staging and ETL objects
 
 1.  Run the following query that creates the staging tables that will
@@ -107,151 +102,121 @@ style="width:2.78056in;height:1.68194in" />
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
+```
+/* 1 - Create Staging and ETL.sql */
 
-> ````**Copy**
->
->/* 1 - Create Staging and ETL.sql */
->
->-- STAGING TABLES
->CREATE SCHEMA stg
->GO
->
->CREATE TABLE stg.StocksPrices
->(
->   symbol VARCHAR(5) NOT NULL
->   ,timestamp VARCHAR(30) NOT NULL
->   ,price FLOAT NOT NULL
->   ,datestamp VARCHAR(12) NOT NULL
->)
->GO
->
->-- ETL TABLES
->CREATE SCHEMA ETL
->GO
->CREATE TABLE ETL.IngestSourceInfo
->(
->    ObjectName VARCHAR(50) NOT NULL
->    ,WaterMark DATETIME2(6)
->    ,IsActiveFlag VARCHAR(1)
->)
+-- STAGING TABLES
+CREATE SCHEMA stg
+GO
+
+CREATE TABLE stg.StocksPrices
+(
+   symbol VARCHAR(5) NOT NULL
+   ,timestamp VARCHAR(30) NOT NULL
+   ,price FLOAT NOT NULL
+   ,datestamp VARCHAR(12) NOT NULL
+)
+GO
+
+-- ETL TABLES
+CREATE SCHEMA ETL
+GO
+CREATE TABLE ETL.IngestSourceInfo
+(
+    ObjectName VARCHAR(50) NOT NULL
+    ,WaterMark DATETIME2(6)
+    ,IsActiveFlag VARCHAR(1)
+)
 
 INSERT [ETL].[IngestSourceInfo]
 SELECT 'StocksPrices', '1/1/2022 23:59:59', 'Y'
-
-
-<img src="./media/image6.png"
-style="width:6.49236in;height:5.14375in" />
-
-<img src="./media/image7.png" style="width:6.5in;height:3.70764in" />
+```
+   ![](./media/image6.png)
+   ![](./media/image7.png)
 
 4.  Rename the query for reference. Right-click on **SQL query 1** in
     **Explorer** and select **Rename**.
-
-<img src="./media/image8.png"
-style="width:6.49236in;height:5.36389in" />
-
+    ![](./media/image8.png)
 5.  In the **Rename** dialog box, under the **Name** field, enter
     **Create stocks and metadata**, then click on the **Rename**
     button. 
-
-> <img src="./media/image9.png"
-> style="width:3.40903in;height:1.80278in" />
-
+     ![](./media/image9.png)
 6.  Click on ***New SQL query*** dropdown in the command bar, then
     select **New SQL query** under **Blank** section. We'll start
     building our schema in the next step:
-
-<img src="./media/image10.png"
-style="width:6.49236in;height:4.47708in" />
-
-7.  The *sp_IngestSourceInfo_Update* procedure updates the watermark;
+     ![](./media/image10.png)
+7.  The **sp_IngestSourceInfo_Update** procedure updates the watermark;
     this ensures we are keeping track of which records have already been
     imported
 
 8.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
+```
+/* 1 - Create Staging and ETL.sql */
 
->````**Copy**
->
->\* 1 - Create Staging and ETL.sql \*/
->
->CREATE PROC \[ETL\].\[sp_IngestSourceInfo_Update\]
->
->@ObjectName VARCHAR(50)
->,@WaterMark DATETIME2(6)
->AS
->BEGIN
->UPDATE \[ETL\].\[IngestSourceInfo\]
->SET WaterMark = @WaterMark
->WHERE
->ObjectName = @ObjectName
->
->END
->
->GO
+CREATE PROC [ETL].[sp_IngestSourceInfo_Update]
+@ObjectName VARCHAR(50)
+,@WaterMark DATETIME2(6)
+AS
+BEGIN
 
-<img src="./media/image11.png"
-style="width:6.49236in;height:4.32569in" />
+UPDATE [ETL].[IngestSourceInfo]
+    SET WaterMark = @WaterMark
+WHERE 
+    ObjectName  = @ObjectName
 
-<img src="./media/image12.png" style="width:5.8702in;height:4.13109in"
-alt="A screenshot of a computer Description automatically generated" />
+END
 
+GO
+```
+   ![](./media/image11.png)
+    ![](./media/image12.png)
 6.  Rename the query for reference later. Right-click on **SQL query 1**
     in **Explorer** and select **Rename**.
 
-<img src="./media/image13.png"
-style="width:6.49236in;height:5.28056in" />
-
+     ![](./media/image13.png)
 7.  In the **Rename** dialog box, under the **Name** field, enter
     **ETL.sql_IngestSource**, then click on the **Rename**
     button. 
 
-<img src="./media/image14.png" style="width:3.8875in;height:2.22265in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image14.png)
 
 This should look similar to:
-
-<img src="./media/image15.png" style="width:6.5in;height:1.96944in"
-alt="DW First Queries" />
+      ![](./media/image15.png)
 
 ## Task 3: Create the data pipeline
 
 1.  On the **StockDW** page, click on **RealTimeWorkspace** Workspace on
     the left-sided navigation menu.
 
-<img src="./media/image16.png"
-style="width:6.49236in;height:4.23472in" />
+     ![](./media/image16.png)
 
 2.  On the **Synapse Data Warehouse RealTimeWorkhouse** home page, under
     **RealTimeWorkhouse**, click on **+New**, then select **Data
     pipeline.**
 
-<img src="./media/image17.png"
-style="width:6.49236in;height:7.19722in" />
+     ![](./media/image17.png)
 
 3.  A **New pipeline** dialog box will appear, in the **Name**  field,
     enter  ***PL_Refresh_DWH*** and click on the **Create**
     button.
-
-<img src="./media/image18.png" style="width:3.47708in;height:2.68194in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image18.png)
 4.  In the ***PL_Refresh_DWH*** page, navigate to **Build a data
     pipeline to organize and move your data** section and click on
     **P**i**peline activity**.
 
-<img src="./media/image19.png" style="width:6.5in;height:4.23333in" />
+      ![](./media/image19.png)
 
 5.  Then, navigate and select ***Lookup*** activity as shown in the
     below image.
 
-<img src="./media/image20.png" style="width:6.49167in;height:4.725in" />
+      ![](./media/image20.png)
+   
+6.  On the **General** tab, in the **Name field,** enter +++Get
+    WaterMark+++
 
-6.  On the **General** tab, in the **Name field,** enter +++***Get
-    WaterMark***+++
-
-<img src="./media/image21.png" style="width:6.5in;height:4.93958in" />
+     ![](./media/image21.png)
 
 7.  Click on the **Settings** tab, enter the following details as shown
     in the below image.
@@ -262,7 +227,7 @@ alt="A screenshot of a computer Description automatically generated" />
 | **Query** | **SELECT \* FROM \[ETL\].\[IngestSourceInfo\] WHERE IsActiveFlag = 'Y'** |
 | **First row only* *** | ***unchecked*.** |
 
-<img src="./media/image22.png" style="width:6.49167in;height:6.15in" />
+      ![](./media/image22.png)
 
 ## Task 4: Build ForEach activity
 
@@ -275,30 +240,26 @@ pull data from, we'd repeat these steps for each data source.
     right arrow to **Add an activity**. Then, navigate and
     select ***ForEach*** activity as shown in the below image.
 
-<img src="./media/image23.png" style="width:6.5in;height:5.49236in" />
-
+     ![](./media/image23.png)
 2.  Click on the **Settings** tab, enter the items as 
-    **@activity('Get WaterMark').output.value**
+    +++@activity('Get WaterMark').output.value+++
 
-This should look similar to the below image:
+     This should look similar to the below image:
 
-<img src="./media/image24.png" style="width:6.5in;height:5.91667in" />
+     ![](./media/image24.png)
 
 3.  In the *ForEach*  box, click on the plus (+) symbol to add a new
     activity.
 
-> <img src="./media/image25.png" style="width:6.5in;height:6.08333in" />
-
+     ![](./media/image25.png)
 4.  Select and add a ***Copy Data*** activity within *ForEach.*
 
-> <img src="./media/image26.png" style="width:6.49236in;height:6.33333in"
-> alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image26.png)
 
 5.  Select **Copy data1** Activity icon, on the **General** tab, in the
-    **Name field,** enter +++***Copy KQL***+++
+    **Name field,** enter +++Copy KQL+++
 
-> <img src="./media/image27.png" style="width:6.49236in;height:5.97708in"
-> alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image27.png)
 
 6.  Click on the **Source** tab, enter the following settings.
 
@@ -334,9 +295,7 @@ item().WaterMark,''')</strong></p>
 </table>
 
 The *Source* tab of the activity should look similar to:
-
-<img src="./media/image28.png"
-style="width:6.49167in;height:5.98333in" />
+     ![](./media/image28.png)
 
 7.  Click on the **Destination** tab, enter the following settings
 
@@ -358,20 +317,16 @@ maximum rowcount of 500,000 rows. Given the current rate of data
 ingested, this equates to about 3/4 of one day.
 
 The *Destination* tab of the activity should look like:
-
-<img src="./media/image29.png" style="width:6.5in;height:6.23333in" />
+     ![](./media/image29.png)
 
 8.  In the *ForEach*  box, click on the plus **(+)** symbol, navigate
     and select **Lookup** activity.
-
-<img src="./media/image30.png"
-style="width:6.49236in;height:5.28056in" />
+      ![](./media/image30.png)
 
 9.  Click on **Lookup1** icon, in the **General** tab, **Name field,**
-    enter +++***Get New WaterMark*** +++
+    enter +++Get New WaterMark+++
 
-> <img src="./media/image31.png" style="width:6.5in;height:5.26528in"
-> alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image31.png)
 
 10. Click on the **Settings** tab, enter the following settings
 
@@ -379,21 +334,16 @@ style="width:6.49236in;height:5.28056in" />
 |----|----|
 | **Use query** | **Query** |
 | **Query** | @concat('Select Max(timestamp) as WaterMark from stg.', item().ObjectName) |
-
-<img src="./media/image32.png" style="width:6.5in;height:5.075in" />
+     ![](./media/image32.png)
 
 11. In the *ForEach* box, click on the plus **(+)** symbol, navigate and
     select ***Stored Procedure***  activity.
 
-> <img src="./media/image33.png" style="width:6.5in;height:5.26528in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image33.png)
 
 12. Click on the **Stored procedure** icon. On the **General** tab, in
     the **Name field,** enter  ***Update WaterMark*** 
-
-> <img src="./media/image34.png" style="width:6.49236in;height:4.57569in"
-> alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image34.png)
 13. Click on the **Settings** tab, enter the following settings.
 
 | **Workspace**             | **StocksDW**                   |
@@ -406,41 +356,32 @@ style="width:6.49236in;height:5.28056in" />
 |----|----|----|
 | ObjectName | String | @item().ObjectName |
 | WaterMark | DateTime | @activity('Get New WaterMark').output.firstRow.WaterMark |
-
-<img src="./media/image35.png"
-style="width:6.49167in;height:5.00833in" />
+     ![](./media/image35.png)
 
 ## Task 5: Test the Pipeline
 
 1.  From the ***Home*** tab in the pipeline, select ***Run***.
 
-> <img src="./media/image36.png" style="width:6.5in;height:3.13611in"
-> alt="A screenshot of a computer Description automatically generated" />
-
+      ![](./media/image36.png)
 2.  In the **Save and run?** dialog box, click on **Save and run**
     button
 
-> <img src="./media/image37.png" style="width:3.09861in;height:2.00764in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image37.png)
 
 3.  This will prompt to first save the pipeline, and then validate to
     find any configuration errors. This initial run will take a few
     moments and will copy the data into the staging table.
 
-<img src="./media/image38.png"
-style="width:7.30695in;height:4.1125in" />
+      ![](./media/image38.png)
 
 4.  On the **PL_Refresh_DWH** page, click on **RealTimeWorkspace**
     Workspace on the left-sided navigation menu.
 
-<img src="./media/image39.png" style="width:6.29514in;height:6.96181in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image39.png)
 
 5.  Click on the **Refresh** button.
 
-<img src="./media/image40.png" style="width:6.32569in;height:4.21944in"
-alt="A screenshot of a computer Description automatically generated" />
-
+      ![](./media/image40.png)
 6.  In the data warehouse, data should be visible in the staging table.
     Within the data warehouse, selecting a table will show a preview of
     the data in the table. Click on StocksDW on the left-sided
@@ -448,14 +389,13 @@ alt="A screenshot of a computer Description automatically generated" />
     Schemas, navigate and click on **stg**, then click on
     **StocksPrices** as shown in the below image.
 
-<img src="./media/image41.png"
-style="width:6.49236in;height:3.26528in" />
+      ![](./media/image41.png)
 
 9.  Click on ***New SQL query*** dropdown in the command bar, then
     select **New SQL query** under **Blank** section. We'll start
     building our schema in the next step:
 
-<img src="./media/image42.png" style="width:6.5in;height:4.57569in" />
+       ![](./media/image42.png)
 
 8.  While we're in the data warehouse, run the script below in new SQL
     query window to reset the ingestion process. It's often handy in
@@ -468,63 +408,35 @@ style="width:6.49236in;height:3.26528in" />
 9.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
+```
+-- Run this to 'RESET' the ingestion tables
 
-> ````**Copy**
->-- Run this to 'RESET' the ingestion tables
->
->exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01 23:59:59.000000'
->GO
->
->IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
->    WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
->BEGIN
->    delete stg.StocksPrices
->END
->GO
->
->IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
->    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
->BEGIN
->    delete dbo.fact_Stocks_Daily_Prices
->END
->GO
->
->IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
->    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
->BEGIN
->    delete dbo.dim_Symbol
->END
->GO
->
->
->IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
->
->WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
->
->BEGIN
->
->delete dbo.fact_Stocks_Daily_Prices
->
->END
->
->GO
->
->IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
->
->WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
->
->BEGIN
->
->delete dbo.dim_Symbol
->
->END
->
->GO
+exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01 23:59:59.000000'
+GO
 
-<img src="./media/image43.png"
-style="width:7.30691in;height:4.77462in" />
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
+BEGIN
+    delete stg.StocksPrices
+END
+GO
 
-<img src="./media/image44.png" style="width:6.5in;height:3.69653in" />
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
+BEGIN
+    delete dbo.fact_Stocks_Daily_Prices
+END
+GO
+
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
+BEGIN
+    delete dbo.dim_Symbol
+END
+GO
+```
+   ![](./media/image43.png)
+   ![](./media/image44.png)
 
 # Exercise 2: Build Star Schema
 
@@ -549,7 +461,7 @@ closing price of the stock.
     select **New SQL query** under **Blank** section. We'll start
     building our schema in the next step.
 
-<img src="./media/image42.png" style="width:6.5in;height:4.57569in" />
+      ![](./media/image42.png)
 
 2.  In our data warehouse, run the following SQL to create the fact and
     dimension tables. As in the previous step, you can run this ad-hoc
@@ -558,62 +470,55 @@ closing price of the stock.
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
+```
+/* 2 - Create Dimension and Fact tables.sql */
 
->```` **Copy**
->/* 2 - Create Dimension and Fact tables.sql */
->
->-- Dimensions and Facts (dbo)
->CREATE TABLE dbo.fact_Stocks_Daily_Prices
->(
->   Symbol_SK INT NOT NULL
->   ,PriceDateKey DATE NOT NULL
->   ,MinPrice FLOAT NOT NULL
->   ,MaxPrice FLOAT NOT NULL
->   ,ClosePrice FLOAT NOT NULL
->)
->GO
->
->CREATE TABLE dbo.dim_Symbol
->(
->    Symbol_SK INT NOT NULL
->    ,Symbol VARCHAR(5) NOT NULL
->    ,Name VARCHAR(25)
->    ,Market VARCHAR(15)
->)
->GO
->
->CREATE TABLE dbo.dim_Date 
->(
->    [DateKey] DATE NOT NULL
->    ,[DayOfMonth] int
->    ,[DayOfWeeK] int
->    ,[DayOfWeekName] varchar(25)
->    ,[Year] int
->    ,[Month] int
->    ,[MonthName] varchar(25)
->    ,[Quarter] int
->    ,[QuarterName] varchar(2)
->)
->GO
+-- Dimensions and Facts (dbo)
+CREATE TABLE dbo.fact_Stocks_Daily_Prices
+(
+   Symbol_SK INT NOT NULL
+   ,PriceDateKey DATE NOT NULL
+   ,MinPrice FLOAT NOT NULL
+   ,MaxPrice FLOAT NOT NULL
+   ,ClosePrice FLOAT NOT NULL
+)
+GO
 
+CREATE TABLE dbo.dim_Symbol
+(
+    Symbol_SK INT NOT NULL
+    ,Symbol VARCHAR(5) NOT NULL
+    ,Name VARCHAR(25)
+    ,Market VARCHAR(15)
+)
+GO
 
-<img src="./media/image45.png" style="width:6.5in;height:5.81042in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image46.png" style="width:6.5in;height:4.90556in" />
+CREATE TABLE dbo.dim_Date 
+(
+    [DateKey] DATE NOT NULL
+    ,[DayOfMonth] int
+    ,[DayOfWeeK] int
+    ,[DayOfWeekName] varchar(25)
+    ,[Year] int
+    ,[Month] int
+    ,[MonthName] varchar(25)
+    ,[Quarter] int
+    ,[QuarterName] varchar(2)
+)
+GO
+```
+  ![](./media/image45.png)
+  ![](./media/image46.png)
 
 4.  Rename the query for reference. Right-click on **SQL query** in
     Explorer and select **Rename**.
 
-<img src="./media/image47.png" style="width:5.60795in;height:6.16995in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image47.png)
 5.  In the **Rename** dialog box, under the **Name** field, enter 
     ***Create Dimension and Fact tables***, then click on the
     **Rename** button. 
 
-<img src="./media/image48.png" style="width:3.39375in;height:1.94722in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image48.png)
 
 ## Task 2: Load the date dimension
 
@@ -622,9 +527,7 @@ alt="A screenshot of a computer Description automatically generated" />
     query** under **Blank** section. We'll start building our schema in
     the next step:
 
-<img src="./media/image49.png" style="width:6.02462in;height:4.58523in"
-alt="A screenshot of a computer Description automatically generated" />
-
+      ![](./media/image49.png)
 2.  The date dimension is differentiated; it can be loaded once with all
     the values we'd need. Run the following script, which creates a
     procedure to populate the date dimension table with a broad range of
@@ -633,113 +536,75 @@ alt="A screenshot of a computer Description automatically generated" />
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
+```
+/* 3 - Load Dimension tables.sql */
 
-> ````**Copy**
->
->\* 3 - Load Dimension tables.sql \*/
->
->CREATE PROC \[ETL\].\[sp_Dim_Date_Load\]
->
->@BeginDate DATE = NULL
->
->,@EndDate DATE = NULL
->
->AS
->
->BEGIN
->
->SET @BeginDate = ISNULL(@BeginDate, '2022-01-01')
->
->SET @EndDate = ISNULL(@EndDate, DATEADD(year, 2, GETDATE()))
->
->DECLARE @N AS INT = 0
->
->DECLARE @NumberOfDates INT = DATEDIFF(day,@BeginDate, @EndDate)
->
->DECLARE @SQL AS NVARCHAR(MAX)
->
->DECLARE @STR AS VARCHAR(MAX) = ''
->
->WHILE @N \<= @NumberOfDates
->
->BEGIN
->
->SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10))
->
->IF @N \< @NumberOfDates
->
->BEGIN
->
->SET @STR = @STR + ','
->
->END
->
->SET @N = @N + 1;
->
->END
->
->SET @SQL = 'INSERT INTO dbo.dim_Date ([DateKey]) SELECT CAST([value]
->AS DATE) FROM STRING_SPLIT(@STR, '','')';
->
->EXEC sys.sp_executesql @SQL, N'@STR NVARCHAR(MAX)', @STR;
->
->UPDATE dbo.dim_Date
->SET 
->    [DayOfMonth] = DATEPART(day,DateKey)
->    ,[DayOfWeeK] = DATEPART(dw,DateKey)
->    ,[DayOfWeekName] = DATENAME(weekday, DateKey)
->    ,[Year] = DATEPART(yyyy,DateKey)
->    ,[Month] = DATEPART(month,DateKey)
->    ,[MonthName] = DATENAME(month, DateKey)
->    ,[Quarter] = DATEPART(quarter,DateKey)
->    ,[QuarterName] = CONCAT('Q',DATEPART(quarter,DateKey))
->
->END
->GO
+CREATE PROC [ETL].[sp_Dim_Date_Load]
+@BeginDate DATE = NULL
+,@EndDate DATE = NULL
+AS
+BEGIN
 
+SET @BeginDate = ISNULL(@BeginDate, '2022-01-01')
+SET @EndDate = ISNULL(@EndDate, DATEADD(year, 2, GETDATE()))
 
-<img src="./media/image50.png" style="width:6.49236in;height:4.77292in"
-alt="A screenshot of a computer Description automatically generated" />
+DECLARE @N AS INT = 0
+DECLARE @NumberOfDates INT = DATEDIFF(day,@BeginDate, @EndDate)
+DECLARE @SQL AS NVARCHAR(MAX)
+DECLARE @STR AS VARCHAR(MAX) = ''
 
-<img src="./media/image51.png" style="width:6.5in;height:4.52431in"
-alt="A screenshot of a computer Description automatically generated" />
+WHILE @N <= @NumberOfDates
+    BEGIN
+    SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10)) 
+    
+    IF @N < @NumberOfDates
+        BEGIN
+            SET @STR = @STR + ','
+        END
 
+    SET @N = @N + 1;
+    END
+
+SET @SQL = 'INSERT INTO dbo.dim_Date ([DateKey]) SELECT CAST([value] AS DATE) FROM STRING_SPLIT(@STR, '','')';
+
+EXEC sys.sp_executesql @SQL, N'@STR NVARCHAR(MAX)', @STR;
+
+UPDATE dbo.dim_Date
+SET 
+    [DayOfMonth] = DATEPART(day,DateKey)
+    ,[DayOfWeeK] = DATEPART(dw,DateKey)
+    ,[DayOfWeekName] = DATENAME(weekday, DateKey)
+    ,[Year] = DATEPART(yyyy,DateKey)
+    ,[Month] = DATEPART(month,DateKey)
+    ,[MonthName] = DATENAME(month, DateKey)
+    ,[Quarter] = DATEPART(quarter,DateKey)
+    ,[QuarterName] = CONCAT('Q',DATEPART(quarter,DateKey))
+
+END
+GO
+```
+   ![](./media/image50.png)
+   ![](./media/image51.png)
 4.  From same query window, execute the above procedure by running the
     following script.
-
-> ````**Copy**
->
->\* 3 - Load Dimension tables.sql \*/
->
->Exec ETL.sp_Dim_Date_Load
-
-<img src="./media/image52.png" style="width:6.49236in;height:4.68958in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image53.png" style="width:6.5in;height:3.16181in"
-alt="A screenshot of a computer Description automatically generated" />
-
+```
+/* 3 - Load Dimension tables.sql */
+Exec ETL.sp_Dim_Date_Load
+```
+   ![](./media/image52.png)
+   ![](./media/image53.png)
 5.  Rename the query for reference. Right-click on **SQL query** in
     Explorer and select **Rename**.
-
-<img src="./media/image54.png" style="width:4.90341in;height:5.77395in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image54.png)
 6.  In the **Rename** dialog box, under the **Name** field, enter 
     **Load Dimension tables**, then click on the **Rename** button. 
-
-<img src="./media/image55.png" style="width:3.40903in;height:1.89375in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image55.png)
 ## Task 3: Create the procedure to load the Symbol dimension
 
 1.  Click on ***New SQL query*** dropdown in the command bar, then
     select **New SQL query** under **Blank** section. We'll start
     building our schema in the next step.
-
-<img src="./media/image49.png" style="width:6.02462in;height:4.58523in"
-alt="A screenshot of a computer Description automatically generated" />
-
+      ![](./media/image49.png)
 2.  Similar to the date dimension, each stock symbol corresponds to a
     row in the Symbols dimension table. This table holds details of the
     stock, such as company name, and the market the stock is listed
@@ -750,62 +615,51 @@ alt="A screenshot of a computer Description automatically generated" />
     procedure that will load the stock symbol dimension. We'll execute
     this in the pipeline to handle any new stocks that might enter the
     feed.
+```
+/* 3 - Load Dimension tables.sql */
 
-> ````**Copy**
->
->/* 3 - Load Dimension tables.sql */
->
->CREATE PROC [ETL].[sp_Dim_Symbol_Load]
->AS
->BEGIN
->
->DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM [dbo].[dim_Symbol])
->
->INSERT [dbo].[dim_Symbol]
->SELECT  
->    Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)  
->    , Symbol
->    , Name
->    ,Market
->FROM 
->    (SELECT DISTINCT
->    sdp.Symbol 
->    , Name  = 'Stock ' + sdp.Symbol 
->    , Market = CASE SUBSTRING(Symbol,1,1)
->                    WHEN 'B' THEN 'NASDAQ'
->                   WHEN 'W' THEN 'NASDAQ'
->                    WHEN 'I' THEN 'NYSE'
->                    WHEN 'T' THEN 'NYSE'
->                    ELSE 'No Market'
->                END
->    FROM 
->        [stg].[vw_StocksDailyPrices] sdp
->    WHERE 
->        sdp.Symbol NOT IN (SELECT Symbol FROM [dbo].[dim_Symbol])
->    ) stg
->
->END
->GO
+CREATE PROC [ETL].[sp_Dim_Symbol_Load]
+AS
+BEGIN
 
+DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM [dbo].[dim_Symbol])
 
-<img src="./media/image56.png" style="width:7.26054in;height:4.74432in"
-alt="A screenshot of a computer Description automatically generated" />
+INSERT [dbo].[dim_Symbol]
+SELECT  
+    Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)  
+    , Symbol
+    , Name
+    ,Market
+FROM 
+    (SELECT DISTINCT
+    sdp.Symbol 
+    , Name  = 'Stock ' + sdp.Symbol 
+    , Market = CASE SUBSTRING(Symbol,1,1)
+                    WHEN 'B' THEN 'NASDAQ'
+                    WHEN 'W' THEN 'NASDAQ'
+                    WHEN 'I' THEN 'NYSE'
+                    WHEN 'T' THEN 'NYSE'
+                    ELSE 'No Market'
+                END
+    FROM 
+        [stg].[vw_StocksDailyPrices] sdp
+    WHERE 
+        sdp.Symbol NOT IN (SELECT Symbol FROM [dbo].[dim_Symbol])
+    ) stg
 
-<img src="./media/image57.png" style="width:7.12346in;height:4.47423in"
-alt="A screenshot of a computer Description automatically generated" />
-
+END
+GO
+```
+  ![](./media/image56.png)
+    ![](./media/image57.png)
 7.  Rename the query for reference. Right-click on **SQL query** in
     Explorer and select **Rename**.
 
-<img src="./media/image58.png" style="width:6.5in;height:6.51528in" />
-
+      ![](./media/image58.png)
 8.  In the **Rename** dialog box, under the **Name** field, enter 
     **Load the stock symbol dimension**, then click on the
     **Rename** button. 
-
-<img src="./media/image59.png" style="width:3.50833in;height:1.89167in"
-alt="A screenshot of a computer Description automatically generated" />
-
+      ![](./media/image59.png)
 ## **Task 4: Create the views**
 
 1.  Click on ***New SQL query*** dropdown in the command bar, then
