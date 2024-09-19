@@ -897,11 +897,11 @@ applied to larger datasets.
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
-     ![](./media/image40.png)
+     ![](./media/image142.png)
 
 5.  On the OneLake data hub tab, select the **StockLakehouse**  and
     click on the **Add** button.
-    ![](./media/image41.png)
+    ![](./media/image143.png)
 6.  Select and run each cell individually.
      ![](./media/image144.png)
 7.  Function adds symbols to dim_symbol that may not exist in table,
