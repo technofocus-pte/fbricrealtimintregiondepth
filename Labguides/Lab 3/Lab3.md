@@ -227,7 +227,7 @@ the table, prepending the historical data.
     **Notebook.**
 
      ![](./media/image36.png)
-2.  Then, select the ***Lakehouse 1 - Import Data***notebook.
+2.  Then, select the **Lakehouse 1 - Import Data**notebook.
 
      ![](./media/image37.png)
 
