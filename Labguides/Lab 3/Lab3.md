@@ -225,19 +225,17 @@ the table, prepending the historical data.
 1.  In the **RealTimeWorkspace** page, to view only the notebooks, click
     on the **Filter** at the top right corner of the page, then select
     **Notebook.**
-
-     ![](./media/image36.png)
-2.  Then, select the **Lakehouse 1 - Import Data**notebook.
-
+      ![](./media/image36.png)
+2.  Then, select the **Lakehouse 1-Import Data**notebook.
      ![](./media/image37.png)
 
 3.  Under **Explorer**, navigate and select the **Lakehouse**, then
     click on the **Add* ***button as shown in the below images*.*
 
-> **Important Note**: You’ll need to add the Lakehouse to every imported
-> notebook -- do this each time you open a notebook for the first time.
-     ![](./media/image38.png)
-     ![](./media/image39.png)
+ **Important Note**: You’ll need to add the Lakehouse to every imported
+ notebook -- do this each time you open a notebook for the first time.
+      ![](./media/image38.png)
+      ![](./media/image39.png)
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
      ![](./media/image40.png)
