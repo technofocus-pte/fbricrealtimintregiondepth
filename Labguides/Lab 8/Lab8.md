@@ -33,24 +33,25 @@ larger files.
 
 3.  To compact small files using Python, in the **Synapse Data
     Engineering** workspace page, navigate and click on **+New** button,
-    then select N**otebook.**
+    then select **Notebook.**
+    
       ![](./media/image2.png)
 
-4.  Under the Explorer, select the **Lakehouse**, then click on the
+5.  Under the Explorer, select the **Lakehouse**, then click on the
     **Add** button.
 
       ![](./media/image3.png)
       ![](./media/image4.png)
 
-5.  In the **Add Lakehouse** dialog box, select the **Existing
+6.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button and click on the **Add** button.
       ![](./media/image5.png)
 
-6.  On the **OneLake data hub** window, select ***StockLakehouse*** and
+7.  On the **OneLake data hub** window, select ***StockLakehouse*** and
     click on the **Add** button.
       ![](./media/image6.png)
 
-7.  In the query editor, copy and paste the following code. Select and
+8.  In the query editor, copy and paste the following code. Select and
     **Run** the cell to execute the query. After the query is
     successfully executed, you will see the results.
 ```
