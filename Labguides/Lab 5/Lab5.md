@@ -129,12 +129,11 @@ SELECT 'StocksPrices', '1/1/2022 23:59:59', 'Y'
 ```
    ![](./media/image6.png)
    ![](./media/image7.png)
-
 4.  Rename the query for reference. Right-click on **SQL query 1** in
     **Explorer** and select **Rename**.
     ![](./media/image8.png)
 5.  In the **Rename** dialog box, under the **Name** field, enter
-    **Create stocks and metadata**, then click on the **Rename**
+    **+++Create stocks and metadata+++**, then click on the **Rename**
     button. 
      ![](./media/image9.png)
 6.  Click on ***New SQL query*** dropdown in the command bar, then
@@ -166,16 +165,15 @@ END
 
 GO
 ```
-   ![](./media/image11.png)
+  ![](./media/image11.png)
     ![](./media/image12.png)
 6.  Rename the query for reference later. Right-click on **SQL query 1**
     in **Explorer** and select **Rename**.
 
      ![](./media/image13.png)
 7.  In the **Rename** dialog box, under the **Name** field, enter
-    **ETL.sql_IngestSource**, then click on the **Rename**
+    **+++ETL.sql_IngestSource+++**, then click on the **Rename**
     button. 
-
      ![](./media/image14.png)
 
 This should look similar to:
@@ -195,7 +193,7 @@ This should look similar to:
      ![](./media/image17.png)
 
 3.  A **New pipeline** dialog box will appear, in the **Name**  field,
-    enter  ***PL_Refresh_DWH*** and click on the **Create**
+    enter  **+++PL_Refresh_DWH+++** and click on the **Create**
     button.
      ![](./media/image18.png)
 4.  In the ***PL_Refresh_DWH*** page, navigate to **Build a data
