@@ -169,7 +169,6 @@ GO
     ![](./media/image12.png)
 6.  Rename the query for reference later. Right-click on **SQL query 1**
     in **Explorer** and select **Rename**.
-
      ![](./media/image13.png)
 7.  In the **Rename** dialog box, under the **Name** field, enter
     **+++ETL.sql_IngestSource+++**, then click on the **Rename**
