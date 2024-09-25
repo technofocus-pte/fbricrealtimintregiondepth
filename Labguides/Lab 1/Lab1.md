@@ -239,7 +239,7 @@ To auto-deploy the resources, use these steps below.
     --Shared Access Key- **Enter Primary Key** (the value that you have saved
       in your notepad in the Task 5)
     
-    --Consumer group: ***\$Default***
+    --Consumer group: ***$Default***
     
     --Data format: **JSON** and click on **Next** button
       ![](./media/image41.png)
