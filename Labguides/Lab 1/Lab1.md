@@ -82,11 +82,11 @@ of resources.
      ![](./media/image8.png)
 2.  On **Upgrade to a free Microsoft Fabric** trial dialog box, click on
     **Start trial** button.
-     ![](./media/image9.png)
+      [![](./media/new1.png)
 3.  You will see a **Successfully upgraded to a free Microsoft Fabic
     trial** notification dialog box. In the dialog box, click on
     **Fabric Home Page** button.
-     [![](./media/new1.png)
+     [![](./media/image10.png)
      ![](./media/image11.png)
 ## **Task 3: Create a Fabric workspace**
 
