@@ -73,16 +73,12 @@ end of the query) -- the current query should highlight in blue. To run
 the query, click *Run* in the toolbar. If you'd like to run all 3 to
 display the results in 3 different tables, each query will need to have
 a semicolon (;) after the statement, as shown below.*
-
-   ![](./media/image6.png)
+     ![](./media/image6.png)
 7.  The results will be displayed in 3 different tables as shown in the
     below image. Click on each table tab to review the data.
-
-   ![](./media/image7.png)
-
-   ![](./media/image8.png)
-
-   ![](./media/image9.png)
+     ![](./media/image7.png)
+     ![](./media/image8.png)
+     ![](./media/image9.png)
 ## Task 2: New Query of StockByTime
 
 1.  Create a new tab within the queryset by clicking on the ***+*** icon
@@ -105,22 +101,22 @@ a semicolon (;) after the statement, as shown below.*
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-```
-StockPrice
-| where timestamp > ago(75m)
-| project symbol, price, timestamp
-| partition by symbol
-(
-    order by timestamp asc
-    | extend prev_price = prev(price, 1)
-    | extend prev_price_10min = prev(price, 600)
-)
-| where timestamp > ago(60m)
-| order by timestamp asc, symbol asc
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-| order by timestamp asc, symbol asc
-```
+   ```
+   StockPrice
+   | where timestamp > ago(75m)
+   | project symbol, price, timestamp
+   | partition by symbol
+   (
+       order by timestamp asc
+       | extend prev_price = prev(price, 1)
+       | extend prev_price_10min = prev(price, 600)
+   )
+   | where timestamp > ago(60m)
+   | order by timestamp asc, symbol asc
+   | extend pricedifference_10min = round(price - prev_price_10min, 2)
+   | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+   | order by timestamp asc, symbol asc
+   ```
    ![](./media/image13.png) 
 4.  In this KQL query, the results are first limited to the most recent
     75 minutes. While we ultimately limit the rows to the last 60
@@ -167,9 +163,7 @@ StockPrice
 | order by timestamp asc, symbol asc
 | summarize arg_max(pricedifference_10min, *) by symbol
 ```
-
    ![](./media/image16.png)
-
    ![](./media/image17.png)
 
 ## Task 4: StockBinned
@@ -273,13 +267,13 @@ updating.
 **Note**: Depending on your administrative permissions, this setting may
 not be available. Note that this change may take several minutes to
 complete.
-      ![](./media/image27.png)
-      ![](./media/image28.png)
+       ![](./media/image27.png)
+       ![](./media/image28.png)
 
 4.  On **Update your capacity workloads** dialog box, click on the
     **Yes** button.
 
-     ![](./media/image29.png)
+      ![](./media/image29.png)
 
 ## Task 2: Creating a basic Power BI report
 
@@ -296,8 +290,8 @@ complete.
     **Build Power BI report** button in the command bar to bring this
     query into Power BI.
 
-    ![](./media/image32.png)
-    ![](./media/image33.png)
+     ![](./media/image32.png)
+     ![](./media/image33.png)
 
 4.  On the report preview page, we can configure our initial chart,
     select a **line chart** to the design surface, and configure the
@@ -307,41 +301,40 @@ complete.
 
 - X-axis: **timestamp**
 
-- Y-axis**: price**
+- Y-axis:**price**
 
-    ![](./media/image34.png)
+     ![](./media/image34.png)
 
 5.  In the Power BI (preview) page, from the ribbon, click on
     **File** and select **Save**.
-
-    ![](./media/image35.png)
+      ![](./media/image35.png)
 6.  On **Just a few details first** dialog box, in **Name your file in
-    Power BI** field, enter ***RealTimeStocks***. In **Save it to
+    Power BI** field, enter **+++RealTimeStocks+++**. In **Save it to
     a workspace** field, click on the dropdown and select
-    ***RealTimeWorkspace***. Then, click on the **Continue** button.
+    **RealTimeWorkspace**. Then, click on the **Continue** button.
 
-    ![](./media/image36.png)
+      ![](./media/image36.png)
 7.  In the Power BI (preview) page, click on **Open the file in Power BI
     to view, edit and get a shareable link.**
 
-    ![](./media/image37.png)
+      ![](./media/image37.png)
 
 8.  On the **RealTimeStock** page, click on the **Edit** button in the
     command bar to open the report editor.
 
-    ![](./media/image38.png)
+     ![](./media/image38.png)
 9.  Select the line chart on the report. Configure a **Filter**
-    for ***timestamp*** to display data for the last 5 minutes using
+    for **timestamp** to display data for the last 5 minutes using
     these settings:
 
    - Filter type: Relative time
 
    - Show items when the value: is in the last 5 minutes
 
-Click on ***Apply filter*** to enable the filter. You will see a similar
+Click on **Apply filter** to enable the filter. You will see a similar
 type of output as shown in the below image.
 
-   ![](./media/image39.png)
+    ![](./media/image39.png)
 
 ## Task 3: Creating a second visual for percent change
 
@@ -354,19 +347,19 @@ type of output as shown in the below image.
     and the value of the price from 10 minutes ago. Use these values for
     the chart:
 
-- Legend: **symbol**
+     - Legend: **symbol**
 
-- X-axis: **timestamp**
+     - X-axis: **timestamp**
 
-- Y-axis: **average of percentdifference_10min**
+    - Y-axis: **average of percentdifference_10min**
 
-    ![](./media/image40.png)
-    ![](./media/image41.png)
+      ![](./media/image40.png)
+      ![](./media/image41.png)
 
 3.  Under the **Visualization,** select the **Analytics** represented by
     a magnifier-like icon as shown in the below image, then click on
     **Y-Axis Constant Line(1).** In the **Apply settings to**
-    section**,** click on **+Add line,** then enter **Value 0.**
+    section, click on **+Add line,** then enter **Value 0.**
 
     ![](./media/image42.png)
 
@@ -382,8 +375,8 @@ type of output as shown in the below image.
 
 ## Task 4: Configuring the report to auto-refresh
 
-1.  Deselect the chart. On the ***Visualizations* settings**,
-    enable ***Page refresh*** to automatically refresh every second or
+1.  Deselect the chart. On the **Visualizations** settings,
+    enable **Page refresh** to automatically refresh every second or
     two, based on your preference. Of course, realistically we need to
     balance the performance implications of refresh frequency, user
     demand, and system resources.
