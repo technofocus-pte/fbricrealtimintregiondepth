@@ -333,7 +333,6 @@ complete.
 
 Click on **Apply filter** to enable the filter. You will see a similar
 type of output as shown in the below image.
-
     ![](./media/image39.png)
 
 ## Task 3: Creating a second visual for percent change
