@@ -315,10 +315,10 @@ the Eventstream into the KQL DB.
     ![](./media/new6.png)
     ![](./media/new7.png)
 
-6.  After enabling OneLake, you may need to refresh the page to verify
+5.  After enabling OneLake, you may need to refresh the page to verify
     the OneLake folder integration is active.
       ![](./media/image57.png)
-      ![](./media/image58.png)
+      ![](./media/new8.png)
 
 ## Task 2: Send data from the Eventstream to the KQL database
 
@@ -329,23 +329,23 @@ the Eventstream into the KQL DB.
     ![](./media/image59.png)
 2.  On the Eventstream, click on the **Edit** button.
 
-    ![](./media/image60.png)
+    ![](./media/new9.png)
 
 3.  Our data should be arriving into our Eventstream, and we'll now
     configure the data to be ingested into the KQL database we created
     in the above task. On the Eventstream, click on *Transform events or
-    add destination,* then navigate and click on **KQL Database**.
+    add destination,* then navigate and click on **Eventhouse**.
 
-    ![](./media/image61.png)
+    ![](./media/new10.png)
 
 4.  On the KQL settings, select *Direct ingestion*. While we have the
     opportunity to process event data at this stage, for our purposes,
     we will ingest the data directly into the KQL database. Set the
-    destination name to +++KQL+++, then select your **workspace** and
-    KQL database created in the above task, then click on **Save**
+    destination name to +++KQL+++, then select your **workspace**,**Eventhouse** and
+    **KQL** database created in the above task, then click on **Save**
     button.
 
-    ![](./media/image62.png)
+    ![](./media/new11.png)
 
 5.  Click on the **Publish** button
 
