@@ -358,7 +358,7 @@ the Eventstream into the KQL DB.
 
     ![](./media/image66.png)
 7.  On the first settings page, select **+New table** and enter the
-    name *StockPrice* for the table to hold the data in StockDB.
+    name **+++StockPrice+++** for the table to hold the data in StockDB.
     Click on the **Next** button.
 
    ![](./media/image67.png)
