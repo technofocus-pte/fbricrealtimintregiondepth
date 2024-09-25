@@ -29,12 +29,12 @@ complexity to support different business uses.
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation pane.
    ![](./media/image1.png)
-2.  From your workspace, click on ***+*** **New* \> *KQL Queryset** as
+2.  From your workspace, click on **+New item** **KQL Queryset** as
     shown in the below image. In the **New KQL Queryset** dialog box,
     enter +++StockQueryset+++, then click on the **Create**
     button.
 
-    ![](./media/image2.png)
+    ![](./media/new12.png)
     ![](./media/image3.png)
    
 3.  Select the ***StockDB*** and click on the **Connect** button.
