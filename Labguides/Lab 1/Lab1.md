@@ -295,31 +295,29 @@ the Eventstream into the KQL DB.
 1.  In the left-sided navigation menu, navigate and click on **RealTime
     workspaceXXX**, as shown in the below image.
 
-    ![](./media/image52.png)
+     ![](./media/image52.png)
 
-2.  In the **Real-Time Intelligence** page, navigate to **New** section
+2.  In the **Real-Time Intelligence** page, navigate to **+New item** section
     and click on, select **Eventhouse** to create Eventhouse.
 
-    ![](./media/image53.png)
+     ![](./media/new4.png)
 3.  In the **New Eventhouse** dialog box, enter +++StockDB+++in
     the **Name** field, click on the **Create** button and open the new
     Eventhouse.
 
-    ![](./media/image54.png)
-    ![](./media/image55.png)
+     ![](./media/image54.png)
+     ![](./media/image55.png)
 
-4.  Click on the **pencil icon** as shown in the below image to change
-    the setting and select the **Active**, then click on the **Done**
-    button to enable OneLake access.
+4. Select **StockDB**, click on the OneLake availability as shown in the below image to change the setting and, then click on the **Turn on** button to enable 
+   OneLake access.
+    ![](./media/new5.png)
+    ![](./media/new6.png)
+    ![](./media/new7.png)
 
-    ![](./media/image56.png)
-
-5.  After enabling OneLake, you may need to refresh the page to verify
+6.  After enabling OneLake, you may need to refresh the page to verify
     the OneLake folder integration is active.
-
-    ![](./media/image57.png)
-
-    ![](./media/image58.png)
+      ![](./media/image57.png)
+      ![](./media/image58.png)
 
 ## Task 2: Send data from the Eventstream to the KQL database
 
