@@ -273,13 +273,13 @@ updating.
 **Note**: Depending on your administrative permissions, this setting may
 not be available. Note that this change may take several minutes to
 complete.
-    ![](./media/image27.png)
-    ![](./media/image28.png)
+      ![](./media/image27.png)
+      ![](./media/image28.png)
 
 4.  On **Update your capacity workloads** dialog box, click on the
     **Yes** button.
 
-    ![](./media/image29.png)
+     ![](./media/image29.png)
 
 ## Task 2: Creating a basic Power BI report
 
