@@ -86,7 +86,7 @@ of resources.
 3.  You will see a **Successfully upgraded to a free Microsoft Fabic
     trial** notification dialog box. In the dialog box, click on
     **Fabric Home Page** button.
-     ![](./media/image10.png)
+     [![](./media/new1.png)
      ![](./media/image11.png)
 ## **Task 3: Create a Fabric workspace**
 
@@ -96,7 +96,7 @@ dataflows, Data Factory pipelines, the notebooks, Power BI datasets, and
 reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL:+++https://app.fabric.microsoft.com/+++
+    the following URL:**+++https://app.fabric.microsoft.com/+++**
     then press the **Enter** button. In the **Microsoft Fabric Home**
     page, navigate and click on **Power BI** tile.
      ![](./media/image22.png)
