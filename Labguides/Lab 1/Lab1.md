@@ -272,8 +272,8 @@ To auto-deploy the resources, use these steps below.
 10. On the Eventstream, select **AzureEventHub** and click on
     **Refresh** button.
 
-      ![](./media/image50.png)
-      ![](./media/image51.png)
+      ![](./media/new2.png)
+      ![](./media/new3.png)
 
 # Exercise 2: KQL Database Configuration and Ingestion
 
