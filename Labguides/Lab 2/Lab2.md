@@ -87,11 +87,11 @@ a semicolon (;) after the statement, as shown below.*
 
 1.  Create a new tab within the queryset by clicking on the ***+*** icon
     as shown in the below image. Rename this tab as
-    ***StockByTime***
+    ***+++StockByTime+++***
 
-    ![](./media/image10.png)
-    ![](./media/image11.png)
-    ![](./media/image12.png)
+     ![](./media/image10.png)
+     ![](./media/image11.png)
+     ![](./media/image12.png)
 
 2.  We can begin to add our own calculations, such as calculating the
     change over time. For example,
@@ -120,11 +120,8 @@ StockPrice
 | extend pricedifference_10min = round(price - prev_price_10min, 2)
 | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
 | order by timestamp asc, symbol asc
-
 ```
-
-   ![](./media/image13.png)
-    
+   ![](./media/image13.png) 
 4.  In this KQL query, the results are first limited to the most recent
     75 minutes. While we ultimately limit the rows to the last 60
     minutes, our initial dataset needs enough data to lookup previous
@@ -181,10 +178,10 @@ StockPrice
     the **+** icon as shown in the below image. Rename this tab as
     +++StockBinned+++
 
-    ![](./media/image18.png)
+     ![](./media/image18.png)
 
-   ![](./media/image19.png)
-
+     ![](./media/image19.png)
+ 
 2.  KQL also has a [bin()
     function](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/bin-function),
     which can be used to bucket results based on the bin parameter. In
@@ -195,12 +192,12 @@ StockPrice
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-```
-StockPrice
-| summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
-| sort by timestamp asc, symbol asc
-```
-   ![](./media/image20.png)
+     ```
+     StockPrice
+     | summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
+     | sort by timestamp asc, symbol asc
+      ```
+      ![](./media/image20.png)
 
 4.  This is particularly useful when creating reports that aggregate
     real-time data over a longer time period.
