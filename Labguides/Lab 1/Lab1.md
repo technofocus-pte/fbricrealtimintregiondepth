@@ -61,36 +61,33 @@ of resources.
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL: +++https://app.fabric.microsoft.com/+++ then press
     the **Enter** button.
-    ![]("./media/image2.png)
+      ![]("./media/image2.png)
 2.  In the **Microsoft Fabric** window, enter your given
     credentials and click on the **Submit** button.
-    ![](./media/image3.png)
-    ![]("./media/image4.png)
+      ![](./media/image3.png)
+      ![]("./media/image4.png)
 3.  Enter the ** password** from the **Resources** tab and
     click on the **Sign in** button.
-
-    ![](./media/image5.png)
+      ![](./media/image5.png)
 4.  In **Stay signed in?** window, click on the **Yes** button.
-
-    ![](./media/image6.png)
+      ![](./media/image6.png)
 5.  You’ll be directed to Power BI Home page.
-    ![](./media/image7.png)
+      ![](./media/image7.png)
 
 ## Task 2: Start the Microsoft Fabric trial
 1.  On **Power BI Home** page, click on the **Account manager** **for
     MOD Administrator** icon on the top right corner of the page. In the
     Account manager blade, navigate and select **Start trial** as shown
     in the below image.
-    ![](./media/image8.png)
+     ![](./media/image8.png)
 2.  On **Upgrade to a free Microsoft Fabric** trial dialog box, click on
     **Start trial** button.
-    ![](./media/image9.png)
+     ![](./media/image9.png)
 3.  You will see a **Successfully upgraded to a free Microsoft Fabic
     trial** notification dialog box. In the dialog box, click on
     **Fabric Home Page** button.
-
-   ![](./media/image10.png)
-   ![](./media/image11.png)
+     ![](./media/image10.png)
+     ![](./media/image11.png)
 ## **Task 3: Create a Fabric workspace**
 
 In this task, you create a Fabric workspace. The workspace contains all
@@ -102,18 +99,14 @@ reports.
     the following URL:+++https://app.fabric.microsoft.com/+++
     then press the **Enter** button. In the **Microsoft Fabric Home**
     page, navigate and click on **Power BI** tile.
-
-   ![](./media/image22.png)
+     ![](./media/image22.png)
 
 2.  In the **Power BI Home** page left-sided navigation menu, navigate
     and click on **Workspaces** as shown in the below image.
-
-   ![](./media/image23.png)
+     ![](./media/image23.png)
 
 3.  In the Workspaces pane, click on **+** **New workspace button**
-
-    ![](./media/image24.png)
-
+      ![](./media/image24.png)
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
@@ -200,7 +193,7 @@ To auto-deploy the resources, use these steps below.
     navigate to **Settings** section and click on **Shared access
     policies**.
 
-    ![](./media/image33.png)
+     ![](./media/image33.png)
 
 7.   In the ***Shared access policies*** page, click on
     ***stockeventhub_sas*** .**SAS Policy: stockeventhub_sas** pane
@@ -208,44 +201,38 @@ To auto-deploy the resources, use these steps below.
     namespace** (such as *ehns-XXXXXX-fabricworkshop*) and paste them on
     a notepad, as you need them in the upcoming task. In short, you'll
     need the following:
-
-    ![](./media/image34.png)
-
-    ![](./media/image35.png)
+     ![](./media/image34.png)
+     ![](./media/image35.png)
 ## **Task 5: Get data with Eventstream**
 
 1.  Go back to the Microsoft Fabric, navigate and click on **Power BI**
     at the bottom of the page, then select **Real-Time Intelligence**.
 
-    ![](./media/image36.png)
+     ![](./media/image36.png)
 
 2.  On the **Synapse Real-Time Analytics** home page,
     select **Eventstream**. Name the Eventstream
-    ***StockEventStream**, check the **Enhanced Capabilities
+    **+++StockEventStream+++**, check the **Enhanced Capabilities
     (preview)*** and click on the **Create** button.
-
-     ![](./media/image37.png)
-
-     ![](./media/image38.png)
+      ![](./media/image37.png)
+      ![](./media/image38.png)
 
 3.  On the Eventstream, select **Add external source**
 
-    ![](./media/image39.png)
+      ![](./media/image39.png)
 
 4.  On the Add source, select **Azure *Event Hubs.***
-
-    ![](./media/image40.png)
+      ![](./media/image40.png)
 
 5.  On the **Azure Event Hubs** configuration page, enter the below
     details and click on **Add** button.
 
 6.  Configure connection settings: Click on the **New connection** and
     enter the below details then click on **Create** button.
+    --In Event Hub namespace-Enter Event Hub name (the values that you
+       have saved in your notepad)
 
-7.  In Event Hub namespace-Enter Event Hub name (the values that you
-    have saved in your notepad)
-
-    --Event Hub : +++StockEventHub++
+    --Event Hub : +++StockEventHub+++
     
     --Shared Access Key Name:+++stockeventhub_sas+++
     
@@ -255,37 +242,37 @@ To auto-deploy the resources, use these steps below.
     --Consumer group: ***\$Default***
     
     --Data format: **JSON** and click on **Next** button
-    ![](./media/image41.png)
+      ![](./media/image41.png)
 
-    ![](./media/image42.png)
+      ![](./media/image42.png)
 
-    ![](./media/image43.png)
+      ![](./media/image43.png)
 
-    ![](./media/image44.png)
+      ![](./media/image44.png)
 
-    ![](./media/image45.png)
+      ![](./media/image45.png)
 
-9.  You will see a notification stating **Successfully added The source
+7.  You will see a notification stating **Successfully added The source
     “StockEventHub,Azure Event Hubs”** was added.
 
-    ![](./media/image46.png)
+     ![](./media/image46.png)
 
-10.  With the Event Hub configured, click on ***Test result***. You
+8.  With the Event Hub configured, click on ***Test result***. You
     should see events including the stock symbol, price, and timestamp.
 
-    ![](./media/image47.png)
+      ![](./media/image47.png)
 
-11. On the Eventstream, select **Publish.**
+9. On the Eventstream, select **Publish.**
 
-    ![](./media/image48.png)
+     ![](./media/image48.png)
 
-    ![](./media/image49.png)
+     ![](./media/image49.png)
 
-12. On the Eventstream, select **AzureEventHub** and click on
+10. On the Eventstream, select **AzureEventHub** and click on
     **Refresh** button.
 
-    ![](./media/image50.png)
-    ![](./media/image51.png)
+      ![](./media/image50.png)
+      ![](./media/image51.png)
 
 # Exercise 2: KQL Database Configuration and Ingestion
 
