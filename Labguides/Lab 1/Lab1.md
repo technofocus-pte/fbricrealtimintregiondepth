@@ -79,15 +79,15 @@ of resources.
     MOD Administrator** icon on the top right corner of the page. In the
     Account manager blade, navigate and select **Start trial** as shown
     in the below image.
-     ![](./media/image8.png)
+      ![](./media/image8.png)
 2.  On **Upgrade to a free Microsoft Fabric** trial dialog box, click on
-    **Start trial** button.
-      [![](./media/new1.png)
+    **Active** button.
+      ![](./media/new1.png)
 3.  You will see a **Successfully upgraded to a free Microsoft Fabic
     trial** notification dialog box. In the dialog box, click on
     **Fabric Home Page** button.
-     [![](./media/image10.png)
-     ![](./media/image11.png)
+      ![](./media/image10.png)
+      ![](./media/image11.png)
 ## **Task 3: Create a Fabric workspace**
 
 In this task, you create a Fabric workspace. The workspace contains all
