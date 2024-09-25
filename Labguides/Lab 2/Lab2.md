@@ -37,7 +37,7 @@ complexity to support different business uses.
     ![](./media/new12.png)
     ![](./media/image3.png)
    
-3.  Select the ***StockDB*** and click on the **Connect** button.
+3.  Select the **StockDB** and click on the **Connect** button.
     ![](./media/image4.png)
 
 4.  The KQL query window will open, allowing you to query the data.
@@ -45,13 +45,13 @@ complexity to support different business uses.
     ![](./media/image5.png)
 5.  The default query code will look like the code shown in the below
     image; it contains 3 distinct KQL queries. You may
-    see *YOUR_TABLE_HERE* instead of the ***StockPrice*** table. Select
+    see *YOUR_TABLE_HERE* instead of the **StockPrice** table. Select
     and delete them.
 
     ![](./media/image5.png)
 
 6.  In the query editor, copy and paste the following code. Select the
-    entire text and click on the ***Run*** button to execute the query.
+    entire text and click on the **Run** button to execute the query.
     After the query is executed, you will see the results.
 ```
 // Use "take" to view a sample number of records in the table and check the data.
@@ -66,7 +66,7 @@ StockPrice
 StockPrice
 | summarize IngestionCount = count() by bin(ingestion_time(), 1h);
 ```
-***Note:** To run a single query when there are multiple queries in the
+**Note:** To run a single query when there are multiple queries in the
 editor, you can highlight the query text or place your cursor so the
 cursor is in the context of the query (for example, at the beginning or
 end of the query) -- the current query should highlight in blue. To run
@@ -83,7 +83,7 @@ a semicolon (;) after the statement, as shown below.*
 
 1.  Create a new tab within the queryset by clicking on the ***+*** icon
     as shown in the below image. Rename this tab as
-    ***+++StockByTime+++***
+    **+++StockByTime+++**
 
      ![](./media/image10.png)
      ![](./media/image11.png)
@@ -132,8 +132,8 @@ a semicolon (;) after the statement, as shown below.*
 ## Task 3: StockAggregate
 
 1.  Create another new tab within the queryset by clicking on
-    the ***+* icon** as shown in the below image. Rename this tab as
-    +++StockAggregate+++
+    the **+icon** as shown in the below image. Rename this tab as
+    **+++StockAggregate+++**
 
     ![](./media/image14.png)
     ![](./media/image15.png)
@@ -246,21 +246,21 @@ Our Power BI tenant needs to be configured to allow for more frequent
 updating.
 
 1.  To configure this setting, navigate to the Power BI admin portal by
-    clicking on the ***Settings*** icon in the upper right corner of the
+    clicking on the **Settings** icon in the upper right corner of the
     **Fabric portal**. Navigate to Governance and insights section, then
     click on **Admin portal**.
 
       ![](./media/image25.png)
 
 2.  In the **Admin portal** page, navigate and click on **Capacity
-    settings***,then click on **Trial** tab. Click on your capacity
+    settings**,then click on **Trial** tab. Click on your capacity
     name.
 
       ![](./media/image26.png)
 
-3.  Scroll down and click on ***Power BI workloads***, and
-    under ***Semantic Models*** (recently renamed from *Datasets*),
-    configure ***Automatic page refresh*** to ***On***, with a **minimum
+3.  Scroll down and click on **Power BI workloads**, and
+    under **Semantic Models** (recently renamed from *Datasets*),
+    configure **Automatic page refresh** to **On**, with a **minimum
     refresh interval** of **1 Seconds**. Then, click on the **Apply**
     button.
 
