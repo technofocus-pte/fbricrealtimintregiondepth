@@ -230,6 +230,7 @@ To auto-deploy the resources, use these steps below.
 
 6.  Configure connection settings: Click on the **New connection** and
     enter the below details then click on **Create** button.
+    
     --In Event Hub namespace-Enter Event Hub name (the values that you
        have saved in your notepad)
 
@@ -253,23 +254,23 @@ To auto-deploy the resources, use these steps below.
 
       ![](./media/image45.png)
 
-7.  You will see a notification stating **Successfully added The source
+8.  You will see a notification stating **Successfully added The source
     “StockEventHub,Azure Event Hubs”** was added.
 
      ![](./media/image46.png)
 
-8.  With the Event Hub configured, click on ***Test result***. You
+9.  With the Event Hub configured, click on ***Test result***. You
     should see events including the stock symbol, price, and timestamp.
 
       ![](./media/image47.png)
 
-9. On the Eventstream, select **Publish.**
+10. On the Eventstream, select **Publish.**
 
      ![](./media/image48.png)
 
      ![](./media/image49.png)
 
-10. On the Eventstream, select **AzureEventHub** and click on
+11. On the Eventstream, select **AzureEventHub** and click on
     **Refresh** button.
 
       ![](./media/new2.png)
