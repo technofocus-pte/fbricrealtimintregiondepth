@@ -1,5 +1,5 @@
 # Microsoft Fabric Real-Time Intelligence- Regional Workshop 
-Laboratorio 01: Ingesta de datos mediante inteligencia en tiempo real
+Lab 01: Ingesting Data using Real-Time Intelligence
 
 Lab 02-Using KQL and building reports
 
