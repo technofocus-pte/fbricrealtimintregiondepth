@@ -34,36 +34,29 @@ para dar soporte a diferentes usos empresariales.
 1.  Haga clic en **RealTimeWorkspace** en el panel de navegación de la
     izquierda.
 
-<img src="./media/image1.png" style="width:6.5in;height:6.40139in"
-alt="A screenshot of a computer Description automatically generated" />
-
+      ![](./media/image1.png)
 2.  Desde su área de trabajo, haga clic en ***+* New *\>* KQL Queryset**
     como se muestra en la imagen inferior. En el cuadro de diálogo New
     KQL Queryset, introduzca *+++StockQueryset+++* y, a continuación,
     haga clic en el botón **Create**.
 
-<img src="./media/image2.png" style="width:6.5in;height:6.17431in" />
-
-<img src="./media/image3.png" style="width:3.69722in;height:2.21944in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image2.png)
+     ![](./media/image3.png)
 
 3.  Seleccione el ***StockDB*** y haga clic en el botón **Connectar**.
-    <img src="./media/image4.png" style="width:6.49236in;height:3.63611in"
-    alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image4.png)
 
 4.  Se abrirá la ventana de consulta KQL, que le permitirá consultar los
     datos.
 
-> <img src="./media/image5.png" style="width:6.5in;height:3.94167in"
-> alt="A screenshot of a computer Description automatically generated" />
+       ![](./media/image5.png)
 
 5.  El código de consulta por defecto se parecerá al código mostrado en
     la siguiente imagen; contiene 3 consultas KQL distintas. Es posible
     que vea *YOUR_TABLE_HERE* en lugar de la tabla ***StockPrice***.
     Selecciónelas y elimínelas.
 
-> <img src="./media/image5.png" style="width:6.86286in;height:2.86776in"
-> alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image5.png)
 
 6.  En el editor de consultas, copie y pegue el siguiente código.
     Seleccione todo el texto y haga clic en el botón ***Run*** para
@@ -93,7 +86,7 @@ hour in the given table.</span>
 <span class="mark">\| summarize IngestionCount = count() by
 bin(ingestion_time(), 1h);</span>
 
-***Nota:** Para ejecutar una sola consulta cuando hay varias en el
+**Nota:** Para ejecutar una sola consulta cuando hay varias en el
 editor, puede resaltar el texto de la consulta o colocar el cursor de
 modo que se encuentre en el contexto de la consulta (por ejemplo, al
 principio o al final de la consulta) -- la consulta actual debería
@@ -102,20 +95,15 @@ barra de herramientas. Si desea ejecutar las 3 para mostrar los
 resultados en 3 tablas diferentes, cada consulta deberá tener un punto y
 coma (;) después de la sentencia, como se muestra a continuación.*
 
-<img src="./media/image6.png" style="width:6.5in;height:2.73472in" />
+     ![](./media/image6.png)
 
 7.  Los resultados se mostrarán en 3 tablas diferentes como se muestra
     en la imagen inferior. Haga clic en cada pestaña de la tabla para
     revisar los datos.
 
-<img src="./media/image7.png" style="width:6.49236in;height:4.34861in"
-alt="A screenshot of a computer Description automatically generated" />
-
-> <img src="./media/image8.png" style="width:6.5in;height:5.39375in" />
->
-> <img src="./media/image9.png"
-> style="width:6.49236in;height:4.56806in" />
-
+     ![](./media/image7.png)
+     ![](./media/image8.png)
+     ![](./media/image9.png)
 ## Tarea 2: Nueva consulta de StockByTime
 
 1.  Cree una nueva pestaña dentro del conjunto de consultas haciendo
