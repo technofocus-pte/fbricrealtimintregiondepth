@@ -78,7 +78,7 @@ across all modules.*
 
     ![](./media/image3.png)
 
-3.  In the **New lakehouse** dialog box, enter **StocksLakehouse** in
+3.  In the **New lakehouse** dialog box, enter **+++StocksLakehouse+++** in
     the **Name** field, then click on the **Create** button. A
     **StocksLakehouse** page will appear.
 
@@ -132,7 +132,7 @@ across all modules.*
 6.  In the Lakehouse pane that appears on the right side, enter the
     following details and click on **Save.**
 
-| **Destination name** | **Lakehouse** |
+|**Destination name** | **+++Lakehouse+++** |
 |----|----|
 | **Workspace** | RealTimeWorkspace |
 | **Lakehouse** | StockLakehouse |
@@ -159,8 +159,8 @@ across all modules.*
      ![](./media/image19.png)
 10. In the eventstreem pane select **Managefields1** pencil icon.
      ![](./media/image20.png)
-11. In the *Manage fields* pane that opens, click ***Add all
-    fields*** to add all columns. Then, remove the fields
+11. In the **Manage fields** pane that opens, click **Add all
+    fields** to add all columns. Then, remove the fields
     **EventProcessedUtcTime**, **PartitionId**, and
     **EventEnqueuedUtcTime** by clicking the **ellipsis (...)** to the
     right of the field name, and click **Remove**
@@ -169,14 +169,14 @@ across all modules.*
      ![](./media/image23.png)
      ![](./media/image24.png)
      ![](./media/image25.png)
-12. Now change the *timestamp* column to a *DateTime*** **as it is
+12. Now change the **timestamp** column to a **DateTime** as it is
     likely classified as a string. Click the **three ellipsis (...)** to
-    the right of the *timestamp*** column** and select *Yes change
-    type*. This will allow us to change the datatype:
-    select *DateTime***,** as shown in the below image. Click on
-    **Done**
+    the right of the **timestamp** column and select **Yes change
+    type**. This will allow us to change the datatype:
+    select **DateTime**, as shown in the below image. Click on
+    **Save**
      ![](./media/image26.png)
-     ![](./media/image27.png)
+     ![](./media/new13.png)
 12. Now, click on the **Publish** button to close the event processor
      ![](./media/image28.png)
      ![](./media/image29.png)
