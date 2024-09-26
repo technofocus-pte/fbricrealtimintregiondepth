@@ -129,7 +129,7 @@ reports.
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-| **Name** | **+++RealTimeWorkspaceXXX+++** (XXX can be a unique number, you can add more numbers) |
+| **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
 |----|----|
 | **Advanced** | Select Trail |
 | **Default storage format** | **Small dataset storage format** |
@@ -171,7 +171,7 @@ To auto-deploy the resources, use these steps below.
 <tr class="odd">
 <td><strong>Resource group</strong></td>
 <td>Click on <strong>Create new</strong>&gt; enter
-+++<strong>realtimeworkshop+++</strong> and select
+<strong>+++realtimeworkshop+++</strong> and select
 <strong>Ok</strong></td>
 </tr>
 <tr class="even">
