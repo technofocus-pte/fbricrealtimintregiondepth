@@ -71,7 +71,7 @@ of resources.
      ![](./media/image3.png)
 
 3.  Enter the **password** from the **Resources** tab and click on the
-    **Sign in** button**.**
+    **Sign in** button.
 
      ![](./media/image4.png)
 
@@ -88,7 +88,7 @@ of resources.
 1.  On **Power BI Home** page, click on the **Account manager** **for
     MOD Administrator** icon on the top right corner of the page. In the
     Account manager blade, navigate and select **Start trial** as shown
-    in the below image**.**
+    in the below image.
 
       ![](./media/image7.png)
 
@@ -129,7 +129,7 @@ reports.
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-| **Name** | **+++RealTimeWorkspaceX*XX*+++** (XXX can be a unique number, you can add more numbers) |
+| **Name** | **+++RealTimeWorkspaceXXX+++** (XXX can be a unique number, you can add more numbers) |
 |----|----|
 | **Advanced** | Select Trail |
 | **Default storage format** | **Small dataset storage format** |
@@ -211,7 +211,7 @@ To auto-deploy the resources, use these steps below.
 
       ![](./media/image22.png)
 
-7.   In the ***Shared access policies*** page, click on
+7.   In the **Shared access policies** page, click on
     ***stockeventhub_sas*** .**SAS Policy: stockeventhub_sas** pane
     appear on the right side, copy the **primary key** and **Event Hub
     namespace** (such as *ehns-XXXXXX-fabricworkshop*) and paste them on
@@ -252,18 +252,18 @@ To auto-deploy the resources, use these steps below.
 <!-- -->
 
 a.  In Event Hub namespace-Enter Event Hub name (the values that you
-    have saved in your notepad**)**
+    have saved in your notepad)
 
 b.  Event Hub : **+++StockEventHub+++**
 
-c.  Shared Access Key Name:+++**stockeventhub_sas+++**
+c.  Shared Access Key Name:**+++stockeventhub_sas+++**
 
 d.  Shared Access Key- Enter Primary Key (the value that you have saved
-    in your notepad in the **Task 4)**
+    in your notepad in the **Task 4**)
 
 <!-- -->
 
-e.  Consumer group: ***$Default*** 
+e.  Consumer group: **$Default**
 
 f.  Data format: **JSON** and click on **Next** button
 
@@ -321,7 +321,7 @@ the Eventstream into the KQL DB.
 
       ![](./media/image42.png)
 
-3.  In the **New Eventhouse** dialog box, enter +++**StockDB+++** in
+3.  In the **New Eventhouse** dialog box, enter **+++StockDB+++** in
     the **Name** field, click on the **Create** button and open the new
     Eventhouse.
 
@@ -363,8 +363,8 @@ the Eventstream into the KQL DB.
 4.  On the KQL settings, select ***Direct ingestion***. While we have
     the opportunity to process event data at this stage, for our
     purposes, we will ingest the data directly into the KQL database.
-    Set the destination name to +++***KQL**+++*, then select your
-    **workspace, Eventhouse** and KQL database created in the above
+    Set the destination name to **+++KQL+++**, then select your
+    **workspace**, **Eventhouse** and KQL database created in the above
     task, then click on **Save** button.
 
      ![](./media/image53.png)
