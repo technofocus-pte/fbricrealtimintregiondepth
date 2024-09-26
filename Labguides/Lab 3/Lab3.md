@@ -230,7 +230,7 @@ the table, prepending the historical data.
      ![](./media/image37.png)
 
 3.  Under **Explorer**, navigate and select the **Lakehouse**, then
-    click on the **Add* ***button as shown in the below images*.*
+    click on the **Add* ***button as shown in the below images.
 
  **Important Note**: You’ll need to add the Lakehouse to every imported
  notebook -- do this each time you open a notebook for the first time.
