@@ -3,7 +3,7 @@ Laboratorio 01: Ingesta de datos mediante inteligencia en tiempo real
 
 Laboratorio 02: Uso de KQL y creación de informes
 
-Lab 03-Building a Data Lakehouse
+Laboratorio 03: Creación de un Data Lakehouse
 
 Lab 04-Getting Started with Building a ML Model in Fabric
 
