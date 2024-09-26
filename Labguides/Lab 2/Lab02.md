@@ -62,29 +62,20 @@ para dar soporte a diferentes usos empresariales.
     Seleccione todo el texto y haga clic en el botón ***Run*** para
     ejecutar la consulta. Una vez ejecutada la consulta, verá los
     resultados.
+```
+// Use "take" to view a sample number of records in the table and check the data.
+StockPrice
+| take 100;
 
-**Copie**
+// See how many records are in the table.
+StockPrice
+| count;
 
-<span class="mark">// Use "take" to view a sample number of records in
-the table and check the data.</span>
+// This query returns the number of ingestions per hour in the given table.
+StockPrice
+| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
 
-<span class="mark">StockPrice</span>
-
-<span class="mark">\| take 100;</span>
-
-<span class="mark">// See how many records are in the table.</span>
-
-<span class="mark">StockPrice</span>
-
-<span class="mark">\| count;</span>
-
-<span class="mark">// This query returns the number of ingestions per
-hour in the given table.</span>
-
-<span class="mark">StockPrice</span>
-
-<span class="mark">\| summarize IngestionCount = count() by
-bin(ingestion_time(), 1h);</span>
+```
 
 **Nota:** Para ejecutar una sola consulta cuando hay varias en el
 editor, puede resaltar el texto de la consulta o colocar el cursor de
@@ -94,8 +85,7 @@ resaltarse en azul. Para ejecutar la consulta, haga clic en* Run *en la
 barra de herramientas. Si desea ejecutar las 3 para mostrar los
 resultados en 3 tablas diferentes, cada consulta deberá tener un punto y
 coma (;) después de la sentencia, como se muestra a continuación.*
-
-     ![](./media/image6.png)
+    ![](./media/image6.png)
 
 7.  Los resultados se mostrarán en 3 tablas diferentes como se muestra
     en la imagen inferior. Haga clic en cada pestaña de la tabla para
@@ -107,17 +97,12 @@ coma (;) después de la sentencia, como se muestra a continuación.*
 ## Tarea 2: Nueva consulta de StockByTime
 
 1.  Cree una nueva pestaña dentro del conjunto de consultas haciendo
-    clic en el **icono *+ ***como se muestra en la siguiente imagen.
+    clic en el **icono +**como se muestra en la siguiente imagen.
     Renombre esta pestaña como +++StockByTime+++.
 
-> <img src="./media/image10.png"
-> style="width:6.49236in;height:5.06806in" />
->
-> <img src="./media/image11.png"
-> style="width:6.49236in;height:4.95486in" />
->
-> <img src="./media/image12.png"
-> style="width:6.22083in;height:3.9272in" />
+      ![](./media/image10.png)
+      ![](./media/image11.png)
+      ![](./media/image12.png)
 
 2.  Podemos empezar a añadir nuestros propios cálculos, como calcular el
     cambio a lo largo del tiempo. Por ejemplo, la función
@@ -132,42 +117,23 @@ coma (;) después de la sentencia, como se muestra a continuación.*
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Ejecutar** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
-
-Copie
-
-<span class="mark">StockPrice</span>
-
-<span class="mark">\| where timestamp \> ago(75m)</span>
-
-<span class="mark">\| project symbol, price, timestamp</span>
-
-<span class="mark">\| partition by symbol</span>
-
-<span class="mark">(</span>
-
-<span class="mark">order by timestamp asc</span>
-
-<span class="mark">\| extend prev_price = prev(price, 1)</span>
-
-<span class="mark">\| extend prev_price_10min = prev(price, 600)</span>
-
-<span class="mark">)</span>
-
-<span class="mark">\| where timestamp \> ago(60m)</span>
-
-<span class="mark">\| order by timestamp asc, symbol asc</span>
-
-<span class="mark">\| extend pricedifference_10min = round(price -
-prev_price_10min, 2)</span>
-
-<span class="mark">\| extend percentdifference_10min =
-round(round(price - prev_price_10min, 2) / prev_price_10min, 4)</span>
-
-<span class="mark">\| order by timestamp asc, symbol asc</span>
-
-<img src="./media/image13.png"
-style="width:6.49236in;height:4.32569in" />
-
+```
+StockPrice
+| where timestamp > ago(75m)
+| project symbol, price, timestamp
+| partition by symbol
+(
+    order by timestamp asc
+    | extend prev_price = prev(price, 1)
+    | extend prev_price_10min = prev(price, 600)
+)
+| where timestamp > ago(60m)
+| order by timestamp asc, symbol asc
+| extend pricedifference_10min = round(price - prev_price_10min, 2)
+| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+| order by timestamp asc, symbol asc
+```
+   ![](./media/image13.png)
 4.  En esta consulta KQL, los resultados se limitan primero a los 75
     minutos más recientes. Aunque en última instancia limitamos las
     filas a los últimos 60 minutos, nuestro conjunto de datos inicial
@@ -184,14 +150,11 @@ style="width:6.49236in;height:4.32569in" />
 ## Tarea 3: StockAggregate
 
 1.  Cree otra pestaña nueva dentro del conjunto de consultas haciendo
-    clic en el **icono *+ ***como se muestra en la imagen inferior.
+    clic en el **icono +**como se muestra en la imagen inferior.
     Renombre esta pestaña como **+++StockAggregate+++.**
 
-> <img src="./media/image14.png"
-> style="width:6.49236in;height:3.79514in" />
->
-> <img src="./media/image15.png" style="width:6.5in;height:3.90903in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image14.png)
+      ![](./media/image15.png)
 
 2.  Esta consulta buscará las mayores ganancias de precio en un periodo
     de 10 minutos para cada acción, y la hora en que se produjo. Esta
@@ -206,55 +169,32 @@ style="width:6.49236in;height:4.32569in" />
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Ejecutar** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
-
-> **Copie**
->
-> <span class="mark">StockPrice</span>
->
-> <span class="mark">\| project symbol, price, timestamp</span>
->
-> <span class="mark">\| partition by symbol</span>
->
-> <span class="mark">(</span>
->
-> <span class="mark">order by timestamp asc</span>
->
-> <span class="mark">\| extend prev_price = prev(price, 1)</span>
->
-> <span class="mark">\| extend prev_price_10min = prev(price,
-> 600)</span>
->
-> <span class="mark">)</span>
->
-> <span class="mark">\| order by timestamp asc, symbol asc</span>
->
-> <span class="mark">\| extend pricedifference_10min = round(price -
-> prev_price_10min, 2)</span>
->
-> <span class="mark">\| extend percentdifference_10min =
-> round(round(price - prev_price_10min, 2) / prev_price_10min, 4)</span>
->
-> <span class="mark">\| order by timestamp asc, symbol asc</span>
->
-> <span class="mark">\| summarize arg_max(pricedifference_10min, \*) by
-> symbol</span>
-
-<img src="./media/image16.png" style="width:6.49236in;height:3.46944in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image17.png" style="width:6.5in;height:3.86389in"
-alt="A screenshot of a computer Description automatically generated" />
+```
+StockPrice
+| project symbol, price, timestamp
+| partition by symbol
+(
+    order by timestamp asc
+    | extend prev_price = prev(price, 1)
+    | extend prev_price_10min = prev(price, 600)
+)
+| order by timestamp asc, symbol asc
+| extend pricedifference_10min = round(price - prev_price_10min, 2)
+| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+| order by timestamp asc, symbol asc
+| summarize arg_max(pricedifference_10min, *) by symbol
+```
+![](./media/image16.png)
+![](./media/image17.png)
 
 ## Tarea 4: StockBinned
 
 1.  Cree otra pestaña nueva dentro del conjunto de consultas haciendo
-    clic en el **icono *+ ***como se muestra en la imagen inferior.
-    Cambie el nombre de esta pestaña a ***+++StockBinned+++***.
+    clic en el **icono +**como se muestra en la imagen inferior.
+    Cambie el nombre de esta pestaña a **+++StockBinned+++**.
 
-<img src="./media/image18.png" style="width:6.5in;height:3.90903in" />
-
-<img src="./media/image19.png"
-style="width:6.49236in;height:3.85625in" />
+     ![](./media/image18.png)
+     ![](./media/image19.png)
 
 2.  KQL también dispone de una [función
     bin()](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/bin-function),
@@ -266,18 +206,13 @@ style="width:6.49236in;height:3.85625in" />
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
-
-> **Copia**
-
+```
 StockPrice
+| summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
+| sort by timestamp asc, symbol asc
+```
 
-\| summarize avg(price), min(price), max(price) by bin(timestamp, 1h),
-symbol
-
-\| sort by timestamp asc, symbol asc
-
-<img src="./media/image20.png" style="width:7.20076in;height:5.10038in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image20.png)
 
 4.  Esto resulta especialmente útil cuando se crean informes que agregan
     datos en tiempo real a lo largo de un periodo de tiempo más largo.
@@ -285,14 +220,12 @@ alt="A screenshot of a computer Description automatically generated" />
 ## Tarea 5: Visualizaciones
 
 1.  Cree una nueva pestaña dentro del conjunto de consultas haciendo
-    clic en el **icono *+ ***como se muestra en la siguiente imagen.
-    Renombra esta pestaña como ***+++Visualizations+++*.** Utilizaremos
+    clic en el **icono +**como se muestra en la siguiente imagen.
+    Renombra esta pestaña como **+++Visualizations+++**. Utilizaremos
     esta pestaña para explorar la visualización de datos.
 
-> <img src="./media/image21.png"
-> style="width:6.49236in;height:2.79514in" />
->
-> <img src="./media/image22.png" style="width:6.5in;height:2.41667in" />
+     ![](./media/image21.png)
+     ![](./media/image22.png)
 
 2.  KQL soporta un gran número de
     [visualizaciones](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/render-operator?pivots=fabric)
@@ -303,49 +236,29 @@ alt="A screenshot of a computer Description automatically generated" />
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
-
-> Copie
-
+```
 StockPrice
-
-\| where timestamp \> ago(75m)
-
-\| project symbol, price, timestamp
-
-\| partition by symbol
-
+| where timestamp > ago(75m)
+| project symbol, price, timestamp
+| partition by symbol
 (
-
-order by timestamp asc
-
-\| extend prev_price = prev(price, 1)
-
-\| extend prev_price_10min = prev(price, 600)
-
+    order by timestamp asc
+    | extend prev_price = prev(price, 1)
+    | extend prev_price_10min = prev(price, 600)
 )
-
-\| where timestamp \> ago(60m)
-
-\| order by timestamp asc, symbol asc
-
-\| extend pricedifference_10min = round(price - prev_price_10min, 2)
-
-\| extend percentdifference_10min = round(round(price -
-prev_price_10min, 2) / prev_price_10min, 4)
-
-\| order by timestamp asc, symbol asc
-
-\| render linechart with (series=symbol, xcolumn=timestamp,
-ycolumns=price)
-
-<img src="./media/image23.png" style="width:7.2814in;height:3.54735in"
-alt="A screenshot of a computer Description automatically generated" />
+| where timestamp > ago(60m)
+| order by timestamp asc, symbol asc
+| extend pricedifference_10min = round(price - prev_price_10min, 2)
+| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+| order by timestamp asc, symbol asc
+| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
+```
+   ![](./media/image23.png)
 
 4.  Esto generará un gráfico de líneas como se muestra en la siguiente
     imagen.
 
-<img src="./media/image24.png" style="width:7.35905in;height:3.641in"
-alt="A screenshot of a graph Description automatically generated" />
+     ![](./media/image24.png)
 
 # Ejercicio 2: Optimización de la eficacia de los informes de Power BI
 
@@ -359,65 +272,56 @@ Nuestro tenant de Power BI necesita ser configurado para permitir una
 actualización más frecuente.
 
 1.  Para configurar este ajuste, navegue hasta el portal de
-    administración de Power BI haciendo clic en el icono ***Settings***
+    administración de Power BI haciendo clic en el icono **Settings**
     situado en la esquina superior derecha del **portal Fabric**. Vaya a
     la sección Governance and insights y, a continuación, haga clic en
     **Admin portal**.
 
-<img src="./media/image25.png"
-style="width:3.9125in;height:6.35976in" />
+     ![](./media/image25.png)
 
 2.  En la página **del portal Admin**, navegue y haga clic en **Capacity
     settings** y, a continuación, en la pestaña **trial**. Haga clic en
     el nombre de su capacidad.
 
-> <img src="./media/image26.png"
-> style="width:7.17657in;height:3.0125in" />
+      ![](./media/image26.png)>
 
 3.  Desplácese hacia abajo y haga clic en ***Power BI workloads***, y en
-    ***Semantic Models*** (recientemente rebautizados como *Conjuntos de
-    datos*), configure ***Automatic page refresh*** a ***On***, con un
+    ***Semantic Models*** (recientemente rebautizados como Conjuntos de
+    datos), configure ***Automatic page refresh*** a **On**, con un
     **minimum refresh interval** de **1 segundo**. A continuación, haga
     clic en el botón **Apply**.
 
 **Nota**: Dependiendo de sus permisos administrativos, es posible que
 esta configuración no esté disponible. Tenga en cuenta que este cambio
 puede tardar varios minutos en completarse.
-
-<img src="./media/image27.png"
-style="width:6.49236in;height:5.40139in" />
-
-<img src="./media/image28.png" style="width:6.5in;height:5.93958in" />
+     ![](./media/image27.png)
+     ![](./media/image28.png)
 
 4.  En el cuadro de diálogo **Update your capacity workloads**, haga
     clic en el botón **Yes**.
 
-<img src="./media/image29.png"
-style="width:5.74236in;height:1.44722in" />
+      ![](./media/image29.png)
 
 ## Tarea 2: Creación de un informe básico de Power BI
 
 1.  En la barra de menús de la página **Microsoft Fabric**, a la
     izquierda, seleccione **StockQueryset**.
 
-<img src="./media/image30.png" style="width:6.06042in;height:7.32008in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image30.png)
 
 2.  Desde el queryset ***StockQueryset*** utilizado en el módulo
     anterior, seleccione la pestaña de consulta ***StockByTime***.
 
-<img src="./media/image31.png" style="width:6.5in;height:3.38333in" />
+      ![](./media/image31.png)
 
 3.  Seleccione la consulta y ejecútela para ver los resultados. Haga
     clic en el botón ***Build Power BI report*** de la barra de comandos
     para llevar esta consulta a Power BI.
 
-<img src="./media/image32.png" style="width:6.49167in;height:4.05in" />
+     ![](./media/image32.png)
+     ![](./media/image33.png)
 
-<img src="./media/image33.png" style="width:6.5in;height:4.46319in"
-alt="A screenshot of a computer Description automatically generated" />
-
-4.  En la página de vista previa del informe, podemos configurar nuestro
+5.  En la página de vista previa del informe, podemos configurar nuestro
     gráfico inicial, seleccionar un **gráfico de líneas** para la
     superficie de diseño y configurar el informe como se indica a
     continuación. Véase la imagen siguiente como referencia.
@@ -427,50 +331,42 @@ Legend: symbol
 X-axis: timestamp
 
 Y-axis: price
-
-<img src="./media/image34.png"
-style="width:6.49236in;height:4.32569in" />
+    ![](./media/image34.png)
 
 5.  En la página Power BI (vista previa), en la cinta de opciones, haga
     clic en **file** y seleccione **Save**.
 
-> <img src="./media/image35.png" style="width:5.9425in;height:3.7375in"
-> alt="A screenshot of a graph Description automatically generated" />
+     ![](./media/image35.png)
 
 6.  En el **primer** cuadro de diálogo, en el campo **Name your file in
-    Power BI**, introduzca *+++RealTimeStocks+++*. En el campo **Save it
+    Power BI**, introduzca +++RealTimeStocks+++. En el campo **Save it
     to a workspace**, haga clic en el desplegable y seleccione
-    ***RealTimeWorkspace***. A continuación, haga clic en el botón
+    **RealTimeWorkspace**. A continuación, haga clic en el botón
     **Continue.**
 
-<img src="./media/image36.png" style="width:3.17917in;height:2.63638in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image36.png)
 
 7.  En la página de Power BI (preview), haga clic en **Open the file in
     Power BI to view, edit and get a shareable link.**
 
-<img src="./media/image37.png"
-style="width:6.49236in;height:4.70486in" />
+     ![](./media/image37.png)
 
 8.  En la página **RealTimeStock**, haga clic en el botón **Edit** de la
     barra de comandos para abrir el editor de informes.
 
-> <img src="./media/image38.png" style="width:6.49236in;height:3.81806in"
-> alt="A graph of different colored lines Description automatically generated" />
+      ![](./media/image38.png)
 
 9.  Seleccione el gráfico de líneas en el informe. Configure un
-    **Filtro** por ***marca de tiempo*** para mostrar los datos de los
+    **Filtro** por **marca de tiempo** para mostrar los datos de los
     últimos 5 minutos utilizando estos ajustes:
 
 - Filter type: Relative time
 
 - Show items when the value: is in the last 5 minutes
 
-Haga clic en ***Apply filter*** para activar el filtro. Verá un tipo de
+Haga clic en **Apply filter** para activar el filtro. Verá un tipo de
 salida similar al que se muestra en la siguiente imagen.
-
-<img src="./media/image39.png" style="width:7.4018in;height:3.10038in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image39.png)
 
 ## Tarea 3: Crear un segundo visual para el cambio porcentual
 
@@ -488,21 +384,15 @@ alt="A screenshot of a computer Description automatically generated" />
 - X-axis: **timestamp**
 
 - Y-axis: **average of percentdifference_10min**
+      ![](./media/image40.png)
 
-<img src="./media/image40.png"
-style="width:6.05833in;height:6.78333in" />
-
-<img src="./media/image41.png" style="width:7.40867in;height:3.39801in"
-alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image41.png)
 3.  En la **Visualization,** seleccione el **Analytics** representado
     por un icono en forma de lupa como se muestra en la imagen de abajo,
     a continuación, haga clic en **Y-Axis Constant Line(1).** En la
     sección **Apply settings a,** haga clic en **+Add line** e
-    introduzca **el valor 0.**
-
-<img src="./media/image42.png"
-style="width:7.07083in;height:5.00132in" />
+    introduzca **el valor 0**
+      ![](./media/image42.png)
 
 4.  Seleccione el gráfico de líneas en el informe. Configure un
     **Filter** por ***Timestamp*** para mostrar los datos de los últimos
@@ -512,8 +402,7 @@ style="width:7.07083in;height:5.00132in" />
 
 - Show items when the value: is in the last 5 minutes
 
-<img src="./media/image43.png"
-style="width:7.16929in;height:4.95417in" />
+     ![](./media/image43.png)
 
 ## Tarea 4: Configurar el informe para que se actualice automáticamente
 
@@ -529,14 +418,12 @@ style="width:7.16929in;height:4.95417in" />
     el valor de actualización automática de la página en **2 seconds**,
     como se muestra en la siguiente imagen.
 
-<img src="./media/image44.png"
-style="width:7.3928in;height:3.52083in" />
+      ![](./media/image44.png)
 
 3.  En la página Power BI (vista previa), en la cinta de opciones, haga
     clic en **File** y seleccione **Save**.
 
-<img src="./media/image45.png"
-style="width:6.49167in;height:5.55833in" />
+      ![](./media/image45.png)
 
 **Resumen**
 
