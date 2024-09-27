@@ -280,7 +280,7 @@ pull data from, we'd repeat these steps for each data source.
     | project symbol, timestamp, price, datestamp 
     | take 500000 
     | where not(isnull(price))
-    ' )
+    ' )+++
  </p></td>
 </tr>
 </tbody>
