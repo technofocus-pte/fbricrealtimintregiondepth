@@ -28,21 +28,21 @@ complexity to support different business uses.
 ## Task 1: Create KQL queryset: StockQueryset
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation pane.
-   ![](./media/image1.png)
+     ![](./media/image1.png)
 2.  From your workspace, click on **+New item** **KQL Queryset** as
     shown in the below image. In the **New KQL Queryset** dialog box,
     enter +++StockQueryset+++, then click on the **Create**
     button.
 
-    ![](./media/new12.png)
-    ![](./media/image3.png)
+     ![](./media/new12.png)
+     ![](./media/image3.png)
    
 3.  Select the **StockDB** and click on the **Connect** button.
-    ![](./media/image4.png)
+     ![](./media/image4.png)
 
 4.  The KQL query window will open, allowing you to query the data.
 
-    ![](./media/image5.png)
+     ![](./media/image5.png)
 5.  The default query code will look like the code shown in the below
     image; it contains 3 distinct KQL queries. You may
     see *YOUR_TABLE_HERE* instead of the **StockPrice** table. Select
