@@ -5,7 +5,7 @@ Laboratorio 02: Uso de KQL y creación de informes
 
 Laboratorio 03: Creación de un Data Lakehouse
 
-Lab 04-Getting Started with Building a ML Model in Fabric
+Laboratorio 04: Introducción a la creación de un ML Model en Fabric
 
 Lab 05-Building a Data warehouse using Pipelines (Optional)
 
