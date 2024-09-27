@@ -7,7 +7,7 @@ Laboratorio 03: Creación de un Data Lakehouse
 
 Laboratorio 04: Introducción a la creación de un ML Model en Fabric
 
-Lab 05-Building a Data warehouse using Pipelines (Optional)
+Laboratorio 05: Creación de un Data Warehouse mediante Data Pipelines
 
 Lab 06-Data Activator(Optional)
 
