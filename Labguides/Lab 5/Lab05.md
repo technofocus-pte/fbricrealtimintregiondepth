@@ -560,15 +560,13 @@ GO
     botón derecho en **SQL query** en el Explorer y seleccione
     **Rename**.
 
-<img src="./media/image47.png" style="width:5.60795in;height:6.16995in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image47.png)
 
 5.  En el cuadro de diálogo **Rename**, en el campo **Name**, introduzca
     Create Dimension and Fact tables**+++** y, a continuación, haga clic
     en el botón **Rename**.
 
-<img src="./media/image48.png" style="width:3.39375in;height:1.94722in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image48.png)
 
 ## Tarea 2: Cargar la dimensión fecha
 
@@ -578,8 +576,7 @@ alt="A screenshot of a computer Description automatically generated" />
     sección **Blank**. Empezaremos a construir nuestro esquema en el
     siguiente paso:
 
-<img src="./media/image49.png" style="width:6.02462in;height:4.58523in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image49.png)
 
 2.  La dimensión fecha es diferenciada; puede cargarse una vez con todos
     los valores que necesitaríamos. Ejecute el siguiente script, que
@@ -589,114 +586,72 @@ alt="A screenshot of a computer Description automatically generated" />
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
+```
+/* 3 - Load Dimension tables.sql */
 
-> **Copie**
-
-/\* 3 - Load Dimension tables.sql \*/
-
-CREATE PROC \[ETL\].\[sp_Dim_Date_Load\]
-
+CREATE PROC [ETL].[sp_Dim_Date_Load]
 @BeginDate DATE = NULL
-
 ,@EndDate DATE = NULL
-
 AS
-
 BEGIN
 
 SET @BeginDate = ISNULL(@BeginDate, '2022-01-01')
-
 SET @EndDate = ISNULL(@EndDate, DATEADD(year, 2, GETDATE()))
 
 DECLARE @N AS INT = 0
-
 DECLARE @NumberOfDates INT = DATEDIFF(day,@BeginDate, @EndDate)
-
 DECLARE @SQL AS NVARCHAR(MAX)
-
 DECLARE @STR AS VARCHAR(MAX) = ''
 
-WHILE @N \<= @NumberOfDates
+WHILE @N <= @NumberOfDates
+    BEGIN
+    SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10)) 
+    
+    IF @N < @NumberOfDates
+        BEGIN
+            SET @STR = @STR + ','
+        END
 
-BEGIN
+    SET @N = @N + 1;
+    END
 
-SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10))
-
-IF @N \< @NumberOfDates
-
-BEGIN
-
-SET @STR = @STR + ','
-
-END
-
-SET @N = @N + 1;
-
-END
-
-SET @SQL = 'INSERT INTO dbo.dim_Date (\[DateKey\]) SELECT CAST(\[value\]
-AS DATE) FROM STRING_SPLIT(@STR, '','')';
+SET @SQL = 'INSERT INTO dbo.dim_Date ([DateKey]) SELECT CAST([value] AS DATE) FROM STRING_SPLIT(@STR, '','')';
 
 EXEC sys.sp_executesql @SQL, N'@STR NVARCHAR(MAX)', @STR;
 
 UPDATE dbo.dim_Date
-
-SET
-
-\[DayOfMonth\] = DATEPART(day,DateKey)
-
-,\[DayOfWeeK\] = DATEPART(dw,DateKey)
-
-,\[DayOfWeekName\] = DATENAME(weekday, DateKey)
-
-,\[Year\] = DATEPART(yyyy,DateKey)
-
-,\[Month\] = DATEPART(month,DateKey)
-
-,\[MonthName\] = DATENAME(month, DateKey)
-
-,\[Quarter\] = DATEPART(quarter,DateKey)
-
-,\[QuarterName\] = CONCAT('Q',DATEPART(quarter,DateKey))
+SET 
+    [DayOfMonth] = DATEPART(day,DateKey)
+    ,[DayOfWeeK] = DATEPART(dw,DateKey)
+    ,[DayOfWeekName] = DATENAME(weekday, DateKey)
+    ,[Year] = DATEPART(yyyy,DateKey)
+    ,[Month] = DATEPART(month,DateKey)
+    ,[MonthName] = DATENAME(month, DateKey)
+    ,[Quarter] = DATEPART(quarter,DateKey)
+    ,[QuarterName] = CONCAT('Q',DATEPART(quarter,DateKey))
 
 END
-
 GO
-
-<img src="./media/image50.png" style="width:6.49236in;height:4.77292in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image51.png" style="width:6.5in;height:4.52431in"
-alt="A screenshot of a computer Description automatically generated" />
-
+```
+   ![](./media/image50.png)
+     ![](./media/image51.png)
 4.  Desde la misma ventana de consulta, ejecute el procedimiento
     anterior ejecutando el siguiente script.
-
-> **Copie**
-
-/\* 3 - Load Dimension tables.sql \*/
-
+```
+/* 3 - Load Dimension tables.sql */
 Exec ETL.sp_Dim_Date_Load
-
-<img src="./media/image52.png" style="width:6.49236in;height:4.68958in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image53.png" style="width:6.5in;height:3.16181in"
-alt="A screenshot of a computer Description automatically generated" />
-
+```
+  ![](./media/image52.png)
+    ![](./media/image53.png)
 5.  Cambie el nombre de la consulta como referencia. Haga clic con el
     botón derecho en **SQL query** en el Explorador y seleccione
     **Rename.**
-
-<img src="./media/image54.png" style="width:4.90341in;height:5.77395in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image54.png)
 
 6.  En el cuadro de diálogo **Rename**, en el campo **Name**, introduzca
-    +++ **Load Dimension tables +++** y, a continuación, haga clic en el
+    +++Load Dimension tables+++ y, a continuación, haga clic en el
     botón **Rename.**
-
-<img src="./media/image55.png" style="width:3.40903in;height:1.89375in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image55.png)
 
 ## Tarea 3: Crear el procedimiento para cargar la dimensión Símbolo
 
@@ -705,8 +660,7 @@ alt="A screenshot of a computer Description automatically generated" />
     Query*** en la sección **Blank**. Empezaremos a construir nuestro
     esquema en el siguiente paso.
 
-<img src="./media/image49.png" style="width:6.02462in;height:4.58523in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image49.png)
 
 2.  De forma similar a la dimensión fecha, cada símbolo bursátil
     corresponde a una fila de la tabla de dimensión Símbolos. Esta tabla
@@ -718,86 +672,55 @@ alt="A screenshot of a computer Description automatically generated" />
     procedimiento que cargará la dimensión del símbolo de la acción.
     Ejecutaremos esto en el canal para manejar cualquier acción nueva
     que pueda entrar en el canal.
+```
+/* 3 - Load Dimension tables.sql */
 
-> **Copia**
-
-/\* 3 - Load Dimension tables.sql \*/
-
-CREATE PROC \[ETL\].\[sp_Dim_Symbol_Load\]
-
+CREATE PROC [ETL].[sp_Dim_Symbol_Load]
 AS
-
 BEGIN
 
-DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM
-\[dbo\].\[dim_Symbol\])
+DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM [dbo].[dim_Symbol])
 
-INSERT \[dbo\].\[dim_Symbol\]
-
-SELECT
-
-Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)
-
-, Symbol
-
-, Name
-
-,Market
-
-FROM
-
-(SELECT DISTINCT
-
-sdp.Symbol
-
-, Name = 'Stock ' + sdp.Symbol
-
-, Market = CASE SUBSTRING(Symbol,1,1)
-
-WHEN 'B' THEN 'NASDAQ'
-
-WHEN 'W' THEN 'NASDAQ'
-
-WHEN 'I' THEN 'NYSE'
-
-WHEN 'T' THEN 'NYSE'
-
-ELSE 'No Market'
+INSERT [dbo].[dim_Symbol]
+SELECT  
+    Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)  
+    , Symbol
+    , Name
+    ,Market
+FROM 
+    (SELECT DISTINCT
+    sdp.Symbol 
+    , Name  = 'Stock ' + sdp.Symbol 
+    , Market = CASE SUBSTRING(Symbol,1,1)
+                    WHEN 'B' THEN 'NASDAQ'
+                    WHEN 'W' THEN 'NASDAQ'
+                    WHEN 'I' THEN 'NYSE'
+                    WHEN 'T' THEN 'NYSE'
+                    ELSE 'No Market'
+                END
+    FROM 
+        [stg].[vw_StocksDailyPrices] sdp
+    WHERE 
+        sdp.Symbol NOT IN (SELECT Symbol FROM [dbo].[dim_Symbol])
+    ) stg
 
 END
-
-FROM
-
-\[stg\].\[vw_StocksDailyPrices\] sdp
-
-WHERE
-
-sdp.Symbol NOT IN (SELECT Symbol FROM \[dbo\].\[dim_Symbol\])
-
-) stg
-
-END
-
 GO
-
-<img src="./media/image56.png" style="width:7.26054in;height:4.74432in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image57.png" style="width:7.12346in;height:4.47423in"
-alt="A screenshot of a computer Description automatically generated" />
+```
+  ![](./media/image56.png)
+     ![](./media/image57.png)
 
 7.  Cambie el nombre de la consulta como referencia. Haga clic con el
     botón derecho en **SQL query** en el Explorador y seleccione
     **Rename**.
 
-<img src="./media/image58.png" style="width:6.5in;height:6.51528in" />
+      ![](./media/image58.png)
 
 8.  En el cuadro de diálogo **Rename**, en el campo **Name**, introduzca
-    +++ **Load the stock symbol dimension +++** y, a continuación, pulse
+    +++Load the stock symbol dimension+++ y, a continuación, pulse
     el botón **Rename**.
 
-<img src="./media/image59.png" style="width:3.50833in;height:1.89167in"
-alt="A screenshot of a computer Description automatically generated" />
+       ![](./media/image59.png)
 
 ## **Tarea 4: Crear las vistas**
 
@@ -805,9 +728,7 @@ alt="A screenshot of a computer Description automatically generated" />
     comandos y, a continuación, seleccione ***New SQL query*** en la
     sección **Blank**. Empezaremos a construir nuestro esquema en el
     siguiente paso.
-
-<img src="./media/image49.png" style="width:6.02462in;height:4.58523in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image49.png)
 
 2.  Crear vistas que soporten la agregación de los datos durante la
     carga. Cuando se ejecuta la pipeline, los datos se copian de la base
@@ -817,142 +738,100 @@ alt="A screenshot of a computer Description automatically generated" />
 
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta.
+```
+/* 4 - Create Staging Views.sql */
 
-/\* 4 - Create Staging Views.sql \*/
-
-CREATE VIEW \[stg\].\[vw_StocksDailyPrices\]
-
-AS
-
-SELECT
-
-Symbol = symbol
-
-,PriceDate = datestamp
-
-,MIN(price) as MinPrice
-
-,MAX(price) as MaxPrice
-
-,(SELECT TOP 1 price FROM \[stg\].\[StocksPrices\] sub
-
-WHERE sub.symbol = prices.symbol and sub.datestamp = prices.datestamp
-
-ORDER BY sub.timestamp DESC
-
-) as ClosePrice
-
-FROM
-
-\[stg\].\[StocksPrices\] prices
-
+CREATE VIEW [stg].[vw_StocksDailyPrices] 
+AS 
+SELECT 
+    Symbol = symbol
+    ,PriceDate = datestamp
+    ,MIN(price) as MinPrice
+    ,MAX(price) as MaxPrice
+    ,(SELECT TOP 1 price FROM [stg].[StocksPrices] sub
+    WHERE sub.symbol = prices.symbol and sub.datestamp = prices.datestamp
+    ORDER BY sub.timestamp DESC
+    ) as ClosePrice
+FROM 
+    [stg].[StocksPrices] prices
 GROUP BY
-
-symbol, datestamp
-
+    symbol, datestamp
 GO
-
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
-
+/**************************************/
 CREATE VIEW stg.vw_StocksDailyPricesEX
-
 AS
-
 SELECT
-
-ds.\[Symbol_SK\]
-
-,dd.DateKey as PriceDateKey
-
-,MinPrice
-
-,MaxPrice
-
-,ClosePrice
-
-FROM
-
-\[stg\].\[vw_StocksDailyPrices\] sdp
-
-INNER JOIN \[dbo\].\[dim_Date\] dd
-
-ON dd.DateKey = sdp.PriceDate
-
-INNER JOIN \[dbo\].\[dim_Symbol\] ds
-
-ON ds.Symbol = sdp.Symbol
-
+    ds.[Symbol_SK]
+    ,dd.DateKey as PriceDateKey
+    ,MinPrice
+    ,MaxPrice
+    ,ClosePrice
+FROM 
+    [stg].[vw_StocksDailyPrices] sdp
+INNER JOIN [dbo].[dim_Date] dd
+    ON dd.DateKey = sdp.PriceDate
+INNER JOIN [dbo].[dim_Symbol] ds
+    ON ds.Symbol = sdp.Symbol
 GO
-
-<img src="./media/image60.png" style="width:6.49167in;height:4.60833in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image61.png" style="width:6.5in;height:4.40903in"
-alt="A screenshot of a computer Description automatically generated" />
+```
+   ![](./media/image60.png)
+       ![](./media/image61.png)
 
 4.  Cambie el nombre de la consulta como referencia. Haga clic con el
     botón derecho en **SQL query** en el Explorer y seleccione
     **Rename**.
 
-<img src="./media/image62.png"
-style="width:5.34583in;height:5.52403in" />
+      ![](./media/image62.png)
 
 5.  En el cuadro de diálogo **Rename**, en el campo **Name**, introduzca
-    +++ **Create Staging Views** **+++** y, a continuación, haga clic en
+    +++Create Staging Views+++ y, a continuación, haga clic en
     el botón **Rename**.
 
-<img src="./media/image63.png" style="width:3.40833in;height:1.95833in"
-alt="A screenshot of a computer screen Description automatically generated" />
+      ![](./media/image63.png)
 
 ## Tarea 5: Añadir actividad para cargar símbolos
 
 1.  En la página **StockDW**, haga clic en **PL_Refresh_DWH** en el menú
     de navegación de la izquierda.
 
-<img src="./media/image64.png"
-style="width:5.78333in;height:7.10833in" />
+      ![](./media/image64.png)
 
-2.  En el pipeline, agregue una nueva actividad ***de Stored
-    Procedure*** llamada ***Populate Symbols Dimension*** que ejecuta el
+2.  En el pipeline, agregue una nueva actividad **de Stored
+    Procedure** llamada **Populate Symbols Dimension** que ejecuta el
     procedimiento, el cual carga los símbolos de las acciones.
 
 3.  Esto debe conectarse a la salida de éxito de la actividad ForEach
     (no dentro de la actividad ForEach).
 
-> <img src="./media/image65.png" style="width:6.5in;height:2.70349in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image65.png)
 
-4.  En la pestaña **General**, en el **campo Name,** introduzca +++
-    **Populate Symbols Dimension** +++
+4.  En la pestaña **General**, en el **campo Name,** introduzca 
+    +++Populate Symbols Dimension+++
 
-> <img src="./media/image66.png" style="width:6.5in;height:4.38318in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image66.png)
 
 5.  Haga clic en la pestaña **Settings** e introduzca los siguientes
     parámetros.
 
 | **Connection**            | **Workspace**                  |
 |---------------------------|--------------------------------|
-| **S**tored procedure name | \[ETL\].\[sp_Dim_Symbol_Load\] |
+| **S**tored procedure name | [ETL].[sp_Dim_Symbol_Load] |
 
-<img src="./media/image67.png"
-style="width:7.20909in;height:4.3125in" />
+![](./media/image67.png)
 
 ## Tarea 6: Crear el procedimiento para cargar los precios diarios
 
 1.  En la página **PL_Refresh_DWH**, haga clic en **StockDW** en el menú
     de navegación de la izquierda.
 
-<img src="./media/image68.png" style="width:6.35625in;height:7.48472in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image68.png)
 
 2.  Haga clic en el menú desplegable ***New SQL query*** de la barra de
     comandos y, a continuación, seleccione ***New SQL query***  en la
     sección **Blank**. Empezaremos a construir nuestro esquema en el
     siguiente paso.
 
-<img src="./media/image49.png" style="width:6.02462in;height:4.58523in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image49.png)
 
 3.  A continuación, ejecute el siguiente script para crear el
     procedimiento que construye la tabla de hechos. Este procedimiento
@@ -967,135 +846,88 @@ alt="A screenshot of a computer Description automatically generated" />
 
 4.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta.
+```    
+/* 5 - ETL.sp_Fact_Stocks_Daily_Prices_Load.sql */
 
-/\* 5 - ETL.sp_Fact_Stocks_Daily_Prices_Load.sql \*/
-
-CREATE PROCEDURE \[ETL\].\[sp_Fact_Stocks_Daily_Prices_Load\]
-
+CREATE PROCEDURE [ETL].[sp_Fact_Stocks_Daily_Prices_Load]
 AS
-
 BEGIN
-
 BEGIN TRANSACTION
 
-UPDATE fact
+    UPDATE fact
+    SET 
+        fact.MinPrice = CASE 
+                        WHEN fact.MinPrice IS NULL THEN stage.MinPrice
+                        ELSE CASE WHEN fact.MinPrice < stage.MinPrice THEN fact.MinPrice ELSE stage.MinPrice END
+                    END
+        ,fact.MaxPrice = CASE 
+                        WHEN fact.MaxPrice IS NULL THEN stage.MaxPrice
+                        ELSE CASE WHEN fact.MaxPrice > stage.MaxPrice THEN fact.MaxPrice ELSE stage.MaxPrice END
+                    END
+        ,fact.ClosePrice = CASE 
+                        WHEN fact.ClosePrice IS NULL THEN stage.ClosePrice
+                        WHEN stage.ClosePrice IS NULL THEN fact.ClosePrice
+                        ELSE stage.ClosePrice
+                    END 
+    FROM [dbo].[fact_Stocks_Daily_Prices] fact  
+    INNER JOIN [stg].[vw_StocksDailyPricesEX] stage
+        ON fact.PriceDateKey = stage.PriceDateKey
+        AND fact.Symbol_SK = stage.Symbol_SK
 
-SET
-
-fact.MinPrice = CASE
-
-WHEN fact.MinPrice IS NULL THEN stage.MinPrice
-
-ELSE CASE WHEN fact.MinPrice \< stage.MinPrice THEN fact.MinPrice ELSE
-stage.MinPrice END
-
-END
-
-,fact.MaxPrice = CASE
-
-WHEN fact.MaxPrice IS NULL THEN stage.MaxPrice
-
-ELSE CASE WHEN fact.MaxPrice \> stage.MaxPrice THEN fact.MaxPrice ELSE
-stage.MaxPrice END
-
-END
-
-,fact.ClosePrice = CASE
-
-WHEN fact.ClosePrice IS NULL THEN stage.ClosePrice
-
-WHEN stage.ClosePrice IS NULL THEN fact.ClosePrice
-
-ELSE stage.ClosePrice
-
-END
-
-FROM \[dbo\].\[fact_Stocks_Daily_Prices\] fact
-
-INNER JOIN \[stg\].\[vw_StocksDailyPricesEX\] stage
-
-ON fact.PriceDateKey = stage.PriceDateKey
-
-AND fact.Symbol_SK = stage.Symbol_SK
-
-INSERT INTO \[dbo\].\[fact_Stocks_Daily_Prices\]
-
-(Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice)
-
-SELECT
-
-Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice
-
-FROM
-
-\[stg\].\[vw_StocksDailyPricesEX\] stage
-
-WHERE NOT EXISTS (
-
-SELECT \* FROM \[dbo\].\[fact_Stocks_Daily_Prices\] fact
-
-WHERE fact.PriceDateKey = stage.PriceDateKey
-
-AND fact.Symbol_SK = stage.Symbol_SK
-
-)
+    INSERT INTO [dbo].[fact_Stocks_Daily_Prices]  
+        (Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice)
+    SELECT
+        Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice
+    FROM 
+        [stg].[vw_StocksDailyPricesEX] stage
+    WHERE NOT EXISTS (
+        SELECT * FROM [dbo].[fact_Stocks_Daily_Prices] fact
+        WHERE fact.PriceDateKey = stage.PriceDateKey
+            AND fact.Symbol_SK = stage.Symbol_SK
+    )
 
 COMMIT
 
 END
-
 GO
-
-<img src="./media/image69.png" style="width:7.26159in;height:3.94886in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image70.png" style="width:6.5in;height:4.75764in"
-alt="A screenshot of a computer Description automatically generated" />
+```
+   ![](./media/image69.png)
+      ![](./media/image70.png)
 
 6.  Cambie el nombre de la consulta como referencia. Haga clic con el
     botón derecho en **SQL query** en el Explorador y seleccione
     **Rename**.
 
-<img src="./media/image71.png" style="width:6.5in;height:7.35625in"
-alt="A screenshot of a computer Description automatically generated" />
+       ![](./media/image71.png)
 
 7.  En el cuadro de diálogo **Rename**, en el campo **Name**, introduzca
-    +++
-    <span class="mark">ETL.</span>**sp_Fact_Stocks_Daily_Prices_Load+++**
-    y, a continuación, haga clic en el botón **Rename**.
+    +++ETL.sp_Fact_Stocks_Daily_Prices_Load+++ y, a continuación, haga clic en el botón **Rename**.
 
-<img src="./media/image72.png" style="width:3.46181in;height:1.83333in"
-alt="A screenshot of a computer Description automatically generated" />
+       ![](./media/image72.png)
 
 ## Tarea 7: Añadir actividad al pipeline para cargar los precios diarios de las acciones
 
 1.  En la página **StockDW**, haga clic en **PL_Refresh_DWH** en el menú
     de navegación de la izquierda.
 
-<img src="./media/image73.png" style="width:5.6875in;height:5.94104in"
-alt="A screenshot of a computer Description automatically generated" />
+        ![](./media/image73.png)
 
 2.  Agregue otra actividad ***Stored Procedure*** a la tubería llamada
     ***Populate Fact Stocks Daily Prices*** que cargue los precios de
     las acciones desde el staging a la tabla de hechos. Conecte la
     salida exitosa de la *Dimensión Populate Symbols* a la nueva
     actividad *Populate Fact Stocks Daily Prices*.
-
-> <img src="./media/image74.png" style="width:6.5in;height:3.28456in"
-> alt="A screenshot of a computer Description automatically generated" />
->
-> <img src="./media/image75.png" style="width:6.5in;height:3.58333in"
-> alt="A screenshot of a computer Description automatically generated" />
+       ![](./media/image74.png)
+        ![](./media/image75.png)
 
 3.  Haga clic en la pestaña **Settings** e introduzca los siguientes
     parámetros.
 
 | **Connection**            | Seleccione **StocksDW** en la lista desplegable |
 |---------------------------|-------------------------------------------------|
-| **Stored procedure name** | \[ETL\].\[sp_Fact_Stocks_Daily_Prices_Load\]    |
+| **Stored procedure name** | [ETL].[sp_Fact_Stocks_Daily_Prices_Load]    |
 
-<img src="./media/image76.png"
-style="width:7.2625in;height:3.97153in" />
+  ![](./media/image76.png)
 
 ## Tarea 8. Ejecutar la pipeline
 
@@ -1103,18 +935,13 @@ style="width:7.2625in;height:3.97153in" />
     compruebe que se ejecuta y que se cargan las tablas de hechos y
     dimensiones.
 
-<img src="./media/image77.png" style="width:7.29665in;height:3.52462in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image77.png)
 
 2.  En el cuadro de diálogo **Save and run?**, haga clic en el botón
     **Save and run**
 
-> <img src="./media/image37.png" style="width:3.09861in;height:2.00764in"
-> alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image78.png" style="width:7.39001in;height:4.07008in"
-alt="A screenshot of a computer Description automatically generated" />
-
+      ![](./media/image37.png)
+      ![](./media/image78.png)
 ## Tarea 9: Programar la pipeline
 
 1.  A continuación, programe la canalización para que se ejecute
@@ -1125,15 +952,11 @@ alt="A screenshot of a computer Description automatically generated" />
 > KQL limita los resultados de la consulta a 500.000, la canalización
 > debe ejecutarse al menos dos veces al día para mantenerse actualizada.
 
-2.  Para programar la canalización, haga clic en el botón ***Schedule***
-    (junto al botón *Ejecutar*) y establezca una programación periódica,
+2.  Para programar la canalización, haga clic en el botón **Schedule**
+    (junto al botón **Ejecutar**) y establezca una programación periódica,
     por ejemplo, cada hora o cada pocos minutos.
-
-<img src="./media/image79.png" style="width:7.2501in;height:3.42614in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image80.png" style="width:6.5in;height:5.81042in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image79.png)
+     ![](./media/image80.png)
 
 # Ejercicio 3: Modelización semántica
 
@@ -1163,52 +986,42 @@ de hechos y de dos dimensiones.
 1.  En la página **PL_Refresh_DWH**, haga clic en **StockDW** en el menú
     de navegación de la izquierda.
 
-<img src="./media/image81.png" style="width:4.88851in;height:5.77917in"
-alt="A screenshot of a computer Description automatically generated" />
+       ![](./media/image81.png)
 
 2.  Haga clic en el icono de **actualización** como se muestra en la
     siguiente imagen.
 
-<img src="./media/image82.png" style="width:5.68958in;height:3.31806in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image82.png)
+     ![](./media/image83.png)
 
-<img src="./media/image83.png" style="width:7.31361in;height:3.72917in"
-alt="A screenshot of a computer Description automatically generated" />
+3.  En la página StockDW, seleccione la pestaña **Reporting** y, a
+    continuación, seleccione **New semantic model**.
 
-3.  En la página StockDW, seleccione la pestaña ***Reporting*** y, a
-    continuación, seleccione ***New semantic model***.
-
-> <img src="./media/image84.png" style="width:5.17917in;height:3.1944in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image84.png)
 
 4.  En la pestaña Nuevo modelo semántico, introduzca el nombre como
-    ***StocksModel*,** y seleccione sólo la tabla de hechos y
+    **StocksModel,** y seleccione sólo la tabla de hechos y
     dimensiones, ya que lo que nos interesa es
-    ***fact_Stocks_Daily_Prices*, *dim_Date*, y *dim_Symbol***. Haga
+   +++fact_Stocks_Daily_Prices+++*, **dim_Date**, y **dim_Symbol**. Haga
     clic en el botón **Confirm**.
 
-<img src="./media/image85.png" style="width:3.09583in;height:4.69818in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image85.png)
 
 ## Tarea 2. Añadir relaciones
 
 1.  En la página **StockDW**, haga clic en **RealTimeWorkspace** en el
     menú de navegación de la izquierda y seleccione **StockModel**.
 
-<img src="./media/image86.png" style="width:6.5in;height:4.46181in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image86.png)
 
 2.  El diseñador de modelos debería abrirse automáticamente tras crear
     el modelo semántico anterior. Si no lo hace, o si desea volver al
     diseñador en otro momento, puede hacerlo abriendo el modelo en la
-    lista de recursos del área de trabajo y seleccionando ***Open Data
-    Model*** en el elemento del modelo semántico.
+    lista de recursos del área de trabajo y seleccionando **Open Data
+    Model** en el elemento del modelo semántico.
 
-<img src="./media/image87.png" style="width:7.17607in;height:3.47917in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image88.png" style="width:7.33133in;height:2.69129in"
-alt="A screenshot of a computer Description automatically generated" />
+        ![](./media/image87.png)
+       ![](./media/image88.png)
 
 3.  Para crear relaciones entre las tablas de hechos y dimensiones,
     arrastre la clave de la tabla de hechos a la clave correspondiente
@@ -1222,8 +1035,7 @@ alt="A screenshot of a computer Description automatically generated" />
     crear una relación. Aparecerá el cuadro de diálogo **New
     relationship**.
 
-> <img src="./media/image89.png"
-> style="width:6.49167in;height:2.94167in" />
+     ![](./media/image89.png)
 
 5.  En el cuadro de diálogo **New relationship**:
 
@@ -1232,7 +1044,7 @@ alt="A screenshot of a computer Description automatically generated" />
 
 - **La tabla To** se rellena con **dim_Date** y la columna de DateKey
 
-- Cardinalidad: **Many to one (\*:1)**
+- Cardinalidad: **Many to one (:1)**
 
 - Dirección del filtro transversal: **Single**
 
@@ -1240,20 +1052,15 @@ alt="A screenshot of a computer Description automatically generated" />
   active**.
 
 - Seleccione **Ok.**
-
-<img src="./media/image90.png" style="width:6.75947in;height:4.70346in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image91.png" style="width:7.37532in;height:3.20858in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image90.png)
+      ![](./media/image91.png)
 
 6.  Desde la tabla **fact_Stocks_Daily_Prices**, arrastre el campo
     **Symbol_SK** y suéltelo en el campo **Symbol_SK** de la tabla
     **dim_Symbol** para crear una relación. Aparecerá el cuadro de
     diálogo **New relationship**.
 
-<img src="./media/image92.png" style="width:7.30693in;height:2.8428in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image92.png)
 
 7.  En el cuadro de diálogo **New relationship**:
 
@@ -1263,7 +1070,7 @@ alt="A screenshot of a computer Description automatically generated" />
 - **La tabla To** se rellena con **dim_Symbol** y la columna de
   Symbol_Sk
 
-- Cardinalidad: **Many to one (\*:1)**
+- Cardinalidad: **Many to one (:1)**
 
 - Dirección del filtro transversal: **Simple**
 
@@ -1271,20 +1078,15 @@ alt="A screenshot of a computer Description automatically generated" />
   active**.
 
 - Seleccione **Ok.**
-
-<img src="./media/image93.png" style="width:6.30278in;height:7.44722in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image94.png" style="width:7.36375in;height:3.3782in"
-alt="A screenshot of a computer Description automatically generated" />
+    ![](./media/image93.png)
+    ![](./media/image94.png)
 
 ## Tarea 3. Crear un informe sencillo
 
 1.  Haga clic en ***New Report*** para cargar el modelo semántico en
     Power BI.
 
-> <img src="./media/image95.png" style="width:6.5in;height:3.28068in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image95.png)
 
 2.  Aunque todavía no dispondremos de muchos datos para elaborar un
     informe, conceptualmente, podemos construir un informe similar al
@@ -1309,25 +1111,20 @@ alt="A screenshot of a computer Description automatically generated" />
 - En el panel **Data**, expanda **dim_Symbol** y marque la casilla junto
   a **Symbol**. Esto añade el campo a la **Legend**.
 
-<img src="./media/image96.png" style="width:4.1372in;height:5.64583in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image96.png)
+      ![](./media/image97.png)
 
-<img src="./media/image97.png" style="width:7.37401in;height:3.14892in"
-alt="A screenshot of a computer Description automatically generated" />
+4.  En la cinta de opciones, seleccione **File**  **Save.**
 
-4.  En la cinta de opciones, seleccione **File** \> **Save.**
+      ![](./media/image98.png)
 
-<img src="./media/image98.png" style="width:4.30278in;height:3.75764in"
-alt="A screenshot of a computer Description automatically generated" />
-
-5.  En el cuadro de diálogo Guardar su informe, introduzca +++
-    **semantic report** +++ como nombre de su informe y seleccione **su
+5.  En el cuadro de diálogo Guardar su informe, introduzca 
+    ++++semantic report+++ como nombre de su informe y seleccione **su
     espacio de trabajo**. Haga clic en el **botón Save**.
 
-<img src="./media/image99.png" style="width:6.5in;height:3.3in" />
+      ![](./media/image99.png)
 
-<img src="./media/image100.png" style="width:6.5in;height:3.98472in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image1000.png)
 
 ## **Resumen**
 
