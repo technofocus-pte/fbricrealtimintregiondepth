@@ -9,7 +9,7 @@ Laboratorio 04: Introducción a la creación de un ML Model en Fabric
 
 Laboratorio 05: Creación de un Data Warehouse mediante Data Pipelines
 
-Lab 06-Data Activator(Optional)
+Laboratorio 06 - Data Activator (Opcional)
 
 Lab 07-Advanced KQL(Optional)
 
