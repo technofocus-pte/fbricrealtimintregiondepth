@@ -507,7 +507,7 @@ GO
 
      ![](./media/image47.png)
 5.  In the **Rename** dialog box, under the **Name** field, enter 
-    ***Create Dimension and Fact tables***, then click on the
+    **+++Create Dimension and Fact tables+++**, then click on the
     **Rename** button. 
 
      ![](./media/image48.png)
@@ -589,7 +589,7 @@ Exec ETL.sp_Dim_Date_Load
     Explorer and select **Rename**.
      ![](./media/image54.png)
 6.  In the **Rename** dialog box, under the **Name** field, enter 
-    **Load Dimension tables**, then click on the **Rename** button. 
+    **+++Load Dimension tables+++**, then click on the **Rename** button. 
      ![](./media/image55.png)
 ## Task 3: Create the procedure to load the Symbol dimension
 
@@ -649,7 +649,7 @@ GO
 
       ![](./media/image58.png)
 8.  In the **Rename** dialog box, under the **Name** field, enter 
-    **Load the stock symbol dimension**, then click on the
+    **+++Load the stock symbol dimension+++**, then click on the
     **Rename** button. 
       ![](./media/image59.png)
 ## **Task 4: Create the views**
@@ -709,7 +709,7 @@ GO
 
       ![](./media/image62.png)
 5.  In the **Rename** dialog box, under the **Name** field, enter 
-    **Create Staging Views**, then click on the **Rename**
+    **+++Create Staging Views+++**, then click on the **Rename**
     button. 
 
       ![](./media/image63.png)
@@ -735,7 +735,7 @@ GO
 
 | **Connection**            | **Workspace**                  |
 |---------------------------|--------------------------------|
-| **Stored procedure name** | \[ETL\].\[sp_Dim_Symbol_Load\] |
+| **Stored procedure name** | [ETL].[sp_Dim_Symbol_Load] |
      ![](./media/image67.png)
 
 ## Task 6: Create the procedure to load daily prices
@@ -812,7 +812,7 @@ GO
     Explorer and select **Rename**.
      ![](./media/image71.png)
 7.  In the **Rename** dialog box, under the **Name** field, enter 
-    **ETL.sp_Fact_Stocks_Daily_Prices_Load</span>**,
+    **ETL.sp_Fact_Stocks_Daily_Prices_Load+++,
     then click on the **Rename** button. 
       ![](./media/image72.png)
 ## Task 7: Add activity to the pipeline to load daily stock prices
@@ -832,7 +832,7 @@ GO
 
 | **Connection**            | Select **StocksDW** from the dropdown list   |
 |---------------------------|----------------------------------------------|
-| **Stored procedure name** | \[ETL\].\[sp_Fact_Stocks_Daily_Prices_Load\] |
+| **Stored procedure name** | [ETL].[sp_Fact_Stocks_Daily_Prices_Load] |
     ![](./media/image76.png)
 
 ## Task 8. Run the pipeline
@@ -893,7 +893,7 @@ semantic model with just our fact and two-dimension tables.
      ![](./media/image84.png)
 4.  In the New semantic model tab, enter the name as ***StocksModel*,**
     and select only the fact and dimensions table, as we are concerned
-    with ***fact_Stocks_Daily_Prices*, *dim_Date*, and *dim_Symbol***.
+    with **fact_Stocks_Daily_Prices**, **dim_Date**, and **dim_Symbol**.
     Click on the **Confirm** button.
      ![](./media/image85.png)
 
@@ -929,7 +929,7 @@ semantic model with just our fact and two-dimension tables.
 - **To table** is populated with **dim_Date**  and the column of
   **DateKey**
 
-- Cardinality: **Many to one (\*:1)**
+- Cardinality: **Many to one (*:1)**
 
 - Cross filter direction: **Single**
 
