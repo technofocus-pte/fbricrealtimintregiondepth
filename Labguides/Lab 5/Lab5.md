@@ -217,9 +217,8 @@ This should look similar to:
 | **Connection** | Click on the dropdown and select **StocksDW** from the list. |
 |----|----|
 | **Use query** | **Query** |
-| **Query** | **SELECT \* FROM \[ETL\].\[IngestSourceInfo\] WHERE IsActiveFlag = 'Y'** |
-| **First row only* *** | ***unchecked*.** |
-
+| **Query** | **SELECT * FROM [ETL].[IngestSourceInfo] WHERE IsActiveFlag = 'Y'** |
+| **First row only** |**unchecked** |
       ![](./media/image22.png)
 
 ## Task 4: Build ForEach activity
@@ -245,7 +244,7 @@ pull data from, we'd repeat these steps for each data source.
     activity.
 
      ![](./media/image25.png)
-4.  Select and add a ***Copy Data*** activity within *ForEach.*
+4.  Select and add a **Copy Data** activity within **ForEach**
 
      ![](./media/image26.png)
 
@@ -274,15 +273,15 @@ pull data from, we'd repeat these steps for each data source.
 </tr>
 <tr class="even">
 <td><strong>Query</strong></td>
-<td><p><strong>@concat('StockPrice</strong></p>
-<p><strong>| where todatetime(timestamp) &gt;= todatetime(''',
-item().WaterMark,''')</strong></p>
-<p><strong>| order by timestamp asc</strong></p>
-<p><strong>| extend datestamp = substring(timestamp,0,10)</strong></p>
-<p><strong>| project symbol, timestamp, price, datestamp</strong></p>
-<p><strong>| take 500000</strong></p>
-<p><strong>| where not(isnull(price))</strong></p>
-<p><strong>' )</strong> </p></td>
+<td><p>+++@concat('StockPrice  
+    | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
+    | order by timestamp asc
+    | extend datestamp = substring(timestamp,0,10) 
+    | project symbol, timestamp, price, datestamp 
+    | take 500000 
+    | where not(isnull(price))
+    ' )
+ </p></td>
 </tr>
 </tbody>
 </table>
@@ -326,7 +325,7 @@ The *Destination* tab of the activity should look like:
 | **Connection** | drop down, select **StocksDW** from the list |
 |----|----|
 | **Use query** | **Query** |
-| **Query** | @concat('Select Max(timestamp) as WaterMark from stg.', item().ObjectName) |
+| **Query** | +++@concat('Select Max(timestamp) as WaterMark from stg.', item().ObjectName)+++ |
      ![](./media/image32.png)
 
 11. In the *ForEach* box, click on the plus **(+)** symbol, navigate and
