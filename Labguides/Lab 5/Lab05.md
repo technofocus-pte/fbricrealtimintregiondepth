@@ -73,37 +73,34 @@ espacio de trabajo.
     izquierda de la página, navegue y haga clic en **Data Warehouse**
     como se muestra en la imagen inferior.
 
-<img src="./media/image1.png" style="width:5.10833in;height:7.625in" />
+      ![](./media/image1.png)
 
 2.  Seleccione el mosaico ***Warehouse*** para crear un nuevo Synapse
     Data Warehouse.
 
-<img src="./media/image2.png"
-style="width:6.49236in;height:6.17431in" />
+       ![](./media/image2.png)
 
 3.  En el cuadro de diálogo **New warehouse**, introduzca
     ***+++StocksDW+++*** como nombre y haga clic en el botón **Create**.
-
-<img src="./media/image3.png"
-style="width:2.78056in;height:1.68194in" />
+       ![](./media/image3.png)
 
 4.  El almacén está prácticamente vacío.
 
-<img src="./media/image4.png" style="width:6.5in;height:4.85833in" />
+       ![](./media/image4.png)
 
-5.  Haga clic en el menú desplegable ***New SQL query*** de la barra de
-    comandos y, a continuación, seleccione ***New SQL query*** en la
+5.  Haga clic en el menú desplegable **New SQL query** de la barra de
+    comandos y, a continuación, seleccione **New SQL query** en la
     sección **Blank**. Empezaremos a construir nuestro esquema en la
     siguiente tarea.
 
-<img src="./media/image5.png" style="width:6.5in;height:5.18958in" />
+       ![](./media/image5.png)
 
 ## Tarea 2: Crear los objetos staging y ETL
 
 1.  Ejecute la siguiente consulta que crea las tablas de preparación que
     contendrán los datos durante el proceso ETL (Extraer, Transformar y
-    Cargar). Esto también creará los dos esquemas utilizados: *stg* y
-    *ETL*; los esquemas ayudan a agrupar las cargas de trabajo por tipo
+    Cargar). Esto también creará los dos esquemas utilizados: **stg** y
+    **ETL**; los esquemas ayudan a agrupar las cargas de trabajo por tipo
     o función. El esquema *stg* es para la puesta en escena y contiene
     tablas intermedias para el proceso ETL. El esquema *ETL* contiene
     consultas utilizadas para el movimiento de datos, así como una única
@@ -117,82 +114,56 @@ style="width:2.78056in;height:1.68194in" />
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
+```
+/* 1 - Create Staging and ETL.sql */
 
-> **Copie**
+-- STAGING TABLES
+CREATE SCHEMA stg
+GO
 
-<span class="mark">/\* 1 - Create Staging and ETL.sql \*/</span>
+CREATE TABLE stg.StocksPrices
+(
+   symbol VARCHAR(5) NOT NULL
+   ,timestamp VARCHAR(30) NOT NULL
+   ,price FLOAT NOT NULL
+   ,datestamp VARCHAR(12) NOT NULL
+)
+GO
 
-<span class="mark">-- STAGING TABLES</span>
+-- ETL TABLES
+CREATE SCHEMA ETL
+GO
+CREATE TABLE ETL.IngestSourceInfo
+(
+    ObjectName VARCHAR(50) NOT NULL
+    ,WaterMark DATETIME2(6)
+    ,IsActiveFlag VARCHAR(1)
+)
 
-<span class="mark">CREATE SCHEMA stg</span>
-
-<span class="mark">GO</span>
-
-<span class="mark">CREATE TABLE stg.StocksPrices</span>
-
-<span class="mark">(</span>
-
-<span class="mark">symbol VARCHAR(5) NOT NULL</span>
-
-<span class="mark">,timestamp VARCHAR(30) NOT NULL</span>
-
-<span class="mark">,price FLOAT NOT NULL</span>
-
-<span class="mark">,datestamp VARCHAR(12) NOT NULL</span>
-
-<span class="mark">)</span>
-
-<span class="mark">GO</span>
-
-<span class="mark">-- ETL TABLES</span>
-
-<span class="mark">CREATE SCHEMA ETL</span>
-
-<span class="mark">GO</span>
-
-<span class="mark">CREATE TABLE ETL.IngestSourceInfo</span>
-
-<span class="mark">(</span>
-
-<span class="mark">ObjectName VARCHAR(50) NOT NULL</span>
-
-<span class="mark">,WaterMark DATETIME2(6)</span>
-
-<span class="mark">,IsActiveFlag VARCHAR(1)</span>
-
-<span class="mark">)</span>
-
-<span class="mark">INSERT \[ETL\].\[IngestSourceInfo\]</span>
-
-<span class="mark">SELECT 'StocksPrices', '1/1/2022 23:59:59',
-'Y'</span>
-
-<img src="./media/image6.png"
-style="width:6.49236in;height:5.14375in" />
-
-<img src="./media/image7.png" style="width:6.5in;height:3.70764in" />
-
+INSERT [ETL].[IngestSourceInfo]
+SELECT 'StocksPrices', '1/1/2022 23:59:59', 'Y'
+```
+   ![](./media/image6.png)
+      ![](./media/image7.png)
+ 
 4.  Cambie el nombre de la consulta como referencia. Haga clic con el
     botón derecho en la **consulta SQL 1** en **el Explorer** y
     seleccione **Rename**.
 
-<img src="./media/image8.png"
-style="width:6.49236in;height:5.36389in" />
+      ![](./media/image8.png)
 
 5.  En el cuadro de diálogo **Rename**, en el campo **Name**, introduzca
-    +++ **Create stocks and metadata+++** y, a continuación, haga clic
+    **+++Create stocks and metadata+++** y, a continuación, haga clic
     en el botón **Rename**.
 
-> <img src="./media/image9.png"
-> style="width:3.40903in;height:1.80278in" />
+     ![](./media/image9.png)
 
-6.  Haga clic en el menú desplegable ***New SQL query*** de la barra de
-    comandos y, a continuación, seleccione ***New SQL query*** en la
+6.  Haga clic en el menú desplegable **New SQL query** de la barra de
+    comandos y, a continuación, seleccione **New SQL query** en la
     sección **Blank**. Empezaremos a construir nuestro esquema en el
     siguiente paso:
 
-<img src="./media/image10.png"
-style="width:6.49236in;height:4.47708in" />
+      ![](./media/image10.png)
 
 7.  El procedimiento *sp_IngestSourceInfo_Update* actualiza la marca de
     agua; esto asegura que estamos haciendo un seguimiento de los
@@ -201,95 +172,74 @@ style="width:6.49236in;height:4.47708in" />
 8.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
+```
+/* 1 - Create Staging and ETL.sql */
 
-**Copie**
-
-/\* 1 - Create Staging and ETL.sql \*/
-
-CREATE PROC \[ETL\].\[sp_IngestSourceInfo_Update\]
-
+CREATE PROC [ETL].[sp_IngestSourceInfo_Update]
 @ObjectName VARCHAR(50)
-
 ,@WaterMark DATETIME2(6)
-
 AS
-
 BEGIN
 
-UPDATE \[ETL\].\[IngestSourceInfo\]
-
-SET WaterMark = @WaterMark
-
-WHERE
-
-ObjectName = @ObjectName
+UPDATE [ETL].[IngestSourceInfo]
+    SET WaterMark = @WaterMark
+WHERE 
+    ObjectName  = @ObjectName
 
 END
 
 GO
-
-<img src="./media/image11.png"
-style="width:6.49236in;height:4.32569in" />
-
-<img src="./media/image12.png" style="width:5.8702in;height:4.13109in"
-alt="A screenshot of a computer Description automatically generated" />
-
+```
+  ![](./media/image11.png)
+     ![](./media/image12.png)
 6.  Cambie el nombre de la consulta para poder consultarla más tarde.
     Haga clic con el botón derecho en **SQL query 1** en **el Explorer**
     y seleccione **Rename**.
-
-<img src="./media/image13.png"
-style="width:6.49236in;height:5.28056in" />
+      ![](./media/image13.png)
 
 7.  En el cuadro de diálogo **Rename**, en el campo **Name**, introduzca
     **+++ETL.sql_IngestSource+++** y, a continuación, haga clic en el
     botón **Rename**.
 
-<img src="./media/image14.png" style="width:3.8875in;height:2.22265in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image14.png)
 
 Esto debería parecerse a:
-
-<img src="./media/image15.png" style="width:6.5in;height:1.96944in"
-alt="DW First Queries" />
+    ![](./media/image15.png)
 
 ## Tarea 3: Crear el Data Pipeline
 
 1.  En la página **StockDW**, haga clic en **RealTimeWorkspace**
     Workspace en el menú de navegación de la izquierda.
 
-<img src="./media/image16.png"
-style="width:6.49236in;height:4.23472in" />
+     ![](./media/image16.png)
 
 2.  En la página de inicio **de Synapse Data Warehouse
     RealTimeWorkhouse**, en **RealTimeWorkhouse**, haga clic en **+New**
     y, a continuación, seleccione **Data pipeline.**
 
-<img src="./media/image17.png"
-style="width:6.49236in;height:7.19722in" />
+      ![](./media/image17.png)
 
 3.  Aparecerá un cuadro de diálogo **New pipeline**, en el campo
     **Name**, introduzca +++ PL_Refresh_DWH+++ y haga clic en el botón
     **Create.**
 
-<img src="./media/image18.png" style="width:3.47708in;height:2.68194in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image18.png)
 
-4.  En la página ***PL_Refresh_DWH***, vaya a **Build a data pipeline to
+4.  En la página **PL_Refresh_DWH**, vaya a **Build a data pipeline to
     organize and move your data** sección y haga clic en **Pipeline
     activity**.
 
-<img src="./media/image19.png" style="width:6.5in;height:4.23333in" />
+      ![](./media/image19.png)
 
 5.  A continuación, navegue y seleccione Actividad de ***Lookup*** como
     se muestra en la siguiente imagen.
 
-<img src="./media/image20.png" style="width:6.49167in;height:4.725in" />
+      ![](./media/image20.png)
 
 6.  En la pestaña **General**, en el **campo Name,** introduzca
-    ***+++Get WaterMark+++.***
+    **+++Get WaterMark+++**
 
-<img src="./media/image21.png" style="width:6.5in;height:4.93958in" />
+       ![](./media/image21.png)
 
 7.  Haga clic en la pestaña **Settings**, introduzca los siguientes
     datos como se muestra en la siguiente imagen.
@@ -297,10 +247,9 @@ alt="A screenshot of a computer Description automatically generated" />
 | **Connection** | Haga clic en el menú desplegable y seleccione **StocksDW** de la lista. |
 |----|----|
 | **Use query** | **Consulta** |
-| **Query** | **+++SELECT \* FROM \[ETL\].\[IngestSourceInfo\] WHERE IsActiveFlag = 'Y'**+++ |
-| **First row only* *** | ***sin marcar*.** |
-
-<img src="./media/image22.png" style="width:6.49167in;height:6.15in" />
+| **Query** | +++SELECT * FROM [ETL].[IngestSourceInfo] WHERE IsActiveFlag = 'Y'+++ |
+| **First row only** | **sin marcar** |
+    ![](./media/image22.png)
 
 ## Tarea 4: Construir la actividad ForEach
 
@@ -314,31 +263,29 @@ pasos para cada fuente de datos.
     flecha derecha para **Add an activity**. Luego, navegue y seleccione
     ***ForEach*** activity como se muestra en la siguiente imagen.
 
-<img src="./media/image23.png" style="width:6.5in;height:5.49236in" />
+      ![](./media/image23.png)
 
 2.  Haga clic en la ficha **Settings**, introduzca los elementos como
-    +++ **@activity('Get WaterMark').output.**value+++
+    +++@activity('Get WaterMark').output.value+++
 
 El aspecto debería ser similar al de la imagen siguiente:
 
-<img src="./media/image24.png" style="width:6.5in;height:5.91667in" />
+     ![](./media/image24.png)
 
 3.  En el cuadro *ForEach*, haga clic en el símbolo más (+) para añadir
     una nueva actividad.
 
-> <img src="./media/image25.png" style="width:6.5in;height:6.08333in" />
+      ![](./media/image25.png)
 
-4.  Seleccione y añada una actividad ***Copy Data*** dentro de
-    *ForEach.*
+4.  Seleccione y añada una actividad **Copy Data** dentro de
+    **ForEach.**
 
-> <img src="./media/image26.png" style="width:6.49236in;height:6.33333in"
-> alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image26.png)
 
 5.  Seleccione el icono **Copy data1** Actividad, en la pestaña
     **General**, en el **campo Name,** introduzca +++Copy KQL+++
 
-> <img src="./media/image27.png" style="width:6.49236in;height:5.97708in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image27.png)
 
 6.  Haga clic en la pestaña **Source**, introduzca la siguiente
     configuración.
@@ -361,23 +308,22 @@ El aspecto debería ser similar al de la imagen siguiente:
 </tr>
 <tr class="even">
 <td><strong>Query</strong></td>
-<td><p>+++<strong>@concat('StockPrice</strong></p>
-<p><strong>| where todatetime(timestamp) &gt;= todatetime(''',
-item().WaterMark,''')</strong></p>
-<p><strong>| order by timestamp asc</strong></p>
-<p><strong>| extend datestamp = substring(timestamp,0,10)</strong></p>
-<p><strong>| project symbol, timestamp, price, datestamp</strong></p>
-<p><strong>| take 500000</strong></p>
-<p><strong>| where not(isnull(price))</strong></p>
-<p><strong>' )</strong> +++</p></td>
+<td><p>+++@concat('StockPrice  
+    | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
+    | order by timestamp asc
+    | extend datestamp = substring(timestamp,0,10) 
+    | project symbol, timestamp, price, datestamp 
+    | take 500000 
+    | where not(isnull(price))
+    ' )
+</p></td>
 </tr>
 </tbody>
 </table>
 
 La pestaña *Source* de la actividad debería tener un aspecto similar a:
 
-<img src="./media/image28.png"
-style="width:6.49167in;height:5.98333in" />
+![](./media/image28.png)
 
 7.  Haga clic en la pestaña **Destino** e introduzca los siguientes
     parámetros
@@ -401,22 +347,19 @@ procesamiento de toda la tabla; además, las consultas KQL tienen un
 recuento de filas máximo de 500.000 filas. Dado el ritmo actual de
 ingesta de datos, esto equivale aproximadamente a 3/4 de un día.
 
-La pestaña *Destination* de la actividad debería tener el siguiente
+La pestaña **Destination** de la actividad debería tener el siguiente
 aspecto:
+     ![](./media/image29.png)
 
-<img src="./media/image29.png" style="width:6.5in;height:6.23333in" />
-
-8.  En el cuadro *ForEach*, haga clic en el símbolo más **(+)**, navegue
+8.  En el cuadro **ForEach**, haga clic en el símbolo más **(+)**, navegue
     y seleccione Actividad de **Lookup**.
 
-<img src="./media/image30.png"
-style="width:6.49236in;height:5.28056in" />
+     ![](./media/image30.png)
 
 9.  Haga clic en el icono **Lookup1**, en la pestaña **General**,
-    **campo Name,** introduzca +++***Get new WaterMark***+++
+    **campo Name,** introduzca +++Get new WaterMark+++
 
-> <img src="./media/image31.png" style="width:6.5in;height:5.26528in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image31.png)
 
 10. Haga clic en la pestaña **Configuración** e introduzca los
     siguientes parámetros
@@ -425,21 +368,18 @@ style="width:6.49236in;height:5.28056in" />
 |----|----|
 | **Use query** | **Query** |
 | **Query** | +++@concat('Select Max(timestamp) as WaterMark from stg.', item().ObjectName)+++ |
+      ![](./media/image32.png)
 
-<img src="./media/image32.png" style="width:6.5in;height:5.075in" />
+11. En el cuadro **ForEach**, haga clic en el símbolo más **(+)**, navegue
+    y seleccione **Stored Procedure** activity.
 
-11. En el cuadro *ForEach*, haga clic en el símbolo más **(+)**, navegue
-    y seleccione ***Stored Procedure*** activity.
-
-> <img src="./media/image33.png" style="width:6.5in;height:5.26528in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image33.png)
 
 12. Haga clic en el icono **Stored procedure**. En la pestaña
-    **General**, en el **campo Name,** introduzca +++ ***Update
-    WaterMark***+++.
+    **General**, en el **campo Name,** introduzca +++Update
+    WaterMark+++.
 
-> <img src="./media/image34.png" style="width:6.49236in;height:4.57569in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image34.png)
 
 13. Haga clic en la pestaña **Settings** e introduzca los siguientes
     parámetros.
@@ -448,48 +388,38 @@ style="width:6.49236in;height:5.28056in" />
 |---------------------------|--------------------------------|
 | **Stored procedure name** | ETL.sp_IngestSourceInfo_Update |
 
-- Parámetros (haga clic en *Importar* para añadir automáticamente los
+- Parámetros (haga clic en **Importar** para añadir automáticamente los
   nombres de los parámetros):
 
 | **Nombre** | **Tipo** | **Valor** |
 |----|----|----|
 | ObjectName | String | @item().ObjectName |
 | WaterMark | DateTime | @activity('Get New WaterMark').output.firstRow.WaterMark |
-
-<img src="./media/image35.png"
-style="width:6.49167in;height:5.00833in" />
+    ![](./media/image35.png)
 
 ## Tarea 5: Probar la pipeline
 
 1.  En la pestaña ***Home*** del pipeline, seleccione ***Run***.
-
-> <img src="./media/image36.png" style="width:6.5in;height:3.13611in"
-> alt="A screenshot of a computer Description automatically generated" />
-
+     ![](./media/image36.png)
 2.  En el cuadro de diálogo **Save and run?**, haga clic en el botón
     **Save and run**
-
-> <img src="./media/image37.png" style="width:3.09861in;height:2.00764in"
-> alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image37.png)
 
 3.  Esto le pedirá que primero guarde el pipeline, y luego lo valide
     para encontrar cualquier error de configuración. Esta ejecución
     inicial tardará unos instantes y copiará los datos en la tabla de
     preparación.
 
-<img src="./media/image38.png"
-style="width:7.30695in;height:4.1125in" />
+      ![](./media/image38.png)
 
 4.  En la página **PL_Refresh_DWH**, haga clic en **RealTimeWorkspace**
     Workspace en el menú de navegación de la izquierda.
 
-<img src="./media/image39.png" style="width:6.29514in;height:6.96181in"
-alt="A screenshot of a computer Description automatically generated" />
+       ![](./media/image39.png)
 
 5.  Pulse el botón **Refresh**.
 
-<img src="./media/image40.png" style="width:6.32569in;height:4.21944in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image40.png)
 
 6.  En el almacén de datos, los datos deben ser visibles en la tabla de
     preparación. Dentro del Data Warehouse, al seleccionar una tabla se
@@ -499,15 +429,13 @@ alt="A screenshot of a computer Description automatically generated" />
     **stg**, luego haga clic en **StocksPrices** como se muestra en la
     siguiente imagen.
 
-<img src="./media/image41.png"
-style="width:6.49236in;height:3.26528in" />
-
-7.  Haga clic en el menú desplegable ***New SQL query*** de la barra de
-    comandos y, a continuación, seleccione ***New SQL query*** en la
+       ![](./media/image41.png)
+7.  Haga clic en el menú desplegable **New SQL query** de la barra de
+    comandos y, a continuación, seleccione**New SQL query** en la
     sección **Blank**. Empezaremos a construir nuestro esquema en el
     siguiente paso:
 
-<img src="./media/image42.png" style="width:6.5in;height:4.57569in" />
+      ![](./media/image42.png)
 
 8.  Mientras estamos en el almacén de datos, ejecute la secuencia de
     comandos a continuación en una nueva ventana de consulta SQL para
@@ -516,65 +444,42 @@ style="width:6.49236in;height:3.26528in" />
     incrementales. Esto restablecerá la fecha y eliminará los datos de
     la tabla de preparación.
 
-> ***Nota:** Aún no hemos creado la tabla de hechos o dimensiones, pero
+> **Nota:** Aún no hemos creado la tabla de hechos o dimensiones, pero
 > el script debería funcionar.*
 
 9.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
-
-> **Copie**
-
+```    
 -- Ejecutar esto para 'RESET' las tablas de ingestión
 
-exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01
-23:59:59.000000'
-
-exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01
-23:59:59.000000'
-
+exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01 23:59:59.000000'
+exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01 23:59:59.000000'
 GO
 
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
-
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
 BEGIN
-
-delete stg.StocksPrices
-
+    delete stg.StocksPrices
 END
-
 GO
 
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
-
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
 BEGIN
-
-delete dbo.fact_Stocks_Daily_Prices
-
+    delete dbo.fact_Stocks_Daily_Prices
 END
-
 GO
 
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
-
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
 BEGIN
-
-delete dbo.dim_Symbol
-
+    delete dbo.dim_Symbol
 END
-
 GO
-
-<img src="./media/image43.png"
-style="width:7.30691in;height:4.77462in" />
-
-<img src="./media/image44.png" style="width:6.5in;height:3.69653in" />
+```
+![](./media/image43.png)
+![](./media/image44.png)
 
 # Ejercicio 2: Construir Star Schema
 
@@ -596,12 +501,12 @@ acción.
 
 ## Tarea 1: Crear las tablas de dimensiones y de hechos
 
-1.  Haga clic en el menú desplegable ***New SQL query***  de la barra de
-    comandos y, a continuación, seleccione ***New SQL query***  en la
+1.  Haga clic en el menú desplegable **New SQL query**  de la barra de
+    comandos y, a continuación, seleccione **New SQL query**  en la
     sección **Blank**. Empezaremos a construir nuestro esquema en el
     siguiente paso.
 
-<img src="./media/image42.png" style="width:6.5in;height:4.57569in" />
+       ![](./media/image45.png)
 
 2.  En nuestro data warehouse, ejecute el siguiente SQL para crear las
     tablas de hechos y dimensiones. Al igual que en el paso anterior,
@@ -611,78 +516,45 @@ acción.
 3.  En el editor de consultas, copie y pegue el siguiente código. Haga
     clic en el botón **Run** para ejecutar la consulta. Una vez
     ejecutada la consulta, verá los resultados.
+```
+/* 2 - Create Dimension and Fact tables.sql */
 
-> **Copie**
+-- Dimensions and Facts (dbo)
+CREATE TABLE dbo.fact_Stocks_Daily_Prices
+(
+   Symbol_SK INT NOT NULL
+   ,PriceDateKey DATE NOT NULL
+   ,MinPrice FLOAT NOT NULL
+   ,MaxPrice FLOAT NOT NULL
+   ,ClosePrice FLOAT NOT NULL
+)
+GO
 
-<span class="mark">/\* 2 - Create Dimension and Fact tables.sql
-\*/</span>
+CREATE TABLE dbo.dim_Symbol
+(
+    Symbol_SK INT NOT NULL
+    ,Symbol VARCHAR(5) NOT NULL
+    ,Name VARCHAR(25)
+    ,Market VARCHAR(15)
+)
+GO
 
-<span class="mark">-- Dimensions and Facts (dbo)</span>
-
-<span class="mark">CREATE TABLE dbo.fact_Stocks_Daily_Prices</span>
-
-<span class="mark">(</span>
-
-<span class="mark">Symbol_SK INT NOT NULL</span>
-
-<span class="mark">,PriceDateKey DATE NOT NULL</span>
-
-<span class="mark">,MinPrice FLOAT NOT NULL</span>
-
-<span class="mark">,MaxPrice FLOAT NOT NULL</span>
-
-<span class="mark">,ClosePrice FLOAT NOT NULL</span>
-
-<span class="mark">)</span>
-
-<span class="mark">GO</span>
-
-<span class="mark">CREATE TABLE dbo.dim_Symbol</span>
-
-<span class="mark">(</span>
-
-<span class="mark">Symbol_SK INT NOT NULL</span>
-
-<span class="mark">,Symbol VARCHAR(5) NOT NULL</span>
-
-<span class="mark">,Name VARCHAR(25)</span>
-
-<span class="mark">,Market VARCHAR(15)</span>
-
-<span class="mark">)</span>
-
-<span class="mark">GO</span>
-
-<span class="mark">CREATE TABLE dbo.dim_Date</span>
-
-<span class="mark">(</span>
-
-<span class="mark">\[DateKey\] DATE NOT NULL</span>
-
-<span class="mark">,\[DayOfMonth\] int</span>
-
-<span class="mark">,\[DayOfWeeK\] int</span>
-
-<span class="mark">,\[DayOfWeekName\] varchar(25)</span>
-
-<span class="mark">,\[Year\] int</span>
-
-<span class="mark">,\[Month\] int</span>
-
-<span class="mark">,\[MonthName\] varchar(25)</span>
-
-<span class="mark">,\[Quarter\] int</span>
-
-<span class="mark">,\[QuarterName\] varchar(2)</span>
-
-<span class="mark">)</span>
-
-<span class="mark">GO</span>
-
-<img src="./media/image45.png" style="width:6.5in;height:5.81042in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image46.png" style="width:6.5in;height:4.90556in" />
+CREATE TABLE dbo.dim_Date 
+(
+    [DateKey] DATE NOT NULL
+    ,[DayOfMonth] int
+    ,[DayOfWeeK] int
+    ,[DayOfWeekName] varchar(25)
+    ,[Year] int
+    ,[Month] int
+    ,[MonthName] varchar(25)
+    ,[Quarter] int
+    ,[QuarterName] varchar(2)
+)
+GO
+```
+  ![](./media/image45.png)
+    ![](./media/image46.png)
 
 4.  Cambie el nombre de la consulta como referencia. Haga clic con el
     botón derecho en **SQL query** en el Explorer y seleccione
