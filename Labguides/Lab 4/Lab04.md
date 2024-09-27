@@ -50,68 +50,58 @@ Microsoft Fabric es el lugar ideal para hacer este tipo de exploración.
 1.  En la página **StockDimensionalModel**, haga clic en
     **RealTimeWorkspace** en el menú de navegación de la izquierda.
 
-<img src="./media/image1.png"
-style="width:4.75417in;height:4.19583in" />
+      ![](./media/image1.png)
 
 2.  En la página **RealTimeWorkspace de Synapse Data Engineering**,
     navegue y haga clic en el botón **Import**, luego seleccione
     **Notebook** y seleccione **From this computer.**
 
-<img src="./media/image2.png" style="width:6.5in;height:2.26667in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image2.png)
 
 3.  En el panel de **Import status** que aparece a la derecha, haga clic
     en **Upload** .
 
-<img src="./media/image3.png"
-style="width:5.55833in;height:4.40833in" />
+      ![](./media/image3.png)
 
 4.  Navegue a **C:\LabFiles\Lab 05** y seleccione **DS 1-Build Model, DS
     2-Predict Stock Prices y DS 3-Forecast All** notebooks, luego haga
     click en el botón **Open**.
 
-<img src="./media/image4.png" style="width:6.5in;height:2.93681in" />
+      ![](./media/image4.png)
 
 5.  Verá una notificación que dice – **Imported successfully.**
 
-<img src="./media/image5.png" style="width:3.9625in;height:1.72083in" />
-
-<img src="./media/image6.png" style="width:6.5in;height:4.78333in" />
-
-6.  En el **RealTimeWorkspace**, haga clic en el cuaderno **DS 1-Build
+      ![](./media/image5.png)
+      ![](./media/image6.png)
+7.  En el **RealTimeWorkspace**, haga clic en el cuaderno **DS 1-Build
     Model**.
 
-<img src="./media/image7.png" style="width:6.49167in;height:4.2in" />
+      ![](./media/image7.png)
 
 7.  En el Explorer, seleccione **Lakehouse** y haga clic en el **botón
     Add.**
 
 > ***Importante*:** Tendrá que añadir el Lakehouse a cada cuaderno
 > importado -- hágalo cada vez que abra un cuaderno por primera vez.
-
-<img src="./media/image8.png"
-style="width:5.80417in;height:3.60113in" />
-
-<img src="./media/image9.png" style="width:6.5in;height:3.70833in" />
+       ![](./media/image8.png)
+      ![](./media/image9.png)
 
 8.  En el cuadro de diálogo **Add Lakehouse**, seleccione el botón de
     opción **Existing** **Lakehouse** y, a continuación, haga clic en el
     botón **Add**.
 
-<img src="./media/image10.png"
-style="width:3.00833in;height:1.83333in" />
+      ![](./media/image10.png)
 
 9.  En la ventana del concentrador de datos OneLake, seleccione
-    ***StockLakehouse*** y haga clic en el botón **Add**.
+    **StockLakehouse** y haga clic en el botón **Add**.
 
-<img src="./media/image11.png"
-style="width:6.49167in;height:3.91667in" />
+     ![](./media/image11.png)
 
-<img src="./media/image12.png" style="width:6.5in;height:3.66667in" />
+      ![](./media/image12.png)
 
 ## Tarea 2: Explorar y ejecutar el bloc de notas
 
-El cuaderno *DS 1* está documentado a lo largo de todo el cuaderno, pero
+El cuaderno **DS 1** está documentado a lo largo de todo el cuaderno, pero
 en resumen, el cuaderno lleva a cabo las siguientes tareas:
 
 - Nos permite configurar una acción para analizar (como OMS o IDGD)
@@ -145,130 +135,67 @@ nuestro Lakehouse, reentrenando el modelo según sea necesario
 1.  En 1 celda de<sup>st</sup> descomente el STOCK_SYMBOL="IDGD" y
     STOCK_SYMBOL="BCUZ", luego seleccione y **Ejecute** la celda.
 
-<img src="./media/image13.png"
-style="width:6.97485in;height:3.77917in" />
+      ![](./media/image13.png)
 
-2.  Haga clic en ***Run all*** en la barra de herramientas superior y
+2.  Haga clic en **Run all** en la barra de herramientas superior y
     sigue el progreso del trabajo.
 
 3.  El cuaderno tardará unos **15-20** minutos en ejecutarse -- algunos
     pasos, como el **training the model** y **cross validation**,
     llevarán tiempo.
 
-<img src="./media/image14.png"
-style="width:7.24624in;height:4.32917in" />
-
-<img src="./media/image15.png" style="width:6.5in;height:3.90694in" />
-
-<img src="./media/image16.png" style="width:7.23529in;height:4.5638in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image17.png"
-style="width:6.2625in;height:4.02245in" />
-
-<img src="./media/image18.png" style="width:6.5in;height:3.35in" />
-
-<img src="./media/image19.png"
-style="width:6.49167in;height:3.79167in" />
-
-<img src="./media/image20.png"
-style="width:6.49167in;height:5.55833in" />
-
-<img src="./media/image21.png"
-style="width:6.49167in;height:3.85833in" />
-
-<img src="./media/image22.png"
-style="width:6.49167in;height:3.35833in" />
-
-<img src="./media/image23.png"
-style="width:6.49167in;height:2.69167in" />
-
-<img src="./media/image24.png" style="width:6.5in;height:4.88819in"
-alt="A screen shot of a computer Description automatically generated" />
-
-<img src="./media/image25.png" style="width:6.5in;height:4.16111in"
-alt="A screen shot of a graph Description automatically generated" />
-
-<img src="./media/image26.png" style="width:6.5in;height:4.02222in" />
-
-<img src="./media/image27.png" style="width:6.5in;height:2.03125in"
-alt="A graph of a graph Description automatically generated with medium confidence" />
-
-<img src="./media/image28.png" style="width:7.28625in;height:2.73935in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image29.png" style="width:7.1626in;height:3.63946in"
-alt="A screen shot of a graph Description automatically generated" />
-
-<img src="./media/image30.png"
-style="width:6.83274in;height:3.67917in" />
-
-<img src="./media/image31.png"
-style="width:7.30775in;height:3.20417in" />
-
-<img src="./media/image32.png" style="width:6.49167in;height:4.8in" />
-
-<img src="./media/image33.png"
-style="width:6.49167in;height:4.86667in" />
-
-<img src="./media/image34.png" style="width:6.5in;height:4.15833in"
-alt="A graph with a blue line Description automatically generated" />
-
-<img src="./media/image35.png" style="width:6.5in;height:4.21111in"
-alt="A graph showing a graph Description automatically generated with medium confidence" />
-
-<img src="./media/image36.png" style="width:6.5in;height:4.45556in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image37.png"
-style="width:7.24755in;height:2.0375in" />
-
-<img src="./media/image38.png"
-style="width:7.36209in;height:4.02083in" />
-
-<img src="./media/image39.png"
-style="width:7.15286in;height:4.4625in" />
-
-<img src="./media/image40.png" style="width:6.49167in;height:2.65in" />
-
-<img src="./media/image41.png" style="width:6.5in;height:4.99167in" />
-
-<img src="./media/image42.png"
-style="width:7.2625in;height:3.31893in" />
-
-<img src="./media/image43.png"
-style="width:7.28305in;height:2.64583in" />
-
-<img src="./media/image44.png"
-style="width:6.49167in;height:2.61667in" />
-
-<img src="./media/image45.png" style="width:6.49167in;height:3.55in" />
-
-<img src="./media/image46.png" style="width:6.5in;height:2.63333in" />
-
-<img src="./media/image47.png"
-style="width:6.49167in;height:2.18333in" />
-
+       ![](./media/image14.png)
+       ![](./media/image15.png)
+       ![](./media/image16.png)
+       ![](./media/image17.png)
+       ![](./media/image18.png)
+       ![](./media/image19.png)
+       ![](./media/image20.png)
+       ![](./media/image21.png)
+       ![](./media/image22.png)
+       ![](./media/image23.png)
+       ![](./media/image24.png)
+       ![](./media/image25.png)
+       ![](./media/image26.png)
+       ![](./media/image27.png)
+       ![](./media/image28.png)
+       ![](./media/image29.png)
+       ![](./media/image30.png)
+       ![](./media/image31.png)
+       ![](./media/image32.png)
+       ![](./media/image33.png)
+       ![](./media/image34.png)
+       ![](./media/image35.png)
+       ![](./media/image36.png)
+      ![](./media/image37.png)
+      ![](./media/image38.png)
+      ![](./media/image39.png)
+      ![](./media/image40.png)
+      ![](./media/image41.png)
+      ![](./media/image42.png)
+      ![](./media/image43.png)
+      ![](./media/image44.png)
+      ![](./media/image45.png)
+      ![](./media/image46.png)
+      ![](./media/image47.png)  
+    
 ##  Tarea 3: Examinar el modelo y las ejecuciones
 
 1.  Ahora, haga clic en **RealTimeWorkspace** en el menú de navegación
     de la izquierda.
 
-<img src="./media/image48.png" style="width:6.5in;height:4.75833in" />
+     ![](./media/image48.png) 
 
 2.  Los experiments y las runs pueden verse en la lista de recursos del
     espacio de trabajo.
 
-<img src="./media/image49.png"
-style="width:6.49167in;height:4.61667in" />
+     ![](./media/image49.png) 
 
 3.  En la página **RealTimeWorkspace**, seleccione
     **WHO-stock-prediction-model** de tipo ML model.
 
-<img src="./media/image50.png" style="width:6.5in;height:5.23333in" />
-
-<img src="./media/image51.png" style="width:6.20214in;height:3.1501in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image50.png) 
+      ![](./media/image51.png) 
 
 4.  En nuestro caso, los metadatos incluyen parámetros de entrada que
     podemos ajustar a nuestro modelo, así como métricas sobre la
@@ -278,8 +205,7 @@ alt="A screenshot of a computer Description automatically generated" />
     muestran un aumento del error. Aunque los números más bajos son
     mejores, un número "bueno" es subjetivo en función del escenario.
 
-<img src="./media/image52.png"
-style="width:6.49167in;height:4.39167in" />
+     ![](./media/image52.png) 
 
 # Ejercicio 2-Utilizar modelos, guardar en Lakehouse, crear un informe
 
@@ -309,87 +235,67 @@ alto nivel:
 1.  Ahora, haga clic en **RealTimeWorkspace** en el panel de navegación
     de la izquierda.
 
-<img src="./media/image48.png"
-style="width:4.12917in;height:2.8375in" />
+      ![](./media/image48.png) 
 
 2.  En el **RealTimeWorkspace**, haga clic en el cuaderno **DS 2-Predict
     Stock Prices**.
 
-<img src="./media/image53.png" style="width:6.5in;height:4.88333in" />
+     ![](./media/image53.png) 
 
 3.  En el Explorer, seleccione el **Lakehouse** y haga clic en el botón
-    **Add***.*
+    **Add**
 
-<img src="./media/image54.png"
-style="width:5.61891in;height:4.4375in" />
-
-<img src="./media/image55.png"
-style="width:4.7625in;height:4.21227in" />
+      ![](./media/image54.png) 
+      ![](./media/image55.png) 
 
 4.  En el cuadro de diálogo **Add Lakehouse**, seleccione el botón de
     opción **Existing** **Lakehouse** y, a continuación, haga clic en el
     botón **Add**.
 
-<img src="./media/image10.png" style="width:3.00833in;height:1.83333in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image10.png) 
 
 5.  En la ventana del OneLake data hub, seleccione ***StockLakehouse***
     y haga clic en el botón **Add**.
 
-<img src="./media/image11.png" style="width:6.49167in;height:3.91667in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image11.png) 
 
-<img src="./media/image56.png" style="width:6.5in;height:4.65347in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image56.png) 
 
 ## Tarea 2: Ejecutar el bloc de notas
 
 1.  Crea la tabla de predicciones de stock en el Lakehouse, seleccione y
     **ejecute** las celdas 1<sup>st</sup> y 2<sup>nd</sup> .
 
-<img src="./media/image57.png"
-style="width:6.49167in;height:3.99167in" />
-
-<img src="./media/image58.png" style="width:6.5in;height:4.08333in" />
+     ![](./media/image57.png) 
+     ![](./media/image58.png) 
 
 2.  Obtiene una lista de todos los símbolos bursátiles, seleccione y
     **ejecute** las celdas 3<sup>rd</sup> y 4<sup>th</sup> .
 
-<img src="./media/image59.png"
-style="width:6.49167in;height:2.80833in" />
-
-<img src="./media/image60.png"
-style="width:6.49167in;height:3.06667in" />
+      ![](./media/image59.png) 
+      ![](./media/image60.png) 
 
 3.  Crea una lista de predicción examinando los modelos ML disponibles
     en MLflow, seleccione y **Ejecute** las celdas 7<sup>th</sup> ,
     8<sup>th</sup> , 9<sup>th</sup> , y 10<sup>th</sup> .
 
-<img src="./media/image61.png" style="width:6.5in;height:3.93333in" />
+     ![](./media/image61.png) 
+     ![](./media/image62.png) 
+     ![](./media/image63.png)
+     ![](./media/image64.png) 
 
-<img src="./media/image62.png" style="width:6.5in;height:4.78333in" />
-
-<img src="./media/image63.png" style="width:6.5in;height:2.91667in" />
-
-<img src="./media/image64.png" style="width:6.5in;height:3.65833in" />
-
-4.  Para construir predicciones para cada tienda modelo en Lakehouse ,
+5.  Para construir predicciones para cada tienda modelo en Lakehouse ,
     seleccione y **Ejecute** las 11<sup>th</sup> y 12<sup>th</sup>
     celdas.
 
-<img src="./media/image65.png" style="width:6.5in;height:3.125in" />
-
-<img src="./media/image66.png"
-style="width:6.49167in;height:4.74167in" />
+     ![](./media/image65.png) 
+     ![](./media/image66.png) 
 
 5.  Cuando se hayan ejecutado todas las celdas, actualice el esquema
-    haciendo clic en los tres puntos **(...)** junto a *Tables,* luego
-    navegue y haga clic en ***Refresh*.**
-
-<img src="./media/image67.png" style="width:5.44167in;height:5.4in" />
-
-<img src="./media/image68.png"
-style="width:6.49167in;height:6.81667in" />
+    haciendo clic en los tres puntos **(...)** junto a Tables, luego
+    navegue y haga clic en **Refresh**
+     ![](./media/image67.png) 
+     ![](./media/image68.png) 
 
 # Ejercicio 3: Solución práctica
 
@@ -447,94 +353,61 @@ fíjese en algunas cosas clave:
 1.  Ahora, haga clic en **RealTimeWorkspace** en el menú de navegación
     de la izquierda.
 
-<img src="./media/image48.png"
-style="width:4.12917in;height:2.8375in" />
+     ![](./media/image48.png) 
 
-2.  *En el **RealTimeWorkspace***, haga clic en el cuaderno **DS
+2.  En el **RealTimeWorkspace**, haga clic en el cuaderno **DS
     3-Forecast All**.
 
-<img src="./media/image69.png"
-style="width:5.79583in;height:3.9375in" />
+      ![](./media/image69.png) 
 
 3.  En el Explorer seleccione el **Lakehouse** y haga clic en el botón
-    ***Add .***
+    **Add**
 
-<img src="./media/image54.png" style="width:5.61891in;height:4.4375in"
-alt="A screenshot of a computer Description automatically generated" />
-
-<img src="./media/image55.png" style="width:4.7625in;height:4.21227in"
-alt="A screenshot of a computer Description automatically generated" />
+     ![](./media/image54.png) 
+     ![](./media/image55.png) 
 
 4.  En el cuadro de diálogo **Add Lakehouse**, seleccione el botón de
     opción **Existing Lakehouse** y, a continuación, haga clic en el
     botón **Add**.
 
-<img src="./media/image10.png" style="width:3.00833in;height:1.83333in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image10.png) 
 
 5.  En la ventana del concentrador de datos OneLake, seleccione
-    ***StockLakehouse*** y haga clic en el botón **Add**.
+    **StockLakehouse** y haga clic en el botón **Add**.
 
-<img src="./media/image11.png" style="width:6.49167in;height:3.91667in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image11.png) 
 
 6.  Seleccione y **ejecute** la celda 1<sup>st</sup> .
 
-<img src="./media/image70.png"
-style="width:6.49167in;height:3.49167in" />
+       ![](./media/image70.png) 
 
-7.  Haga clic en ***Run all*** en el comando y siga el progreso del
+7.  Haga clic en **Run all** en el comando y siga el progreso del
     trabajo.
 
 8.  Ejecutar el cuaderno para todos los símbolos podría llevar 10
     minutos.
-    <img src="./media/image71.png" style="width:6.5in;height:3.89167in" />
-
-<img src="./media/image72.png" style="width:6.5in;height:4.32014in" />
-
-<img src="./media/image73.png" style="width:6.49167in;height:3.35in" />
-
-<img src="./media/image74.png" style="width:6.5in;height:5.11667in" />
-
-<img src="./media/image75.png" style="width:6.5in;height:2.86667in" />
-
-<img src="./media/image76.png" style="width:6.5in;height:5.43333in" />
-
-<img src="./media/image77.png" style="width:6.5in;height:4.19583in" />
-
-<img src="./media/image78.png" style="width:7.39029in;height:3.53881in"
-alt="A screenshot of a computer program Description automatically generated" />
-
-<img src="./media/image79.png" style="width:6.5in;height:3.02639in"
-alt="A graph showing the growth of the stock market Description automatically generated" />
-
-<img src="./media/image80.png" style="width:6.5in;height:2.58403in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image81.png" style="width:6.5in;height:2.72917in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image82.png" style="width:6.5in;height:2.70208in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image83.png" style="width:6.5in;height:2.57569in"
-alt="A graph of different colored lines Description automatically generated" />
-
-<img src="./media/image84.png" style="width:6.5in;height:2.71458in"
-alt="A graph showing the growth of a company Description automatically generated" />
-
-<img src="./media/image85.png" style="width:6.5in;height:2.88333in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-<img src="./media/image86.png" style="width:6.5in;height:2.59583in"
-alt="A graph showing different colored lines Description automatically generated" />
-
-9.  Cuando se hayan ejecutado todas las celdas, actualice el esquema
+      ![](./media/image71.png)
+      ![](./media/image72.png)
+      ![](./media/image73.png)
+      ![](./media/image74.png)
+      ![](./media/image75.png)
+      ![](./media/image76.png)
+      ![](./media/image77.png)
+      ![](./media/image78.png)
+      ![](./media/image79.png)
+      ![](./media/image80.png)
+      ![](./media/image81.png)
+      ![](./media/image82.png)
+      ![](./media/image83.png)
+      ![](./media/image84.png)
+      ![](./media/image85.png)
+      ![](./media/image86.png) 
+    
+10.  Cuando se hayan ejecutado todas las celdas, actualice el esquema
     haciendo clic en los tres puntos **(...)** a la derecha de las
-    *Tables*, luego navegue y haga clic en ***Refresh*.**
+    **Tables**, luego navegue y haga clic en **Refresh**
 
-<img src="./media/image87.png"
-style="width:6.49167in;height:6.00833in" />
+     ![](./media/image87.png) 
 
 # Ejercicio 4: Elaboración de un informe de predicción
 
@@ -552,43 +425,37 @@ más fácil el desarrollo de reportes.
 1.  Haga clic en **RealTimeWorkspace** en el menú de navegación de la
     izquierda.
 
-<img src="./media/image88.png" style="width:6.5in;height:5.6in" />
+     ![](./media/image88.png) 
 
 2.  Para crear un modelo semántico, navegue y haga clic en Lakehouse, es
     decir, **StackLakehouse.**
 
-<img src="./media/image89.png"
-style="width:6.49167in;height:4.63333in" />
+      ![](./media/image89.png) 
+      ![](./media/image90.png) 
 
-<img src="./media/image90.png"
-style="width:7.34187in;height:3.56504in" />
+3.  En la página **StocksLakehouse**, haga clic en **New semantic
+    model** en la barra de comandos.
 
-3.  En la página ***StocksLakehouse**,* haga clic en ***New semantic
-    model*** en la barra de comandos.
+      ![](./media/image91.png) 
 
-<img src="./media/image91.png" style="width:6.5in;height:4.73333in" />
-
-4.  En el campo **Nombre** en el panel ***New semantic model***,
+4.  En el campo **Nombre** en el panel **New semantic model**,
     introduzca el nombre del modelo como
-    ***StocksLakehousePredictions***, seleccione las tablas
+    **StocksLakehousePredictions**, seleccione las tablas
     **stock_prediction** y **dim_symbol**. A continuación, haga clic en
     el botón **Confirm** como se muestra en la siguiente imagen.
 
-<img src="./media/image92.png" style="width:4.61667in;height:5.75in" />
-
-<img src="./media/image93.png" style="width:7.39637in;height:3.58281in"
-alt="A screenshot of a computer Description automatically generated" />
+      ![](./media/image92.png) 
+      ![](./media/image93.png) 
 
 5.  Cuando se abre el modelo semántico, tenemos que definir las
     relaciones entre las tablas stock_prediction y dim_symbol.
 
 6.  Desde la tabla **stock_prediction**, arrastre el campo
-    ***Symbol*** y suéltelo sobre el campo ***Symbol*** de la tabla
+    **Symbol** y suéltelo sobre el campo **Symbol** de la tabla
     **dim_Symbol** para crear una relación. Aparecerá el cuadro de
     diálogo **New relationship**.
 
-<img src="./media/image94.png"
-style="width:7.0993in;height:3.84583in" />
+      ![](./media/image94.png) 
 
 7.  En el cuadro de diálogo **New relationship**:
 
@@ -598,7 +465,7 @@ style="width:7.0993in;height:3.84583in" />
 - **La tabla To** se rellena con **dim_symbol** y la columna de
   **Symbol.**
 
-- Cardinalidad: **Many to one (\*:1)**
+- Cardinalidad: **Many to one** **(:1)**
 
 - Dirección del filtro transversal: **Single**
 
@@ -607,11 +474,8 @@ style="width:7.0993in;height:3.84583in" />
 
 - Seleccione **Save**
 
-<img src="./media/image95.png"
-style="width:6.60417in;height:7.72544in" />
-
-<img src="./media/image96.png"
-style="width:7.37104in;height:3.27917in" />
+     ![](./media/image95.png) 
+     ![](./media/image96.png) 
 
 ## Tarea 2: Crear el informe en Power BI Desktop
 
@@ -621,126 +485,111 @@ style="width:7.37104in;height:3.27917in" />
 
 2.  Haga clic en el botón **Download now**.
 
-> <img src="./media/image97.png"
-> style="width:6.49167in;height:3.76667in" />
+     ![](./media/image97.png) 
 
 3.  En caso de que aparezca el cuadro de diálogo **This site is trying
     to open Microsoft Store**, haga clic en el botón **Open**.
 
-<img src="./media/image98.png"
-style="width:6.49167in;height:1.40833in" />
+     ![](./media/image98.png) 
 
 4.  En **Power BI Desktop**, haga clic en el botón **Get**.
 
-<img src="./media/image99.png" style="width:4.95in;height:5.23333in" />
+     ![](./media/image99.png) 
 
 5.  Ahora, haga clic en el botón **Open**.
 
-<img src="./media/image100.png"
-style="width:4.90833in;height:5.31667in" />
-
+      ![](./media/image100.png) 
 6.  Introduzca sus credenciales de **Microsoft Office 365 tenant** y
     haga clic en el botón **Next**.
 
-<img src="./media/image101.png"
-style="width:6.25833in;height:6.05833in" />
+      ![](./media/image101.png) 
 
 7.  Introduzca la **contraseña administrativa** de la pestaña
-    **Resources** y haga clic en el botón **Sign in.**
+    **Resources** y haga clic en el botón **Sign in**
 
-<img src="./media/image102.png" style="width:5.95in;height:5.175in" />
+       ![](./media/image102.png) 
 
 8.  En Power BI Desktop, seleccione **Blank report.**
 
-<img src="./media/image103.png"
-style="width:7.27361in;height:4.40712in" />
+      ![](./media/image103.png) 
 
-9.  En la cinta *Home*, haga clic en el ***OneLake data hub*** y
+9.  En la cinta **Home**, haga clic en el **OneLake data hub** y
     seleccione **KQL database.**
 
-<img src="./media/image104.png"
-style="width:7.27414in;height:3.1375in" />
+     ![](./media/image104.png) 
 
 10. En la ventana **OneLake data hub**, seleccione **StockDB** y haga
     clic en el botón **Connect**.
 
-<img src="./media/image105.png"
-style="width:6.49167in;height:3.40833in" />
+       ![](./media/image105.png) 
 
 11. Introduzca sus credenciales de tenant de **Microsoft Office 365** y
     haga clic en el botón **Next**.
 
-<img src="./media/image106.png" style="width:6.5in;height:6.975in" />
+      ![](./media/image106.png) 
 
 12. Introduzca la **contraseña administrativa** de la pestaña
     **Resources** y haga clic en el botón **Sign in.**
 
-<img src="./media/image107.png"
-style="width:4.59167in;height:5.26667in" />
+      ![](./media/image107.png) 
 
 13. En la página Navegador, en **Display options**, seleccione Tabla de
     **StockPrice** y, a continuación, haga clic en el botón **Load**.
 
-<img src="./media/image108.png" style="width:6.5in;height:5.275in" />
+      ![](./media/image108.png) 
 
-14. En el cuadro de diálogo ***Connection settings***, seleccione el
-    botón de opción ***DirectQuery*** y haga clic en el botón **Ok**.
+14. En el cuadro de diálogo **Connection settings**, seleccione el
+    botón de opción **DirectQuery** y haga clic en el botón **Ok**.
 
-<img src="./media/image109.png"
-style="width:4.22083in;height:2.56858in" />
+     ![](./media/image109.png) 
 
-15. En la cinta de ***Home***, haga clic en el ***OneLake data hub***y
+15. En la cinta de **Home**, haga clic en el **OneLake data hub**y
     seleccione **Power BI semantic models** como se muestra en la
     siguiente imagen.
 
-<img src="./media/image110.png" style="width:6.5in;height:4.19167in" />
+     ![](./media/image110.png) 
 
 16. En la ventana **OneLake data hub**, seleccione
     **StockLakehousePredictions** de la lista y haga clic en el botón
     **Connect**.
 
-<img src="./media/image111.png"
-style="width:6.49167in;height:3.38333in" />
+      ![](./media/image111.png) 
 
 17. En la página **Connect to your data**, seleccione **dim_symbol,
     stock_prediction** y haga clic en el botón **Submit**.
 
-<img src="./media/image112.png"
-style="width:5.55833in;height:5.88333in" />
+      ![](./media/image112.png) 
 
 18. En este caso, podemos descartar la advertencia de **Potential
     security risk** haciendo clic en el botón **OK**.
 
-<img src="./media/image113.png" style="width:6.5in;height:1.40833in" />
+      ![](./media/image113.png) 
+      ![](./media/image114.png) 
 
-<img src="./media/image114.png" style="width:7.20263in;height:3.5236in"
-alt="A screenshot of a computer Description automatically generated" />
+19. Haga clic en **Modeling** en la barra de comandos y, a
+    continuación, en **Manage relationships.**
 
-19. Haga clic en ***Modeling*** en la barra de comandos y, a
-    continuación, en ***Manage relationships.***
-
-<img src="./media/image115.png" style="width:6.5in;height:3.40833in" />
+      ![](./media/image115.png) 
 
 20. En el panel **Manage relationshpis**, seleccione **+New
     relationship** como se muestra en la siguiente imagen.
 
-<img src="./media/image116.png"
-style="width:6.49167in;height:4.99167in" />
+      ![](./media/image116.png) 
 
 21. Cree una **New relationship** entre la **tabla *StockPrice ***-From
     y la ***tabla stocks_prediction*** - ***To*** (después de
     seleccionar la tabla, asegúrese de seleccionar las columnas de
     símbolo en cada tabla). Establezca la dirección del filtro cruzado
-    en ***Both***, y asegúrese de que la cardinalidad está establecida
-    en ***Many-to-many*.** A continuación, haga clic en el botón
+    en **Both**, y asegúrese de que la cardinalidad está establecida
+    en **Many-to-many**. A continuación, haga clic en el botón
     **Save**.
 
-> <img src="./media/image117.png" style="width:6.5in;height:6.38333in" />
+      ![](./media/image117.png) 
 
-22. En la página **Mange relationships**, seleccione ***StockPrice***,
-    ***stocks_prediction*** tables y haga clic en el botón **Close**.
+22. En la página **Mange relationships**, seleccione **StockPrice**,
+    **stocks_prediction** tables y haga clic en el botón **Close**.
 
-<img src="./media/image118.png" style="width:6.5in;height:4.85833in" />
+      ![](./media/image118.png) 
 
 23. En la página **de Power BI**, en **Visualizations**, haga clic en el
     icono **Gráfico de líneas** para añadir un **Gráfico de columnas** a
@@ -759,11 +608,9 @@ style="width:6.49167in;height:4.99167in" />
 - **Filtro**: **timestamp** to ***Relative time** is in the last* **15
   minutes**.
 
-<img src="./media/image119.png"
-style="width:5.675in;height:6.80833in" />
+      ![](./media/image119.png) 
 
-<img src="./media/image120.png"
-style="width:7.1554in;height:4.06467in" />
+      ![](./media/image120.png) 
 
 24. En la página de **Power BI**, en **Visualizations**, haga clic en el
     icono **Gráfico de líneas** para añadir un **Gráfico de columnas** a
@@ -782,16 +629,10 @@ style="width:7.1554in;height:4.06467in" />
 - **Filtro**: **timestamp** to ***Relative time** is in the last* **1
   hour**.
 
-<img src="./media/image121.png"
-style="width:7.18155in;height:2.64583in" />
-
-<img src="./media/image122.png"
-style="width:5.25417in;height:5.53899in" />
-
-<img src="./media/image123.png" style="width:5.8in;height:6.025in" />
-
-<img src="./media/image124.png"
-style="width:7.32714in;height:4.17083in" />
+      ![](./media/image121.png) 
+      ![](./media/image122.png) 
+      ![](./media/image123.png) 
+      ![](./media/image124.png) 
 
 25. En la página **de Power BI**, en **Visualizaciones**, haga clic en
     el icono **Gráfico de líneas** para añadir un **Gráfico de
@@ -809,84 +650,70 @@ style="width:7.32714in;height:4.17083in" />
 
 - **Filtro**: **predict_time** a ***Relative date** in the last* **3
   days**.
-
-<img src="./media/image125.png"
-style="width:5.60833in;height:6.90833in" />
-
-<img src="./media/image126.png"
-style="width:6.49167in;height:3.54167in" />
-
-<img src="./media/image127.png"
-style="width:4.44583in;height:5.09322in" />
-
-<img src="./media/image128.png" style="width:6.5in;height:4.03333in" />
-
+      ![](./media/image125.png) 
+      ![](./media/image126.png) 
+      ![](./media/image127.png) 
+      ![](./media/image128.png) 
+   
 26. En la página **de Power BI**, en **Data,** haga clic con el botón
-    derecho en la tabla ***stocks_prediction*** y seleccione ***New
-    measure.***
+    derecho en la tabla **stocks_prediction** y seleccione **New
+    measure.**
 
-<img src="./media/image129.png" style="width:6.5in;height:5.35in" />
+     ![](./media/image129.png) 
 
 27. Las medidas son fórmulas escritas en el lenguaje Data Analysis
     Expressions (DAX); para esta fórmula DAX, introduzca ***+++currdate
-    = NOW()*+++**
+    = NOW()+++**
 
-<img src="./media/image130.png" style="width:6.49167in;height:4in" />
+     ![](./media/image130.png) 
 
 28. Con el gráfico de predicción seleccionado, vaya a las opciones de
     visualización adicionales, es decir, al icono de la lupa/gráfico y
-    añada una **new *X-Axis Constant Line***.
+    añada una **new X-Axis Constant Line**.
 
-<img src="./media/image131.png" style="width:5.75in;height:5.9in" />
+      ![](./media/image131.png) 
 
-29. En *Value*, utilice el botón de fórmula **(fx)** para elegir un
+29. En **Value**, utilice el botón de fórmula **(fx)** para elegir un
     campo.
 
-<img src="./media/image132.png"
-style="width:5.89583in;height:3.65557in" />
+      ![](./media/image132.png) 
 
 30. En **Value -Apply settings to** page, haga clic en el desplegable
     bajo **what field should we base this on?**, luego haga clic en el
     desplegable de **stocks_prediction**, seleccione la medida
-    ***currdate***. A continuación, haga clic en el botón **OK**.
+    **currdate**. A continuación, haga clic en el botón **OK**.
 
-<img src="./media/image133.png"
-style="width:6.41495in;height:4.52917in" />
-
-<img src="./media/image134.png"
-style="width:7.38149in;height:4.0125in" />
+      ![](./media/image133.png) 
+      ![](./media/image134.png) 
 
 31. Navegue hasta las opciones adicionales de visualización, es decir,
     el icono de la lupa/gráfico, active la **Shade
-    area**.<img src="./media/image135.png"
-    style="width:6.91875in;height:3.7125in" />
+    area**.
+      ![](./media/image135.png) 
 
-32. Configuradas las relaciones entre tablas, todos los visuales deben
+33. Configuradas las relaciones entre tablas, todos los visuales deben
     cruzar filtros; al seleccionar un símbolo o un mercado en un
     gráfico, todos los visuales deben reaccionar en consecuencia. Como
     se muestra en la siguiente imagen, el mercado **NASDAQ** está
     seleccionado en el gráfico de mercado superior derecho:
 
-<img src="./media/image136.png" style="width:6.5in;height:4.01667in" />
-
-<img src="./media/image137.png"
-style="width:7.31785in;height:4.51424in" />
+      ![](./media/image136.png) 
+      ![](./media/image137.png) 
 
 33. Haga clic en **Publish** en la barra de comandos.
 
-<img src="./media/image138.png" style="width:6.5in;height:3.69167in" />
+      ![](./media/image138.png) 
 
 34. En el cuadro de diálogo **Microsoft Power BI Desktop**, haga clic en
     el botón **Save**.
 
-<img src="./media/image139.png"
-style="width:5.09167in;height:1.80833in" />
+      ![](./media/image139.png) 
 
 35. En el cuadro de diálogo **Save this file**, introduzca el Nombre
     como **Prediction Report** y seleccione la ubicación. A
     continuación, pulse el botón **Save**.
 
-<img src="./media/image140.png" style="width:4.95in;height:4.73333in" />
+      ![](./media/image140.png) 
 
 ## **Resumen**
 
