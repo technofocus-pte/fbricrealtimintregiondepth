@@ -252,7 +252,7 @@ the cell in the notebook.
 
 7.  To start the notebook and execute the cell, select the **Run** icon
     that appears on the left side of the cell.
-     ![](./media/image43.png)
+     ![](./media/new14.png)
      ![](./media/image44.png)
 8.  Similarly, run the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
      ![](./media/image45.png)
