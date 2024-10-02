@@ -268,10 +268,9 @@ the cell in the notebook.
      ![](./media/new17.png)
 11. Run the 7<sup>th</sup> cell, 8<sup>th</sup> cell , and
     9<sup>th</sup> cell.
-     ![](./media/image51.png)
-     ![](./media/image52.png)
-     ![](./media/image53.png)
-
+     ![](./media/new18.png)
+     ![](./media/new19.png)
+     
 12. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
      ![](./media/image54.png)
