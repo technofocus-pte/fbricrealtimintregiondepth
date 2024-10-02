@@ -860,67 +860,70 @@ applied to larger datasets.
     menu.
     ![](./media/image140.png)
 
-2.  In the RealTimeWorkshop workspace, select the ***Lakehouse 4 – Load
-    fact table*  **notebook.
-    ![](./media/image141.png)
+2.  In the RealTimeWorkshop workspace, select the **Lakehouse 4 – Load
+    fact table** notebook.
+     ![](./media/image141.png)
 3.  Under the Explorer, select **Lakehouse**, then click on the **Add**
     button.
-    ![](./media/image142.png)
-    ![](./media/image143.png)
+    
+     ![](./media/image142.png)
+     ![](./media/image143.png)
 
-4.  In the **Add Lakehouse** dialog box, select the **Existing
+5.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
+    
      ![](./media/image142.png)
 
-5.  On the OneLake data hub tab, select the **StockLakehouse**  and
+7.  On the OneLake data hub tab, select the **StockLakehouse**  and
     click on the **Add** button.
+    
     ![](./media/image143.png)
-6.  Select and run each cell individually.
-     ![](./media/image144.png)
-7.  Function adds symbols to dim_symbol that may not exist in table,
+8.  Select and run each cell individually.
+        ![](./media/image144.png)
+9.  Function adds symbols to dim_symbol that may not exist in table,
     select and **Run** the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
      ![](./media/image145.png)
      ![](./media/image146.png)
-8.  To get new stock data to ingest, starting at watermark, select and
+10.  To get new stock data to ingest, starting at watermark, select and
     run the 4<sup>th</sup> cell.
      ![](./media/image147.png)
-9.  Load the date dimension for later joins, select and **Run** the
+11.  Load the date dimension for later joins, select and **Run** the
     5<sup>th</sup>, 6<sup>th</sup>, and 7<sup>th</sup> cells.
      ![](./media/image148.png)
      ![](./media/image149.png)
      ![](./media/image150.png)
      ![](./media/image151.png)
 
-10. To join the aggregated data to the date dimension, select and
+12. To join the aggregated data to the date dimension, select and
     **Run** the 8<sup>th</sup> and 9<sup>th</sup> cells.
      ![](./media/image152.png)
      ![](./media/image153.png)
-11. Create a final view with cleaned names for processing ease, select
+13. Create a final view with cleaned names for processing ease, select
     and **Run** the 10<sup>th</sup>, 11<sup>th</sup> , and
     12<sup>th</sup> cells.
      ![](./media/image154.png)
      ![](./media/image155.png)
      ![](./media/image156.png)
-12. To obtain the result and plot a graph, select and
+14. To obtain the result and plot a graph, select and
     **Run** 13<sup>th</sup> and 14<sup>th</sup> cells.
 
      ![](./media/image157.png)
      ![](./media/image158.png)
      ![](./media/image159.png)
 
-13. To validate the created tables, right click on the horizontal
+15. To validate the created tables, right click on the horizontal
     ellipsis (…) beside **Tables,** then navigate and click on
     **Refresh.** The tables will appear.
 
       ![](./media/image160.png)
 
-14. To schedule the notebook to run periodically, click on
+16. To schedule the notebook to run periodically, click on
     the ***Run*** tab, and click on ***Schedule*** as shown in the below
     image*.*
 
       ![](./media/image161.png)
 
-15. In Lackhouse 4-Load Star Schema tab, select the below details and
+17. In Lackhouse 4-Load Star Schema tab, select the below details and
     click on the **Apply** button.
 
 - Schedule run: **On**
