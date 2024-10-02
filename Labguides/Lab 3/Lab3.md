@@ -270,10 +270,12 @@ the cell in the notebook.
     9<sup>th</sup> cell.
      ![](./media/new18.png)
      ![](./media/new19.png)
+     ![](./media/new20.png)
      
-12. While similar to 'commenting out' sections of code, freezing cells
+13. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
-     ![](./media/image54.png)
+     ![](./media/new21.png)
+     ![](./media/new22.png)
 
 # Exercise 2: Building the Aggregation Tables
 
