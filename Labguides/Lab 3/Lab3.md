@@ -255,17 +255,17 @@ the cell in the notebook.
      ![](./media/new14.png)
      ![](./media/image44.png)
 8.  Similarly, run the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
-     ![](./media/image45.png)
-     ![](./media/image46.png)
+     ![](./media/new15.png)
+     
 9.  To download and unzip historical data to the Lakehouse unmanaged
     files, run 4<sup>th</sup> and 5<sup>th</sup> <sup>d</sup> cells as
     shown in the below images.
-     ![](./media/image47.png)
-     ![](./media/image48.png)
-     ![](./media/image49.png)
-10. To verify csv files are available, select and run the 6<sup>th</sup>
+     ![](./media/new16.png)
+     ![](./media/new16-1.png)
+     
+10. Verify/Create Table, find earliest date, select and run the 6<sup>th</sup>
     cell.
-     ![](./media/image50.png)
+     ![](./media/new17.png)
 11. Run the 7<sup>th</sup> cell, 8<sup>th</sup> cell , and
     9<sup>th</sup> cell.
      ![](./media/image51.png)
