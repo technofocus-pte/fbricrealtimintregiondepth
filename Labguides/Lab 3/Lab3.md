@@ -950,7 +950,7 @@ reporting, and create a simple Power BI report.
 
      ![](./media/image164.png)
 
-3.  Name the model ***StocksDimensionalModel* **and select the
+3.  Name the model **+++StocksDimensionalModel+++**and select the
     **fact_stocks_daily_prices**, **dim_date** and **dim_symbol**
     tables. Then, click on the **Confirm** button.
 
@@ -1044,8 +1044,8 @@ reporting, and create a simple Power BI report.
 
      ![](./media/image177.png)
 
-13. In the Save your report dialog box, enter +++
-    **StocksDimensional** +++ as the name of your report and select
+13. In the Save your report dialog box, enter 
+    +++StocksDimensional+++ as the name of your report and select
     **your workspace**. Click on the **Save** button**.**
 
      ![](./media/image178.png)
