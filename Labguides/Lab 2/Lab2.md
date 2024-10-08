@@ -302,8 +302,7 @@ complete.
 - X-axis: **timestamp**
 
 - Y-axis:**price**
-
-     ![](./media/image34.png)
+      ![](./media/image34.png)
 
 5.  In the Power BI (preview) page, from the ribbon, click on
     **File** and select **Save**.
