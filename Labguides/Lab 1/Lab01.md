@@ -162,7 +162,7 @@ To auto-deploy the resources, use these steps below.
      ![](./media/image16.png)
      ![](./media/image17.png)
 3.  In the **Review + create** tab, navigate and click on the **Create**
-    button**.**
+    button.
      ![](./media/image18.png)
 
 4.  Wait for the deployment to complete. The deployment will take around
@@ -173,7 +173,7 @@ To auto-deploy the resources, use these steps below.
 
       ![](./media/image19.png)
 6.  In **realtimeworkshop** **Resource group**, verify that the **Event
-    Hub Namespace **and **Azure Container Instance (ACI)** are
+    Hub Namespace** and **Azure Container Instance (ACI)** are
     successfully deployed.
       ![](./media/image20.png)
 
@@ -243,12 +243,11 @@ d.  Shared Access Key- Enter Primary Key (the value that you have saved
 e.  Consumer group: **$Default**
 
 f.  Data format: **JSON** and click on **Next** button
-
-   ![](./media/image30.png)
-   ![](./media/image31.png)
-   ![](./media/image32.png)
-   ![](./media/image33.png)
-   ![](./media/image34.png)
+     ![](./media/image30.png)
+      ![](./media/image31.png)
+      ![](./media/image32.png)
+      ![](./media/image33.png)
+      ![](./media/image34.png)
 
 6.  You will see a notification stating **Successfully added The source
     “StockEventHub,Azure Event Hubs”** was added.
