@@ -154,6 +154,7 @@ To auto-deploy the resources, use these steps below.
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
     the following details and click on the **Review+create** button.
 
+
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -171,7 +172,7 @@ To auto-deploy the resources, use these steps below.
 <tr class="odd">
 <td><strong>Resource group</strong></td>
 <td>Click on <strong>Create new</strong>&gt; enter
-<strong>+++realtimeworkshop+++</strong> and select
+<strong>realtimeworkshop</strong> and select
 <strong>Ok</strong></td>
 </tr>
 <tr class="even">
