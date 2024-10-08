@@ -154,65 +154,41 @@ To auto-deploy the resources, use these steps below.
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
     the following details and click on the **Review+create** button.
 
-
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 74%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Subscription</strong></th>
-<th><blockquote>
-<p>Select the assigned subscription</p>
-</blockquote></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Resource group</strong></td>
-<td>Click on <strong>Create new</strong>&gt; enter
-<strong>realtimeworkshop</strong> and select
-<strong>Ok</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Region</strong></td>
-<td>Select <strong>West US 3</strong></td>
-</tr>
-</tbody>
-</table>
-
-   ![](./media/image16.png)
-   ![](./media/image17.png)
+|               |                                                                |
+|---------------|----------------------------------------------------------------|
+|Subscription   |Select the assigned subscription	                               |
+|Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
+|Region         |Select West US 3	|
+     ![](./media/image16.png)
+     ![](./media/image17.png)
 3.  In the **Review + create** tab, navigate and click on the **Create**
     button**.**
      ![](./media/image18.png)
 
-5.  Wait for the deployment to complete. The deployment will take around
+4.  Wait for the deployment to complete. The deployment will take around
     10-15 minutes.
 
-6.  After the deployment is completed, click on the **Go to resource**
+5.  After the deployment is completed, click on the **Go to resource**
     button.
 
       ![](./media/image19.png)
-4.  In **realtimeworkshop** **Resource group**, verify that the **Event
+6.  In **realtimeworkshop** **Resource group**, verify that the **Event
     Hub Namespace **and **Azure Container Instance (ACI)** are
     successfully deployed.
+      ![](./media/image20.png)
 
-     ![](./media/image20.png)
-
-5.  Open the **Event Hub** **namespace**, which will have a name similar
+7.  Open the **Event Hub** **namespace**, which will have a name similar
     to **ehns-XXXXXX-fabricworkshop**.
 
      ![](./media/image21.png)
 
-6.  In **Event Hub** **namespace** page left-sided navigation menu,
+8.  In **Event Hub** **namespace** page left-sided navigation menu,
     navigate to **Settings** section and click on **Shared access
     policies**.
 
       ![](./media/image22.png)
 
-7.   In the **Shared access policies** page, click on
+9.   In the **Shared access policies** page, click on
     ***stockeventhub_sas*** .**SAS Policy: stockeventhub_sas** pane
     appear on the right side, copy the **primary key** and **Event Hub
     namespace** (such as *ehns-XXXXXX-fabricworkshop*) and paste them on
