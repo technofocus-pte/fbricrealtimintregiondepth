@@ -109,16 +109,13 @@ Dataflows, 데이터 팩토리 파이프라인, 노트북, Power BI 데이터 �
     붙여넣으세요: https://app.fabric.microsoft.com/ **입력한** 다음
     **Enter** 버튼을 누르세요. **Microsoft Fabric 홈** 페이지에서
     **Power BI** 타일을 탐색하여 클릭하세요.
-
       ![](./media/image66.png)
 
 2.  **Power BI 홈** 페이지 왼쪽 탐색 메뉴에서 아래 이미지와 같이
     **워크스페이스를** 탐색하여 클릭하세요.
-
        ![](./media/image67.png)
 
 3.  작업 공간 창에서 **+ New workspace 버튼을** 클릭하세요.
-
      ![](./media/image68.png)
 
 4.  오른쪽에 표시되는 **Create a workspace** 창에서 다음 세부 정보를
