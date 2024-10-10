@@ -23,7 +23,7 @@ AbboCost는 가격 변동을 모니터링하고 과거 데이터를 보고하기
 작성하고, 데이터 웨어하우스 및 레이크하우스를 만들고, ML 모델을 사용한
 예측 등을 할 수 있는 방법을 살펴볼 것입니다.
 
-![Data Lakehouse with Azure Synapse Analytics](./media/image1.png)
+![](./media/image1.png)
 
 # 목표
 
@@ -54,36 +54,30 @@ Container Instance를 통해 배포하는 것을 권장합니다.
 ## 작업 1: Power BI 계정에 로그인하고 무료 [Microsoft Fabric 평가판에](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial) 등록하기
 
 1.  브라우저를 열고 주소 표시줄로 이동하여 다음 URL을 입력하거나
-    붙여넣으세요: <https://app.fabric.microsoft.com/> **Enter** 버튼을
+    붙여넣으세요: +++https://app.fabric.microsoft.com/+++ **Enter** 버튼을
     누르세요.
 
-> ![A search engine window with a red box Description automatically
-> generated with medium confidence](./media/image2.png)
+    ![](./media/image2.png)
 
 2.  **Microsoft Fabric** 창에서 Microsoft 365 자격 증명을 입력하고
     **Submit** 버튼을 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image3.png)
->
-> ![A close up of a white and green object Description automatically
-> generated](./media/image4.png)
+     ![](./media/image3.png)
+
+     ![](./media/image4.png)
 
 3.  **Resources** 탭에서 **관리자 비밀번호를** 입력하고 **Sign in**
     버튼을 클릭하세요**.**
 
-> ![A login screen with a red box and blue text Description
-> automatically generated](./media/image5.png)
+     ![](./media/image5.png)
 
 4.  **Stay signed in?** 창에서 **예** 버튼을 클릭하세요.
 
-> ![A screenshot of a computer error Description automatically
-> generated](./media/image6.png)
+      ![](./media/image6.png)
 
 5.  Power BI 홈 페이지로 이동됩니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+     ![](./media/image7.png)
 
 ## 작업 2: Microsoft Fabric 평가판 시작하기
 
@@ -91,342 +85,21 @@ generated](./media/image7.png)
     for MOD Administrator를** 클릭하세요. 아래 이미지와 같이 계정 관리자
     블레이드로 이동하여 **Start trial을** 선택하세요**.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+      ![](./media/image8.png)
 
 2.  **Upgrade to a free Microsoft Fabric trial** 대화 상자에서 **Start
     Trial** 버튼을 **클릭하세요.**
 
-> ![](./media/image9.png)
+     ![](./media/image9.png)
 
 3.  **Successfully upgraded to a free Microsoft Fabic trial** 알림 대화
     상자가 표시됩니다. 대화 상자에서 **Fabric Home Page** 버튼을
     클릭하세요.
 
-> ![](./media/image10.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image11.png)
+     ![](./media/image10.png)
+     ![](./media/image11.png)
 
-## 작업 3: Azure Pass 사용
-
-1.  브라우저에서 새 탭을 열고 주소창에 다음 링크를 입력하세요:
-    <https://www.microsoftazurepass.com/>
-
-2.  그런 다음 **Start**버튼을 클릭하세요**.**
-
-![A person using a computer Description automatically
-generated](./media/image12.png)
-
-**참고**: 회사/직장 계정을 사용하여 로그인하여 Azure Pass를 사용하지
-마세요. 다른 Azure Pass는 발급되지 않습니다.
-
-3.  Lab VM의 **Resources** 탭을 클릭하고 **Office 365 테넌트 자격
-    증명을** 입력하여 로그인하세요.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image13.png)
-
-![Graphical user interface, application Description automatically
-generated](./media/image14.png)
-
-4.  이메일 ID를 확인한 다음 **Confirm Microsoft Account을** 클릭하세요.
-
-![Text Description automatically generated](./media/image15.png)
-
-5.  **Resources** 탭을 클릭하고 **Promo Code를** 복사하고 **Enter Promo
-    code ** 상자로 이동하여 복사한 프로모션 코드를 붙여넣은 다음 **Claim
-    Promo Code**버튼을 클릭하세요**.**
-
-> ![](./media/image16.png)
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image17.png)
-
-6.  **Your Profile** 페이지에 정확한 세부 정보를 입력하고 모든 확인란을
-    선택한 다음 **가입** 버튼을 클릭하세요.
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image18.jpeg)
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image19.png)
-
-7.  **Are you satisfied with your signup experience** 창에서 피드백을
-    입력하고 **Submit** 버튼을 클릭하세요.
-
-![](./media/image20.png)
-
-8.  자동으로 Azure Portal로 리디렉션되며 이제 Azure 서비스를 사용할
-    준비가 된 것입니다. **Welcome to Microsoft Azure** 대화 상자에서
-    **Maybe later** 버튼을 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image21.png)
-
-## 작업 4: Log Analytics 기여자 역할 할당 
-
-1.  Azure Search 창에서 +++Subscriptions+++를 입력한 다음,
-    **Services로** 이동하여 **Subscriptions를** 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image22.png)
-
-2.  **Subscriptions** 페이지에서 **Azure Pass - Sponsorship을** 탐색하고
-    클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image23.png)
-
-3.  Azure Pass - Sponsorship 페이지에서 아래 이미지와 같이 **Access
-    control(IAM)**로 이동하여 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image24.png)
-
-4.  **Access control(IAM)** 페이지에서 **+Add를** 클릭한 다음
-    탐색하여**Add role assignment를** 선택하세요**.**
-
-![A screenshot of a computer Description automatically
-generated](./media/image25.png)
-
-5.  **Add role assignment – Role** 페이지에서 **Job function roles**
-    탭을 클릭하고 검색 상자로 이동하여 아래 이미지와 같이 +++**Log
-    Analytics Contributor**+++를 입력한 후 선택한 **다음 Next** 버튼을
-    클릭하세요.
-
-![](./media/image26.png)
-
-6.  **Members** 탭에서 **+Select members를** 클릭하세요.
-
-![](./media/image27.png)
-
-7.  오른쪽에 표시되는 **Select members** 창에서 O365 테넌트 자격 증명을
-    검색하여 선택한 후 **Select** 버튼을 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
-
-8.  그런 다음 **Review + Assign** 버튼을 클릭하세요.
-
-![](./media/image29.png)
-
-![](./media/image30.png)
-
-9.  O365 Tenant ID was added as **Log Analytics Contributor** role for
-    Azure Pass-Sponsorship라는 알림이 표시됩니다.
-
-> ![](./media/image31.png)
-
-## 작업 5: Fabric 용량 및 작업 공간 만들기
-
-Microsoft Fabric은 Azure Active Directory tenant에 배포됩니다. 각 Fabric
-테넌트 내에서 조직별(영업, 마케팅, 개발), 지리적 또는 기타 논리적 그룹화
-등 다양한 목적에 따라 Resources를 그룹화하기 위해 Fabric 용량을 만들 수
-있습니다.
-
-Fabric 평가판을 사용할 수 있는 경우, 약정 없이 일정 기간(현재 60일) 동안
-Microsoft Fabric을 사용해 볼 수 있는 기회를 활용하는 것이 좋습니다.
-평가판을 사용 중인지 또는 평가판을 받을 자격이 있는지 확인하려면 [Fabric
-포털을](https://app.fabric.microsoft.com/) 방문하세요. 로그인할 수
-있거나 평가판을 시작할 수 있는 옵션이 표시되면 모든 준비가 완료된
-것입니다!
-
-평가판 환경 외부에서 Fabric 용량을 만들려면, Azure 포털에서 새
-Resources를 만들고 Fabric을 검색하세요.
-
-1.  Azure 포털 홈 페이지에서 아래 이미지와 같이 Microsoft Azure 명령줄
-    왼쪽에 있는 가로 막대 3개로 표시된 **Azure portal menu를**
-    클릭하세요.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image32.png)
-
-2.  탐색하여 **+ Create a resource를** 클릭하세요.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image33.png)
-
-3.  **Create a resource** 페이지의 **Create a resource 검색창에** ++
-    **Fabric+++을** 입력한 다음 **Microsoft Fabric을** 선택하세요.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image34.png)
-
-4.  **Marketplace** 페이지에서 **Microsoft Fabric** 섹션으로 이동하여
-    만들기 버튼 드롭다운을 클릭한 다음 이미지에 표시된 대로 **Microsoft
-    Fabric을** 선택하세요.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image35.png)
-
-5.  **Create Fabric capacity** 창의 **기본** 탭에서 다음 세부 정보를
-    입력하고 **Review+create** 버튼을 클릭하세요.
-
-[TABLE]
-
-> ![A screenshot of a computer screen Description automatically
-> generated](./media/image36.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image37.png)
->
-> ![](./media/image38.png)
->
-> ![](./media/image39.png)
-
-6.  **Review+Submit** 탭에서 유효성 검사가 통과되면 **create** 버튼을
-    클릭하세요.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image40.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image41.png)
-
-7.  배포가 완료되면 **Go to resource** 버튼을 클릭하세요.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image42.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image43.png)
-
-## 작업 6: 스토리지 계정 만들기 
-
-1.  **Portal Menu를** 클릭한 다음 **+ Resources 만들기를** 선택하세요.
-
-![Graphical user interface, application Description automatically
-generated](./media/image44.png)
-
-2.  **Create a resource** 창 검색 상자에 +++**Storage account**+++을
-    입력한 다음 **storage account를** 클릭하세요.
-
-![Graphical user interface, application Description automatically
-generated](./media/image45.png)
-
-3.  **Marketplace** 페이지에서 **Storage account** 섹션을 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image46.png)
-
-4.  **Storage account** 창에서 **Create** 버튼을 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image47.png)
-
-5.  **Create a storage account** 창의 **Basics** 탭에서 아래 세부 정보를
-    입력하여 스토리지 계정을 만든 후 **다음** 버튼을 클릭하세요.
-
-[TABLE]
-
-![](./media/image48.png)
-
-6.  **Advanced** 탭에서 **Enable hierarchical namespace** 확인란을
-    선택한 다음 **Review + create를 클릭하세요.**
-
-![](./media/image49.png)
-
-7.  **Review + create** 탭에서 **create** 버튼을 클릭하세요.
-
-![](./media/image50.png)
-
-8.  이제 새 Azure Storage 계정이 Azure Data Lake의 데이터를 호스팅하도록
-    설정되었습니다. **Go to resource** 버튼을 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image51.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image52.png)
-
-9.  **Storage account** (storagefabricXXX) 페이지 왼쪽 탐색 메뉴에서
-    **Access control(IAM)**를 클릭하세요.
-
-![](./media/image53.png)
-
-10. **Access control(IAM)** 페이지에서 **+Add를** 클릭한 다음 **Add role
-    assignments를** 선택하세요**.**
-
-![](./media/image54.png)
-
-11. **Add role assignments - 역할** 페이지에서 **Job function roles**
-    탭을 클릭하세요. 검색창에 아래 이미지와 같이 type +++**Storage Blob
-    Data Contributor+++를** 입력하고 선택하세요. 그런 다음 **Next**
-    버튼을 클릭하세요.
-
-![](./media/image55.png)
-
-12. **Members** 탭에서 **+Select members를** 클릭하세요.
-
-![](./media/image56.png)
-
-13. 오른쪽에 표시되는 **Select members** 창에서 O365 테넌트 자격 증명을
-    검색하여 선택한 다음 Select 버튼을 클릭하세요.
-
-![](./media/image28.png)
-
-14. **Review + assign** 버튼을 **클릭하세요.**
-
-![](./media/image57.png)
-
-![](./media/image58.png)
-
-15. you tenant ID was added as Storage Blob Data Contributor role for
-    Azure Pass-Sponsorship라는 알림이 표시됩니다.
-
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
-
-16. **Access control(IAM)**을 다시 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image60.png)
-
-17. **Access control(IAM)** 페이지에서 **+Add를** 클릭하고 **Add role
-    assignments를** 선택하세요**.**
-
-![A screenshot of a computer Description automatically
-generated](./media/image54.png)
-
-18. **Privileged administrator roles** 탭을 클릭하고 **Owner role를**
-    선택한 후 **Next** 버튼을 클릭하세요.
-
-![](./media/image61.png)
-
-19. **Members** 탭에서 **+Select members를** 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
-
-20. 오른쪽에 표시되는 **Select members** 창에서 O365 테넌트 자격 증명을
-    검색하여 선택한 후 **Select** 버튼을 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
-
-21. **Add role assignment** 페이지에서 **Next를** 클릭하면 역할 할당이
-    완료되면 알림을 받게 됩니다.
-
-![](./media/image62.png)
-
-22. **Allow user to assign all roles (highly privileged)** 확인란을
-    선택하고 **Review + assign** 버튼을 클릭하세요.
-
-![](./media/image63.png)
-
-![](./media/image64.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image58.png)
-
-23. O365 테넌트 ID가 storagefabricXXX의 소유자로 추가되었다는 알림이
-    표시됩니다.
-
-![A white box with black text Description automatically
-generated](./media/image65.png)
-
-## **작업 7: Fabric 작업 공간 만들기**
+## **작업 3: Fabric 작업 공간 만들기**
 
 이 작업에서는 Fabric 작업 공간을 만듭니다. 이 작업 공간에는 이 Lakehouse
 튜토리얼에 필요한 모든 항목이 포함되어 있으며, 여기에는 레이크하우스,
@@ -438,27 +111,26 @@ Dataflows, 데이터 팩토리 파이프라인, 노트북, Power BI 데이터 �
     **Enter** 버튼을 누르세요. **Microsoft Fabric 홈** 페이지에서
     **Power BI** 타일을 탐색하여 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image66.png)
+      ![](./media/image66.png)
 
 2.  **Power BI 홈** 페이지 왼쪽 탐색 메뉴에서 아래 이미지와 같이
     **워크스페이스를** 탐색하여 클릭하세요.
 
-> ![](./media/image67.png)
+       ![](./media/image67.png)
 
 3.  작업 공간 창에서 **+ New workspace 버튼을** 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image68.png)
+     ![](./media/image68.png)
 
 4.  오른쪽에 표시되는 **Create a workspace** 창에서 다음 세부 정보를
     입력하고 **Apply** 버튼을 클릭하세요.
 
-[TABLE]
-
-> ![](./media/image69.png)
->
-> ![](./media/image70.png)
+| **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
+|----|----|
+| **Advanced** | Select Trail |
+| **Default storage format** | **Small dataset storage format** |
+     ![](./media/image69.png)
+      ![](./media/image70.png)
 
 ## **작업 8: Azure Container Instance를 통해 앱 배포하기**
 
@@ -472,67 +144,62 @@ Resources를 자동 배포하려면 아래 단계를 따르세요.
 1.  새 주소창을 열고 다음 URL을 입력하세요. 로그인하라는 메시지가
     표시되면 O365 테넌트 자격 증명을 사용하세요.
 
-> [https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json](https://portal.azure.com/%23create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json)
+> +++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
 
 2.  **Custom deployment** 창의 **Basics** 탭에서 다음 세부 정보를
     입력하고 **Review+create** 버튼을 클릭하세요.
 
-[TABLE]
-
-![A screenshot of a computer Description automatically
-generated](./media/image71.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image72.png)
+|               |                                                                |
+|---------------|----------------------------------------------------------------|
+|Subscription   |Select the assigned subscription	                               |
+|Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
+|Region         |Select West US 3	|
+   ![](./media/image71.png)
+    ![](./media/image72.png)
 
 3.  **Review + create** 탭에서 탐색하여 **Create** 버튼을
     **클릭하세요.**
 
-![](./media/image73.png)
+     ![](./media/image73.png)
 
-5.  배포가 완료될 때까지 기다리세요. 배포에는 약 10~15분이 걸립니다.
+4.  배포가 완료될 때까지 기다리세요. 배포에는 약 10~15분이 걸립니다.
 
-6.  배포가 완료되면 **Go to resource** 버튼을 클릭하세요.
+5.  배포가 완료되면 **Go to resource** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image74.png)
+     ![](./media/image74.png)
 
-4.  **realtimeworkshop Resource group**에서 **Event Hub Namespace** 및
+6.  **realtimeworkshop Resource group**에서 **Event Hub Namespace** 및
     **Azure Container Instance (ACI)**가 성공적으로 배포되었는지
     확인하세요.
 
-![](./media/image75.png)
+     ![](./media/image75.png)
 
-5.  **Event Hub Namespace 를** 열면 ***ehns-XXXXXX-fabricworkshop과***
+7.  **Event Hub Namespace 를** 열면 ***ehns-XXXXXX-fabricworkshop과***
     비슷한 이름의 **네임스페이스가** 열립니다.
 
-![](./media/image76.png)
+      ![](./media/image76.png)
 
 6.  **Event Hub namespace** 페이지의 왼쪽 탐색 메뉴에서 **Settings**
     섹션으로 이동하여 **Shared access policies를** 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image77.png)
+      ![](./media/image77.png)
 
-7.  ***Shared access policies*** 페이지에서 ***stockeventhub_sas***
+7.  **Shared access policies** 페이지에서 ***stockeventhub_sas***
     .**SAS policy: stockeventhub_sas** 창이 오른쪽에 나타나면 **primary
     key**와 **Event Hub 네임스페이스**(예:
     *ehns-XXXXXX-fabricworkshop*)를 **복사하여** 향후 작업에 필요한 대로
     메모장에 붙여넣으세요. 간단히 말해, 다음이 필요합니다:
 
-![A screenshot of a computer Description automatically
-generated](./media/image78.png)
+     ![](./media/image78.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image79.png)
+     ![](./media/image79.png)
 
 ## **작업 9: Eventstream으로 데이터 가져오기**
 
 1.  Microsoft Fabric으로 돌아가서 페이지 하단의 **Power BI를** 탐색하여
     클릭한 다음 **Real-Time Intelligence를** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image80.png)
+     ![](./media/image80.png)
 
 2.  **Synapse Real-time Analytics** 홈 페이지에서 **Eventstream을**
     선택하세요. **eventstream**의 이름을 +++ *StockEventStream+++으로
