@@ -470,8 +470,7 @@ display(df_stocks_clean)
     사용하여 셀을 비활성화하면 원본 데이터를 다시 로드할 필요 없이 셀을
     다시 실행하고 수정하는 등의 작업을 수행할 수 있습니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image80.png)
+    ![](./media/image80.png)
 
 ## 작업 2: 집계 routine 구축
 
@@ -485,39 +484,39 @@ generated](./media/image80.png)
     선택하세요. **Data wrangler를** 드롭다운하세요. 아래 이미지와 같이
     **df_stocks_clean으로** 이동하여 클릭하세요.
 
-> ![](./media/image81.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image82.png)
+      ![](./media/image81.png)
+ 
+      ![](./media/image82.png)
 
 2.  **Data wrangler:df_stocks_clean** pane에서 **operations를** 선택한
     다음, **New column by example**선택하세요**.**
 
-> ![](./media/image83.png)
+      ![](./media/image83.png)
 
 3.  ***Target columns*** 필드에서 드롭다운을 클릭하고 Timestamp***를***
     선택하세요. 그런 다음 ***Derived column** **name***  필드에
     ***+++datestamp+++를*** 입력하세요.
 
-![](./media/image84.png)
+     ![](./media/image84.png)
 
 4.  새 Timestamp 열에 지정된 행에 대한 예시 값을 입력하세요. 예를 들어
     *타임스탬프가 2024-02-07 09:54:00인* 경우 ***2024-02-07을***
     입력하세요. 이를 통해 Data wrangler는 시간 구성 요소 없이 날짜를
     찾고 있다는 것을 추론할 수 있습니다. 열이 자동으로 채워지면 Apply
-    버튼을 클릭합니다.![](./media/image85.png)
+    버튼을 클릭합니다.
+     ![](./media/image85.png)
 
-![](./media/image86.png)
+     ![](./media/image86.png)
 
 5.  위 단계에서 설명한 대로 **datestamp** 열을 추가하는 것과 유사하게
     아래 이미지와 같이 **New column by example을** 다시 클릭하세요.
 
-![](./media/image87.png)
+      ![](./media/image87.png)
 
-6.  *대상 열에서 **timestamp를 ***선택하세요. ***Derived column** 이름
-    **+++hour+++을 ***입력하세요**.**
+6.  대상 열에서 **timestamp를**선택하세요. ***Derived column** 이름
+    **+++hour+++을**입력하세요.
 
-> ![](./media/image88.png)
+      ![](./media/image88.png)
 
 7.  데이터 미리 보기에 표시되는 new hour 열에 지정된 행에 시간을
     입력하되, 고유한 시간 값을 가진 행을 선택하세요. 예를 들어
@@ -525,34 +524,24 @@ generated](./media/image80.png)
     아래와 같이 여러 행에 대한 예제 값을 입력해야 할 수도 있습니다.
     **Apply** 버튼을 클릭하세요.
 
-> ![](./media/image89.png)
+       ![](./media/image89.png)
 
 8.  Data Wrangler는 우리가 시간 구성 요소를 찾고 있다고 추론하고 다음과
     유사한 코드를 작성해야 합니다:
-
-\# Derive column 'hour' from column: 'timestamp'
-
+>
+# Derive column 'hour' from column: 'timestamp'
 def hour(timestamp):
+    """
+    Transform based on the following examples:
+       timestamp           Output
+    1: 2024-02-07T09:54 => "9"
+    """
+    number1 = timestamp.hour
+    return f"{number1:01.0f}"
 
-    """
-
-    Transform based on the following examples:
-
-       timestamp           Output
-
-    1: 2024-02-07T09:54 =\> "9"
-
-    """
-
-    number1 = timestamp.hour
-
-    return f"{number1:01.0f}"
-
-pandas_df_stocks_clean.insert(3, "hour",
-pandas_df_stocks_clean.apply(lambda row : hour(row\["timestamp"\]),
-axis=1))
-
-![](./media/image90.png)
+pandas_df_stocks_clean.insert(3, "hour", pandas_df_stocks_clean.apply(lambda row : hour(row["timestamp"]), axis=1))
+>
+     ![](./media/image90.png)
 
  
 
@@ -561,41 +550,31 @@ axis=1))
     09:54:00인* 경우 *54를* 입력하세요. 여러 행에 대해 예제 값을
     입력해야 할 수도 있습니다.
 
-![](./media/image91.png)
+      ![](./media/image91.png)
 
 10. 생성된 코드는 다음과 비슷할 것입니다:
-
-\# Derive column 'minute' from column: 'timestamp'
-
+>
+# Derive column 'minute' from column: 'timestamp'
 def minute(timestamp):
+    """
+    Transform based on the following examples:
+       timestamp           Output
+    1: 2024-02-07T09:57 => "57"
+    """
+    number1 = timestamp.minute
+    return f"{number1:01.0f}"
 
-    """
-
-    Transform based on the following examples:
-
-       timestamp           Output
-
-    1: 2024-02-07T09:57 =\> "57"
-
-    """
-
-    number1 = timestamp.minute
-
-    return f"{number1:01.0f}"
-
-pandas_df_stocks_clean.insert(3, "minute",
-pandas_df_stocks_clean.apply(lambda row : minute(row\["timestamp"\]),
-axis=1))
-
-![](./media/image92.png)
+pandas_df_stocks_clean.insert(3, "minute", pandas_df_stocks_clean.apply(lambda row : minute(row["timestamp"]), axis=1))
+> 
+     ![](./media/image92.png)
 
 11. 다음으로 시간 열을 Integer로 변환하세요. Hour 열 모서리에 있는
     줄임표**(...)**를 클릭하고 **Change column type**를 선택하세요.
     ***New type*** 옆의 드롭다운을 클릭하고 ***int32를** 탐색하여*
     선택한 다음 아래 이미지와 같이 ***Apply*버튼을** 클릭하세요***.***
-    ![](./media/image93.png)
+     ![](./media/image93.png)
 
-![](./media/image94.png)
+     ![](./media/image94.png)
 
 12. Hour에 대해 방금 수행한 것과 동일한 단계를 사용하여 minute 열을
     integer로 변환하세요. ***Minute column*** 모서리에 있는
@@ -603,25 +582,24 @@ axis=1))
     ***New type*** 옆의 드롭다운을 클릭하고 ***int32를** 탐색하여*
     선택한 다음 아래 이미지와 같이 ***Apply* 버튼을** 클릭하세요***.***
 
-![](./media/image95.png)
+     ![](./media/image95.png)
 
-![](./media/image96.png)
+     ![](./media/image96.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image97.png)
+     ![](./media/image97.png)
 
-13. 이제 **operations** 섹션에서 아래 이미지와 같이 ***Group by and
-    aggregate를*** 탐색하고 클릭하세요.
+13. 이제 **operations** 섹션에서 아래 이미지와 같이 **Group by and
+    aggregate를** 탐색하고 클릭하세요.
 
-![](./media/image98.png)
+    ![](./media/image98.png)
 
 14. ***열*** 아래의 드롭다운을 클릭하여 필드별로 ***그룹화하고
     symbol*, *datestamp*, *hour*, *minute을 ***선택하세요.
 
-![](./media/image99.png)
+     ![](./media/image99.png)
 
-15. \+*Add aggregation을* 클릭하고 아래 이미지와 같이 총 3개의 집계를
-    생성한 후 ***Apply*** 버튼을 클릭하세요.
+15. **+Add aggregation을** 클릭하고 아래 이미지와 같이 총 3개의 집계를
+    생성한 후 **Apply** 버튼을 클릭하세요.
 
 - 가격: 최대
 
@@ -629,20 +607,19 @@ generated](./media/image97.png)
 
 - 가격: 마지막 값
 
-![](./media/image100.png)
+     ![](./media/image100.png)
 
-![](./media/image101.png)
+     ![](./media/image101.png)
 
 16. 페이지 왼쪽 상단 모서리의 **Add code to notebook를** 클릭하세요.
     ***Add code to notebook* 창에서** *Include pandas code*가
     uncheck되어 있는지 확인한 다음, Add 버튼을 클릭하세요.
 
-![](./media/image102.png)
+     ![](./media/image102.png)
 
-![](./media/image103.png)
+     ![](./media/image103.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image104.png)
+     ![](./media/image104.png)
 
 17. 코드를 검토하고 추가된 셀의 마지막 두 줄에서 반환된 데이터 프레임의
     이름이 ***df_stocks_clean_1인*** 것을 확인할 수 있습니다. 아래와
@@ -668,17 +645,17 @@ def aggregate_data_minute(df_stocks_clean):
 df_stocks_agg_minute = aggregate_data_minute(df_stocks_clean)
 
 display(df_stocks_agg_minute)
-
-![](./media/image105.png)
+>
+     ![](./media/image105.png)
 
 18. Data wrangler가 생성한 코드가 PySpark 데이터프레임 셀에 있는 경우
     셀을 마우스오버하면 왼쪽에 나타나는 **Run** 아이콘을 선택하세요.
 
-![](./media/image106.png)
+     ![](./media/image106.png)
 
-![](./media/image107.png)
+      ![](./media/image107.png)
 
-![](./media/image108.png)
+      ![](./media/image108.png)
 
 **참고**: 햇갈리는 부분이 있으면 주석에 있는 코드를 참조하세요. Data
 wrangling 단계 중 일부가 올바르지 않은 것 같으면(예를 들어 정확한 시
@@ -706,21 +683,20 @@ wrangling 단계 중 일부가 올바르지 않은 것 같으면(예를 들어 �
 데이터를 시간당 빈도로 더 집계하여 주식 종목당 하루 24개 행으로 줄일 수
 있습니다.
 
-1.  *Symbol/Date/Hour* 섹션 아래의 마지막 자리 표시자에서 기존
-    ***df_stocks_agg_minute*** 데이터 프레임을 Data wrangler에
+1.  **Symbol/Date/Hour** 섹션 아래의 마지막 자리 표시자에서 기존
+    **df_stocks_agg_minute** 데이터 프레임을 Data wrangler에
     로드하세요.
 
-2.  ***Symbol/Date/Hour*** 섹션 아래의 마지막 자리 표시자에서 *Add data
+2.  **Symbol/Date/Hour** 섹션 아래의 마지막 자리 표시자에서 *Add data
     wrangler here* 에 커서를 놓고 셀을 선택하세요. 아래 이미지와 같이
     **Data wrangler를 드롭다운하고** 탐색하여
-    ***df_stocks_agg_minute를*** 클릭하세요.
+    **df_stocks_agg_minute를** 클릭하세요.
 
-![](./media/image110.png)
+     ![](./media/image110.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image111.png)
+     ![](./media/image111.png)
 
-3.  **Operations에서 *Group by and aggregate를 ***선택하세요. **열**
+3.  **Operations에서** Group by and aggregate를 ***선택하세요. **열**
     아래의 드롭다운을 클릭하여 필드별로 그룹**화하고
     *symbol*, *datestamp*, 및 *hour을 ***선택한 다음 **+Add
     aggregations를** 클릭하세요. 아래 이미지와 같이 다음 세 가지 집계를
@@ -732,10 +708,9 @@ wrangling 단계 중 일부가 올바르지 않은 것 같으면(예를 들어 �
 
 - price_last: Last value
 
-![](./media/image112.png)
+    ![](./media/image112.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image113.png)
+    ![](./media/image113.png)
 
 4.  예제 코드는 아래와 같습니다. 함수의 이름을 *aggregate_data_hour로*
     변경하는 것 외에도 각 가격 열의 별칭도 변경하여 열 이름을 동일하게
@@ -743,70 +718,56 @@ generated](./media/image113.png)
     열의 이름을 price_max_max, price_min_min과 같이 지정하고 있으며,
     명확성을 위해 별칭을 수정하여 이름을 동일하게 유지합니다.
 
-![](./media/image114.png)
+      ![](./media/image114.png)
 
 5.  페이지 왼쪽 상단 모서리의 **Add code to notebook** **를**
-    클릭하세요. ***Add code to notebook* 창에서** *Include pandas
-    code*가 선택 uncheck되어 있는지 확인하고 **Add** 버튼을 클릭하세요.
+    클릭하세요. ***Add code to notebook* 창에서** Include pandas
+    code 가 선택 uncheck되어 있는지 확인하고 **Add** 버튼을 클릭하세요.
 
-![](./media/image115.png)
+      ![](./media/image115.png)
 
-![](./media/image116.png)
+      ![](./media/image116.png)
 
-![](./media/image117.png)
+      ![](./media/image117.png)
 
 6.  추가된 셀의 마지막 두 줄에서 반환된 데이터 프레임의 이름이 def
     clean_data(df_stocks_agg_minute): 인 것을 확인하고, 이 이름을 다음과
     같이 바꾸세요.
 
-> **def aggregate_data_hour(df_stocks_agg_minute):**
+   **def aggregate_data_hour(df_stocks_agg_minute):**
 
 7.  추가된 셀의 마지막 두 줄에서 반환되는 데이터 프레임의 이름이
-    **df_stocks_agg_minute_clean = clean_data(df_stocks_agg_minute)**인
+    **df_stocks_agg_minute_clean = clean_data(df_stocks_agg_minute)** 인
     것을 확인할 **수 있습니다.**아래 그림과 같이 이 이름을
     **df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)**로
     바꾸고, **display(df_stocks_agg_minute_clean)** 함수 이름을
-    *aggregate_data_minute로* 변경하세요.
+    **aggregate_data_minute로** 변경하세요.
 
 참조 코드:
-
-\# Code generated by Data Wrangler for PySpark DataFrame
+```
+# Code generated by Data Wrangler for PySpark DataFrame
 
 from pyspark.sql import functions as F
 
 def aggregate_data_hour(df_stocks_agg_minute):
-
-\# Performed 3 aggregations grouped on columns: 'symbol', 'datestamp',
-'hour'
-
-df_stocks_agg_minute = df_stocks_agg_minute.groupBy('symbol',
-'datestamp', 'hour').agg(
-
-F.max('price_max').alias('price_max'),
-
-F.min('price_min').alias('price_min'),
-
-F.last('price_last').alias('price_last'))
-
-df_stocks_agg_minute = df_stocks_agg_minute.dropna()
-
-df_stocks_agg_minute =
-df_stocks_agg_minute.sort(df_stocks_agg_minute\['symbol'\].asc(),
-df_stocks_agg_minute\['datestamp'\].asc(),
-df_stocks_agg_minute\['hour'\].asc())
-
-return df_stocks_agg_minute
+    # Performed 3 aggregations grouped on columns: 'symbol', 'datestamp', 'hour'
+    df_stocks_agg_minute = df_stocks_agg_minute.groupBy('symbol', 'datestamp', 'hour').agg(
+        F.max('price_max').alias('price_max'), 
+        F.min('price_min').alias('price_min'), 
+        F.last('price_last').alias('price_last'))
+    df_stocks_agg_minute = df_stocks_agg_minute.dropna()
+    df_stocks_agg_minute = df_stocks_agg_minute.sort(df_stocks_agg_minute['symbol'].asc(), df_stocks_agg_minute['datestamp'].asc(), df_stocks_agg_minute['hour'].asc())
+    return df_stocks_agg_minute
 
 df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)
-
 display(df_stocks_agg_hour)
-
-![](./media/image118.png)
+```
+>
+     ![](./media/image118.png)
 
 2.  셀을 선택하고 **실행하세요**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image119.png)
+     ![](./media/image119.png))
 
 3.  시간 집계 데이터를 병합하는 코드는 다음 셀에 있습니다:
     **merge_hour_agg(df_stocks_agg_hour)**.
@@ -815,18 +776,17 @@ generated](./media/image119.png)
     있는 몇 가지 유틸리티 셀이 있습니다. 데이터를 조금 탐색하고 자유롭게
     실험해 보세요.
 
-![](./media/image120.png)
+     ![](./media/image120.png)
 
 21. **Handy SQL Commands for testing** 섹션을 사용하여 테스트하고,
     테이블을 정리하여 다시 실행하는 등의 작업을 수행하세요. 이 섹션에서
     셀을 선택하고 **실행하세요**.
 
-![](./media/image121.png)
+     ![](./media/image121.png)
 
-![A screenshot of a computer program Description automatically
-generated](./media/image122.png)
+     ![](./media/image122.png)
 
-![](./media/image123.png)
+     ![](./media/image123.png)
 
 # 연습 3: 차원 모델 구축하기
 
@@ -848,70 +808,67 @@ generated](./media/image122.png)
 
 1.  왼쪽 탐색 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image124.png)
+     ![](./media/image124.png)
 
-2.  RealTimeWorkshop 작업 공간에서 ***Lakehouse 3 – Create Star Schema*
-     **notebook을 선택하세요.
+2.  RealTimeWorkshop 작업 공간에서 ***Lakehouse 3 – Create Star Schema**
+     notebook을 선택하세요.
 
-![](./media/image125.png)
+     ![](./media/image125.png)
 
 3.  Explorer에서 **Lakehouse를** 탐색하여 클릭한 다음 **Add** 버튼을
-    클릭하세요*.*
+    클릭하세요.
 
-![](./media/image126.png)
+    ![](./media/image126.png)
 
-![](./media/image127.png)
+    ![](./media/image127.png)
 
 4.  **Add lakehouse** 대화 상자에서 **existing lakehouse** 라디오 버튼을
     선택한 다음 **add** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+     ![](./media/image40.png)
 
 5.  OneLake data hub 창에서 StockLakehouse를 선택하고 **add** 버튼을
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image41.png)
+      ![](./media/image41.png)
 
 6.  노트북이 로드되고 Lakehouse가 첨부된 상태에서 왼쪽의 스키마를
     확인하세요. **raw_stock_data** 테이블 외에도 **stocks_minute_agg**
     및 **stocks_hour_agg** 테이블이 있어야 합니다.
 
-![](./media/image128.png)
+     ![](./media/image128.png)
 
 7.  각 셀의 왼쪽에 있는 **play** 버튼을 클릭하여 각 셀을 개별적으로
     실행하여 프로세스를 따라가세요.
 
-![](./media/image129.png)
+     ![](./media/image129.png)
 
-![](./media/image130.png)
+     ![](./media/image130.png)
 
-![](./media/image131.png)
+     ![](./media/image131.png)
 
-![](./media/image132.png)
+     ![](./media/image132.png)
 
-![](./media/image133.png)
+     ![](./media/image133.png)
 
-![](./media/image134.png)
+     ![](./media/image134.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image135.png)
+     ![](./media/image135.png)
 
-![](./media/image136.png)
+     ![](./media/image136.png)
 
-![](./media/image137.png)
+     ![](./media/image137.png)
 
 8.  모든 셀이 성공적으로 실행되면 **StocksLakehouse** 섹션으로 이동하여
     **Tables(...)** 옆의 가로 줄임표를 클릭한 다음 아래 이미지와
     같이***Refresh를*** 클릭하여 이동하세요.
 
-![](./media/image138.png)
+     ![](./media/image138.png)
 
-9.  이제 차원 모델에 대한 ***dim_symbol*, *dim_date* 및
-    *fact_stocks_daily_prices ***테이블을 모두 추가로 볼 수 있습니다.
+9.  이제 차원 모델에 대한 **dim_symbol**, **dim_date** 및
+    **fact_stocks_daily_prices** 테이블을 모두 추가로 볼 수 있습니다.
 
-![](./media/image139.png)
+     ![](./media/image139.png)
 
 ## 작업 2: 팩트 테이블 로드
 
@@ -922,93 +879,90 @@ generated](./media/image135.png)
 
 1.  이제 왼쪽 navigation 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image140.png)
+     ![](./media/image140.png)
 
-2.  RealTimeWorkshop 작업 공간에서 ***Lakehouse 4 - Load fact table*
-     **notebook을 선택하세요.
+2.  RealTimeWorkshop 작업 공간에서 **Lakehouse 4 - Load fact table**
+     notebook을 선택하세요.
 
-![](./media/image141.png)
+      ![](./media/image141.png)
 
 3.  Explorer에서 **Lakehouse를** 선택한 다음 **Add** 버튼을
-    클릭하세요*.*
+    클릭하세요.
 
-![](./media/image142.png)
+    ![](./media/image142.png)
 
-![](./media/image143.png)
+     ![](./media/image143.png)
 
 4.  Add lakehouse 대화 상자에서 **Existing lakehouse** 라디오 버튼을
     선택한 다음 **Add** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+    ![](./media/image40.png)
 
 5.  OneLake data hub 탭에서 **StockLakehouse를** 선택하고 **Add** 버튼을
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image41.png)
+     ![](./media/image41.png)
 
 6.  각 셀을 개별적으로 선택하여 실행하세요.
 
-![](./media/image144.png)
+     ![](./media/image144.png)
 
 7.  함수는 테이블에 존재하지 않을 수 있는 기호를 dim_symbol에 추가하고,
     셀 2와 셀 3을 선택하여 **실행하세요**.
 
-![](./media/image145.png)
+     ![](./media/image145.png)
 
-![](./media/image146.png)
+     ![](./media/image146.png)
 
 8.  새로운 주식 데이터를 수집하려면 워터마크에서 시작하여 셀 4를
     선택하고 실행하세요.
 
-![](./media/image147.png)
+     ![](./media/image147.png)
 
 9.  나중에 조인할 날짜 차원을 로드하고 셀 5,6,7을 선택하여 실행하세요.
 
-![](./media/image148.png)
+     ![](./media/image148.png)
 
-![](./media/image149.png)
+     ![](./media/image149.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image150.png)
+     ![](./media/image150.png)
 
-![](./media/image151.png)
+     ![](./media/image151.png)
 
 10. 집계된 데이터를 날짜 차원에 조인하려면^(th) 및^(th) 셀 8와 9를
     선택하여 실행하세요.
 
-![](./media/image152.png)
+     ![](./media/image152.png)
 
-![](./media/image153.png)
+     ![](./media/image153.png)
 
 11. 처리하기 쉽도록 이름이 정리된 최종 보기를 만들고 셀10 , 11 및 12릏
     선택하여 실행하세요.
 
-![](./media/image154.png)
+     ![](./media/image154.png)
 
-![](./media/image155.png)
+     ![](./media/image155.png)
 
-![](./media/image156.png)
+     ![](./media/image156.png)
 
 12. 결과를 얻고 그래프를 그리려면 셀 13와 14를 선택하여 **실행하세요**.
 
-![](./media/image157.png)
+     ![](./media/image157.png)
 
-![](./media/image158.png)
+    ![](./media/image158.png)
 
-![](./media/image159.png)
+    ![](./media/image159.png)
 
 13. 생성된 **테이블의** 유효성을 검사하려면 **Tables** 옆의 가로
     줄임표(...)를 마우스 오른쪽 버튼으로 클릭한 다음 탐색하여
     **Refresh를 클릭하세요.** 테이블이 나타납니다.
 
-![](./media/image160.png)
+     ![](./media/image160.png)
 
 14. 노트북을 주기적으로 실행하도록 예약하려면 **Run** 탭을 클릭하고 아래
     이미지와 같이 ***Schedule을*** 클릭하세요*.*
 
-![](./media/image161.png)
+     ![](./media/image161.png)
 
 15. Lackehouse 4- Load Star Schema탭에서 아래 세부 정보를 선택하고
     **Apply** 버튼을 클릭하세요.
@@ -1021,7 +975,7 @@ generated](./media/image150.png)
 
 - 오늘 날짜 선택
 
-![](./media/image162.png)
+     ![](./media/image162.png)
 
 ## 작업 3: 시맨틱 모델 및 간단한 보고서 작성
 
@@ -1030,21 +984,20 @@ Power BI 보고서를 만들어 보겠습니다.
 
 1.  이제 왼쪽 탐색 메뉴에서 **StocksLakehouse를** 클릭하세요.
 
-![](./media/image163.png)
+      ![](./media/image163.png)
 
 2.  ***StocksLakehouse** 창에서* 명령줄의 ***New semantic model을***
     탐색하여 클릭하세요.
 
-![](./media/image164.png)
+     ![](./media/image164.png)
 
 3.  모델 이름을 ***StocksDimensionalModel로*** 지정하고
     **fact_stocks_daily_prices**, **dim_date** 및 **dim_symbol**
     테이블을 선택하세요. 그런 다음 **confirm** 버튼을 클릭하세요.
 
-![](./media/image165.png)
+     ![](./media/image165.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image166.png)
+      ![](./media/image166.png)
 
 4.  시맨틱 모델이 열리면 fact 테이블과 차원 테이블 간의 관계를 정의해야
     합니다.
@@ -1053,7 +1006,7 @@ generated](./media/image166.png)
     **dim_Symbol** 테이블의 ***Symbol_SK*** 필드에 끌어 놓아 관계를
     만드세요. **New relationship** 대화 상자가 나타납니다.
 
-![](./media/image167.png)
+      ![](./media/image167.png)
 
 6.  **New relationship** 대화 상자에서:
 
@@ -1062,24 +1015,22 @@ generated](./media/image166.png)
 
 - **To** table은 dim_symbol과 **Symbol_SK의** 열로 채워집니다.
 
-- 카디널리티: **다대일(\*:1)**
+- 카디널리티: **다대일(*:1)**
 
 - 교차 필터 방향: **단일**
 
 - **Make this relationship active**  상자를 선택된 상태로 두세요.
 
-- **Save를** 선택하세요**.**
+- **Save를** 선택하세요.
 
-![](./media/image168.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image169.png)
+     ![](./media/image168.png)
+     ![](./media/image169.png)
 
 7.  **fact_Stocks_Daily_Prices** 테이블에서 **PrinceDateKey** 필드를
     끌어 **dim_date** 테이블의 ***DateKey*** 필드에 놓아 관계를
     만드세요. **New relationship** 대화 상자가 나타납니다.
 
-![](./media/image170.png)
+      ![](./media/image170.png)
 
 8.  **New relationship** 대화 상자에서:
 
@@ -1088,22 +1039,21 @@ generated](./media/image169.png)
 
 - **To** table은 dim_date와 **DateKey의** 열로 채워집니다.
 
-- Cardinality: **다대일(\*:1)**
+- Cardinality: **다대일(*:1)**
 
 - 교차 필터 방향: **단일**
 
 - **Make this relationship active**  옆의 상자를 선택된 상태로 두세요.
 
-- **Save를** 선택하세요**.**
+- **Save를** 선택하세요.
 
-![](./media/image171.png)
+     ![](./media/image171.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image172.png)
+     ![](./media/image172.png)
 
-9.  ***New report를*** 클릭하여 Power BI에서 시맨틱 모델을 로드하세요.
+9.  **New report를** 클릭하여 Power BI에서 시맨틱 모델을 로드하세요.
 
-![](./media/image173.png)
+     ![](./media/image173.png)
 
 10. **Power BI** 페이지의 **시각화에서 꺾은선형 차트** 아이콘을 클릭하여
     보고서에 **열 차트를** 추가합니다.
@@ -1117,8 +1067,7 @@ generated](./media/image172.png)
 
 - **Data pane**에서 **dim_Symbol을** 확장하고 **기호** 옆의 확인란을
   선택하세요. 그러면 **legend에** 필드가 추가됩니다.
-
-![](./media/image174.png)
+      ![](./media/image174.png)
 
 11. **Filter에서 PriceDateKey를** 선택하고 아래 세부 정보를 입력하세요.
     필터 **Apply를** 클릭하세요.
@@ -1127,22 +1076,21 @@ generated](./media/image172.png)
 
 - 값**이 최근 45일 이내인** 경우 항목 표시
 
-![](./media/image175.png)
+    ![](./media/image175.png)
 
-![](./media/image176.png)
-
+    ![](./media/image176.png)
+ 
 12. 리본에서 **File** \> **Save as를** 선택하세요**.**
 
-![](./media/image177.png)
+     ![](./media/image177.png)
 
-13. Save your report dialog box 대화 상자에서 +++ **StocksDimensional**
-    +++을 보고서 이름으로 입력하고 **your workspace을** 선택하세요.
-    **Save** 버튼을 클릭하세요**.**
+13. Save your report dialog box 대화 상자에서 +++StocksDimensional+++
+    을 보고서 이름으로 입력하고 **your workspace을** 선택하세요.
+    **Save** 버튼을 클릭하세요.
 
-![](./media/image178.png)
+    ![](./media/image178.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image179.png)
+    ![](./media/image179.png)
 
 **요약**
 
