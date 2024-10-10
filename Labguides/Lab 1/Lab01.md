@@ -128,7 +128,8 @@ Dataflows, 데이터 팩토리 파이프라인, 노트북, Power BI 데이터 �
 |----|----|
 | **Advanced** | Select Trail |
 | **Default storage format** | **Small dataset storage format** |
-     ![](./media/image69.png)
+
+  ![](./media/image69.png)
       ![](./media/image70.png)
 
 ## **작업 4: Azure Container Instance를 통해 앱 배포하기**
