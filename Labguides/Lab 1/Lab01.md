@@ -154,6 +154,7 @@ Resources를 자동 배포하려면 아래 단계를 따르세요.
 |Subscription   |Select the assigned subscription	                               |
 |Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
 |Region         |Select West US 3	|
+
    ![](./media/image71.png)
     ![](./media/image72.png)
 
