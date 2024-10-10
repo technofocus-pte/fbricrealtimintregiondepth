@@ -312,9 +312,10 @@ Language (SQL)와 마찬가지로 KQL은 빅 데이터, 시계열 데이터 및 
 
      ![](./media/new5.png)
      ![](./media/new6.png)
+    
      ![](./media/new7.png)
 
-5.  OneLake를 활성화한 후 페이지를 새로 고쳐서 OneLake 폴더 통합이
+6.  OneLake를 활성화한 후 페이지를 새로 고쳐서 OneLake 폴더 통합이
     활성화되었는지 확인 할 수 있습니다.
 
      ![](./media/new8.png)
