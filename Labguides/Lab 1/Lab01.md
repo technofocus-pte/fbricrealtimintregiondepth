@@ -335,10 +335,9 @@ Language (SQL)와 마찬가지로 KQL은 빅 데이터, 시계열 데이터 및 
 
 3.  이제 데이터가 Eventstream에 도착할 것이며, 위 작업에서 만든 KQL
     데이터베이스로 데이터를 수집하도록 구성하겠습니다. Eventstream에서
-    *Transform events or add destination을 클릭한* 다음, **KQL
-    Database를** 탐색하여 클릭하세요.
+    *Transform events or add destination을 클릭한* 다음, **Eventhouse를** 탐색하여 클릭하세요.
 
-      ![](./media/image105.png)
+      ![](./media/new10.png)
 
 4.  KQL 설정에서 *직접 수집을* 선택하세요. 이 단계에서는 이벤트 데이터를
     처리할 수 있지만, 여기서는 KQL 데이터베이스로 직접 데이터를
@@ -346,7 +345,7 @@ Language (SQL)와 마찬가지로 KQL은 빅 데이터, 시계열 데이터 및 
     생성한 **작업** 공간과 KQL 데이터베이스를 선택한 다음 Save 버튼을
     클릭하세요.
 
-     ![](./media/image106.png)
+     ![](./media/new11.png)
 
 5.  **Publish** 버튼을 클릭하세요.
 
