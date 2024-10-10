@@ -16,7 +16,7 @@
 점진적으로 처리되는 Extract, Load, and Transform (ELT) 프로세스를 통해
 처리됩니다. 일반적인 아키텍처는 다음과 비슷할 수 있습니다:
 
-![Medallion Architecture](./media/image1.png)
+ ![](./media/image1.png)
 
 이러한 레이어는 엄격한 규칙이 아니라 안내를 위한 것입니다. 레이어는 서로
 다른 Lakehouse로 분리되는 경우가 많지만, 이 실습에서는 모든 레이어를
@@ -68,30 +68,24 @@
 1.  Fabric 작업 공간 내에서 아래 이미지와 같이 **Data engineering**
     persona (왼쪽 하단)로 전환하세요.
 
-> ![](./media/image2.png)
+     ![](./media/image2.png)
 
 2.  Synapse Data Engineering 홈 페이지에서 ***Lakehouse*** 타일을
     탐색하여 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+      ![](./media/image3.png)
 
-3.  **New lakehouse** 대화상자에서 **Name** 필드에 +++
-    ***StocksLakehouse+++를*** 입력한 다음 **Create** 버튼을 클릭하세요.
+3.  **New lakehouse** 대화상자에서 **Name** 필드에 
+    +++StocksLakehouse+++를  입력한 다음 **Create** 버튼을 클릭하세요.
     **StocksLakehouse** 페이지가 나타납니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
-
+      ![](./media/image4.png)
+      ![](./media/image5.png)
 4.  **Successfully created SQL endpoint라는** 알림이 표시됩니다.
 
 > **참고**: 알림이 표시되지 않는 경우 몇 분 정도 기다리세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image6.png)
+      ![](./media/image6.png)
 
 ## 작업 2. Eventstream에 Lakehouse 추가하기
 
@@ -107,123 +101,101 @@ Data Lakehouse에 기록합니다. 데이터 흐름은 다음과 비슷해집니
 1.  Fabric workspace에서 아래 이미지와 같이 **Data 엔지니어링**
     페르소나(왼쪽 하단)로 전환하세요.
 
-> ![A screenshot of a graph Description automatically
-> generated](./media/image7.png)
+     ![](./media/image7.png)
 
 2.  이제 왼쪽 탐색 창에서 **RealTimeWorkspace를** 클릭하고 아래 이미지와
     같이 **StockEventStream을** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+      ![](./media/image8.png)
 
 3.  Data Lakehouse를 Eventstream에 추가하는 것 외에도 Eventstream에서
     사용할 수 있는 몇 가지 기능을 사용하여 데이터를 정리해 보겠습니다.
 
 4.  **StockEventStream** 페이지에서 **편집을** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+      ![](./media/image9.png)
 
 5.  **StockEventStream** 페이지의 이벤트스트림 출력에서 **Add
     destination을** 클릭하여 새 대상을 추가합니다. 컨텍스트 메뉴에서
-    *Lakehouse를* 선택하세요.
+    **Lakehouse를** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+     ![](./media/image10.png)
 
 6.  오른쪽에 표시되는 Lakehouse 창에서 다음 세부 정보를 입력하고
     **Save를** 클릭하세요**.**
 
-[TABLE]
+|**Destination name** | **+++Lakehouse+++** |
+|----|----|
+| **Workspace** | RealTimeWorkspace |
+| **Lakehouse** | StockLakehouse |
+| **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
+| **Input data format** | Json |
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image11.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+  ![](./media/image11.png)
+     ![](./media/image12.png)
 
 6.  StockEventStream과 **Lakehouse** 연결하세요
+    ![](./media/image13.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image13.png)
+     ![](./media/image14.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image15.png)
+      ![](./media/image15.png)
 
 7.  Lakehouse를 선택하고 **Refresh** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image16.png)
+      ![](./media/image16.png)
 
-8.  *Open event processor를* 클릭하면 집계, 필터링, 데이터 유형 변경을
+8.  **Open event processor를** 클릭하면 집계, 필터링, 데이터 유형 변경을
     수행하는 다양한 처리를 추가할 수 있습니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image17.png)
+      ![](./media/image17.png)
 
 9.  **StockEventStream** 페이지에서 **StockEventStream을** 선택하고
     **plus(+)** 아이콘을 클릭하여 **Manage fields를** 추가하세요. 그런
     다음 Manage fields**를** 선택하세요**.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+      ![](./media/image18.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image19.png)
+      ![](./media/image19.png)
 
 10. Eventstream 창에서 **Managefields1**연필 아이콘을 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image20.png)
+     ![](./media/image20.png)
 
-11. *Manage fields*  창이 열리면 ***Add all fields*** ***를*** 클릭하여
+11. **Manage fields**  창이 열리면 **Add all fields** **를** 클릭하여
     모든 열을 추가하세요. 그런 다음 필드 이름 오른쪽에 있는
     줄임표**(...)**를 클릭하여 **EventProcessedUtcTime**,
     **PartitionId**, 및 **EventEnqueuedUtcTime**필드를 *제거하기 위해
     Remove를* 클릭하세요*.*
 
-![A screenshot of a computer Description automatically
-generated](./media/image21.png)
+      ![](./media/image21.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image22.png)
+      ![](./media/image22.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image23.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image24.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image25.png)
+      ![](./media/image23.png)
+    
+      ![](./media/image24.png)
+      ![](./media/image25.png)
 
 12. 이제 *타임스탬프* 열이 문자열로 분류될 가능성이 있으므로 Timestamp
     열을 *DateTime*** 로** 변경합니다. *Timestamp* **열** 오른쪽에 있는
     **줄임표(...) 세** 개를 클릭하고 *예 유형 변경을* 선택하세요. 그러면
     아래 이미지와 같이 *날짜/시간DateTime를* 선택하여 데이터 유형을
-    변경할 수 있습니다. Done를 클릭하세요.
+    변경할 수 있습니다. Save를 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image26.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image27.png)
+     ![](./media/new13.png)
+
+     ![](./media/image27.png)
 
 13. 이제 **Publish** 버튼을 클릭하여 이벤트 프로세서를 닫으세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
+     ![](./media/image28.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image29.png)
+     ![](./media/image29.png)
 
 14. 완료되면 Lakehouse는 symbol, price, 및 timestamp를 받게 됩니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image30.png)
+     ![](./media/image30.png)
 
 이제 KQL(Hot path)과 Lakehouse(cold path)가 구성되었습니다. Data
 Lakehouse에 데이터가 표시되려면 1~2분 정도 걸릴 수 있습니다.
@@ -236,33 +208,29 @@ Lakehouse에 데이터가 표시되려면 1~2분 정도 걸릴 수 있습니다.
 
 1.  이제 왼쪽 탐색 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image31.png)
+      ![](./media/image31.png)
 
 2.  **Synapse Data Engineering RealTimeWorkspace** 페이지에서 이동하여
     **import** 버튼을 클릭한 다음 **노트북을** 선택하고 아래 이미지와
     같이 **From this computer를** 선택하세요.
 
-![](./media/image32.png)
+      ![](./media/image32.png)
 
 3.  화면 오른쪽에 표시되는 **import status** 창에서 **upload를**
     선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image33.png)
+      ![](./media/image33.png)
 
 4.  **C:\LabFiles\Lab 04에서 Lakehouse 1-Import Data, Lakehouse 2-Build
     Aggregation, Lakehouse 3-Create Star Schema** and **Lakehouse 4-Load
     Star Schema 및 Lakehouse 4-Load Star Schema** notebooks를 탐색하여
     선택한 다음 **Open** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image34.png)
+      ![](./media/image34.png)
 
-5.  **Imported successfully라는** 알림이 표시됩니다**.**
+5.  **Imported successfully라는** 알림이 표시됩니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image35.png)
+      ![](./media/image35.png)
 
 ## 작업 4. 추가 데이터 가져오기
 
@@ -274,93 +242,70 @@ Lakehouse와 Data Science 모듈 모두에서 이미 수집된 데이터를 보�
 1.  **RealTimeWorkspace** 페이지에서 노트북만 보려면 페이지 오른쪽
     상단의 **filter를** 클릭한 다음 **notebook을** 선택하세요**.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image36.png)
+      ![](./media/image36.png)
 
-2.  그런 다음, ***Lakehouse 1 - Import Data* **notebook을 선택하세요.
+2.  그런 다음, **Lakehouse 1 - Import Data** notebook을 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image37.png)
+      ![](./media/image37.png))
 
 3.  Explorer에서 **Lakehouse를** 탐색하여 선택한 다음 아래 이미지와 같이
     **Add** 버튼을 클릭하세요*.*
 
 > **중요 참고**: 가져온 모든 노트북에 Lakehouse를 추가해야 하며,
 > 노트북을 처음 열 때마다 이 작업을 수행해야 합니다.
+    ![](./media/image38.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image38.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image39.png)
+     ![](./media/image39.png)
 
 4.  Add Lakehouse 대화 상자에서 **Existing lakehouse** 라디오 버튼을
     선택한 다음 **Add** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+     ![](./media/image40.png)
 
 5.  **OneLake data hub** 창에서 StockLakehouse를 선택하고 **add** 버튼을
-    클릭하세요. ![A screenshot of a computer Description automatically
-    generated](./media/image41.png)
+    클릭하세요. 
+     ![](./media/image41.png)
 
 6.  **raw_stock_data** 테이블은 Eventstream을 구성할 때 생성되며, Event
     Hub에서 수집되는 데이터의 landing place입니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image42.png)
+     ![](./media/image42.png)
 
 **참고**: 노트북의 셀 위에 마우스를 갖다 대면 **Run** 버튼이 표시됩니다.
 
 7.  노트북을 시작하고 셀을 실행하려면 셀 왼쪽에 나타나는 **run**
     아이콘을 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image43.png)
+      ![](./media/new14.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image44.png)
+8.  마찬가지로 셀 2와  실행하세요.
 
-8.  마찬가지로 셀 2와 셀 3를 실행하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image45.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image46.png)
+      ![](./media/new15png)
 
 9.  아래 이미지와 같이 셀 4와 5을 실행하여 과거 데이터를 다운로드하고
     압축을 풀어서 Data Lakehouse 비관리 파일로 옮기세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image47.png)
+     ![](./media/new16png)
 
-![A screenshot of a computer program Description automatically
-generated](./media/image48.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+     ![](./media/new16-1png)
 
 10. CSV 파일을 사용할 수 있는지 확인하려면 셀 6을 선택하고 실행하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image50.png)
+    ![](./media/new17png)
 
 11. 셀 7, 8, 9를 실행하세요.
 
-![A screenshot of a computer program Description automatically
-generated](./media/image51.png)
+     ![](./media/new18png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image52.png)
+      ![](./media/new19png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image53.png)
+      ![](./media/new20png)
 
 12. 코드의 섹션을 ''commenting out' 하는 것과 비슷하지만 셀 고정은 셀의
     모든 출력도 보존된다는 점에서 강력합니다.
 
-![](./media/image54.png)
+     ![](./media/new21png)
+     ![](./media/new22png)
 
 # 연습 2: 집계 테이블 만들기
 
@@ -384,106 +329,82 @@ Lakehouse를 추가하세요.
 
 1.  이제 왼쪽 navigation 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image31.png)
+     ![](./media/image31.png)
 
 2.  **RealTimeWorkspace** 페이지에서 **Lakehouse 2 - Build Aggregation
     Tables** 노트북을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image55.png)
+     ![](./media/image55.png)
 
 3.  Explorer에서 **Lakehouse를** 탐색하여 선택한 다음 **Add** 버튼을
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
+      ![](./media/image56.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image57.png)
+      ![](./media/image57.png)
 
 4.  **Add Lakehouse** 대화 상자에서 **Existing lakehouse** 대화 상자를
     선택한 다음 Add 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+      ![](./media/image40.png)
 
 5.  **OneLake data hub** 창에서 StockLakehouse를 선택하고 **Add** 버튼을
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image41.png)
+      ![](./media/image41.png)
 
 6.  집계 테이블을 구축하려면 셀1 , 2 , 3 및 4를 선택하여 실행하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image58.png)
+      ![](./media/image58.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
+      ![](./media/image59.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image60.png)
+       ![](./media/image60.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image61.png)
+      ![](./media/image61.png)
 
 7.  그런 다음 5 , 6 , 7 및 8 셀을 선택하여 실행하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image62.png)
+      ![](./media/image62.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image62.png)
+      ![](./media/image62.png)
 
-![A screenshot of a computer program Description automatically
-generated](./media/image63.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image64.png)
+      ![](./media/image63.png)
+      ![](./media/image64.png)
 
 8.  Data wrangler를 추가하고, 셀 9를 선택한 다음, 드롭다운에서 **Data
     wrangler를** 탐색하세요. **anomaly_df를** 이동하고 클릭하여 Data
-    wrangler에서 데이터 프레임을 로드하세요**.**
+    wrangler에서 데이터 프레임을 로드하세요.
 
 9.  테스트할 수 있는 몇 개의 유효하지 않은 행으로 의도적으로
-    생성되었으므로 *anomaly_df를* 사용하겠습니다.
+    생성되었으므로 **anomaly_df를** 사용하겠습니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image65.png)
+      ![](./media/image65.png)
 
 10. Data wrangler에서는 데이터를 처리하는 여러 단계를 기록합니다.
     데이터가 중앙 열에 시각화되어 있는 것을 볼 수 있습니다. 왼쪽 위에는
     작업이, 왼쪽 아래에는 각 단계에 대한 개요가 표시됩니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image66.png)
+     ![](./media/image66.png)
 
 11. 빈/비어 있는 값을 제거하려면 *작업에서* **Find and replace** 옆의
     드롭다운을 클릭한 다음 **Drop missing values를** 탐색하여
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image67.png)
+     ![](./media/image67.png)
 
 12. **Target columns** 드롭다운에서 ***symbol*** 및***price*** 열을
     선택한 다음 이미지와 같이 그 아래에 있는 **Apply 버튼을**
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image68.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image69.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image70.png)
+      ![](./media/image68.png)
+      ![](./media/image69.png)
+      ![](./media/image70.png)
 
 13. **Operations** 드롭다운에서 **Sort and filter**를 탐색하여 클릭한
     다음 아래 이미지와 같이 **filter를** 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image71.png)
+      ![](./media/image71.png)
 
 14. *일치하는 행 유지를* Uncheck하고 **Price를** 대상 열로 선택한 다음
     조건을 ***Equal* to *0로*** 설정하세요**.** 필터 아래의 *작업*
@@ -492,33 +413,27 @@ generated](./media/image70.png)
 > 참고: 0이 있는 행은 삭제되므로 빨간색으로 표시됩니다(다른 행이
 > 빨간색으로 표시된 경우 *일치하는 행 유지* 확인란을 선택 취소해야
 > 합니다).
-
-![](./media/image72.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image73.png)
+    ![](./media/image72.png)
+    ![](./media/image73.png)
 
 15. 페이지 왼쪽 상단의 **+Add code to notebook**을 클릭하세요. ***Add
     code to notebook*** 창에서 *Include pandas code이* uncheck되어
     있는지 확인하고 Add 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image74.png)
+     ![](./media/image74.png)
 
-![A screenshot of a computer code Description automatically
-generated](./media/image75.png)
+     ![](./media/image75.png)
 
 16. 삽입된 코드는 아래와 비슷하게 보입니다.
 
-![](./media/image76.png)
+     ![](./media/image76.png)
 
 17. 셀을 실행하고 출력을 관찰하세요. 유효하지 않은 행이 제거된 것을
     확인할 수 있습니다.
 
-> ![](./media/image77.png)
+     ![](./media/image77.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image78.png)
+     ![](./media/image78.png)
 
 생성된 함수인 *clean_data에는* 모든 단계가 순서대로 포함되어 있으며
 필요에 따라 수정할 수 있습니다. Data Wrangler에서 수행되는 각 단계에는
@@ -526,34 +441,28 @@ generated](./media/image78.png)
 메서드는 해당 데이터 프레임을 이름으로 사용하도록 작성되었지만, 스키마와
 일치하는 모든 데이터 프레임이 될 수 있습니다.
 
-18. 함수 이름을 **clean_data에서** *remove_invalid_rows로* 수정하고,
-    *anomaly_df_clean = clean_data(anomaly_df)* 을 *df_stocks_clean =
-    remove_invalid_rows(df_stocks)* 로 변경하세요. 또한 기능상
+18. 함수 이름을 **clean_data에서** **remove_invalid_rows로** 수정하고,
+    **anomaly_df_clean = clean_data(anomaly_df)** 을 **df_stocks_clean =
+    remove_invalid_rows(df_stocks)** 로 변경하세요. 또한 기능상
     필요하지는 않지만 함수에 사용되는 데이터 프레임의 이름을 아래와 같이
-    단순히 *df로* 변경할 수 있습니다.
+    단순히 **df로** 변경할 수 있습니다.
 
 19. 이 셀을 실행하고 출력을 관찰하세요.
+```
+# Code generated by Data Wrangler for PySpark DataFrame
 
-> \# Code generated by Data Wrangler for PySpark DataFrame
->
-> def remove_invalid_rows(df):
->
-> \# Drop rows with missing data in columns: 'symbol', 'price'
->
-> df = df.dropna(subset=\['symbol', 'price'\])
->
-> \# Filter rows based on column: 'price'
->
-> df = df.filter(~(df\['price'\] == 0))
->
-> return df
->
-> df_stocks_clean = remove_invalid_rows(df_stocks)
->
-> display(df_stocks_clean)
+def remove_invalid_rows(df):
+    # Drop rows with missing data in columns: 'symbol', 'price'
+    df = df.dropna(subset=['symbol', 'price'])
+    # Filter rows based on column: 'price'
+    df = df.filter(~(df['price'] == 0))
+    return df
 
-![A screenshot of a computer Description automatically
-generated](./media/image79.png)
+df_stocks_clean = remove_invalid_rows(df_stocks)
+display(df_stocks_clean)
+```
+>
+     ![](./media/image79.png)
 
 20. 이 함수는 이제 *df_stocks* 데이터 프레임에서 유효하지 않은 행을
     제거하고 *df_stocks_clean이라는* 새 데이터 프레임을 반환합니다.
