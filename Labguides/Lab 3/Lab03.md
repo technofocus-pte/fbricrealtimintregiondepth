@@ -564,8 +564,7 @@ def minute(timestamp):
     return f"{number1:01.0f}"
 
 pandas_df_stocks_clean.insert(3, "minute", pandas_df_stocks_clean.apply(lambda row : minute(row["timestamp"]), axis=1))
-> 
-     ![](./media/image92.png)
+    ![](./media/image92.png)
 
 11. 다음으로 시간 열을 Integer로 변환하세요. Hour 열 모서리에 있는
     줄임표**(...)**를 클릭하고 **Change column type**를 선택하세요.
