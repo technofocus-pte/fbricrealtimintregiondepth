@@ -84,7 +84,6 @@
 4.  **Successfully created SQL endpoint라는** 알림이 표시됩니다.
 
 > **참고**: 알림이 표시되지 않는 경우 몇 분 정도 기다리세요.
-
       ![](./media/image6.png)
 
 ## 작업 2. Eventstream에 Lakehouse 추가하기
