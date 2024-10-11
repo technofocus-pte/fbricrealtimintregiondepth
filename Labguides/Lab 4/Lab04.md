@@ -380,61 +380,51 @@ write_predictions와* 같은 함수 정의로 세분화되어 있습니다. 노�
 5.  OneLake data hub 창에서 ***StockLakehouse를*** 선택하고 **Add**
     버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+      ![](./media/image11.png)
 
 6.  셀 1을 선택하고 실행하세요.
 
-![](./media/image70.png)
+     ![](./media/image70.png)
 
 7.  명령에서 ***Run all을*** 클릭하고 작업이 진행됨에 따라 따라가세요.
 
 8.  모든 기호에 대해 노트북을 실행하는 데 10분이 걸릴 수 있습니다.
     ![](./media/image71.png)
 
-![](./media/image72.png)
+    ![](./media/image72.png)
 
-![](./media/image73.png)
+    ![](./media/image73.png)
 
-![](./media/image74.png)
+    ![](./media/image74.png)
 
-![](./media/image75.png)
+    ![](./media/image75.png)
 
-![](./media/image76.png)
+    ![](./media/image76.png)
 
-![](./media/image77.png)
+    ![](./media/image77.png)
 
-![A screenshot of a computer program Description automatically
-generated](./media/image78.png)
+    ![](./media/image78.png)
 
-![A graph showing the growth of the stock market Description
-automatically generated](./media/image79.png)
+     ![](./media/image79.png)
 
-![A graph showing different colored lines Description automatically
-generated](./media/image80.png)
+     ![](./media/image80.png)
 
-![A graph showing different colored lines Description automatically
-generated](./media/image81.png)
+     ![](./media/image81.png)
 
-![A graph showing different colored lines Description automatically
-generated](./media/image82.png)
+     ![](./media/image82.png)
 
-![A graph of different colored lines Description automatically
-generated](./media/image83.png)
+    ![](./media/image83.png)
 
-![A graph showing the growth of a company Description automatically
-generated](./media/image84.png)
+    ![](./media/image84.png)
 
-![A graph showing different colored lines Description automatically
-generated](./media/image85.png)
+     ![](./media/image85.png)
 
-![A graph showing different colored lines Description automatically
-generated](./media/image86.png)
+     ![](./media/image86.png)
 
 9.  모든 셀이 실행되면 *표의* 오른쪽에 있는 점**(...)** 세 개를 클릭하여
     스키마를 새로 고친 다음 탐색하여 **Refresh**를 **클릭하세요.**
 
-![](./media/image87.png)
+    ![](./media/image87.png)
 
 # 연습 4: 예측 보고서 작성하기
 
@@ -449,29 +439,28 @@ generated](./media/image86.png)
 
 1.  왼쪽 탐색 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image88.png)
+     ![](./media/image88.png)
 
 2.  시맨틱 모델을 만들려면 Lakehouse, 즉 **StackLakehouse를** 탐색하여
     클릭하세요**.**
 
-![](./media/image89.png)
+     ![](./media/image89.png)
 
-![](./media/image90.png)
+     ![](./media/image90.png)
 
 3.  ***StocksLakehouse** 페이지의* 명령줄에서 ***New semantic model을***
     클릭하세요.
 
-![](./media/image91.png)
+      ![](./media/image91.png)
 
 4.  **New semantic model** 창의 **Name** 필드에 모델 이름을
     ***StocksLakehousePredictions로*** 입력하고 **stock_prediction** 및
     **dim_symbol** 테이블을 선택하세요. 그런 다음 아래 이미지와 같이
     **Confirm** 버튼을 클릭하세요.
 
-![](./media/image92.png)
+      ![](./media/image92.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image93.png)
+      ![](./media/image93.png)
 
 5.  시맨틱 모델이 열리면 stock_prediction 테이블과 dim_symbol 테이블
     간의 관계를 정의해야 합니다.
@@ -480,7 +469,7 @@ generated](./media/image93.png)
     테이블의 ***기호*** 필드에 끌어 놓아 관계를 만드세요. **New
     relationship** 대화 상자가 나타납니다.
 
-![](./media/image94.png)
+     ![](./media/image94.png)
 
 7.  **New relationship** 대화 상자에서:
 
@@ -496,9 +485,9 @@ generated](./media/image93.png)
 
 - **Save를** 선택하세요.
 
-![](./media/image95.png)
+     ![](./media/image95.png)
 
-![](./media/image96.png)
+    ![](./media/image96.png)
 
 ## 작업 2: Power BI Desktop에서 보고서 작성
 
@@ -508,97 +497,96 @@ generated](./media/image93.png)
 
 2.  **Download now** 버튼을 클릭하세요.
 
-> ![](./media/image97.png)
+     ![](./media/image97.png)
 
 3.  **This site is trying to open Microsoft Store** 라는 대화 상자가
     나타나면 **열기** 버튼을 클릭하세요.
 
-![](./media/image98.png)
+      ![](./media/image98.png)
 
 4.  **Power BI Desktop에서 가져오기** 버튼을 클릭하세요.
 
-![](./media/image99.png)
+      ![](./media/image99.png)
 
 5.  이제 **Open** 버튼을 클릭하세요.
 
-![](./media/image100.png)
+     ![](./media/image100.png)
 
 6.  **Microsoft Office 365 tenant** 자격 증명을 입력하고 **Next** 버튼을
     클릭하세요.
 
-![](./media/image101.png)
+     ![](./media/image101.png)
 
 7.  **Resource** 탭에서 **Administrative password를** 입력하고 **sign
     in** 버튼을 클릭하세요**.**
 
-![](./media/image102.png)
+     ![](./media/image102.png)
 
 8.  Power BI Desktop에서 **Blank report를** 선택하세요**.**
 
-![](./media/image103.png)
+     ![](./media/image103.png)
 
 9.  *Home* 리본에서 ***OneLake data hub를*** 클릭하고 **KQL Database를**
     선택하세요**.**
 
-![](./media/image104.png)
+     ![](./media/image104.png)
 
 10. **OneLake data hub** 창에서 StockDB를 선택하고 **connect** 버튼을
     클릭하세요.
 
-![](./media/image105.png)
+     ![](./media/image105.png)
 
 11. **Microsoft Office 365** 테넌트 자격 증명을 입력하고 **Next** 버튼을
     클릭하세요.
 
-![](./media/image106.png)
+     ![](./media/image106.png)
 
 12. **Resource** 탭에서 **Administrative password를** 입력하고
     **Sign-in** 버튼을 클릭하세요**.**
 
-![](./media/image107.png)
+    ![](./media/image107.png)
 
 13. Navigator 페이지의 Display option에서 **Stockprice** table를 선택한
     다음 **Load** 버튼을 클릭하세요.
 
-![](./media/image108.png)
+     ![](./media/image108.png)
 
-14. ***Connection settings*** 대화 상자에서 ***DirectQuery*** 라디오
+14. **Connection settings**대화 상자에서 **DirectQuery** 라디오
     버튼을 선택하고 **Ok** 버튼을 클릭하세요.
 
-![](./media/image109.png)
+     ![](./media/image109.png)
 
-15. ***Home*** 리본에서 아래 이미지와 같이 ***OneLake data hub를***
+15. **Home** 리본에서 아래 이미지와 같이 **OneLake data hub를**
     클릭하고 **Power BI semantic model을** 선택하세요.
 
-![](./media/image110.png)
+      ![](./media/image110.png)
 
 16. **OneLake data hub** 창에서 목록에서 **StockLakehousePredictions를**
     선택하고 C**onnect** 버튼을 클릭하세요.
 
-![](./media/image111.png)
+      ![](./media/image111.png)
 
 17. **Connect to your data** 페이지에서 **dim_symbol,**
     stock_prediction을 선택한 다음 **Submit** 버튼을 클릭하세요.
 
-![](./media/image112.png)
+      ![](./media/image112.png)
 
 18. 이 경우 **Ok** 버튼을 클릭하여 **Potential security risk** 경고를
     해제할 수 있습니다.
 
-![](./media/image113.png)
+     ![](./media/image113.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image114.png)
+     ![](./media/image114.png)
 
 19. 명령 모음에서 ***Modeling을*** 클릭한 다음 Manage relationships를
     ***클릭하세요.***
 
-![](./media/image115.png)
+     ![](./media/image115.png)
 
 20. **Manage relationships** 창에서 아래 이미지와 같이 **+**New
     relationship**를** 선택하세요.
 
-![](./media/image116.png)
+     ![](./media/image116.png)
 
 21. ***StockPrice -From table과 stocks_prediction – To table 사이에 New
     relationship를 만드세요.*** (테이블을 선택한 후 각 테이블의 기호
@@ -606,13 +594,13 @@ generated](./media/image114.png)
     카디널리티가 ***Many-to-many로*** 설정되어 있는지 확인하세요. 그런
     다음 **Save** 버튼을 클릭하세요.
 
-> ![](./media/image117.png)
+      ![](./media/image117.png)
 
 22. **Mange relationships** 페이지에서 ***StockPrice***,
     ***stocks_prediction*** tables을 선택하고 **close** 버튼을
     클릭하세요.
 
-![](./media/image118.png)
+      ![](./media/image118.png)
 
 23. **Power BI** 페이지의 **시각화에서 꺾은선형 차트** 아이콘을 클릭하여
     보고서에 **열 차트를** 추가합니다.
@@ -629,10 +617,9 @@ generated](./media/image114.png)
 
 - **필터**: **timestamp** to ***Relative time**최근* **15분** *이내로
   설정됨*
+      ![](./media/image119.png)
 
-![](./media/image119.png)
-
-![](./media/image120.png)
+     ![](./media/image120.png)
 
 24. **Power BI** 페이지의 **Visualizations에서 Line chart** 아이콘을
     클릭하여 보고서에 **column chart를** 추가하세요.
@@ -650,13 +637,13 @@ generated](./media/image114.png)
 - **필터**: **타임스탬프가** *최근* **1시간** *이내의 **상대** 시간으로*
   설정됩니다.
 
-![](./media/image121.png)
+     ![](./media/image121.png)
 
-![](./media/image122.png)
+     ![](./media/image122.png)
 
-![](./media/image123.png)
+     ![](./media/image123.png)
 
-![](./media/image124.png)
+     ![](./media/image124.png)
 
 25. **Power BI** 페이지의 **Visualizations에서 Line chart** 아이콘을
     클릭하여 보고서에 **column chart를** 추가하세요.
@@ -674,70 +661,71 @@ generated](./media/image114.png)
 - **필터**: **predict_time** to ***Relative date*** *최근* **3일 *날짜로
   ***설정하세요
 
-![](./media/image125.png)
+     ![](./media/image125.png)
 
-![](./media/image126.png)
+     ![](./media/image126.png)
 
-![](./media/image127.png)
+     ![](./media/image127.png)
 
-![](./media/image128.png)
+     ![](./media/image128.png)
 
 26. **Power BI** 페이지의 **Data에서 *stocks_prediction ***테이블을
     마우스 오른쪽 버튼으로 클릭하고 ***New measure을***
-    선택하세요***.***
-
-![](./media/image129.png)
-
-27. 측정값은 Data Analysis Expressions (DAX) 언어로 작성된 수식이며, 이
-    DAX 수식의 경우 ***+++currdate = NOW()*+++를** 입력하세요.
-
-![](./media/image130.png)
-
-28. Prediction chart를 선택한 상태에서 additional visualization 옵션, 즉
-    돋보기/차트 아이콘으로 이동하여 **new *X-Axis Constant Line을
-    ***추가하세요.
-
-![](./media/image131.png)
-
-29. *Value* 아래에서 formula button**(fx)**을 사용하여 field를
     선택하세요.
 
-![](./media/image132.png)
+     ![](./media/image129.png)
+
+27. 측정값은 Data Analysis Expressions (DAX) 언어로 작성된 수식이며, 이
+    DAX 수식의 경우 **+++currdate = NOW()+++를** 입력하세요.
+
+     ![](./media/image130.png)
+
+28. Prediction chart를 선택한 상태에서 additional visualization 옵션, 즉
+    돋보기/차트 아이콘으로 이동하여 **new** X-Axis Constant Line을
+   추가하세요.
+
+      ![](./media/image131.png)
+
+29. **Value** 아래에서 formula button**(fx)**을 사용하여 field를
+    선택하세요.
+
+     ![](./media/image132.png)
 
 30. **Value -Apply settings to** 페이지에서 **what field should we base
     this on?** 아래에 있는 드롭다운을 클릭한 다음 **stocks_prediction**
     드롭다운을 클릭하고 ***currdate* **measure을 선택하세요. 그런 다음
     **OK** 버튼을 클릭하세요.
 
-![](./media/image133.png)
+     ![](./media/image133.png)
 
-![](./media/image134.png)
+     ![](./media/image134.png)
 
 31. 추가 시각화 옵션, 즉 돋보기/차트 아이콘으로 이동하여 **Shade area을
-    켜세요**.![](./media/image135.png)
+    켜세요**.
+    ![](./media/image135.png)
 
-32. 테이블 간의 관계를 구성하면 모든 비주얼 자료가 교차 필터링되어야
+33. 테이블 간의 관계를 구성하면 모든 비주얼 자료가 교차 필터링되어야
     하며, 차트에서 기호나 시장을 선택하면 모든 비주얼 자료가 그에 따라
     반응해야 합니다. 아래 이미지와 같이 오른쪽 상단 시장 차트에서
     **NASDAQ** 시장이 선택되어 있습니다:
 
-![](./media/image136.png)
+     ![](./media/image136.png)
 
-![](./media/image137.png)
+     ![](./media/image137.png)
 
 33. 명령줄에서 **Publish를** 클릭하세요.
 
-![](./media/image138.png)
+      ![](./media/image138.png)
 
 34. **Microsoft Power BI Desktop톱** 대화 상자에서 **Save** 버튼을
     클릭하세요.
 
-![](./media/image139.png)
-
+     ![](./media/image139.png)
+ 
 35. **Save this file** 대화 상자에서 **Prediction report로** 이름을
     입력하고 위치를 선택하세요. 그런 다음 **Save** 버튼을 클릭하세요.
 
-![](./media/image140.png)
+     ![](./media/image140.png)
 
 ## **요약**
 
