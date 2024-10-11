@@ -42,56 +42,53 @@
 1.  **StockDimensionalModel** 페이지의 왼쪽 탐색 메뉴에서
     **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image1.png)
+     ![](./media/image1.png)
 
 2.  **Synapse Data Engineering RealTimeWorkspace** 페이지에서 이동하여
     **import** 버튼을 클릭한 다음 **Notebook을** 선택하고 **From this
     computer as shown in the below image를** 선택하세요**.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+     ![](./media/image2.png)
 
 3.  오른쪽에 표시되는 **import status** 창에서 **upload를** 클릭하세요.
 
-![](./media/image3.png)
+      ![](./media/image3.png)
 
 4.  **C:\LabFiles\Lab 05로** 이동하여 **DS 1-Build Model, DS 2-Predict
     Stock DS 3-Forecast All** notebooks **예측을** 선택한 다음 **Open**
     버튼을 클릭하세요.
 
-![](./media/image4.png)
+      ![](./media/image4.png)
 
 5.  **Imported successfully라는** 알림이 표시됩니다**.**
 
-![](./media/image5.png)
+      ![](./media/image5.png)
 
-![](./media/image6.png)
+      ![](./media/image6.png)
 
 6.  **RealTimeWorkspace**에서 **DS 1-Build Model** notebook을
     클릭하세요.
 
-![](./media/image7.png)
+      ![](./media/image7.png)
 
 7.  Explorer에서 **Lakehouse를** 선택하고 **Add 버튼을** 클릭하세요**.**
 
 > ***중요*:** 가져온 모든 노트북에 Lakehouse를 추가해야 하며, 노트북을
 > 처음 열 때마다 이 작업을 수행해야 함.
-
-![](./media/image8.png)
-
-![](./media/image9.png)
+     ![](./media/image8.png)
+     ![](./media/image9.png)
 
 8.  **Add lakehouse** 대화 상자에서 **Existing Lakehouse** 라디오 버튼을
     선택한 다음 **Add** 버튼을 클릭하세요.
 
-![](./media/image10.png)
+     ![](./media/image10.png)
 
 9.  OneLake 데이터 허브 창에서 ***StockLakehouse를*** 선택하고 **Add**
     버튼을 클릭하세요.
 
-![](./media/image11.png)
+     ![](./media/image11.png)
 
-![](./media/image12.png)
+     ![](./media/image12.png)
 
 ## 작업 2: 노트북 탐색 및 실행
 
@@ -127,7 +124,7 @@ Lakehouse에서 새로운 실시간 데이터로 과거 데이터를 보완하�
 1.  셀 1에서 STOCK_SYMBOL=”IDGD” and STOCK_SYMBOL=”BCUZ”를 uncomment하고
     셀을 선택하여 **실행하세요**.
 
-![](./media/image13.png)
+     ![](./media/image13.png)
 
 2.  상단 도구 모음에서 ***Run all을*** 클릭하고 작업이 진행됨에 따라
     따라가세요.
@@ -135,100 +132,90 @@ Lakehouse에서 새로운 실시간 데이터로 과거 데이터를 보완하�
 3.  노트북을 실행하는 데 대략 15~20분 정도 소요되며, **모델 훈련** 및
     **교차 검증과** 같은 일부 단계에는 시간이 좀 걸립니다.
 
-![](./media/image14.png)
+     ![](./media/image14.png)
 
-![](./media/image15.png)
+     ![](./media/image15.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image16.png)
+     ![](./media/image16.png)
 
-![](./media/image17.png)
+     ![](./media/image17.png)
 
-![](./media/image18.png)
+     ![](./media/image18.png)
 
-![](./media/image19.png)
+     ![](./media/image19.png)
 
-![](./media/image20.png)
+     ![](./media/image20.png)
 
-![](./media/image21.png)
+     ![](./media/image21.png)
 
-![](./media/image22.png)
+     ![](./media/image22.png)
 
-![](./media/image23.png)
+     ![](./media/image23.png)
 
-![A screen shot of a computer Description automatically
-generated](./media/image24.png)
+     ![](./media/image24.png)
 
-![A screen shot of a graph Description automatically
-generated](./media/image25.png)
+     ![](./media/image25.png)
 
-![](./media/image26.png)
+     ![](./media/image26.png)
 
-![A graph of a graph Description automatically generated with medium
-confidence](./media/image27.png)
+     ![](./media/image27.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
+     ![](./media/image28.png)
 
-![A screen shot of a graph Description automatically
-generated](./media/image29.png)
+    ![](./media/image29.png)
 
-![](./media/image30.png)
+    ![](./media/image30.png)
 
-![](./media/image31.png)
+    ![](./media/image31.png)
 
-![](./media/image32.png)
+    ![](./media/image32.png)
 
-![](./media/image33.png)
+    ![](./media/image33.png)
 
-![A graph with a blue line Description automatically
-generated](./media/image34.png)
+    ![](./media/image34.png)
 
-![A graph showing a graph Description automatically generated with
-medium confidence](./media/image35.png)
+    ![](./media/image35.png)
 
-![A screenshot of a computer program Description automatically
-generated](./media/image36.png)
+    ![](./media/image36.png)
 
-![](./media/image37.png)
+    ![](./media/image37.png)
 
-![](./media/image38.png)
+    ![](./media/image38.png)
 
-![](./media/image39.png)
+    ![](./media/image39.png)
 
-![](./media/image40.png)
+    ![](./media/image40.png)
 
-![](./media/image41.png)
+    ![](./media/image41.png)
 
-![](./media/image42.png)
+    ![](./media/image42.png)
 
-![](./media/image43.png)
+    ![](./media/image43.png)
 
-![](./media/image44.png)
+    ![](./media/image44.png)
 
-![](./media/image45.png)
+    ![](./media/image45.png)
+ 
+    ![](./media/image46.png)
 
-![](./media/image46.png)
-
-![](./media/image47.png)
+    ![](./media/image47.png)
 
 ##  작업 3: 모델 및 실행 검토
 
 1.  이제 왼쪽 탐색 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image48.png)
+     ![](./media/image48.png)
 
 2.  실험 및 실행은 워크스페이스 리소스 목록에서 볼 수 있습니다.
 
-![](./media/image49.png)
+     ![](./media/image49.png)
 
 3.  **RealTimeWorkspace** 페이지에서 ML 모델 유형 중
     **WHO-stock-prediction-model을** 선택하세요.
 
-![](./media/image50.png)
+      ![](./media/image50.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image51.png)
+       ![](./media/image51.png)
 
 4.  메타데이터에는 모델에 맞게 조정할 수 있는 입력 매개변수와 root mean
     square error (RMSE)와 같은 모델의 정확도에 대한 지표가 포함됩니다.
@@ -236,7 +223,7 @@ generated](./media/image51.png)
     것이고, 수치가 높을수록 오차가 증가한다는 의미입니다. 수치가
     낮을수록 좋지만, "좋은" 수치는 시나리오에 따라 주관적입니다.
 
-![](./media/image52.png)
+      ![](./media/image52.png)
 
 # 연습 2 - 모델 사용하기, Lakehouse에 저장하기, 보고서 작성하기
 
@@ -262,74 +249,71 @@ write_predictions와* 같은 함수 정의로 세분화되어 있습니다. 노�
 
 1.  이제 왼쪽 탐색 창에서 **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image48.png)
+      ![](./media/image48.png)
 
 2.  **RealTimeWorkspace**에서 **DS 2-Predict Stock Prices** notebook을
     클릭하세요.
 
-![](./media/image53.png)
+      ![](./media/image53.png)
 
 3.  탐색기에서 **Lakehouse를** 선택한 다음 **Add** 버튼을 클릭하세요*.*
 
-![](./media/image54.png)
+     ![](./media/image54.png)
 
-![](./media/image55.png)
+      ![](./media/image55.png)
 
 4.  **Add Lakehouse** 대화 상자에서 **Exsisting Lakehouse** 라디오
     버튼을 선택한 다음 **Add** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+     ![](./media/image10.png)
 
 5.  OneLake 데이터 허브 창에서 ***StockLakehouse를*** 선택하고 **Add**
     버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+      ![](./media/image11.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
+      ![](./media/image56.png)
 
 ## 작업 2: 노트북 실행
 
 1.  Lakehouse에서 주식 예측 테이블을 만들고,셀 1와 셀 2를 선택하여
     **실행하세요**.
 
-![](./media/image57.png)
+      ![](./media/image57.png)
 
-![](./media/image58.png)
+      ![](./media/image58.png)
 
 2.  모든 주식 기호 목록을 가져와서 셀3와 셀 4개을 선택하고
     **실행하세요**.
 
-![](./media/image59.png)
+      ![](./media/image59.png)
 
-![](./media/image60.png)
+      ![](./media/image60.png)
 
 3.  MLflow에서 사용 가능한 ML 모델을 검토하여 예측 목록을 만들고, 셀7 ,
     8 , 9 , 10을 선택하여 **실행하세요**.
 
-![](./media/image61.png)
+     ![](./media/image61.png)
 
-![](./media/image62.png)
+     ![](./media/image62.png)
 
-![](./media/image63.png)
+     ![](./media/image63.png)
 
-![](./media/image64.png)
+     ![](./media/image64.png)
 
 4.  Lakehouse 에서 각 model store에 대한 예측을 구축하려면 셀 11 및 12를
     선택하고 **실행하세요.**
 
-![](./media/image65.png)
+     ![](./media/image65.png)
 
-![](./media/image66.png)
+     ![](./media/image66.png)
 
 5.  모든 셀이 실행되면 *테이블* 옆의 점 3개**(...)**를 클릭하여 스키마를
     새로 고친 다음, 탐색하여 ***Refresh를* 클릭하세요.**
 
-![](./media/image67.png)
+     ![](./media/image67.png)
 
-![](./media/image68.png)
+     ![](./media/image68.png)
 
 # 연습 3: 실제 솔루션
 
@@ -376,25 +360,22 @@ generated](./media/image56.png)
 
 1.  이제 왼쪽 탐색 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image48.png)
+     ![](./media/image48.png)
 
 2.  RealTimeWorkspace에서 **DS 3-Forecast All** 노트북을 클릭하세요.
 
-![](./media/image69.png)
+    ![](./media/image69.png)
 
 3.  탐색기에서 **Lakehouse를** 선택하고 ***Add를*** 클릭하세요***.***
 
-![A screenshot of a computer Description automatically
-generated](./media/image54.png)
+     ![](./media/image54.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image55.png)
+      ![](./media/image55.png)
 
 4.  **Add lakehouse** 대화 상자에서 **existing Lakehouse** 라디오 버튼을
     선택한 다음 **Add** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+      ![](./media/image10.png)
 
 5.  OneLake data hub 창에서 ***StockLakehouse를*** 선택하고 **Add**
     버튼을 클릭하세요.
