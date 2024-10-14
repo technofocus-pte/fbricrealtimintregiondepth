@@ -22,7 +22,7 @@ Eventstream이 계속해서 Data Lakehouse에 데이터를 쓰면 매일 수천 
 
 1.  왼쪽 탐색 메뉴에서 **RealTimeWorkspace를** 클릭하세요.
 
-![](./media/image1.png)
+     ![](./media/image1.png)
 
 2.  Delta Lake를 사용하면 작은 파일 압축을 매우 쉽게 수행할 수 있으며,
     Spark SQL, Python 또는 Scala에서 실행할 수 있습니다.
@@ -34,7 +34,7 @@ Eventstream이 계속해서 Data Lakehouse에 데이터를 쓰면 매일 수천 
     workspace 페이지에서 **+New** 버튼을 클릭한 다음 **Notebook을**
     선택하세요**.**
 
-> ![](./media/image2.png)
+     ![](./media/image2.png)
 
 4.  탐색기에서 **Lakehouse를** 선택한 다음 ***Add*** 버튼을 클릭하세요.
 
