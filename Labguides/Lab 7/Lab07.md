@@ -1,3 +1,4 @@
+# **실습 07- Advanced KQL**
 **소개**
 
 이 실습에서는 추가적인 KQL 개념을 살펴봅니다.
@@ -16,7 +17,7 @@
 
 1.  왼쪽 탐색 메뉴에서 **RealTimeWorkspace** 작업 공간을 클릭하세요.
 
-> ![](./media/image1.png)
+      ![](./media/image1.png)
 
 2.  **RealTimeWorkspace** 창에서 KQL 쿼리세트 유형의 Stock**Queryset을**
     선택하세요.
