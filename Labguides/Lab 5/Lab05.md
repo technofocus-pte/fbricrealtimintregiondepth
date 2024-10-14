@@ -271,7 +271,9 @@ GO
 6.  **Spurce** 탭을 클릭하고 다음 설정을 입력하세요.
 
       -연결 	:드롭다운에서 StocksDB를 선택하세요.
-      -쿼리 사용:	쿼리 
+    >
+      -쿼리 사용:	쿼리
+    >
       -쿼리 : 	+++@concat('StockPrice  
                 | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
                 | order by timestamp asc
