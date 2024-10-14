@@ -61,27 +61,27 @@ ETL(extract, transform, and load) 프로세스에서는 현재 워터마크에 �
 1.  페이지 왼쪽 하단의 **Real-time Analytics 아이콘을** 클릭하고 아래
     이미지와 같이 **Data Warehouse로** 이동하여 클릭하세요.
 
-![](./media/image1.png)
+     ![](./media/image1.png)
 
-2.  ***Warehouse*** 타일을 선택하여 새 Synapse Data Warehouse를
+2.  **Warehouse** 타일을 선택하여 새 Synapse Data Warehouse를
     만드세요.
 
-![](./media/image2.png)
+     ![](./media/image2.png)
 
 3.  **New warehouse** 대화 상자에서 ***+++StocksDW+++를*** 이름으로
     입력하고 **Create** 버튼을 클릭하세요.
 
-![](./media/image3.png)
+      ![](./media/image3.png)
 
 4.  창고는 대부분 비어 있습니다.
 
-![](./media/image4.png)
+      ![](./media/image4.png)
 
 5.  명령줄에서 ***New SQL query*** 드롭다운을 클릭한 다음 **Blank**
     섹션에서 **New SQL query를** 선택하세요. 다음 작업에서 스키마 구축을
     시작하겠습니다.
 
-![](./media/image5.png)
+     ![](./media/image5.png)
 
 ## 작업 2: 스테이징 및 ETL 개체 만들기
 
@@ -101,154 +101,123 @@ ETL(extract, transform, and load) 프로세스에서는 현재 워터마크에 �
     클릭하여 쿼리를 실행합니다. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
 > **복사**
-
-/\* 1 - Create Staging and ETL.sql \*/
+```
+/* 1 - Create Staging and ETL.sql */
 
 -- STAGING TABLES
-
 CREATE SCHEMA stg
-
 GO
 
 CREATE TABLE stg.StocksPrices
-
 (
-
-symbol VARCHAR(5) NOT NULL
-
-,timestamp VARCHAR(30) NOT NULL
-
-,price FLOAT NOT NULL
-
-,datestamp VARCHAR(12) NOT NULL
-
+   symbol VARCHAR(5) NOT NULL
+   ,timestamp VARCHAR(30) NOT NULL
+   ,price FLOAT NOT NULL
+   ,datestamp VARCHAR(12) NOT NULL
 )
-
 GO
 
 -- ETL TABLES
-
 CREATE SCHEMA ETL
-
 GO
-
 CREATE TABLE ETL.IngestSourceInfo
-
 (
-
-ObjectName VARCHAR(50) NOT NULL
-
-,WaterMark DATETIME2(6)
-
-,IsActiveFlag VARCHAR(1)
-
+    ObjectName VARCHAR(50) NOT NULL
+    ,WaterMark DATETIME2(6)
+    ,IsActiveFlag VARCHAR(1)
 )
 
-INSERT \[ETL\].\[IngestSourceInfo\]
-
+INSERT [ETL].[IngestSourceInfo]
 SELECT 'StocksPrices', '1/1/2022 23:59:59', 'Y'
-
-![](./media/image6.png)
-
-![](./media/image7.png)
+```
+   ![](./media/image6.png)
+    ![](./media/image7.png)
 
 4.  참조를 위해 쿼리 이름을 바꾸세요. **Explorer에서 SQL query 1을**
     마우스 오른쪽 버튼으로 클릭하고 **Rename를** 선택하세요.
 
-![](./media/image8.png)
+      ![](./media/image8.png)
 
 5.  **Rename** 바꾸기 대화 상자의 **Name** 필드에 **+++ Create stocks
     and metadata +++를** 입력한 다음 **Rename** 버튼을 클릭하세요.
 
-> ![](./media/image9.png)
+     ![](./media/image9.png)
 
 6.  명령줄에서 ***New SQL Query*** 드롭다운을 클릭한 다음 **Blank**
     섹션에서 New SQL Query**를** 선택하세요. 다음 단계에서 스키마 구축을
     시작하겠습니다:
 
-![](./media/image10.png)
+     ![](./media/image10.png)
 
-7.  *sp_IngestSourceInfo_Update* 절차는 워터마크를 업데이트하여 이미
+7.  **sp_IngestSourceInfo_Update** 절차는 워터마크를 업데이트하여 이미
     가져온 레코드를 추적할 수 있습니다.
 
 8.  query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
 **복사**
+```
+/* 1 - Create Staging and ETL.sql */
 
-/\* 1 - Create Staging and ETL.sql \*/
-
-CREATE PROC \[ETL\].\[sp_IngestSourceInfo_Update\]
-
+CREATE PROC [ETL].[sp_IngestSourceInfo_Update]
 @ObjectName VARCHAR(50)
-
 ,@WaterMark DATETIME2(6)
-
 AS
-
 BEGIN
 
-UPDATE \[ETL\].\[IngestSourceInfo\]
-
-SET WaterMark = @WaterMark
-
-WHERE
-
-ObjectName = @ObjectName
+UPDATE [ETL].[IngestSourceInfo]
+    SET WaterMark = @WaterMark
+WHERE 
+    ObjectName  = @ObjectName
 
 END
 
 GO
-
-![](./media/image11.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+```
+   ![](./media/image11.png)
+     ![](./media/image12.png)
 
 6.  나중에 참조할 수 있도록 쿼리 이름을 바꾸세요. **Explorer에서 SQL
     Qquery 1을** 마우스 오른쪽 버튼으로 클릭하고 **Rename를**
     선택하세요.
 
-![](./media/image13.png)
+     ![](./media/image13.png)
 
 7.  **Rename** 대화 상자의 **Name** 필드에
     **+++ETL.sql_IngestSource+++를** 입력한 다음 **Rename** 버튼을
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+     ![](./media/image14.png)
 
 다음과 비슷하게 보일 것입니다:
-
-![DW First Queries](./media/image15.png)
+    ![](./media/image15.png)
 
 ## 작업 3: 데이터 파이프라인 만들기
 
 1.  **StockDW** 페이지의 왼쪽 탐색 메뉴에서 **RealTimeWorkspace** 작업
     공간을 클릭하세요.
 
-![](./media/image16.png)
+     ![](./media/image16.png)
 
 2.  **Synapse Data Warehouse RealTimeWorkhouse** 홈 페이지의
     **RealTimeWorkhouse** 아래에서 **+New를** 클릭한 다음 **Data
-    pipeline을** 선택하세요**.**
+    pipeline을** 선택하세요.
 
-![](./media/image17.png)
+     ![](./media/image17.png)
 
 3.  **New pipeline** 대화 상자가 나타나면 **Name** 필드에
     +++PL_Refresh_DWH+++를 입력한 다음 **Create** 버튼을 클릭하세요**.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+      ![](./media/image18.png)
 
-4.  ***PL_Refresh_DWH*** 페이지에서 **Build a data pipeline to organize
+4.  **PL_Refresh_DWH** 페이지에서 **Build a data pipeline to organize
     and move your data로** 이동하고 **Pipeline activity을** 클릭하세요.
 
-![](./media/image19.png)
+      ![](./media/image19.png)
 
 5.  그런 다음 아래 이미지와 같이 ***Lookup activity를*** 선택하세요.
 
-![](./media/image20.png)
+      ![](./media/image20.png)
 
 6.  **General** 탭의 Name field**에 *+++Get ***WaterMark+++를
     입력하세요.
@@ -258,9 +227,15 @@ generated](./media/image18.png)
 7.  **Settings** 탭을 클릭하고 아래 이미지와 같이 다음 세부 정보를
     입력하세요.
 
-[TABLE]
 
-![](./media/image22.png)
+|   |   |
+|-----|----|
+|연결	|드롭다운을 클릭하고 목록에서 StocksDW를 선택하세요.|
+|쿼리 사용	| 쿼리 |
+|쿼리 |	+++SELECT * FROM [ETL].[IngestSourceInfo] WHERE IsActiveFlag = 'Y'+++|
+|First row only |	선택하지 않음|
+
+  ![](./media/image22.png)
 
 ## 작업 4: ForEach activity 구축
 
@@ -273,33 +248,41 @@ generated](./media/image18.png)
     an activity를** 클릭하세요. 그런 다음 아래 이미지와 같이 ***ForEach
     activity를*** 선택하세요.
 
-![](./media/image23.png)
+     ![](./media/image23.png)
 
 2.  **Settings** 탭을 클릭하고 +++ **@activity('Get
     WaterMark').output.**value+++로 항목을 입력하세요.
 
 아래 이미지와 비슷하게 보일 것입니다:
+    ![](./media/image24.png)
 
-![](./media/image24.png)
+3.  **ForEach** 상자에서 더하기(+) 기호를 클릭하여 새 활동을 추가하세요.
 
-3.  *ForEach* 상자에서 더하기(+) 기호를 클릭하여 새 활동을 추가하세요.
+      ![](./media/image25.png)
 
-> ![](./media/image25.png)
+4.  **ForEach** 내에서 **Copy data** 활동을 선택하고 추가하세요.
 
-4.  *ForEach* 내에서 ***Copy data*** 활동을 선택하고 추가하세요*.*
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image26.png)
-
+      ![](./media/image26.png)
 5.  **Copy data1** 활동 아이콘을 선택하고 **General** 탭의 **Name
     field에** +++Copy KQL+++을 입력하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image27.png)
+      ![](./media/image27.png)
 
 6.  **Spurce** 탭을 클릭하고 다음 설정을 입력하세요.
 
-[TABLE]
+|   |   |
+|-----|----|
+|연결 	|드롭다운에서 StocksDB를 선택하세요.|
+|쿼리 사용|	쿼리 |
+|쿼리 	+++@concat('StockPrice  
+    | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
+    | order by timestamp asc
+    | extend datestamp = substring(timestamp,0,10) 
+    | project symbol, timestamp, price, datestamp 
+    | take 500000 
+    | where not(isnull(price))
+    ' ) +++ |
+
 
 활동의 *소스* 탭은 다음과 비슷하게 보일 것입니다:
 
