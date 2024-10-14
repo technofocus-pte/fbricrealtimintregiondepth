@@ -275,8 +275,8 @@ GO
       -쿼리 사용:	쿼리
     >
       -쿼리 : 	+++@concat('StockPrice  
-                | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
-                | order by timestamp asc
+    >           | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
+    >           | order by timestamp asc
                 | extend datestamp = substring(timestamp,0,10) 
                 | project symbol, timestamp, price, datestamp 
                 | take 500000 
@@ -322,13 +322,13 @@ GO
 
 10. **Settings** 탭을 클릭하고 다음 설정을 입력하세요.
 
-|   |   |
-|-----|----|
-|연결 |	드롭다운에서 목록에서 StocksDW를 선택하세요.|
-|쿼리 |사용	쿼리 |
-|쿼리	| +++@concat('Select Max(timestamp) as WaterMark as stg.', item().ObjectName)+++|
+      |   |   |
+      |-----|----|
+      |연결 |	드롭다운에서 목록에서 StocksDW를 선택하세요.|
+      |쿼리 |사용	쿼리 |
+      |쿼리	| +++@concat('Select Max(timestamp) as WaterMark as stg.', item().ObjectName)+++|
 
-  ![](./media/image32.png)
+      ![](./media/image32.png)
 
 11. **ForEach** 상자에서 더하기**(+)** 기호를 클릭하고 탐색하여 **Save
     procedure activity를** 선택하세요.
