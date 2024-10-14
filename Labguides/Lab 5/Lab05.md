@@ -228,14 +228,14 @@ GO
     입력하세요.
 
 
-|   |   |
-|-----|----|
-|연결	|드롭다운을 클릭하고 목록에서 StocksDW를 선택하세요.|
-|쿼리 사용	| 쿼리 |
-|쿼리 |	+++SELECT * FROM [ETL].[IngestSourceInfo] WHERE IsActiveFlag = 'Y'+++|
-|First row only |	선택하지 않음|
+      |   |   |
+      |-----|----|
+      |연결	|드롭다운을 클릭하고 목록에서 StocksDW를 선택하세요.|
+      |쿼리 사용	| 쿼리 |
+      |쿼리 |	+++SELECT * FROM [ETL].[IngestSourceInfo] WHERE IsActiveFlag = 'Y'+++|
+      |First row only |	선택하지 않음|
 
-  ![](./media/image22.png)
+       ![](./media/image22.png)
 
 ## 작업 4: ForEach activity 구축
 
@@ -282,7 +282,7 @@ GO
     >           | project symbol, timestamp, price, datestamp 
     >           | take 500000 
     >           | where not(isnull(price))
-    >            ' )+++
+    >            ' )
 
 
 
