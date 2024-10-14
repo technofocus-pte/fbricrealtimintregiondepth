@@ -19,7 +19,7 @@ Microsoft Fabric 的各個方面整合為更大解決方案的一部分 --
 通過將所有內容整合到一個集成解決方案中，您將能夠快速安全地整合資料、構建報告、創建資料倉庫和
 Lakehouse、使用 ML Model 進行預測等。
 
-![Data Lakehouse with Azure Synapse Analytics](./media/image1.png)
+![](./media/image1.png)
 
 # 目標
 
