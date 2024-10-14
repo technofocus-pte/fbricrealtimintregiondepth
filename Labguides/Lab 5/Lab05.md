@@ -250,8 +250,8 @@ GO
 
      ![](./media/image23.png)
 
-2.  **Settings** 탭을 클릭하고 +++ **@activity('Get
-    WaterMark').output.**value+++로 항목을 입력하세요.
+2.  **Settings** 탭을 클릭하고 +++@activity('Get
+    WaterMark').output.value+++로 항목을 입력하세요.
 
 아래 이미지와 비슷하게 보일 것입니다:
     ![](./media/image24.png)
