@@ -219,10 +219,10 @@ GO
 
       ![](./media/image20.png)
 
-6.  **General** 탭의 Name field**에 *+++Get ***WaterMark+++를
+6.  **General** 탭의 Name field**에 **+++GetWaterMark+++**를
     입력하세요.
 
-![](./media/image21.png)
+      ![](./media/image21.png)
 
 7.  **Settings** 탭을 클릭하고 아래 이미지와 같이 다음 세부 정보를
     입력하세요.
