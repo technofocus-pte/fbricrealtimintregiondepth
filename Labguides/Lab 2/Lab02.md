@@ -56,20 +56,20 @@
     선택하고 ***Run*** 버튼을 클릭하여 쿼리를 실행합니다. 쿼리가
     실행되면 결과를 볼 수 있습니다.
 
-**복사**
-```
-// Use "take" to view a sample number of records in the table and check the data.
-StockPrice
-| take 100;
-
-// See how many records are in the table.
-StockPrice
-| count;
-
-// This query returns the number of ingestions per hour in the given table.
-StockPrice
-| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
-```
+      **복사**
+      ```
+      // Use "take" to view a sample number of records in the table and check the data.
+      StockPrice
+      | take 100;
+      
+      // See how many records are in the table.
+      StockPrice
+      | count;
+      
+      // This query returns the number of ingestions per hour in the given table.
+      StockPrice
+      | summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+      ```
 
 ***참고:** 편집기에 여러 개의 쿼리가 있을 때 단일 쿼리를 실행하려면 쿼리
 텍스트를 강조 표시하거나 커서가 쿼리의 컨텍스트(예: 쿼리의 시작 또는
@@ -111,24 +111,24 @@ StockPrice
 3.  쿼리 편집기에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
-복사
-```
-StockPrice
-| where timestamp > ago(75m)
-| project symbol, price, timestamp
-| partition by symbol
-(
-    order by timestamp asc
-    | extend prev_price = prev(price, 1)
-    | extend prev_price_10min = prev(price, 600)
-)
-| where timestamp > ago(60m)
-| order by timestamp asc, symbol asc
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-| order by timestamp asc, symbol asc
-```
-  ![](./media/image13.png)
+    복사
+    ```
+    StockPrice
+    | where timestamp > ago(75m)
+    | project symbol, price, timestamp
+    | partition by symbol
+    (
+        order by timestamp asc
+        | extend prev_price = prev(price, 1)
+        | extend prev_price_10min = prev(price, 600)
+    )
+    | where timestamp > ago(60m)
+    | order by timestamp asc, symbol asc
+    | extend pricedifference_10min = round(price - prev_price_10min, 2)
+    | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+    | order by timestamp asc, symbol asc
+    ```
+      ![](./media/image13.png)
 
 4.  이 KQL 쿼리에서는 먼저 결과가 가장 최근 75분으로 제한됩니다.
     궁극적으로 행을 지난 60분으로 제한하지만, 초기 데이터 세트에는 이전
@@ -160,25 +160,25 @@ StockPrice
 3.  쿼리 편집기에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
-> **복사**
-```
-StockPrice
-| project symbol, price, timestamp
-| partition by symbol
-(
-    order by timestamp asc
-    | extend prev_price = prev(price, 1)
-    | extend prev_price_10min = prev(price, 600)
-)
-| order by timestamp asc, symbol asc
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-| order by timestamp asc, symbol asc
-| summarize arg_max(pricedifference_10min, *) by symbol
-```
-  ![](./media/image16.png)
+      > **복사**
+      ```
+      StockPrice
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc
+          | extend prev_price = prev(price, 1)
+          | extend prev_price_10min = prev(price, 600)
+      )
+      | order by timestamp asc, symbol asc
+      | extend pricedifference_10min = round(price - prev_price_10min, 2)
+      | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+      | order by timestamp asc, symbol asc
+      | summarize arg_max(pricedifference_10min, *) by symbol
+      ```
+    ![](./media/image16.png)
 
-  ![](./media/image17.png)
+    ![](./media/image17.png)
 
 ## 작업 4: StockBinned
 
@@ -199,13 +199,13 @@ StockPrice
 3.  쿼리 편집기에서 다음 코드를 복사하여 붙여넣습니다. **실행** 버튼을
     클릭하여 쿼리를 실행합니다. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
-> **복사**
-```
-StockPrice
-| summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
-| sort by timestamp asc, symbol asc
-```
->
+      **복사**
+      ```
+      StockPrice
+      | summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
+      | sort by timestamp asc, symbol asc
+      ```
+      
       ![](./media/image20.png)
 
 4.  이는 장기간에 걸쳐 실시간 데이터를 집계하는 보고서를 만들 때 특히
@@ -229,25 +229,25 @@ StockPrice
 3.  쿼리 편집기에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
-> 복사
-```
-StockPrice
-| where timestamp > ago(75m)
-| project symbol, price, timestamp
-| partition by symbol
-(
-    order by timestamp asc
-    | extend prev_price = prev(price, 1)
-    | extend prev_price_10min = prev(price, 600)
-)
-| where timestamp > ago(60m)
-| order by timestamp asc, symbol asc
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-| order by timestamp asc, symbol asc
-| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
-```
->
+    > 복사
+    ```
+    StockPrice
+    | where timestamp > ago(75m)
+    | project symbol, price, timestamp
+    | partition by symbol
+    (
+        order by timestamp asc
+        | extend prev_price = prev(price, 1)
+        | extend prev_price_10min = prev(price, 600)
+    )
+    | where timestamp > ago(60m)
+    | order by timestamp asc, symbol asc
+    | extend pricedifference_10min = round(price - prev_price_10min, 2)
+    | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+    | order by timestamp asc, symbol asc
+    | render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
+    ```
+
       ![](./media/image23.png)
 
 4.  그러면 아래 이미지와 같이 라인 차트가 렌더링됩니다.
