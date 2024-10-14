@@ -22,50 +22,36 @@
 2.  **RealTimeWorkspace** 창에서 KQL 쿼리세트 유형의 Stock**Queryset을**
     선택하세요.
 
-> ![](./media/image2.png)
->
-> ![](./media/image3.png)
+      ![](./media/image2.png)
+ 
+      ![](./media/image3.png)
 
 3.  원본 **StockByTime** 쿼리를 불러와서 쿼리를 선택한 다음 **Run**
     버튼을 클릭하여 쿼리를 실행하세요. 쿼리가 성공적으로 실행되면 결과를
     볼 수 있습니다.
-
-StockPrice
-
-| where timestamp \> ago(75m)
-
-| project symbol, price, timestamp
-
-| partition by symbol
-
-(
-
-order by timestamp asc
-
-| extend prev_price = prev(price, 1)
-
-| extend prev_price_10min = prev(price, 600)
-
-)
-
-| where timestamp \> ago(60m)
-
-| order by timestamp asc, symbol asc
-
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-
-| extend percentdifference_10min = round(round(price - prev_price_10min,
-2) / prev_price_10min, 4)
-
-| order by timestamp asc, symbol asc
-
-![](./media/image4.png)
+      ```
+      StockPrice
+      | where timestamp > ago(75m)
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc
+          | extend prev_price = prev(price, 1)
+          | extend prev_price_10min = prev(price, 600)
+      )
+      | where timestamp > ago(60m)
+      | order by timestamp asc, symbol asc
+      | extend pricedifference_10min = round(price - prev_price_10min, 2)
+      | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+      | order by timestamp asc, symbol asc
+      ```
+      ![](./media/image4.png)
 
 4.  이 쿼리는 파티셔닝과 이전 함수를 모두 활용합니다. 이전 함수가 동일한
     기호와 일치하는 행만 고려하도록 데이터가 파티셔닝됩니다.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image5.png)
+      ![](./media/image5.png)
+
 
 ## 작업 2: scan operator 사용
 
@@ -88,54 +74,39 @@ operator를](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/s
 1.  다음 KQL 쿼리는 prev() 함수를 사용하는 이전 KQL 쿼리와 유사한 결과를
     제공합니다:
 
-2.  창 상단 근처의 ***+* 아이콘을** 클릭하여 쿼리세트 내에 새 탭을
+2.  창 상단 근처의 **+** 아이콘을 클릭하여 쿼리세트 내에 새 탭을
     만드세요.
 
-![](./media/image6.png)
+     ![](./media/image6.png)
 
 3.  Query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요.
 
 복사
-
-StockPrice
-
-| where timestamp \> ago(60m)
-
-| project timestamp, price, symbol
-
-,previousprice = 0.00
-
-,pricedifference = 0.00
-
-,percentdifference = 0.00
-
-| partition hint.strategy=native by symbol
-
-(
-
-order by timestamp asc
-
-| scan with (step s: true =\> previousprice = s.price;)
-
-)
-
-| project timestamp, symbol, price, previousprice
-
-,pricedifference = round((price-previousprice),2)
-
-,percentdifference = round((price-previousprice)/previousprice,4)
-
-| order by timestamp asc, symbol asc
-
-![](./media/image7.png)
+        ```
+        StockPrice
+        | where timestamp > ago(60m)
+        | project timestamp, price, symbol
+         ,previousprice = 0.00
+         ,pricedifference = 0.00
+         ,percentdifference = 0.00
+        | partition hint.strategy=native by symbol
+          (
+            order by timestamp asc 
+            | scan with (step s: true => previousprice = s.price;)
+          )
+        | project timestamp, symbol, price, previousprice
+            ,pricedifference = round((price-previousprice),2)
+            ,percentdifference = round((price-previousprice)/previousprice,4)
+        | order by timestamp asc, symbol asc
+        ```
+      ![](./media/image7.png)
 
 4.  이 쿼리는 원래 쿼리와 구조가 비슷하지만, 분할된 데이터의 이전 행을
     보기 위해 prev() 함수를 사용하는 대신 scan operator가 이전 행을
     scan할 수 있다는 점이 다릅니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+ ![](./media/image8.png)
 
 ## 작업 3: scan을 통한 Data mining
 
@@ -158,73 +129,42 @@ Scan operator는 지정된 술어와 일치하는 행을 scan하는 단계를 �
 2.  창 상단 근처의 ***+* 아이콘을** 클릭하여 쿼리세트 내에 새 탭을
     만드세요.
 
-![](./media/image9.png)
+     ![](./media/image9.png)
 
 3.  Query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요.
 
 **복사**
-
-> StockPrice
->
-> | project symbol, price, timestamp
->
-> | partition by symbol
->
-> (
->
-> order by timestamp asc
->
-> | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
->
-> | extend delta = round(price - prev_price,2)
->
-> | scan with_match_id=m_id declare(down:bool=false, step:string) with
->
-> (
->
-> // if state of s1 is empty we require price increase, else continue as
-> long as price doesn't decrease
->
-> step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-> step = 's1';
->
-> // exit the 'rally' when price decrease, also forcing a single match
->
-> step s2: delta \< 0.0 and s2.down == false =\> down = true, step =
-> 's2';
->
-> )
->
-> )
->
-> | where step == 's1' // select only records with price increase
->
-> | summarize
->
-> (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
->
-> (end_timestamp, end_price)=arg_max(timestamp, price),
->
-> run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
->
-> | extend delta_pct = round(total_delta\*100.0/start_price,4)
->
-> | extend run_duration_s = datetime_diff('second', end_timestamp,
-> start_timestamp)
->
-> | summarize arg_max(delta_pct, \*) by symbol
->
-> | project symbol, start_timestamp, start_price, end_timestamp,
-> end_price,
->
-> total_delta, delta_pct, run_duration_s, run_length
->
-> | order by delta_pct
->
-> ![](./media/image10.png)
->
-> ![](./media/image11.png)
+      ```
+      StockPrice
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc 
+          | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+          | extend delta = round(price - prev_price,2)
+          | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+          (
+              // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+              step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+              // exit the 'rally' when price decrease, also forcing a single match 
+              step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+          )
+      )
+      | where step == 's1' // select only records with price increase
+      | summarize 
+          (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+          (end_timestamp, end_price)=arg_max(timestamp, price),
+          run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+      | extend delta_pct = round(total_delta*100.0/start_price,4)
+      | extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+      | summarize arg_max(delta_pct, *) by symbol
+      | project symbol, start_timestamp, start_price, end_timestamp, end_price,
+          total_delta, delta_pct, run_duration_s, run_length
+      | order by delta_pct
+      ```
+     ![](./media/image10.png)
+      ![](./media/image11.png)
 
 4.  위의 결과는 길이에 관계없이 Rally에서 가장 큰 상승률을 찾습니다.
     가장 긴 Rally를 보고 싶다면 요약을 변경하면 됩니다:
@@ -232,74 +172,43 @@ Scan operator는 지정된 술어와 일치하는 행을 scan하는 단계를 �
 5.  아래 이미지와 같이 ***+* 아이콘을** 클릭하여 쿼리세트 내에 새 탭을
     만드세요.
 
-![](./media/image9.png)
+     ![](./media/image9.png)
 
 6.  Query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     선택하여 쿼리를 실행하세요.
 
-> **복사**
->
-> StockPrice
->
-> | project symbol, price, timestamp
->
-> | partition by symbol
->
-> (
->
-> order by timestamp asc
->
-> | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
->
-> | extend delta = round(price - prev_price,2)
->
-> | scan with_match_id=m_id declare(down:bool=false, step:string) with
->
-> (
->
-> // if state of s1 is empty we require price increase, else continue as
-> long as price doesn't decrease
->
-> step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-> step = 's1';
->
-> // exit the 'rally' when price decrease, also forcing a single match
->
-> step s2: delta \< 0.0 and s2.down == false =\> down = true, step =
-> 's2';
->
-> )
->
-> )
->
-> | where step == 's1' // select only records with price increase
->
-> | summarize
->
-> (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
->
-> (end_timestamp, end_price)=arg_max(timestamp, price),
->
-> run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
->
-> | extend delta_pct = round(total_delta\*100.0/start_price,4)
->
-> | extend run_duration_s = datetime_diff('second', end_timestamp,
-> start_timestamp)
->
-> | summarize arg_max(run_duration_s, \*) by symbol
->
-> | project symbol, start_timestamp, start_price, end_timestamp,
-> end_price,
->
-> total_delta, delta_pct, run_duration_s, run_length
->
-> | order by run_duration_s
->
-> ![](./media/image12.png)
+    > **복사**
+      ```
+      StockPrice
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc 
+          | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+          | extend delta = round(price - prev_price,2)
+          | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+          (
+              // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+              step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+              // exit the 'rally' when price decrease, also forcing a single match 
+              step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+          )
+      )
+      | where step == 's1' // select only records with price increase
+      | summarize 
+          (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+          (end_timestamp, end_price)=arg_max(timestamp, price),
+          run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+      | extend delta_pct = round(total_delta*100.0/start_price,4)
+      | extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+      | summarize arg_max(run_duration_s, *) by symbol
+      | project symbol, start_timestamp, start_price, end_timestamp, end_price,
+          total_delta, delta_pct, run_duration_s, run_length
+      | order by run_duration_s
+      ```
+    ![](./media/image12.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image13.png)
+    ![](./media/image13.png)
 
 ## 작업 4: 믹스에 Bin을 추가하기
 
@@ -322,52 +231,38 @@ generated](./media/image13.png)
 3.  창 상단 근처의 ***+* 아이콘을** 클릭하여 쿼리세트 내에 새 탭을
     만드세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+    ![](./media/image9.png)
 
 4.  Query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     선택하여 쿼리를 실행하세요.
 
-**복사**
-
-> StockPrice
->
-> | summarize arg_max(timestamp,\*) by bin(timestamp, 1d), symbol
->
-> | project symbol, price, timestamp
->
-> ,previousprice = 0.00
->
-> ,pricedifference = 0.00
->
-> ,percentdifference = 0.00
->
-> | partition hint.strategy=native by symbol
->
-> (
->
-> order by timestamp asc
->
-> | scan with (step s output=all: true =\> previousprice = s.price;)
->
-> )
->
-> | project timestamp, symbol, price, previousprice
->
-> ,pricedifference = round((price-previousprice),2)
->
-> ,percentdifference = round((price-previousprice)/previousprice,4)
->
-> | order by timestamp asc, symbol asc
-
-![](./media/image14.png)
+      **복사**
+      ```
+      StockPrice
+      | summarize arg_max(timestamp,*) by bin(timestamp, 1d), symbol
+      | project symbol, price, timestamp
+      ,previousprice = 0.00
+      ,pricedifference = 0.00
+      ,percentdifference = 0.00
+      | partition hint.strategy=native by symbol
+        (
+          order by timestamp asc 
+          | scan with (step s output=all: true => previousprice = s.price;)
+        )
+      | project timestamp, symbol, price, previousprice
+          ,pricedifference = round((price-previousprice),2)
+          ,percentdifference = round((price-previousprice)/previousprice,4)
+      | order by timestamp asc, symbol asc
+      
+      ```
+     ![](./media/image14.png)
 
 5.  이 쿼리는 *요약* 및 *Bin* 문을 활용하여 데이터를 일별 및 기호별로
     그룹화합니다. 결과는 각 주가의 일별 종가입니다. 필요에 따라
     최소/최대/평균 가격을 추가하고 필요에 따라 bin 시간을 변경할 수도
     있습니다.
 
-![](./media/image15.png)
+     ![](./media/image15.png)
 
 ## 작업 5: Bin과 Scan 결합
 
@@ -378,75 +273,44 @@ generated](./media/image9.png)
 
 2.  **+아이콘을** 클릭하여 쿼리세트 내에 ***새*** 탭을 만드세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+      ![](./media/image9.png)
 
 3.  Query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요.
 
-**복사**
+      **복사**
+      ```
+      StockPrice
+      | summarize arg_max(timestamp,*) by bin(timestamp, 1m), symbol
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc 
+          | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+          | extend delta = round(price - prev_price,2)
+          | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+          (
+              // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+              step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+              // exit the 'rally' when price decrease, also forcing a single match 
+              step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+          )
+      )
+      | where step == 's1' // select only records with price increase
+      | summarize 
+          (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+          (end_timestamp, end_price)=arg_max(timestamp, price),
+          run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+      | extend delta_pct = round(total_delta*100.0/start_price,4)
+      | extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+      | summarize arg_max(delta_pct, *) by symbol
+      | project symbol, start_timestamp, start_price, end_timestamp, end_price,
+          total_delta, delta_pct, run_duration_s, run_length
+      | order by delta_pct
+      ```
+     ![](./media/image16.png)
 
-StockPrice
-
-| summarize arg_max(timestamp,\*) by bin(timestamp, 1m), symbol
-
-| project symbol, price, timestamp
-
-| partition by symbol
-
-(
-
-order by timestamp asc
-
-| extend prev_timestamp=prev(timestamp), prev_price=prev(price)
-
-| extend delta = round(price - prev_price,2)
-
-| scan with_match_id=m_id declare(down:bool=false, step:string) with
-
-(
-
-// if state of s1 is empty we require price increase, else continue as
-long as price doesn't decrease
-
-step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-step = 's1';
-
-// exit the 'rally' when price decrease, also forcing a single match
-
-step s2: delta \< 0.0 and s2.down == false =\> down = true, step = 's2';
-
-)
-
-)
-
-| where step == 's1' // select only records with price increase
-
-| summarize
-
-(start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
-
-(end_timestamp, end_price)=arg_max(timestamp, price),
-
-run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
-
-| extend delta_pct = round(total_delta\*100.0/start_price,4)
-
-| extend run_duration_s = datetime_diff('second', end_timestamp,
-start_timestamp)
-
-| summarize arg_max(delta_pct, \*) by symbol
-
-| project symbol, start_timestamp, start_price, end_timestamp,
-end_price,
-
-total_delta, delta_pct, run_duration_s, run_length
-
-| order by delta_pct
-
-![](./media/image16.png)
-
-![](./media/image17.png)
+     ![](./media/image17.png)
 
 ## **요약**
 
