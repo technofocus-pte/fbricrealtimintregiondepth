@@ -123,14 +123,13 @@ Dataflows, 데이터 팩토리 파이프라인, 노트북, Power BI 데이터 �
 6.  오른쪽에 표시되는 **Create a workspace** 창에서 다음 세부 정보를
     입력하고 **Apply** 버튼을 클릭하세요.
 
-| **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
-|----|----|
-| **Advanced** | Select Trail |
-| **Default storage format** | **Small dataset storage format** |
+      | **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
+      |----|----|
+      | **Advanced** | Select Trail |
+      | **Default storage format** | **Small dataset storage format** |
 
-
-  ![](./media/image69.png)
-  ![](./media/image70.png)
+   ![](./media/image69.png)
+        ![](./media/image70.png)
 
 ## **작업 4: Azure Container Instance를 통해 앱 배포하기**
 
@@ -149,14 +148,14 @@ Resources를 자동 배포하려면 아래 단계를 따르세요.
 2.  **Custom deployment** 창의 **Basics** 탭에서 다음 세부 정보를
     입력하고 **Review+create** 버튼을 클릭하세요.
 
-|               |                                                                |
-|---------------|----------------------------------------------------------------|
-|Subscription   |Select the assigned subscription	                               |
-|Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
-|Region         |Select West US 3	|
+      |               |                                                                |
+      |---------------|----------------------------------------------------------------|
+      |Subscription   |Select the assigned subscription	                               |
+      |Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
+      |Region         |Select West US 3	|
 
-   ![](./media/image71.png)
-    ![](./media/image72.png)
+       ![](./media/image71.png)
+        ![](./media/image72.png)
 
 3.  **Review + create** 탭에서 탐색하여 **Create** 버튼을
     **클릭하세요.**
