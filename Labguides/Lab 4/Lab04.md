@@ -73,8 +73,8 @@
 
 7.  Explorer에서 **Lakehouse를** 선택하고 **Add 버튼을** 클릭하세요**.**
 
-> ***중요*:** 가져온 모든 노트북에 Lakehouse를 추가해야 하며, 노트북을
-> 처음 열 때마다 이 작업을 수행해야 함.
+      > ***중요*:** 가져온 모든 노트북에 Lakehouse를 추가해야 하며, 노트북을
+      > 처음 열 때마다 이 작업을 수행해야 함.
      ![](./media/image8.png)
      ![](./media/image9.png)
 
@@ -132,73 +132,73 @@ Lakehouse에서 새로운 실시간 데이터로 과거 데이터를 보완하�
 3.  노트북을 실행하는 데 대략 15~20분 정도 소요되며, **모델 훈련** 및
     **교차 검증과** 같은 일부 단계에는 시간이 좀 걸립니다.
 
-     ![](./media/image14.png)
-
-     ![](./media/image15.png)
-
-     ![](./media/image16.png)
-
-     ![](./media/image17.png)
-
-     ![](./media/image18.png)
-
-     ![](./media/image19.png)
-
-     ![](./media/image20.png)
-
-     ![](./media/image21.png)
-
-     ![](./media/image22.png)
-
-     ![](./media/image23.png)
-
-     ![](./media/image24.png)
-
-     ![](./media/image25.png)
-
-     ![](./media/image26.png)
-
-     ![](./media/image27.png)
-
-     ![](./media/image28.png)
-
-    ![](./media/image29.png)
-
-    ![](./media/image30.png)
-
-    ![](./media/image31.png)
-
-    ![](./media/image32.png)
-
-    ![](./media/image33.png)
-
-    ![](./media/image34.png)
-
-    ![](./media/image35.png)
-
-    ![](./media/image36.png)
-
-    ![](./media/image37.png)
-
-    ![](./media/image38.png)
-
-    ![](./media/image39.png)
-
-    ![](./media/image40.png)
-
-    ![](./media/image41.png)
-
-    ![](./media/image42.png)
-
-    ![](./media/image43.png)
-
-    ![](./media/image44.png)
-
-    ![](./media/image45.png)
- 
-    ![](./media/image46.png)
-
-    ![](./media/image47.png)
+       ![](./media/image14.png)
+  
+       ![](./media/image15.png)
+  
+       ![](./media/image16.png)
+  
+       ![](./media/image17.png)
+  
+       ![](./media/image18.png)
+  
+       ![](./media/image19.png)
+  
+       ![](./media/image20.png)
+  
+       ![](./media/image21.png)
+  
+       ![](./media/image22.png)
+  
+       ![](./media/image23.png)
+  
+       ![](./media/image24.png)
+  
+       ![](./media/image25.png)
+  
+       ![](./media/image26.png)
+  
+       ![](./media/image27.png)
+  
+       ![](./media/image28.png)
+  
+      ![](./media/image29.png)
+  
+      ![](./media/image30.png)
+  
+      ![](./media/image31.png)
+  
+      ![](./media/image32.png)
+  
+      ![](./media/image33.png)
+  
+      ![](./media/image34.png)
+  
+      ![](./media/image35.png)
+  
+      ![](./media/image36.png)
+  
+      ![](./media/image37.png)
+  
+      ![](./media/image38.png)
+  
+      ![](./media/image39.png)
+  
+      ![](./media/image40.png)
+  
+      ![](./media/image41.png)
+  
+      ![](./media/image42.png)
+  
+      ![](./media/image43.png)
+  
+      ![](./media/image44.png)
+  
+      ![](./media/image45.png)
+   
+      ![](./media/image46.png)
+  
+      ![](./media/image47.png)
 
 ##  작업 3: 모델 및 실행 검토
 
@@ -389,37 +389,37 @@ write_predictions와* 같은 함수 정의로 세분화되어 있습니다. 노�
 7.  명령에서 ***Run all을*** 클릭하고 작업이 진행됨에 따라 따라가세요.
 
 8.  모든 기호에 대해 노트북을 실행하는 데 10분이 걸릴 수 있습니다.
-    ![](./media/image71.png)
-
-    ![](./media/image72.png)
-
-    ![](./media/image73.png)
-
-    ![](./media/image74.png)
-
-    ![](./media/image75.png)
-
-    ![](./media/image76.png)
-
-    ![](./media/image77.png)
-
-    ![](./media/image78.png)
-
-     ![](./media/image79.png)
-
-     ![](./media/image80.png)
-
-     ![](./media/image81.png)
-
-     ![](./media/image82.png)
-
-    ![](./media/image83.png)
-
-    ![](./media/image84.png)
-
-     ![](./media/image85.png)
-
-     ![](./media/image86.png)
+      ![](./media/image71.png)
+  
+      ![](./media/image72.png)
+  
+      ![](./media/image73.png)
+  
+      ![](./media/image74.png)
+  
+      ![](./media/image75.png)
+  
+      ![](./media/image76.png)
+  
+      ![](./media/image77.png)
+  
+      ![](./media/image78.png)
+  
+       ![](./media/image79.png)
+  
+       ![](./media/image80.png)
+  
+       ![](./media/image81.png)
+  
+       ![](./media/image82.png)
+  
+      ![](./media/image83.png)
+  
+      ![](./media/image84.png)
+  
+       ![](./media/image85.png)
+  
+       ![](./media/image86.png)
 
 9.  모든 셀이 실행되면 *표의* 오른쪽에 있는 점**(...)** 세 개를 클릭하여
     스키마를 새로 고친 다음 탐색하여 **Refresh**를 **클릭하세요.**
@@ -473,17 +473,17 @@ write_predictions와* 같은 함수 정의로 세분화되어 있습니다. 노�
 
 7.  **New relationship** 대화 상자에서:
 
-- **From table**은 stock_prediction과 **Symbol** 열로 채워집니다**.**
-
-- **To table**은 dim_symbol과 **Symbol** 열로 채워집니다**.**
-
-- Cardinality: **다대일(\*:1)**
-
-- 교차 필터 방향: **단일**
-
-- **Make this relationship active** 옆의 상자를 선택된 상태로 두세요.
-
-- **Save를** 선택하세요.
+      - **From table**은 stock_prediction과 **Symbol** 열로 채워집니다**.**
+      
+      - **To table**은 dim_symbol과 **Symbol** 열로 채워집니다**.**
+      
+      - Cardinality: **다대일(\*:1)**
+      
+      - 교차 필터 방향: **단일**
+      
+      - **Make this relationship active** 옆의 상자를 선택된 상태로 두세요.
+      
+      - **Save를** 선택하세요.
 
      ![](./media/image95.png)
 
@@ -526,8 +526,8 @@ write_predictions와* 같은 함수 정의로 세분화되어 있습니다. 노�
 
      ![](./media/image103.png)
 
-9.  *Home* 리본에서 ***OneLake data hub를*** 클릭하고 **KQL Database를**
-    선택하세요**.**
+9.  *Home* 리본에서 **OneLake data hub를** 클릭하고 **KQL Database를**
+    선택하세요.
 
      ![](./media/image104.png)
 
@@ -542,9 +542,9 @@ write_predictions와* 같은 함수 정의로 세분화되어 있습니다. 노�
      ![](./media/image106.png)
 
 12. **Resource** 탭에서 **Administrative password를** 입력하고
-    **Sign-in** 버튼을 클릭하세요**.**
+    **Sign-in** 버튼을 클릭하세요.
 
-    ![](./media/image107.png)
+     ![](./media/image107.png)
 
 13. Navigator 페이지의 Display option에서 **Stockprice** table를 선택한
     다음 **Load** 버튼을 클릭하세요.
@@ -605,69 +605,69 @@ write_predictions와* 같은 함수 정의로 세분화되어 있습니다. 노�
 23. **Power BI** 페이지의 **시각화에서 꺾은선형 차트** 아이콘을 클릭하여
     보고서에 **열 차트를** 추가합니다.
 
-- **Data Pane**에서 **StockPrice를** 확장하고 **Timestamp** 옆의
-  확인란을 선택하세요. 그러면 열 차트가 만들어지고 필드가 **X축에**
-  추가됩니다.
+      - **Data Pane**에서 **StockPrice를** 확장하고 **Timestamp** 옆의
+        확인란을 선택하세요. 그러면 열 차트가 만들어지고 필드가 **X축에**
+        추가됩니다.
+      
+      - **Data Pane**에서 **StockPrice를** 확장하고 **가격** 옆의 확인란을
+        선택하세요. 그러면 필드가 **Y축에** 추가됩니다.
+      
+      - **Data Pane**에서 **StockPrice를** 확장하고 **기호** 옆의 확인란을
+        선택하세요. 그러면 **Legend에** 필드가 추가됩니다.
+      
+      - **필터**: **timestamp** to ***Relative time**최근* **15분** *이내로
+        설정됨*
+       ![](./media/image119.png)
 
-- **Data Pane**에서 **StockPrice를** 확장하고 **가격** 옆의 확인란을
-  선택하세요. 그러면 필드가 **Y축에** 추가됩니다.
-
-- **Data Pane**에서 **StockPrice를** 확장하고 **기호** 옆의 확인란을
-  선택하세요. 그러면 **Legend에** 필드가 추가됩니다.
-
-- **필터**: **timestamp** to ***Relative time**최근* **15분** *이내로
-  설정됨*
-      ![](./media/image119.png)
-
-     ![](./media/image120.png)
+       ![](./media/image120.png)
 
 24. **Power BI** 페이지의 **Visualizations에서 Line chart** 아이콘을
     클릭하여 보고서에 **column chart를** 추가하세요.
 
-- **Data Pane**에서 **StockPrice를** 확장하고 **Timestamp** 옆의
-  확인란을 선택하세요. 그러면 열 차트가 만들어지고 필드가 **X축에**
-  추가됩니다.
+      - **Data Pane**에서 **StockPrice를** 확장하고 **Timestamp** 옆의
+        확인란을 선택하세요. 그러면 열 차트가 만들어지고 필드가 **X축에**
+        추가됩니다.
+      
+      - **Data Pane**에서 **StockPrice를** 확장하고 **price** 옆의 확인란을
+        선택하세요. 그러면 필드가 **Y축에** 추가됩니다.
+      
+      - **Data Pane**에서 **dim_symbol을** 확장하고 **Market** 옆의 확인란을
+        선택하세요. 이렇게 하면 **Legend에** 필드가 추가됩니다.
+      
+      - **필터**: **타임스탬프가** *최근* **1시간** *이내의 **상대** 시간으로*
+        설정됩니다.
 
-- **Data Pane**에서 **StockPrice를** 확장하고 **price** 옆의 확인란을
-  선택하세요. 그러면 필드가 **Y축에** 추가됩니다.
-
-- **Data Pane**에서 **dim_symbol을** 확장하고 **Market** 옆의 확인란을
-  선택하세요. 이렇게 하면 **Legend에** 필드가 추가됩니다.
-
-- **필터**: **타임스탬프가** *최근* **1시간** *이내의 **상대** 시간으로*
-  설정됩니다.
-
-     ![](./media/image121.png)
-
-     ![](./media/image122.png)
-
-     ![](./media/image123.png)
-
-     ![](./media/image124.png)
+         ![](./media/image121.png)
+    
+         ![](./media/image122.png)
+    
+         ![](./media/image123.png)
+    
+         ![](./media/image124.png)
 
 25. **Power BI** 페이지의 **Visualizations에서 Line chart** 아이콘을
     클릭하여 보고서에 **column chart를** 추가하세요.
 
-- **Data Pane**에서 **Stock_prediction을** 확장하고 **predict_time**
-  옆의 확인란을 선택하세요. 그러면 열 차트가 만들어지고 필드가 **X축에**
-  추가됩니다.
+    - **Data Pane**에서 **Stock_prediction을** 확장하고 **predict_time**
+      옆의 확인란을 선택하세요. 그러면 열 차트가 만들어지고 필드가 **X축에**
+      추가됩니다.
+    
+    - **Data Pane**에서 **Stock_prediction을** 확장하고 **yhat** 옆의
+      확인란을 선택하세요. 그러면 필드가 **Y축에** 추가됩니다.
+    
+    - **Data Pane**에서 **Stock_prediction을** 확장하고 **symbol** 옆의
+      확인란을 선택하세요. 그러면 **legend에** 필드가 추가됩니다.
+    
+    - **필터**: **predict_time** to ***Relative date*** *최근* **3일 *날짜로
+      ***설정하세요
 
-- **Data Pane**에서 **Stock_prediction을** 확장하고 **yhat** 옆의
-  확인란을 선택하세요. 그러면 필드가 **Y축에** 추가됩니다.
-
-- **Data Pane**에서 **Stock_prediction을** 확장하고 **symbol** 옆의
-  확인란을 선택하세요. 그러면 **legend에** 필드가 추가됩니다.
-
-- **필터**: **predict_time** to ***Relative date*** *최근* **3일 *날짜로
-  ***설정하세요
-
-     ![](./media/image125.png)
-
-     ![](./media/image126.png)
-
-     ![](./media/image127.png)
-
-     ![](./media/image128.png)
+         ![](./media/image125.png)
+    
+         ![](./media/image126.png)
+    
+         ![](./media/image127.png)
+    
+         ![](./media/image128.png)
 
 26. **Power BI** 페이지의 **Data에서 *stocks_prediction ***테이블을
     마우스 오른쪽 버튼으로 클릭하고 ***New measure을***
