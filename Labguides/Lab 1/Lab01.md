@@ -46,35 +46,27 @@ Lakehouse、使用 ML Model 進行預測等。
 ## 任務 1：登錄 Power BI 帳戶並註冊免費的 [Microsoft Fabric 試用版](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial)
 
 1.  打開流覽器，導航至地址欄，鍵入或粘貼以下
-    URL：https://app.fabric.microsoft.com/，然後按 **Enter** 鍵。
+    URL：+++https://app.fabric.microsoft.com/+++，然後按 **Enter** 鍵。
 
-> ![A search engine window with a red box Description automatically
-> generated with medium confidence](./media/image2.png)
+     ![](./media/image3.png)
 
 2.  在 **Microsoft Fabric** 視窗中，輸入您的 Microsoft 365
     憑據，然後按一下 "**提交** "按鈕。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image3.png)
->
-> ![A close up of a white and green object Description automatically
-> generated](./media/image4.png)
+     ![](./media/new1.png)
 
 3.  從 "**資源** "選項卡中輸入**管理密碼**，然後按一下 "**登錄
     "**按鈕**。**
 
-> ![A login screen with a red box and blue text Description
-> automatically generated](./media/image5.png)
+      ![](./media/image5.png)
 
 4.  在 "**保持登錄狀態？**"視窗中，按一下 "**是** "按鈕。
 
-> ![A screenshot of a computer error Description automatically
-> generated](./media/image6.png)
+     ![](./media/image6.png)
 
 5.  您將進入 Power BI 主頁。
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+     ![](./media/image7.png)
 
 ## 任務 2：啟動 Microsoft Fabric 試用版
 
@@ -82,112 +74,53 @@ generated](./media/image7.png)
     管理員帳戶管理器圖示**。在 "帳戶管理器 "刀片中，導航並選擇
     **"開始試用"，**如下圖所示**。**
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+     ![](./media/image8.png)
 
 2.  在 **"升級到免費 Microsoft Fabric** 試用版 "對話方塊中，按一下
-    "**開始試用 "**按鈕**。**
+   **"開始試用"**按鈕。
 
-> ![](./media/image9.png)
+      ![](./media/image9.png)
 
 3.  您將看到 "**成功升級到免費 Microsoft Fabic 試用版**
     "通知對話方塊。在對話方塊中，按一下**織物主頁**按鈕。
 
-> ![](./media/image10.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image11.png)
+      ![](./media/image10.png)
+ 
+      ![](./media/image11.png)
 
-## 任務 3：兌換 Azure 通行證
-
-1.  在流覽器上打開一個新標籤，然後在位址欄中輸入以下連結[：
-    https://www.microsoftazurepass.com/](https://www.microsoftazurepass.com/)
-
-2.  然後，點擊 "**開始** "按鈕**。**
-
-![A person using a computer Description automatically
-generated](./media/image12.png)
-
-**注意**：請勿使用公司/工作帳戶登錄以兌換 Azure
-通行證，否則不會再發放一張 Azure 通行證。
-
-3.  按一下實驗室虛擬機器的 "**資源** "**選項卡**，輸入 **Office 365
-    租戶憑據登錄**。
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image13.png)
-
-![Graphical user interface, application Description automatically
-generated](./media/image14.png)
-
-4.  核對電子郵件 ID，然後點擊 "**確認 Microsoft 帳戶**"。
-
-![Text Description automatically generated](./media/image15.png)
-
-5.  按一下 "**資源**
-    "選項卡並複製**促銷代碼**。導航至**輸入促銷代碼**框，粘貼複製的促銷代碼，然後按一下
-    "**申請促銷**代碼 "按鈕**。**
-
-> ![](./media/image16.png)
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image17.png)
-
-6.  在 **"您的個人資料**
-    "頁面輸入正確的詳細資訊，勾選所有核取方塊，然後點擊 "**註冊
-    "**按鈕。
-
-![A screenshot of a computer Description automatically generated with
-medium confidence](./media/image18.jpeg)
-
-![Graphical user interface, text, application Description automatically
-generated](./media/image19.png)
-
-7.  在 "**您對註冊體驗是否滿意** "視窗，輸入您的回饋意見，然後按一下
-    "**提交** "按鈕。
-
-![](./media/image20.png)
-
-8.  它會自動將你重定向到 Azure 門戶，現在你就可以使用 Azure 服務了。在
-    **"歡迎訪問 Microsoft Azure** "對話方塊中，按一下 "**稍後可能**
-    "按鈕。
-
-![A screenshot of a computer Description automatically
-generated](./ef85e7f5afa93af76c1db07ca21775d290e696aa.png)
-
-## **任務 4：創建織物工作區**
+## **任務 3：創建織物工作區**
 
 在此任務中，您將創建一個 Fabric 工作區。該工作區包含本 Lakehouse
 教程所需的所有項目，其中包括 Lakehouse、資料流程、Data Factory
 管道、筆記本、Power BI 資料集和報表。
 
 1.  打開流覽器，導航到地址欄，鍵入或粘貼以下
-    URL：https://app.fabric.microsoft.com/，然後按 **Enter** 鍵。在
+    URL：+++https://app.fabric.microsoft.com/+++，然後按 **Enter** 鍵。在
     **Microsoft Fabric 主頁**中，導航並按一下 **Power BI** 磁貼。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image66.png)
+     ![](./media/image66.png)
 
 2.  在 **Power BI
     主頁**左側導航菜單中，導航並點擊**工作空間**，如下圖所示。
 
-> ![](./media/image67.png)
+     ![](./media/image67.png)
 
 3.  在工作區窗格中，點擊 **+ 新建工作區按鈕**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image68.png)
-
+     ![](./media/image68.png)
 4.  在右側顯示的 "**創建工作區** "窗格中，輸入以下詳細資訊，然後按一下
     "**應用** "按鈕。
 
-[TABLE]
+      |  |  |
+      |----|----|
+      |名稱 |	+++即時工作區 XXX+++（XXX 可以是一個唯一的數位，也可以添加更多數字）|
+      |高級	|選擇路徑|
+      |預設存儲格式 |	小資料集存儲格式|
 
-> ![](./media/image69.png)
->
-> ![](./media/image70.png)
+       ![](./media/image69.png)
+         ![](./media/image70.png)
 
-## **任務 5：通過 Azure 容器實例部署應用程式**
+## **任務 4：通過 Azure 容器實例部署應用程式**
 
 此任務使用 ARM 範本將股票生成器應用程式部署到 Azure Container
 Instance。該應用程式將生成股票資料，並將資料發佈到 Azure Event
@@ -198,147 +131,125 @@ Hubs，Azure Event Hubs 也是在部署 ARM 範本時配置的。
 1.  打開新的位址欄並輸入以下 URL。如果提示登錄，請使用您的 O365
     租戶憑據。
 
-> [https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json](https://portal.azure.com/%23create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json)
++++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
 
 2.  在 "**自訂部署** "視窗的 "**基礎**
-    "選項卡下，輸入以下詳細資訊，然後按一下 "**審核+創建 "**按鈕。
-
-[TABLE]
-
-![A screenshot of a computer Description automatically
-generated](./media/image71.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image72.png)
+    "選項卡下，輸入以下詳細資訊，然後按一下 "**審核+創建** "按鈕。
+      |  |  |
+      |----|----|
+      |訂閱	|選擇指定的訂閱 |
+      |資源組	| 按一下 "新建"> 輸入 +++realtimeworkshop+++ 並選擇 "確定|
+      |地區	| 選擇美國西部 3|
+ 
+      ![](./media/image71.png)
+      
+      ![](./media/image72.png)
 
 3.  在 "**審核+創建** "選項卡中，導航並按一下 "**創建 "**按鈕**。**
 
-![](./media/image73.png)
+    ![](./media/image73.png)
 
 5.  等待部署完成。部署大約需要 10-15 分鐘。
 
 6.  部署完成後，按一下 "**轉到資源** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image74.png)
+     ![](./media/image74.png)
 
-4.  在 **realtimeworkshop 資源組中**，驗證是否已成功部署 **Event Hub
+7.  在 **realtimeworkshop 資源組中**，驗證是否已成功部署 **Event Hub
     命名空間**和 **Azure Container Instance (ACI)**。
 
-![](./media/image75.png)
+     ![](./media/image75.png)
 
-5.  打開 **Event Hub 命名空間**，其名稱類似於
+8.  打開 **Event Hub 命名空間**，其名稱類似於
     ***ehns-XXXXXX-fabricworkshop***。
 
-![](./media/image76.png)
+      ![](./media/image76.png)
 
-6.  在 **Event Hub
+9.  在 **Event Hub
     命名空間**頁面左側導航功能表中，導航至**設置**部分並按一下**共用訪問策略**。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image77.png)
+     ![](./media/image77.png)
 
-7.  在***共用訪問策略***頁面，按一下 ***stockeventhub_sas*** .**SAS
+10.  在***共用訪問策略***頁面，按一下 ***stockeventhub_sas*** .**SAS
     策略：**右側出現 **stockeventhub_sas** *窗格*，複製**主鍵**和
     **Event Hub 命名空間**（如
-    *ehns-XXXXXX-fabricworkshop*）並粘貼到記事本上，因為在接下來的任務中需要它們。簡而言之，您需要以下內容：
+    **ehns-XXXXXX-fabricworkshop**）並粘貼到記事本上，因為在接下來的任務中需要它們。簡而言之，您需要以下內容：
 
-![A screenshot of a computer Description automatically
-generated](./media/image78.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image79.png)
-
-## **任務 6：使用 Eventstreams 獲取資料**
+      ![](./media/image78.png)
+      
+      ![](./media/image79.png)
+## **任務 5：使用 Eventstreams 獲取資料**
 
 1.  返回 Microsoft Fabric，導航並點擊頁面底部的 **Power
     BI**，然後選擇**即時智能**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image80.png)
+     ![](./media/image80.png)
 
 2.  在 **Synapse Real-Time Analytics** 主頁上，選擇 **Eventstreams**。將
-    Eventstreams 命名為 +++
-    *StockEventStream**+++**，選中**增強功能（預覽）**，*然後按一下**創建**按鈕。
+    Eventstreams 命名為 **+++StockEventStream+++**，選中**增強功能（預覽）**，然後按一下**創建**按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image81.png)
+     ![](./media/image81.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image82.png)
+    ![](./media/image82.png)
 
 3.  在 Eventstreams 上，選擇**添加外部源**
 
-![](./media/image83.png)
+    ![](./media/image83.png)
 
-4.  在添加源上，選擇 **Azure *Event Hubs。***
+4.  在添加源上，選擇 **Azure Event Hubs**
 
-![A screenshot of a chat Description automatically
-generated](./media/image84.png)
+     ![](./media/image84.png)
 
 5.  在 "**Azure Event Hubs "**配置頁面，輸入以下詳細資訊，然後按一下
     "**添加** "按鈕。
 
-&nbsp;
+      a.  配置連接設置：點擊**新建連接**，輸入以下詳細資訊，然後點擊**創建**按鈕。
+      
+      b.  在 Event Hub 名稱空間--輸入 Event Hub 名稱（您在記事本中保存的值）
+      
+      c.  Event Hub : **+++StockEventHub++++**
+      
+      d.  共用訪問金鑰名稱：**+++stockeventhub_sas+++**
+      
+      e.  共用訪問金鑰- 輸入主金鑰（您在**任務 8** 的記事本中保存的值）
+      
+      &nbsp;
+      
+      f.  消費群：**$默認** 
+      
+      g.  資料格式：**JSON** 並按一下 "**下一步** "按鈕
 
-1.  配置連接設置：點擊**新建連接**，輸入以下詳細資訊，然後點擊**創建**按鈕。
+        ![](./media/image85.png)
+        
+        ![](./media/image86.png)
+        ![](./media/image87.png)
+        
+        ![](./media/image88.png)
+        
+        ![](./media/image89.png)
 
-&nbsp;
-
-1.  在 Event Hub 名稱空間--輸入 Event Hub 名稱（您在記事本中保存的值）
-
-2.  Event Hub : **+++StockEventHub++++**
-
-3.  共用訪問金鑰名稱：+++**stockeventhub**\_sas++++
-
-4.  共用訪問金鑰- 輸入主金鑰（您在**任務 8** 的記事本中保存的值）
-
-&nbsp;
-
-2.  消費群：***$***默認
-
-3.  資料格式：**JSON** 並按一下 "**下一步** "按鈕
-
-![A screenshot of a computer Description automatically
-generated](./media/image85.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image86.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image87.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image88.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image89.png)
-
-8.  您將看到一條通知，說明**已成功添加源 "StockEventHub,Azure Event
+8.  您將看到一條通知，說明 已成功添加源 **"StockEventHub,Azure Event
     Hubs"**。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image90.png)
+     ![](./media/image90.png)
 
 9.  配置好 Event Hub
-    後，點擊***測試結果***。您應該能看到包括股票代碼、價格和時間戳記在內的事件。
+    後，點擊**測試結果**。您應該能看到包括股票代碼、價格和時間戳記在內的事件。
 
-> ![](./media/image91.png)
+     ![](./media/image91.png)
 
 10. 在 Eventstreams 上，選擇 "**發佈"。**
 
-![](./media/image92.png)
+     ![](./media/image92.png)
 
-![](./media/image93.png)
+     ![](./media/image93.png)
 
 11. 在 Eventstreams 上，選擇 **AzureEventHub** 並按一下 "**刷新**
     "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image94.png)
+     ![](./media/new2.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image95.png)
+     ![](./media/new3.png)
 
 # 練習 2：KQL 資料庫配置和輸入
 
@@ -359,121 +270,101 @@ Transformation 的臨時查詢進行了優化。
 
 1.  在左側導航菜單中，導航並按一下**即時工作區 XXXX**，如下圖所示。
 
-> ![](./media/image96.png)
+     ![](./media/image96.png)
 
 2.  在 "**即時智慧 "**頁面，導航至 "**新建** "部分，點擊選擇
     **Eventhouse**，即可創建 Eventhouse。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image97.png)
+     ![](./media/new4.png)
 
 3.  在 "**新建活動房屋** "對話方塊中，在 "**名稱** "欄位中輸入
     **+**++StockDB+++，按一下 "**創建** "按鈕並打開新活動房屋。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image98.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image99.png)
+      ![](./media/image98.png)
+      ![](./media/image99.png)
 
 4.  點擊下圖所示的**鉛筆圖示**更改設置並選擇 "**啟動**"，然後點擊
     "**完成** "按鈕啟用 OneLake 訪問。
 
-![A screenshot of a computer Description automatically
-generated](./media/image100.png)
-
+     ![](./media/new5.png)
+      ![](./media/new6.png)
+     ![](./media/new7.png)
 5.  啟用 OneLake 後，您可能需要刷新頁面以驗證 OneLake
     資料夾集成是否啟動。
 
-![A screenshot of a computer Description automatically
-generated](./media/image101.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image102.png)
+      ![](./media/image101.png)
+      
+      ![](./media/image102.png)
 
 ## 任務 2：將資料從 Eventstreams 發送到 KQL 資料庫
 
 1.  如下圖所示，在左側導航功能表中，導航並點擊上一個任務中創建的
     **StockEventStream**。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image103.png)
+     ![](./media/image103.png)
 
-2.  在 Eventstreams 上，按一下 "**編輯** "按鈕。
+2.  在 Eventstreams 上，按一下 **編輯** 按鈕。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image104.png)
+     ![](./media/new9.png)
 
 3.  我們的資料應該已經到達
     Eventstreams，現在我們將對資料進行配置，以便將其攝取到我們在上述任務中創建的
     KQL 資料庫中。在 Eventstreams 上，按一下 "*轉換事件 "或
-    "添加目標*"*，*然後導航並按一下 "**KQL 資料庫**"。
+    "添加目標*"*，*然後導航並按一下 "**Eventhouse 資料庫**"。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image105.png)
+      ![](./media/new10.png)
 
 4.  在 KQL
     設置中，選擇*直接攝取*。雖然我們有機會在此階段處理事件資料，但出於我們的目的，我們將直接把資料攝取到
     KQL 資料庫中。將目標名稱設置為
-    +*+*+KQL+++，然後選擇在上述任務中創建的**工作區**和 KQL
+    +++KQL+++，然後選擇在上述任務中創建的**工作區**和 KQL
     資料庫，然後點擊**保存**按鈕。
 
-![](./media/image106.png)
+     ![](./media/new11.png)
 
-5.  點擊 "**發佈 "**按鈕
+5.  點擊 **發佈**按鈕
 
-![](./media/image107.png)
+     ![](./media/image107.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image108.png)
+     ![](./media/image108.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image109.png)
+      ![](./media/image109.png)
 
 6.  在 Eventstreams 窗格中，選擇 **KQL** 目標中的**配置**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image110.png)
+     ![](./media/image110.png)
 
 7.  在第一個設置頁面，選擇 "**+**+**新建表**"，然後輸入名稱
-    *+++StockPrice++++* 作為在 StockDB 中保存資料的表。點擊 "**下一步**
+    **+++StockPrice++++** 作為在 StockDB 中保存資料的表。點擊 "**下一步**
     "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image111.png)
+     ![](./media/image111.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image112.png)
+     ![](./media/image112.png)
 
 8.  下一頁允許我們檢查並配置模式。如有必要，請務必將格式從 TXT 更改為
     **JSON**。預設的*符號*、*價格*和*時間戳記*列的格式應如下圖所示；然後按一下
     "*完成* "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image113.png)
+     ![](./media/image113.png)
 
-2.  在 "**摘要**
+9.  在 "**摘要**
     "頁面，如果沒有錯誤，你會看到一個**綠色核取記號**，如下圖所示，然後點擊
-    "*關閉* "按鈕完成配置。
+    "**關閉** "按鈕完成配置。
 
-![A screenshot of a computer Description automatically
-generated](./media/image114.png)
+      ![](./media/image114.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image115.png)
+      ![](./media/image115.png)
 
 9.  點擊**刷新**按鈕
 
-![A screenshot of a computer Description automatically
-generated](./media/image116.png)
+    ![](./media/image116.png)
 
 10. 選擇 **KQL** 目的地，然後點擊**刷新**按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image117.png)
+      ![](./media/image117.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image118.png)
+      ![](./media/image118.png)
 
 **摘要**
 
