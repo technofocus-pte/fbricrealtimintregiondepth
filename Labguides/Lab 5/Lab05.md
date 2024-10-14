@@ -286,17 +286,20 @@ GO
 
 
 활동의 *소스* 탭은 다음과 비슷하게 보일 것입니다:
-
-![](./media/image28.png)
+     ![](./media/image28.png)
 
 7.  **Destination** 탭을 클릭하고 다음 설정을 입력하세요.
+|   |   |
+|-----|----|
+|연결|	드롭다운에서 목록에서 StocksDW를 선택하세요.|
+|테이블 옵션	|기존|
+|표 |	stg.StocksPrices|
 
-[TABLE]
 
 - *Advanced* 섹션에서 준비 테이블을 로드하기 전에 테이블을 지우려면 다음
-  ***Pre-copy script*** ***를*** 입력하세요:
+  **Pre-copy script** ***를*** 입력하세요:
 
-> **+++delete stg.StocksPrices+++**
+ **+++delete stg.StocksPrices+++**
 
 이 단계에서는 먼저 스테이징 테이블에서 오래된 데이터를 삭제한 다음,
 마지막 워터마크에서 데이터를 선택하여 스테이징 테이블에 삽입하는
@@ -305,77 +308,79 @@ GO
 500,000행입니다. 현재 수집되는 데이터의 속도를 고려할 때, 이는 하루의 약
 3/4에 해당하는 양입니다.
 
-활동의 *Destination tab*은 다음과 같이 보일 것입니다:
+활동의 **Destination tab**은 다음과 같이 보일 것입니다:
+     ![](./media/image29.png)
 
-![](./media/image29.png)
-
-8.  *ForEach* 상자에서 더하기**(+)** 기호를 클릭하고 탐색하여 **Lookup
+8.  **ForEach** 상자에서 더하기**(+)** 기호를 클릭하고 탐색하여 **Lookup
     activity를** 선택하세요.
 
-![](./media/image30.png)
+     ![](./media/image30.png)
 
-9.  **Lookup1** 아이콘을 클릭하고 **General** 탭의 **Name field*에 +++새
-    워터마크 ***가져오기 +++를 입력하세요.
+9.  **Lookup1** 아이콘을 클릭하고 **General** 탭의 **Name field*에 +++새 워터마크 가져오기+++를 입력하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image31.png)
+     ![](./media/image31.png)
 
 10. **Settings** 탭을 클릭하고 다음 설정을 입력하세요.
 
-[TABLE]
+|   |   |
+|-----|----|
+|연결 |	드롭다운에서 목록에서 StocksDW를 선택하세요.|
+|쿼리 |사용	쿼리 |
+|쿼리	| +++@concat('Select Max(timestamp) as WaterMark as stg.', item().ObjectName)+++|
 
-![](./media/image32.png)
+  ![](./media/image32.png)
 
-11. *ForEach* 상자에서 더하기**(+)** 기호를 클릭하고 탐색하여 ***Save
-    procedure activity를*** 선택하세요.
+11. **ForEach** 상자에서 더하기**(+)** 기호를 클릭하고 탐색하여 **Save
+    procedure activity를** 선택하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image33.png)
+     ![](./media/image33.png)
 
 12. **Stored procedure** 아이콘을 클릭하세요. **General** 탭의 **Name
-    field에** +++ ***Update WaterMark*** +++를 입력하세요.
+    field에** **+++Update WaterMark+++**를 입력하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image34.png)
+     ![](./media/image34.png)
 
 13. **Settings** 탭을 클릭하고 다음 설정을 입력하세요.
+|   |   |
+|-----|----|
+|작업 공간 |	StocksDW |
+|저장 절차 이름 	|ETL.sp_IngestSourceInfo_Update|
 
-[TABLE]
 
 - 매개변수(*Import를* 클릭하면 매개변수 이름이 자동으로 추가됨):
 
-[TABLE]
+|   |   |   |
+|-----|----| ----|
+|이름	|유형	|가치 |
+|개체 이름 |	문자열	| @item().ObjectName|
+|워터마크 |	날짜/시간| 	@activity('Get New WaterMark').output.firstRow.WaterMark|
 
 ![](./media/image35.png)
 
 ## 작업 5: 파이프라인 테스트
 
-1.  파이프라인의 Home 탭에서 ***Run을*** 선택하세요.
+1.  파이프라인의 Home 탭에서 **Run을** 선택하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image36.png)
+     ![](./media/image36.png)
 
 2.  **Save and run?** 대화 상자에서 **Save and run** 버튼을 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image37.png)
+     ![](./media/image37.png)
 
 3.  그러면 먼저 파이프라인을 저장한 다음 유효성을 검사하여 구성 오류를
     찾으라는 메시지가 표시됩니다. 이 초기 실행에는 잠시 시간이 걸리며
     데이터를 스테이징 테이블에 복사합니다.
 
-![](./media/image38.png)
+     ![](./media/image38.png)
 
 4.  **PL_Refresh_DWH** 페이지의 왼쪽 탐색 메뉴에서
     **RealTimeWorkspace**작업 공간을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image39.png)
+      ![](./media/image39.png)
 
 5.  **Refresh** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+     ![](./media/image40.png)
 
 6.  데이터 웨어하우스에서 데이터는 준비 테이블에 표시되어야 합니다.
     데이터 웨어하우스 내에서 테이블을 선택하면 해당 테이블에 있는
@@ -384,13 +389,13 @@ generated](./media/image40.png)
     이미지와 같이 **stg를** 탐색하여 클릭한 다음 **StocksPrices를**
     클릭하세요.
 
-![](./media/image41.png)
+     ![](./media/image41.png)
 
 9.  명령줄에서 ***New SQL query*** 드롭다운을 클릭한 다음 **Blank**
     섹션에서 New **SQL query를** 선택하세요. 다음 단계에서 스키마 구축을
     시작하겠습니다:
 
-![](./media/image42.png)
+      ![](./media/image42.png)
 
 8.  데이터 웨어하우스에 있는 동안 new SQL query창에서 아래 스크립트를
     실행하여 수집 프로세스를 재설정합니다. 증분 테스트를 허용하는 재설정
@@ -404,49 +409,35 @@ generated](./media/image40.png)
     클릭하여 쿼리를 실행하세요. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
 > **복사**
-
+```
 -- Run this to 'RESET' the ingestion tables
 
-exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01
-23:59:59.000000'
-
+exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01 23:59:59.000000'
 GO
 
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
-
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
 BEGIN
-
-delete stg.StocksPrices
-
+    delete stg.StocksPrices
 END
-
 GO
 
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
-
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
 BEGIN
-
-delete dbo.fact_Stocks_Daily_Prices
-
+    delete dbo.fact_Stocks_Daily_Prices
 END
-
 GO
 
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
-
+IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+    WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
 BEGIN
-
-delete dbo.dim_Symbol
-
+    delete dbo.dim_Symbol
 END
+GO
+```
 
-GO ![](./media/image43.png)
+ ![](./media/image43.png)
 
 ![](./media/image44.png)
 
@@ -470,7 +461,7 @@ GO ![](./media/image43.png)
     섹션에서 **New SQL Query를** 선택하세요. 다음 단계에서 스키마 구축을
     시작하겠습니다.
 
-![](./media/image42.png)
+     ![](./media/image42.png)
 
 2.  Data Warehouse에서 다음 SQL을 실행하여 팩트 및 차원 테이블을
     만드세요. 이전 단계와 마찬가지로 이 임시로 실행하거나 SQL 쿼리를
@@ -480,96 +471,63 @@ GO ![](./media/image43.png)
     클릭하여 쿼리를 실행하세요. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
 > **복사**
-
-/\* 2 - Create Dimension and Fact tables.sql \*/
+```
+/* 2 - Create Dimension and Fact tables.sql */
 
 -- Dimensions and Facts (dbo)
-
 CREATE TABLE dbo.fact_Stocks_Daily_Prices
-
 (
-
-Symbol_SK INT NOT NULL
-
-,PriceDateKey DATE NOT NULL
-
-,MinPrice FLOAT NOT NULL
-
-,MaxPrice FLOAT NOT NULL
-
-,ClosePrice FLOAT NOT NULL
-
+   Symbol_SK INT NOT NULL
+   ,PriceDateKey DATE NOT NULL
+   ,MinPrice FLOAT NOT NULL
+   ,MaxPrice FLOAT NOT NULL
+   ,ClosePrice FLOAT NOT NULL
 )
-
 GO
 
 CREATE TABLE dbo.dim_Symbol
-
 (
-
-Symbol_SK INT NOT NULL
-
-,Symbol VARCHAR(5) NOT NULL
-
-,Name VARCHAR(25)
-
-,Market VARCHAR(15)
-
+    Symbol_SK INT NOT NULL
+    ,Symbol VARCHAR(5) NOT NULL
+    ,Name VARCHAR(25)
+    ,Market VARCHAR(15)
 )
-
 GO
 
-CREATE TABLE dbo.dim_Date
-
+CREATE TABLE dbo.dim_Date 
 (
-
-\[DateKey\] DATE NOT NULL
-
-,\[DayOfMonth\] int
-
-,\[DayOfWeeK\] int
-
-,\[DayOfWeekName\] varchar(25)
-
-,\[Year\] int
-
-,\[Month\] int
-
-,\[MonthName\] varchar(25)
-
-,\[Quarter\] int
-
-,\[QuarterName\] varchar(2)
-
+    [DateKey] DATE NOT NULL
+    ,[DayOfMonth] int
+    ,[DayOfWeeK] int
+    ,[DayOfWeekName] varchar(25)
+    ,[Year] int
+    ,[Month] int
+    ,[MonthName] varchar(25)
+    ,[Quarter] int
+    ,[QuarterName] varchar(2)
 )
-
-GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image45.png)
-
-![](./media/image46.png)
+GO 
+```
+  ![](./media/image45.png)
+    ![](./media/image46.png)
 
 4.  참조를 위해 쿼리 이름을 바꿉니다. 탐색기에서 **SQL query를** 마우스
     오른쪽 버튼으로 클릭하고 **Rename을** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image47.png)
+     ![](./media/image47.png)
 
-5.  **Rename** 대화 상자의 **Name** 필드에 +++ Create Dimension and Fact
-    tables**+++를** 입력한 다음 **Rename** 버튼을 클릭하세요.
+5.  **Rename** 대화 상자의 **Name** 필드에 **+++Create Dimension and Fact
+    tables+++를** 입력한 다음 **Rename** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image48.png)
+     ![](./media/image48.png)
 
 ## 작업 2: 날짜 차원 로드하기
 
-1.  창 상단에서 ***New SQL Query*** 클릭하세요. 명령줄에서 ***New SQL
-    Query*** 드롭다운을 클릭한 다음 **Blank** 섹션에서 **New SQL Query**
+1.  창 상단에서 **New SQL Query** 클릭하세요. 명령줄에서 **New SQL
+    Query** 드롭다운을 클릭한 다음 **Blank** 섹션에서 **New SQL Query**
     선택하세요. 다음 단계에서 스키마 구축을 시작하겠습니다:
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+      ![](./media/image49.png)
 
 2.  날짜 차원은 차별화되어 있으므로 필요한 모든 값을 한 번 로드할 수
     있습니다. 다음 스크립트를 실행하여 다양한 값으로 날짜 차원 테이블을
@@ -579,118 +537,83 @@ generated](./media/image49.png)
     클릭하여 쿼리를 실행하세요. 쿼리가 실행되면 결과를 볼 수 있습니다.
 
 > **복사**
+```
+/* 3 - Load Dimension tables.sql */
 
-/\* 3 - Load Dimension tables.sql \*/
-
-CREATE PROC \[ETL\].\[sp_Dim_Date_Load\]
-
+CREATE PROC [ETL].[sp_Dim_Date_Load]
 @BeginDate DATE = NULL
-
 ,@EndDate DATE = NULL
-
 AS
-
 BEGIN
 
 SET @BeginDate = ISNULL(@BeginDate, '2022-01-01')
-
 SET @EndDate = ISNULL(@EndDate, DATEADD(year, 2, GETDATE()))
 
 DECLARE @N AS INT = 0
-
 DECLARE @NumberOfDates INT = DATEDIFF(day,@BeginDate, @EndDate)
-
 DECLARE @SQL AS NVARCHAR(MAX)
-
 DECLARE @STR AS VARCHAR(MAX) = ''
 
-WHILE @N \<= @NumberOfDates
+WHILE @N <= @NumberOfDates
+    BEGIN
+    SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10)) 
+    
+    IF @N < @NumberOfDates
+        BEGIN
+            SET @STR = @STR + ','
+        END
 
-BEGIN
+    SET @N = @N + 1;
+    END
 
-SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10))
-
-IF @N \< @NumberOfDates
-
-BEGIN
-
-SET @STR = @STR + ','
-
-END
-
-SET @N = @N + 1;
-
-END
-
-SET @SQL = 'INSERT INTO dbo.dim_Date (\[DateKey\]) SELECT CAST(\[value\]
-AS DATE) FROM STRING_SPLIT(@STR, '','')';
+SET @SQL = 'INSERT INTO dbo.dim_Date ([DateKey]) SELECT CAST([value] AS DATE) FROM STRING_SPLIT(@STR, '','')';
 
 EXEC sys.sp_executesql @SQL, N'@STR NVARCHAR(MAX)', @STR;
 
 UPDATE dbo.dim_Date
-
-SET
-
-\[DayOfMonth\] = DATEPART(day,DateKey)
-
-,\[DayOfWeeK\] = DATEPART(dw,DateKey)
-
-,\[DayOfWeekName\] = DATENAME(weekday, DateKey)
-
-,\[Year\] = DATEPART(yyyy,DateKey)
-
-,\[Month\] = DATEPART(month,DateKey)
-
-,\[MonthName\] = DATENAME(month, DateKey)
-
-,\[Quarter\] = DATEPART(quarter,DateKey)
-
-,\[QuarterName\] = CONCAT('Q',DATEPART(quarter,DateKey))
+SET 
+    [DayOfMonth] = DATEPART(day,DateKey)
+    ,[DayOfWeeK] = DATEPART(dw,DateKey)
+    ,[DayOfWeekName] = DATENAME(weekday, DateKey)
+    ,[Year] = DATEPART(yyyy,DateKey)
+    ,[Month] = DATEPART(month,DateKey)
+    ,[MonthName] = DATENAME(month, DateKey)
+    ,[Quarter] = DATEPART(quarter,DateKey)
+    ,[QuarterName] = CONCAT('Q',DATEPART(quarter,DateKey))
 
 END
-
 GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image50.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image51.png)
+```
+   ![](./media/image50.png)
+       ![](./media/image51.png)
 
 4.  동일한 쿼리 창에서 다음 스크립트를 실행하여 위의 절차를 실행하새요.
 
 > **복사**
-
-/\* 3 - Load Dimension tables.sql \*/
-
+```
+/* 3 - Load Dimension tables.sql */
 Exec ETL.sp_Dim_Date_Load
-
-![A screenshot of a computer Description automatically
-generated](./media/image52.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image53.png)
+```
+   ![](./media/image52.png)
+       ![](./media/image53.png)
 
 5.  참조를 위해 쿼리 이름을 바꿉니다. 탐색기에서 **SQL query를** 마우스
     오른쪽 버튼으로 클릭하고 **Rename**을 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image54.png)
+     ![](./media/image54.png)
 
-6.  **Rename** 대화 상자의 **Name** 필드에 +++ **Load Dimension
+6.  **Rename** 대화 상자의 **Name** 필드에 **+++Load Dimension
     tables+++를** 입력한 다음 **Rename** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image55.png)
+     ![](./media/image55.png)
 
 ## 작업 3: 기호 차원을 로드하는 절차 만들기
 
-1.  명령줄에서 ***New SQL Query*** 드롭다운을 클릭한 다음 **Blank**
+1.  명령줄에서 **New SQL Query** 드롭다운을 클릭한 다음 **Blank**
     섹션에서 **New SQL Query** 선택하세요. 다음 단계에서 스키마 구축을
     시작하겠습니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+      ![](./media/image49.png)
 
 2.  날짜 차원과 마찬가지로 각 주식 기호는 기호 차원 테이블의 행에
     해당합니다. 이 테이블에는 회사명, 주식이 상장된 시장 등 주식에 대한
@@ -702,82 +625,54 @@ generated](./media/image49.png)
     모든 종목을 처리할 것입니다.
 
 > **복사**
+```
+/* 3 - Load Dimension tables.sql */
 
-/\* 3 - Load Dimension tables.sql \*/
-
-CREATE PROC \[ETL\].\[sp_Dim_Symbol_Load\]
-
+CREATE PROC [ETL].[sp_Dim_Symbol_Load]
 AS
-
 BEGIN
 
-DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM
-\[dbo\].\[dim_Symbol\])
+DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM [dbo].[dim_Symbol])
 
-INSERT \[dbo\].\[dim_Symbol\]
-
-SELECT
-
-Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)
-
-, Symbol
-
-, Name
-
-,Market
-
-FROM
-
-(SELECT DISTINCT
-
-sdp.Symbol
-
-, Name = 'Stock ' + sdp.Symbol
-
-, Market = CASE SUBSTRING(Symbol,1,1)
-
-WHEN 'B' THEN 'NASDAQ'
-
-WHEN 'W' THEN 'NASDAQ'
-
-WHEN 'I' THEN 'NYSE'
-
-WHEN 'T' THEN 'NYSE'
-
-ELSE 'No Market'
+INSERT [dbo].[dim_Symbol]
+SELECT  
+    Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)  
+    , Symbol
+    , Name
+    ,Market
+FROM 
+    (SELECT DISTINCT
+    sdp.Symbol 
+    , Name  = 'Stock ' + sdp.Symbol 
+    , Market = CASE SUBSTRING(Symbol,1,1)
+                    WHEN 'B' THEN 'NASDAQ'
+                    WHEN 'W' THEN 'NASDAQ'
+                    WHEN 'I' THEN 'NYSE'
+                    WHEN 'T' THEN 'NYSE'
+                    ELSE 'No Market'
+                END
+    FROM 
+        [stg].[vw_StocksDailyPrices] sdp
+    WHERE 
+        sdp.Symbol NOT IN (SELECT Symbol FROM [dbo].[dim_Symbol])
+    ) stg
 
 END
-
-FROM
-
-\[stg\].\[vw_StocksDailyPrices\] sdp
-
-WHERE
-
-sdp.Symbol NOT IN (SELECT Symbol FROM \[dbo\].\[dim_Symbol\])
-
-) stg
-
-END
-
 GO
+```
 
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image57.png)
+   ![](./media/image56.png)
+      ![](./media/image57.png)
 
 7.  참조를 위해 쿼리 이름을 바꾸세요. 탐색기에서 **SQL query를** 마우스
     오른쪽 버튼으로 클릭하고 **Rename를** 선택하세요.
 
-![](./media/image58.png)
+     ![](./media/image58.png)
 
-8.  **Rename** 대화 상자의 **Name** 필드에 +++ **Load the stock symbol
+8.  **Rename** 대화 상자의 **Name** 필드에 **+++Load the stock symbol
     dimension +++를** 입력한 다음 **Rename** 버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
+      ![](./media/image59.png)
 
 ## **작업 4: 뷰 만들기**
 
@@ -785,8 +680,7 @@ generated](./media/image59.png)
     섹션에서 **New SQL Query** 선택하세요. 다음 단계에서 스키마 구축을
     시작하겠습니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+      ![](./media/image49.png)
 
 2.  로드하는 동안 데이터 집계를 지원하는 보기를 만드세요. 파이프라인이
     실행되면 데이터가 KQL 데이터베이스에서 준비 테이블로 복사되어 각
@@ -794,116 +688,80 @@ generated](./media/image49.png)
 
 3.  query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요.
+```
+/* 4 - Create Staging Views.sql */
 
-/\* 4 - Create Staging Views.sql \*/
-
-CREATE VIEW \[stg\].\[vw_StocksDailyPrices\]
-
-AS
-
-SELECT
-
-Symbol = symbol
-
-,PriceDate = datestamp
-
-,MIN(price) as MinPrice
-
-,MAX(price) as MaxPrice
-
-,(SELECT TOP 1 price FROM \[stg\].\[StocksPrices\] sub
-
-WHERE sub.symbol = prices.symbol and sub.datestamp = prices.datestamp
-
-ORDER BY sub.timestamp DESC
-
-) as ClosePrice
-
-FROM
-
-\[stg\].\[StocksPrices\] prices
-
+CREATE VIEW [stg].[vw_StocksDailyPrices] 
+AS 
+SELECT 
+    Symbol = symbol
+    ,PriceDate = datestamp
+    ,MIN(price) as MinPrice
+    ,MAX(price) as MaxPrice
+    ,(SELECT TOP 1 price FROM [stg].[StocksPrices] sub
+    WHERE sub.symbol = prices.symbol and sub.datestamp = prices.datestamp
+    ORDER BY sub.timestamp DESC
+    ) as ClosePrice
+FROM 
+    [stg].[StocksPrices] prices
 GROUP BY
-
-symbol, datestamp
-
+    symbol, datestamp
 GO
-
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
-
+/**************************************/
 CREATE VIEW stg.vw_StocksDailyPricesEX
-
 AS
-
 SELECT
-
-ds.\[Symbol_SK\]
-
-,dd.DateKey as PriceDateKey
-
-,MinPrice
-
-,MaxPrice
-
-,ClosePrice
-
-FROM
-
-\[stg\].\[vw_StocksDailyPrices\] sdp
-
-INNER JOIN \[dbo\].\[dim_Date\] dd
-
-ON dd.DateKey = sdp.PriceDate
-
-INNER JOIN \[dbo\].\[dim_Symbol\] ds
-
-ON ds.Symbol = sdp.Symbol
-
+    ds.[Symbol_SK]
+    ,dd.DateKey as PriceDateKey
+    ,MinPrice
+    ,MaxPrice
+    ,ClosePrice
+FROM 
+    [stg].[vw_StocksDailyPrices] sdp
+INNER JOIN [dbo].[dim_Date] dd
+    ON dd.DateKey = sdp.PriceDate
+INNER JOIN [dbo].[dim_Symbol] ds
+    ON ds.Symbol = sdp.Symbol
 GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image60.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image61.png)
+```
+   ![](./media/image60.png)
+        ![](./media/image61.png)
 
 4.  참조를 위해 쿼리 이름을 바꾸세요. 탐색기에서 **SQL query를** 마우스
     오른쪽 버튼으로 클릭하고 **Rename를** 선택하세요.
 
-![](./media/image62.png)
+      ![](./media/image62.png)
 
-5.  **Rename** 대화 상자의 **Name** 필드에 +++ **Create Staging Views**
-    **+++를** 입력한 다음 **Rename** 버튼을 클릭하세요.
+5.  **Rename** 대화 상자의 **Name** 필드에 **+++Create Staging Views+++를** 입력한 다음 **Rename** 버튼을 클릭하세요.
 
-![A screenshot of a computer screen Description automatically
-generated](./media/image63.png)
+     ![](./media/image63.png)
 
 ## 작업 5: 기호를 로드하는 활동 추가
 
 1.  **StockDW** 페이지의 왼쪽 탐색 메뉴에서 **PL_Refresh_DWH를**
     클릭하세요.
 
-![](./media/image64.png)
+     ![](./media/image64.png)
 
-2.  Pipeline에서 주식 기호를 로드하는 절차를 실행하는 새 ***Stored
-    Procedure*** activity인 ***Populate Symbols Dimension***을
+2.  Pipeline에서 주식 기호를 로드하는 절차를 실행하는 새 **Stored
+    Procedure** activity인 **Populate Symbols Dimension**을
     추가하세요.
 
 3.  이것은 ForEach activity의 성공 출력에 연결되어야 합니다(ForEach
     activity 내부가 아님).
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image65.png)
+      ![](./media/image65.png)
 
-4.  **General** 탭의 **Name 필드에** +++**Populate Symbols Dimension**
-    +++를 입력하세요**.**
+4.  **General** 탭의 **Name 필드에** +++Populate Symbols Dimension+++를 입력하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image66.png)
+      ![](./media/image66.png)
 
 5.  **Settings** 탭을 클릭하고 다음 설정을 입력하세요.
 
-[TABLE]
+|   |   |
+|-----|----|
+|연결	|작업 공간|
+|저장 절차 이름 |	[ETL].[sp_Dim_Symbol_Load]|
 
 ![](./media/image67.png)
 
@@ -912,15 +770,13 @@ generated](./media/image63.png)
 1.  **PL_Refresh_DWH** 페이지의 왼쪽 탐색 메뉴에서 **StockDW를**
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image68.png)
+      ![](./media/image68.png)
 
-2.  명령줄에서 ***New SQL Query*** 드롭다운을 클릭한 다음 Blank 섹션에서
+2.  명령줄에서 **New SQL Query** 드롭다운을 클릭한 다음 Blank 섹션에서
     **New SQL Query** 선택하세요. 다음 단계에서 스키마 구축을
     시작하겠습니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+      ![](./media/image49.png)
 
 3.  그런 다음 아래 스크립트를 실행하여 팩트 테이블을 작성하는 절차를
     만드세요. 이 절차는 스테이징의 데이터를 팩트 테이블에 병합합니다.
@@ -932,144 +788,99 @@ generated](./media/image49.png)
 
 4.  query editor에서 다음 코드를 복사하여 붙여넣으세요. **Run** 버튼을
     클릭하여 쿼리를 실행하세요.
+```
+/* 5 - ETL.sp_Fact_Stocks_Daily_Prices_Load.sql */
 
-/\* 5 - ETL.sp_Fact_Stocks_Daily_Prices_Load.sql \*/
-
-CREATE PROCEDURE \[ETL\].\[sp_Fact_Stocks_Daily_Prices_Load\]
-
+CREATE PROCEDURE [ETL].[sp_Fact_Stocks_Daily_Prices_Load]
 AS
-
 BEGIN
-
 BEGIN TRANSACTION
 
-UPDATE fact
+    UPDATE fact
+    SET 
+        fact.MinPrice = CASE 
+                        WHEN fact.MinPrice IS NULL THEN stage.MinPrice
+                        ELSE CASE WHEN fact.MinPrice < stage.MinPrice THEN fact.MinPrice ELSE stage.MinPrice END
+                    END
+        ,fact.MaxPrice = CASE 
+                        WHEN fact.MaxPrice IS NULL THEN stage.MaxPrice
+                        ELSE CASE WHEN fact.MaxPrice > stage.MaxPrice THEN fact.MaxPrice ELSE stage.MaxPrice END
+                    END
+        ,fact.ClosePrice = CASE 
+                        WHEN fact.ClosePrice IS NULL THEN stage.ClosePrice
+                        WHEN stage.ClosePrice IS NULL THEN fact.ClosePrice
+                        ELSE stage.ClosePrice
+                    END 
+    FROM [dbo].[fact_Stocks_Daily_Prices] fact  
+    INNER JOIN [stg].[vw_StocksDailyPricesEX] stage
+        ON fact.PriceDateKey = stage.PriceDateKey
+        AND fact.Symbol_SK = stage.Symbol_SK
 
-SET
-
-fact.MinPrice = CASE
-
-WHEN fact.MinPrice IS NULL THEN stage.MinPrice
-
-ELSE CASE WHEN fact.MinPrice \< stage.MinPrice THEN fact.MinPrice ELSE
-stage.MinPrice END
-
-END
-
-,fact.MaxPrice = CASE
-
-WHEN fact.MaxPrice IS NULL THEN stage.MaxPrice
-
-ELSE CASE WHEN fact.MaxPrice \> stage.MaxPrice THEN fact.MaxPrice ELSE
-stage.MaxPrice END
-
-END
-
-,fact.ClosePrice = CASE
-
-WHEN fact.ClosePrice IS NULL THEN stage.ClosePrice
-
-WHEN stage.ClosePrice IS NULL THEN fact.ClosePrice
-
-ELSE stage.ClosePrice
-
-END
-
-FROM \[dbo\].\[fact_Stocks_Daily_Prices\] fact
-
-INNER JOIN \[stg\].\[vw_StocksDailyPricesEX\] stage
-
-ON fact.PriceDateKey = stage.PriceDateKey
-
-AND fact.Symbol_SK = stage.Symbol_SK
-
-INSERT INTO \[dbo\].\[fact_Stocks_Daily_Prices\]
-
-(Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice)
-
-SELECT
-
-Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice
-
-FROM
-
-\[stg\].\[vw_StocksDailyPricesEX\] stage
-
-WHERE NOT EXISTS (
-
-SELECT \* FROM \[dbo\].\[fact_Stocks_Daily_Prices\] fact
-
-WHERE fact.PriceDateKey = stage.PriceDateKey
-
-AND fact.Symbol_SK = stage.Symbol_SK
-
-)
+    INSERT INTO [dbo].[fact_Stocks_Daily_Prices]  
+        (Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice)
+    SELECT
+        Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice
+    FROM 
+        [stg].[vw_StocksDailyPricesEX] stage
+    WHERE NOT EXISTS (
+        SELECT * FROM [dbo].[fact_Stocks_Daily_Prices] fact
+        WHERE fact.PriceDateKey = stage.PriceDateKey
+            AND fact.Symbol_SK = stage.Symbol_SK
+    )
 
 COMMIT
 
 END
-
 GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image69.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image70.png)
-
+```
+   ![](./media/image69.png)
+      ![](./media/image70.png)
 6.  참조를 위해 쿼리 이름을 바꿉니다. 탐색기에서 **SQL Query를** 마우스
     오른쪽 버튼으로 클릭하고 **Rename를** 선택하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image71.png)
+     ![](./media/image71.png)
 
 7.  **Rename** 대화 상자의 **Name** 필드에 +++
     ETL.**sp_Fact_Stocks_Daily_Prices_Load+++를** 입력한 다음 **Rename**
     버튼을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image72.png)
+     ![](./media/image72.png)
 
 ## 작업 7: 파이프라인에 활동을 추가하여 일일 주가를 로드하기
 
 1.  **StockDW** 페이지의 왼쪽 탐색 메뉴에서 **PL_Refresh_DWH를**
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image73.png)
+     ![](./media/image73.png)
 
 2.  파이프라인에 Populate Fact Stocks Daily Prices라는 이름의 또 다른
     Stored procedure activty를 추가하여 스테이징에서 팩트 테이블로 주식
-    가격을 로드하세요. *Populate Symbols Dimension의* 성공 출력을
-    new *Populate Fact Stocks Daily Prices* activity에 연결하세요.
+    가격을 로드하세요. **Populate Symbols Dimension의** 성공 출력을
+    new **Populate Fact Stocks Daily Prices** activity에 연결하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image74.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image75.png)
+     ![](./media/image74.png)
+     ![](./media/image75.png)
 
 3.  **Settngs** 탭을 클릭하고 다음 설정을 입력하세요.
 
-[TABLE]
+|   |   |
+|-----|----|
+|연결	| 드롭다운 목록에서 StocksDW를 선택하세요.|
+|저장 절차 이름 |	[ETL].[sp_Fact_Stocks_Daily_Prices_Load]|
 
 ![](./media/image76.png)
 
 ## 작업 8. 파이프라인 실행하기
 
-1.  ***Run*** 버튼을 클릭하여 파이프라인을 실행하고 파이프라인 실행과
+1.  **Run** 버튼을 클릭하여 파이프라인을 실행하고 파이프라인 실행과
     팩트 및 차원 테이블이 로드되고 있는지 확인하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image77.png)
+     ![](./media/image77.png)
 
 2.  **Save and run?** 대화 상자에서 **Save and run** 버튼을 클릭하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image37.png)
+     ![](./media/image37.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image78.png)
+     ![](./media/image78.png)
 
 ## 작업 9: 파이프라인 예약하기
 
@@ -1081,14 +892,11 @@ generated](./media/image78.png)
 > 쿼리 결과를 500만 개로 제한하므로 파이프라인을 최신 상태로 유지하려면
 > 하루에 최소 두 번 실행해야 합니다.
 
-2.  파이프라인을 예약하려면 *Run* 버튼 옆에 있는 ***Schedule*** 버튼을
+2.  파이프라인을 예약하려면 *Run* 버튼 옆에 있는 **Schedule** 버튼을
     클릭하고 매시간 또는 몇 분마다 등의 반복 일정을 설정하세요.
+     ![](./media/image79.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image79.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image80.png)
+     ![](./media/image80.png)
 
 # 연습 3: 시맨틱 모델링
 
@@ -1116,48 +924,39 @@ generated](./media/image80.png)
 1.  **PL_Refresh_DWH** 페이지의 왼쪽 탐색 메뉴에서 **StockDW를**
     클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image81.png)
+    ![](./media/image81.png)
 
 2.  아래 이미지와 같이 **Refresh** 아이콘을 클릭하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image82.png)
+     ![](./media/image82.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image83.png)
+     ![](./media/image83.png)
 
 3.  StockDW 페이지에서 ***Reporting*** 탭을 선택한 다음 ***New Semantic
     Model을*** 선택하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image84.png)
+     ![](./media/image84.png)
+4.  New semantic model 탭에서 이름을 **StocksModel로** 입력하고 사실
+    및 차원 테이블, **fact_Stocks_Daily_Prices**, **dim_Date**,
+    and **dim_Symbol**만 선택하세요. **Confirm** 버튼을 클릭하세요.
 
-4.  New semantic model 탭에서 이름을 ***StocksModel로*** 입력하고 사실
-    및 차원 테이블, ***fact_Stocks_Daily_Prices*, *dim_Date*,
-    and *dim_Symbol***만 선택하세요. **Confirm** 버튼을 클릭하세요.
-
-![A screenshot of a computer Description automatically
-generated](./media/image85.png)
+     ![](./media/image85.png)
 
 ## 작업 2. 관계 추가
 
 1.  **StockDW** 페이지의 왼쪽 탐색 메뉴에서 **RealTimeWorkspace를**
     클릭하고 **StockModel을** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image86.png)
+     ![](./media/image86.png)
 
 2.  위의 시맨틱 모델을 만들면 모델 디자이너가 자동으로 열립니다. 그렇지
     않거나 나중에 디자이너로 돌아가려면 작업 공간의 리소스 목록에서
     모델을 연 다음 시맨틱 모델 항목에서 ***Open Data Model을*** 선택하면
     됩니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image87.png)
+      ![](./media/image87.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image88.png)
+      ![](./media/image88.png)
 
 3.  팩트 테이블과 차원 테이블 간에 관계를 만들려면 팩트 테이블의 키를
     차원 테이블의 해당 키로 끌어다 놓으세요.
@@ -1169,63 +968,55 @@ generated](./media/image88.png)
     끌어 놓아 관계를 만드세요. **New relationship** 대화 상자가
     나타납니다.
 
-> ![](./media/image89.png)
+      ![](./media/image89.png)
 
 5.  **New relationship** 대화 상자에서:
 
 - **From** Table은 fact_Stocks_Daily_Prices와 **PriceDateKey** 열로
-  채워집니다**.**
+  채워집니다.
 
 - **To** table은 dim_Date와 DateKey의 열로 채워집니다.
 
-- Cardinality: **다대일(\*:1)**
+- Cardinality: **다대일(*:1)**
 
 - 교차 필터 방향: **단일**
 
 - **Make this relationship active**  옆의 상자를 선택된 상태로 두세요.
 
-- **OK를** 선택하세요**.**
+- **OK를** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image90.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image91.png)
+     ![](./media/image90.png)
+     ![](./media/image91.png)
 
 6.  **fact_Stocks_Daily_Prices** 테이블에서 **Symbol_SK** 필드를
     **dim_Symbol** 테이블의 **Symbol_SK** 필드에 끌어 놓아 관계를
     만드세요. **New relationship** 대화 상자가 나타납니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image92.png)
+      ![](./media/image92.png)
 
 7.  **New relationship** 대화 상자에서:
 
 - **From** table은 fact_Stocks_Daily_Prices와 **Symbol_Sk** 열로
-  채워집니다**.**
+  채워집니다.
 
 - **To** table은 dim_Symabol과 Symbol_Sk 열로 채워집니다.
 
-- Cardinaity: **다대일(\*:1)**
+- Cardinaity: **다대일(*:1)**
 
 - 교차 필터 방향: **단일**
 
 - **Make this relationship active**  옆의 상자를 선택된 상태로 두세요.
 
-- **Ok를** 선택하세요**.**
+- **Ok를** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image93.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image94.png)
+    ![](./media/image93.png)
+    ![](./media/image94.png)
 
 ## 작업 3. 간단한 보고서 만들기
 
-1.  ***New Report를*** 클릭하여 Power BI에서 시맨틱 모델을 로드하세요.
+1.  **New Report를** 클릭하여 Power BI에서 시맨틱 모델을 로드하세요.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image95.png)
+      ![](./media/image95.png)
 
 2.  아직 보고서를 만들기에는 데이터가 많지 않지만, 개념적으로는 아래와
     유사한 보고서를 만들 수 있으며, 이는 실험실이 일주일 정도 실행된
@@ -1248,25 +1039,21 @@ generated](./media/image94.png)
 - **Data pane**에서 **dim_Symbol을** 확장하고 **Symbol** 옆의 확인란을
   선택하세요. 그러면 **Legend에** 필드가 추가됩니다.
 
-![A screenshot of a computer Description automatically
-generated](./media/image96.png)
+     ![](./media/image96.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image97.png)
+     ![](./media/image97.png)
 
-4.  Ribbon에서 **파일** \> **저장을** 선택하세요**.**
+4.  Ribbon에서 **파일** \> **저장을** 선택하세요.
 
-![A screenshot of a computer Description automatically
-generated](./media/image98.png)
+     ![](./media/image98.png)
 
-5.  Save your report 대화 상자에서 +++ **semantic report** +++를 보고서
+5.  Save your report 대화 상자에서 +++semantic report+++를 보고서
     이름으로 입력하고 **your workspace을** 선택하세요. **Save 버튼을**
     클릭하세요.
 
-![](./media/image99.png)
+     ![](./media/image99.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image100.png)
+     ![](./media/image100.png)
 
 ## **요약**
 
