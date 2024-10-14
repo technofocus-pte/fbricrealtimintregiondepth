@@ -274,8 +274,7 @@ GO
 |-----|----|
 |연결 	|드롭다운에서 StocksDB를 선택하세요.|
 |쿼리 사용|	쿼리 |
-|쿼리 | 	+++@concat('StockPrice  
-         | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
+|쿼리 | 	+++@concat('StockPrice | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
          | order by timestamp asc
          | extend datestamp = substring(timestamp,0,10) 
          | project symbol, timestamp, price, datestamp 
