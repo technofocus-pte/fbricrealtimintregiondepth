@@ -274,21 +274,22 @@ GO
     >
       -쿼리 사용:	쿼리
     >
-      -쿼리 : 	+++@concat('StockPrice  
+      -쿼리 :
+    >           @concat('StockPrice  
     >           | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
     >           | order by timestamp asc
-                | extend datestamp = substring(timestamp,0,10) 
-                | project symbol, timestamp, price, datestamp 
-                | take 500000 
-                | where not(isnull(price))
-                 ' )+++
+    >           | extend datestamp = substring(timestamp,0,10) 
+    >           | project symbol, timestamp, price, datestamp 
+    >           | take 500000 
+    >           | where not(isnull(price))
+    >            ' )+++
 
 
 
       활동의 *소스* 탭은 다음과 비슷하게 보일 것입니다:
            ![](./media/image28.png)
 
-7.  **Destination** 탭을 클릭하고 다음 설정을 입력하세요.
+8.  **Destination** 탭을 클릭하고 다음 설정을 입력하세요.
         |   |   |
         |-----|----|
         |연결|	드롭다운에서 목록에서 StocksDW를 선택하세요.|
@@ -341,21 +342,21 @@ GO
      ![](./media/image34.png)
 
 13. **Settings** 탭을 클릭하고 다음 설정을 입력하세요.
-|   |   |
-|-----|----|
-|작업 공간 |	StocksDW |
-|저장 절차 이름 	|ETL.sp_IngestSourceInfo_Update|
+      |   |   |
+      |-----|----|
+      |작업 공간 |	StocksDW |
+      |저장 절차 이름 	|ETL.sp_IngestSourceInfo_Update|
 
 
 - 매개변수(*Import를* 클릭하면 매개변수 이름이 자동으로 추가됨):
 
-|   |   |   |
-|-----|----| ----|
-|이름	|유형	|가치 |
-|개체 이름 |	문자열	| @item().ObjectName|
-|워터마크 |	날짜/시간| 	@activity('Get New WaterMark').output.firstRow.WaterMark|
+      |   |   |   |
+      |-----|----| ----|
+      |이름	|유형	|가치 |
+      |개체 이름 |	문자열	| @item().ObjectName|
+      |워터마크 |	날짜/시간| 	@activity('Get New WaterMark').output.firstRow.WaterMark|
 
-![](./media/image35.png)
+  ![](./media/image35.png)
 
 ## 작업 5: 파이프라인 테스트
 
