@@ -212,21 +212,19 @@ Hubs，Azure Event Hubs 也是在部署 ARM 範本時配置的。
       d.  共用訪問金鑰名稱：**+++stockeventhub_sas+++**
       
       e.  共用訪問金鑰- 輸入主金鑰（您在**任務 8** 的記事本中保存的值）
-      
-      &nbsp;
-      
-      f.  消費群：**$默認** 
+               
+      f.  消費群：**$** 
       
       g.  資料格式：**JSON** 並按一下 "**下一步** "按鈕
 
-        ![](./media/image85.png)
+     ![](./media/image85.png)
         
-        ![](./media/image86.png)
-        ![](./media/image87.png)
+     ![](./media/image86.png)
+      ![](./media/image87.png)
         
-        ![](./media/image88.png)
-        
-        ![](./media/image89.png)
+     ![](./media/image88.png)
+      
+     ![](./media/image89.png)
 
 8.  您將看到一條通知，說明 已成功添加源 **"StockEventHub,Azure Event
     Hubs"**。
