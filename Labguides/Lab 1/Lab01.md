@@ -51,7 +51,7 @@ Lakehouse、使用 ML Model 進行預測等。
      ![](./media/image3.png)
 
 2.  在 **Microsoft Fabric** 視窗中，輸入您的 Microsoft 365
-    憑據，然後按一下 "**提交** "按鈕。
+    憑據，然後按一下 "**提交**" 按鈕。
 
      ![](./media/new1.png)
 
