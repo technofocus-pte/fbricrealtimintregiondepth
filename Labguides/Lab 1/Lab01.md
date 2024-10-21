@@ -333,7 +333,7 @@ Transformation 的臨時查詢進行了優化。
      ![](./media/image110.png)
 
 7.  在第一個設置頁面，選擇 "**+**+**新建表**"，然後輸入名稱
-    **+++StockPrice++++** 作為在 StockDB 中保存資料的表。點擊 "**下一步**
+    **+++StockPrice+++** 作為在 StockDB 中保存資料的表。點擊 "**下一步**
     "按鈕。
 
      ![](./media/image111.png)
