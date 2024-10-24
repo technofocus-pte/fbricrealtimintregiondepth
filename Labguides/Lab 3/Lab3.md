@@ -169,14 +169,21 @@ across all modules.*
      ![](./media/image23.png)
      ![](./media/image24.png)
      ![](./media/image25.png)
-    
-12. Now, click on the **Publish** button to close the event processor
+12. Now change the **timestamp** column to a **DateTime** as it is
+    likely classified as a string. Click the **three ellipsis (...)** to
+    the right of the **timestamp** column and select **Yes change
+    type**. This will allow us to change the datatype:
+    select **DateTime**, as shown in the below image. Click on
+    **Save**
+     ![](./media/image26.png)
+     ![](./media/new13.png)
+13. Now, click on the **Publish** button to close the event processor
      ![](./media/image28.png)
      ![](./media/image29.png)
-     ![](./media/image-4.png)
-13.	Click on the Refresh button.
+     
+14.	Click on the Refresh button.
      ![](./media/image-1.png)
-14. Once it is completed, the Lakehouse will receive the symbol, price,
+15. Once it is completed, the Lakehouse will receive the symbol, price,
     and timestamp.
       ![](./media/image-3.png)
 Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
