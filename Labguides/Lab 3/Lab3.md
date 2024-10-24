@@ -163,27 +163,22 @@ across all modules.*
     fields** to add all columns. Then, remove the fields
     **EventProcessedUtcTime**, **PartitionId**, and
     **EventEnqueuedUtcTime** by clicking the **ellipsis (...)** to the
-    right of the field name, and click **Remove**
+    right of the field name, and click **Remove**. Then click on the **Save** button
      ![](./media/image21.png)
      ![](./media/image22.png)
      ![](./media/image23.png)
      ![](./media/image24.png)
      ![](./media/image25.png)
-12. Now change the **timestamp** column to a **DateTime** as it is
-    likely classified as a string. Click the **three ellipsis (...)** to
-    the right of the **timestamp** column and select **Yes change
-    type**. This will allow us to change the datatype:
-    select **DateTime**, as shown in the below image. Click on
-    **Save**
-     ![](./media/image26.png)
-     ![](./media/new13.png)
+    
 12. Now, click on the **Publish** button to close the event processor
      ![](./media/image28.png)
      ![](./media/image29.png)
-
-13. Once it is completed, the Lakehouse will receive the symbol, price,
+     ![](./media/image-4.png)
+13.	Click on the Refresh button.
+     ![](./media/image-1.png)
+14. Once it is completed, the Lakehouse will receive the symbol, price,
     and timestamp.
-      ![](./media/image30.png)
+      ![](./media/image-3.png)
 Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
 take a minute or two for data to be visible in the Lakehouse.
 
