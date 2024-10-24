@@ -132,12 +132,12 @@ across all modules.*
 6.  In the Lakehouse pane that appears on the right side, enter the
     following details and click on **Save.**
 
-|**Destination name** | **+++Lakehouse+++** |
-|----|----|
-| **Workspace** | RealTimeWorkspace |
-| **Lakehouse** | StockLakehouse |
-| **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
-| **Input data format** | Json |
+    |**Destination name** | **+++Lakehouse+++** |
+    |----|----|
+    | **Workspace** | RealTimeWorkspace |
+    | **Lakehouse** | StockLakehouse |
+    | **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
+    | **Input data format** | Json |
      ![](./media/image11.png)
      ![](./media/image12.png)
 6.  Connect **StockEventStream** and **Lakehouse**
