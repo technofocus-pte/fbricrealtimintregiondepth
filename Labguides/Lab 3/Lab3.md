@@ -235,7 +235,7 @@ the table, prepending the historical data.
     click on the **Add** button as shown in the below images.
 
  **Important Note**: You’ll need to add the Lakehouse to every imported
- notebook -- do this each time you open a notebook for the first time.
+   notebook -- do this each time you open a notebook for the first time.
       ![](./media/image38.png)
       ![](./media/image39.png)
 4.  In the **Add Lakehouse** dialog box, select the **Existing
@@ -249,8 +249,8 @@ the table, prepending the historical data.
     configured, and is the landing place for the data that is ingested
     from the Event Hub.
      ![](./media/image42.png)
-**Note**: You will see the **Run** button when you hover your mouse over
-the cell in the notebook.
+  **Note**: You will see the **Run** button when you hover your mouse over
+  the cell in the notebook.
 
 7.  To start the notebook and execute the cell, select the **Run** icon
     that appears on the left side of the cell.
@@ -271,10 +271,10 @@ the cell in the notebook.
     7<sup>th</sup> cell.
      ![](./media/new18.png)
      ![](./media/new19.png)
-  >**Important**:While verifying CSV files, if you encounter the error shown below, restart the kernel and run the cell again.
+  **Important**:While verifying CSV files, if you encounter the error shown below, restart the kernel and run the cell again.
       ![](./media/image-5.png)
      
-   ![](./media/new20.png)
+      ![](./media/new20.png)
    
      
 13. While similar to 'commenting out' sections of code, freezing cells
@@ -446,37 +446,37 @@ steps in data wrangler, adding derived columns and aggregating the data.
 If you get stuck, continue as best you can and use the sample code in
 the notebook to help fix any issues after.
 
-1.  Add new column datestamp in the ***Symbol/Date/Hour/Minute
-    Aggregation** Section*, place your cursor in the *Add data wrangler
-    here* cell and select the cell. Dropdown the **Data Wrangler**.
+1.  Add new column datestamp in the **Symbol/Date/Hour/Minute
+    Aggregation** Section, place your cursor in the **Add data wrangler
+    here** cell and select the cell. Dropdown the **Data Wrangler**.
     Navigate and click on **df_stocks_clean** as shown in the below
     image.
      ![](./media/image81.png)
      ![](./media/image82.png)
 
 2.  In **Data Wrangler:df_stocks_clean** pane, select **Operations**,
-    then select **New column by example.**
+    then select **New column by example**
      ![](./media/image83.png)
 
-3.  Under ***Target columns*** field, click on the dropdown and select
-    ***timestamp***. Then, in the ***Derived column*** ***name*** field,
-    enter ***+++datestamp+++***
-     ![](../media/image84.png)
-4.  In the new ***datestamp*** column, enter an example value for any
-    given row. For example, if the ***timestamp*** is ***2024-02-07***
-    09:54:00* enter ***2024-02-07***. This allows data wrangler to infer
+3.  Under **Target columns** field, click on the dropdown and select
+    **timestamp**. Then, in the **Derived column name** field,
+    enter **+++datestamp+++**
+     ![](./media/image84.png)
+4.  In the new **datestamp** column, enter an example value for any
+    given row. For example, if the **timestamp** is **2024-02-07**
+    09:54:00* enter **2024-02-07**. This allows data wrangler to infer
     we are looking for the date without a time component; once the
-    columns autofill, click on the ***Apply*** button.
+    columns autofill, click on the **Apply** button.
      ![](./media/image85.png)
      ![](./media/image86.png)
 
 5.  Similar to adding the **datestamp** column as mentioned in the above
     steps, click again on **New column by example** as shown in the
     below image.
-     ![](../media/image87.png)
+     ![](./media/image87.png)
 
-6.  Under **Target columns**, choose ***timestamp***. Enter a **Derived
-    column **name** of ***+++hour+++***.
+6.  Under **Target columns**, choose **timestamp**. Enter a **Derived
+    column **name** of **+++hour+++**
 
      ![](./media/image88.png)
 
@@ -489,28 +489,29 @@ the notebook to help fix any issues after.
 
 8.  Data wrangler should infer we are looking for the hour component,
     and build code similar to:
-
-\# Derive column 'hour' from column: 'timestamp'
-
-def hour(timestamp):
-
-    """
-
-    Transform based on the following examples:
-
-       timestamp           Output
-
-    1: 2024-02-07T09:54 =\> "9"
-
-    """
-
-    number1 = timestamp.hour
-
-    return f"{number1:01.0f}"
-
-pandas_df_stocks_clean.insert(3, "hour",
-pandas_df_stocks_clean.apply(lambda row : hour(row\["timestamp"\]),
-axis=1))
+    ```
+    \# Derive column 'hour' from column: 'timestamp'
+    
+    def hour(timestamp):
+    
+        """
+    
+        Transform based on the following examples:
+    
+           timestamp           Output
+    
+        1: 2024-02-07T09:54 =\> "9"
+    
+        """
+    
+        number1 = timestamp.hour
+    
+        return f"{number1:01.0f}"
+    
+    pandas_df_stocks_clean.insert(3, "hour",
+    pandas_df_stocks_clean.apply(lambda row : hour(row\["timestamp"\]),
+    axis=1))
+    ```
      ![](./media/image90.png)
 
  9.  Same as with the hour column, create a new ***minute* **column. In
@@ -521,42 +522,44 @@ axis=1))
 
 10. The code generated should look similar to:
 
-\# Derive column 'minute' from column: 'timestamp'
-
-def minute(timestamp):
-
-    """
-
-    Transform based on the following examples:
-
-       timestamp           Output
-
-    1: 2024-02-07T09:57 =\> "57"
-
-    """
-
-    number1 = timestamp.minute
-
-    return f"{number1:01.0f}"
-
-pandas_df_stocks_clean.insert(3, "minute",
-pandas_df_stocks_clean.apply(lambda row : minute(row\["timestamp"\]),
-axis=1))
+    ```
+    \# Derive column 'minute' from column: 'timestamp'
+    
+    def minute(timestamp):
+    
+        """
+    
+        Transform based on the following examples:
+    
+           timestamp           Output
+    
+        1: 2024-02-07T09:57 =\> "57"
+    
+        """
+    
+        number1 = timestamp.minute
+    
+        return f"{number1:01.0f}"
+    
+    pandas_df_stocks_clean.insert(3, "minute",
+    pandas_df_stocks_clean.apply(lambda row : minute(row\["timestamp"\]),
+    axis=1))
+    ```
      ![](./media/image92.png)
 
 11. Next, convert the hour column to an integer. Click on the **ellipsis
-    (...)** in the corner of the *hour* column and select ***Change
-    column** type*. Click on the dropdown beside ***New type***,
-    navigate and select ***int32**, then click on the **Apply**
-    button** as shown in the below image.
+    (...)** in the corner of the *hour* column and select **Change
+    column** type. Click on the dropdown beside **New type**,
+    navigate and select **int32**, then click on the **Apply**
+    button as shown in the below image.
       ![](./media/image93.png)
       ![](./media/image94.png)
 
 12. Convert the minute column to an integer using the same steps as you
     just performed for the hour. Click on the **ellipsis (...)** in the
-    corner of the ***minute* column** and select ***Change column**
-    type. Click on the dropdown beside ***New type***, navigate and
-    select ***int32**,* then click on the ***Apply* button** as shown in
+    corner of the ***minute* column** and select **Change column**
+    type. Click on the dropdown beside **New type**, navigate and
+    select **int32**, then click on the **Apply** button as shown in
     the below image.
 
      ![](./media/image95.png)
@@ -564,31 +567,31 @@ axis=1))
      ![](./media/image97.png)
 
 13. Now, under the **Operations** section, navigate and click on
-    ***Group by and aggregate*** as shown in the below image.
+    **Group by and aggregate** as shown in the below image.
 
     ![](./media/image98.png)
 
-14. Click on the dropdown under ***Columns to group by*** field and
-    select ***symbol*, *datestamp*, *hour*, *minute***.
+14. Click on the dropdown under **Columns to group by** field and
+    select **symbol**, **datestamp**, **hour**, **minute**.
 
     ![](./media/image99.png)
 
-15. Click on +*Add aggregation*, create a total of three aggregations as
-    shown in the below images and click on the ***Apply*** button.
+15. Click on **+Add aggregation**, create a total of three aggregations as
+    shown in the below images and click on the **Apply** button.
 
-- price: Maximum
-
-- price: Minimum
-
-- price: Last value
+    - price: Maximum
+    
+    - price: Minimum
+    
+    - price: Last value
 
     ![](./media/image100.png)
 
     ![](./media/image101.png)
 
 16. Click **Add code to notebook** in the upper left corner of the
-    page. On the ***Add code to notebook* window**, ensure *Include
-    pandas code* is unchecked, then click on the **Add** button.
+    page. On the **Add code to notebook window**, ensure Include
+    pandas code is unchecked, then click on the **Add** button.
 
     ![](./media/image102.png)
 
@@ -598,29 +601,29 @@ axis=1))
 
 17. Review the code, in the cell that is added, in the last two lines of
     the cell, notice the dataframe returned is
-    named ***df_stocks_clean_1***. Rename
-    this ***df_stocks_agg_minute***, and change the name of the function
-    to ***aggregate_data_minute*,** as shown below.
+    named **df_stocks_clean_1**. Rename
+    this **df_stocks_agg_minute**, and change the name of the function
+    to **aggregate_data_minute** as shown below.
 
-**\# old:**
-
-def clean_data(df_stocks_clean):
-
-...
-
-df_stocks_clean_1 = clean_data(df_stocks_clean)
-
-display(df_stocks_clean_1)
-
-**\# new:**
-
-def aggregate_data_minute(df_stocks_clean):
-
-...
-
-df_stocks_agg_minute = aggregate_data_minute(df_stocks_clean)
-
-display(df_stocks_agg_minute)
+    **\# old:**
+    
+    def clean_data(df_stocks_clean):
+    
+    ...
+    
+    df_stocks_clean_1 = clean_data(df_stocks_clean)
+    
+    display(df_stocks_clean_1)
+    
+    **\# new:**
+    
+    def aggregate_data_minute(df_stocks_clean):
+    
+    ...
+    
+    df_stocks_agg_minute = aggregate_data_minute(df_stocks_clean)
+    
+    display(df_stocks_agg_minute)
     ![](./media/image105.png)
 
 18. Code generated by Data Wrangler for PySpark DataFrame cell, select
@@ -629,24 +632,24 @@ display(df_stocks_agg_minute)
     ![](./media/image107.png)
     ![](./media/image108.png)
 
-**Note**: If you get stuck, refer to the commented-out code as a
-reference. If any of the data wrangling steps don't seem to be quite
-correct (not getting the correct hour or minute, for example), refer to
-the commented-out samples. Step 7 below has a number of additional
-considerations that may help.
+  **Note**: If you get stuck, refer to the commented-out code as a
+  reference. If any of the data wrangling steps don't seem to be quite
+  correct (not getting the correct hour or minute, for example), refer to
+  the commented-out samples. Step 7 below has a number of additional
+  considerations that may help.
 
-**Note:** If you'd like to comment-out (or uncomment) large blocks, you
-can highlight the section of code (or CTRL-A to select everything in the
-current cell) and use CTRL-/ (Control *slash*) to toggler commenting.
+  **Note:** If you'd like to comment-out (or uncomment) large blocks, you
+  can highlight the section of code (or CTRL-A to select everything in the
+  current cell) and use CTRL-/ (Control *slash*) to toggler commenting.
 
 19. In the merge cell, select the **Run** icon that appears to the left
     of the cell upon hover. The merge function writes the data into the
     table:
-
-> <span class="mark">\# write the data to the stocks_minute_agg
-> table</span>
->
-> <span class="mark">merge_minute_agg(df_stocks_agg_minute)</span>
+    ```
+    # write the data to the stocks_minute_agg table
+    
+    merge_minute_agg(df_stocks_agg_minute)
+    ```
     ![](./media/image109.png)
 
 ## Task 3: Aggregate hourly
@@ -657,34 +660,34 @@ from 86,400 rows/day to 1,440 rows/day per stock symbol. For reports
 that might show monthly data, we can further aggregate the data to
 per-hour frequency, reducing the data to 24 rows/day per stock symbol.
 
-1.  In the final placeholder under the *Symbol/Date/Hour* section, load
-    the existing ***df_stocks_agg_minute*** dataframe into data
+1.  In the final placeholder under the **Symbol/Date/Hour** section, load
+    the existing **df_stocks_agg_minute** dataframe into data
     wrangler.
 
-2.  In the final placeholder under the ***Symbol/Date/Hour*** section,
-    place your cursor in the *Add data wrangler here* cell and select
+2.  In the final placeholder under the **Symbol/Date/Hour** section,
+    place your cursor in the **Add data wrangler** here cell and select
     the cell. Dropdown the **Data Wrangler,** navigate and click on
-    ***df_stocks_agg_minute*** as shown in the below image.
+    **df_stocks_agg_minute** as shown in the below image.
      ![](./media/image110.png)
      ![](./media/image111.png)
 
-3.  Under ***Operations*,** select ***Group by and aggregate***. Click
+3.  Under **Operations** select **Group by and aggregate**. Click
     on the dropdown below **Columns to group by** field and select
-    ***symbol*, *datestamp*, and *hour***, and then click on **+Add
+    **symbol**, **datestamp**, and **hour**, and then click on **+Add
     aggregations**. Create the following three aggregations and click on
     Apply button below it, as shown in the below image.
 
-- price_min: Minimum
-
-- price_max: Maximum
-
-- price_last: Last value
+    - price_min: Minimum
+    
+    - price_max: Maximum
+    
+    - price_last: Last value
 
      ![](./media/image112.png)
      ![](./media/image113.png)
 
 4.  Example code is shown below. In addition to renaming the function
-    to *aggregate_data_hour*, the alias of each price column has also
+    to **aggregate_data_hour**, the alias of each price column has also
     been changed to keep the column names the same. Because we are
     aggregating data that has already been aggregated, data wrangler is
     naming the columns like price_max_max, price_min_min; we will modify
@@ -701,51 +704,51 @@ per-hour frequency, reducing the data to 24 rows/day per stock symbol.
      ![](./media/image117.png)
 
 6.  In the cell that is added, in the last two lines of the cell, notice
-    the dataframe returned is named def
-    <span class="mark"></span>clean_data(df_stocks_agg_minute):, rename
+    the dataframe returned is named **def clean_data(df_stocks_agg_minute):**,  rename
     this
 
-> **def aggregate_data_hour(df_stocks_agg_minute):**
+  **def aggregate_data_hour(df_stocks_agg_minute):**
 
 7.  In the cell that is added, in the last two lines of the cell, notice
     the dataframe returned is named **df_stocks_agg_minute_clean =
     clean_data(df_stocks_agg_minute).**Rename this **df_stocks_agg_hour
     = aggregate_data_hour(df_stocks_agg_minute),** and change the name
     of the function **display(df_stocks_agg_minute_clean)**
-    to *aggregate_data_minute*, as shown below. 
-
-Reference Code:
-
-\# Code generated by Data Wrangler for PySpark DataFrame
-
-from pyspark.sql import functions as F
-
-def aggregate_data_hour(df_stocks_agg_minute):
-
-\# Performed 3 aggregations grouped on columns: 'symbol', 'datestamp',
-'hour'
-
-df_stocks_agg_minute = df_stocks_agg_minute.groupBy('symbol',
-'datestamp', 'hour').agg(
-
-F.max('price_max').alias('price_max'),
-
-F.min('price_min').alias('price_min'),
-
-F.last('price_last').alias('price_last'))
-
-df_stocks_agg_minute = df_stocks_agg_minute.dropna()
-
-df_stocks_agg_minute =
-df_stocks_agg_minute.sort(df_stocks_agg_minute\['symbol'\].asc(),
-df_stocks_agg_minute\['datestamp'\].asc(),
-df_stocks_agg_minute\['hour'\].asc())
-
-return df_stocks_agg_minute
-
-df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)
-
-display(df_stocks_agg_hour)
+    to **aggregate_data_minute**, as shown below. 
+    ```
+    Reference Code:
+    
+    \# Code generated by Data Wrangler for PySpark DataFrame
+    
+    from pyspark.sql import functions as F
+    
+    def aggregate_data_hour(df_stocks_agg_minute):
+    
+    \# Performed 3 aggregations grouped on columns: 'symbol', 'datestamp',
+    'hour'
+    
+    df_stocks_agg_minute = df_stocks_agg_minute.groupBy('symbol',
+    'datestamp', 'hour').agg(
+    
+    F.max('price_max').alias('price_max'),
+    
+    F.min('price_min').alias('price_min'),
+    
+    F.last('price_last').alias('price_last'))
+    
+    df_stocks_agg_minute = df_stocks_agg_minute.dropna()
+    
+    df_stocks_agg_minute =
+    df_stocks_agg_minute.sort(df_stocks_agg_minute\['symbol'\].asc(),
+    df_stocks_agg_minute\['datestamp'\].asc(),
+    df_stocks_agg_minute\['hour'\].asc())
+    
+    return df_stocks_agg_minute
+    
+    df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)
+    
+    display(df_stocks_agg_hour)
+    ```
     ![](./media/image118.png)
 
 8.  Select and **Run** the cell.
@@ -838,8 +841,8 @@ be overwritten.
     shown in the below image.
     ![](./media/image138.png)
 
-9.  Now, you can see all additional tables ***dim_symbol*, *dim_date*,
-    and *fact_stocks_daily_prices*** for our dimensional model.
+9.  Now, you can see all additional tables **dim_symbol**, **dim_date**,
+    and **fact_stocks_daily_prices** for our dimensional model.
 
     ![](./media/image139.png)
 
@@ -911,21 +914,21 @@ applied to larger datasets.
       ![](./media/image160.png)
 
 14. To schedule the notebook to run periodically, click on
-    the ***Run*** tab, and click on ***Schedule*** as shown in the below
+    the **Run** tab, and click on **Schedule** as shown in the below
     image*.*
 
-      ![](./media/image161.png)
+    ![](./media/image161.png)
 
 15. In Lackhouse 4-Load Star Schema tab, select the below details and
     click on the **Apply** button.
 
-- Schedule run: **On**
-
-- Repeat**: Hourly**
-
-- Every: **4 hours**
-
-- Select today date
+    - Schedule run: **On**
+    
+    - Repeat**: Hourly**
+    
+    - Every: **4 hours**
+    
+    - Select today date
 
      ![](./media/image162.png)
 
@@ -938,8 +941,8 @@ reporting, and create a simple Power BI report.
 
     ![](./media/image163.png)
 
-2.  In the ***StocksLakehouse*** window*,* navigate and click on ***New
-    semantic model*** in the command bar*.*
+2.  In the **StocksLakehouse** window, navigate and click on **New
+    semantic model** in the command bar.
 
      ![](./media/image164.png)
 
@@ -954,81 +957,81 @@ reporting, and create a simple Power BI report.
     between the fact and dimension tables.
 
 5.  From the **fact_Stocks_Daily_Prices** table, drag
-    the ***Symbol_SK***  field and drop it on
-    the ***Symbol_SK***   field in the **dim_Symbol** table to create a
+    the **Symbol_SK**  field and drop it on
+    the **Symbol_SK**   field in the **dim_Symbol** table to create a
     relationship. The **New relationship** dialog box appears.
 
     ![](./media/image167.png)
 
 6.  In the **New relationship** dialog box:
 
-- **From table** is populated with **fact_Stocks_Daily_Prices** and the
-  column of **Symbol_SK.**
-
-- **To table** is populated with **dim_symbol**  and the column of
-  **Symbol_SK**
-
-- Cardinality: **Many to one (\*:1)**
-
-- Cross filter direction: **Single**
-
-- Leave the box next to **Make this relationship active** selected.
-
-- Select **Save.**
+      - **From table** is populated with **fact_Stocks_Daily_Prices** and the
+        column of **Symbol_SK.**
+      
+      - **To table** is populated with **dim_symbol**  and the column of
+        **Symbol_SK**
+      
+      - Cardinality: **Many to one (\*:1)**
+      
+      - Cross filter direction: **Single**
+      
+      - Leave the box next to **Make this relationship active** selected.
+      
+      - Select **Save.**
 
      ![](./media/image168.png)
      ![](./media/image169.png)
 7.  From the **fact_Stocks_Daily_Prices** table, drag
     the **PrinceDateKey**  field and drop it on
-    the ***DateKey***   field in the **dim_date** table to create a
+    the **DateKey**   field in the **dim_date** table to create a
     relationship. The **New relationship** dialog box appears.
 
      ![](./media/image170.png)
 
 8.  In the **New relationship** dialog box:
 
-- **From table** is populated with **fact_Stocks_Daily_Prices** and the
-  column of **PrinceDateKey.**
-
-- **To table** is populated with **dim_date**  and the column of
-  **DateKey**
-
-- Cardinality: **Many to one (\*:1)**
-
-- Cross filter direction: **Single**
-
-- Leave the box next to **Make this relationship active** selected.
-
-- Select **Save.**
+    - **From table** is populated with **fact_Stocks_Daily_Prices** and the
+      column of **PrinceDateKey.**
+    
+    - **To table** is populated with **dim_date**  and the column of
+      **DateKey**
+    
+    - Cardinality: **Many to one (\*:1)**
+    
+    - Cross filter direction: **Single**
+    
+    - Leave the box next to **Make this relationship active** selected.
+    
+    - Select **Save.**
 
     ![](./media/image171.png)
 
     ![](./media/image172.png)
 
-9.  Click ***New Report*** to load the semantic model in Power BI.
+9.  Click **New Report** to load the semantic model in Power BI.
 
-      ![](./media/image173.png)
+    ![](./media/image173.png)
 
 10. In the **Power BI** page, under **Visualizations**, click to the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **fact_Stocks_Daily_Prices**  and check
-  the box next to **PriceDateKey**. This creates a column chart and adds
-  the field to the **X-axis**.
-
-- On the **Data** pane, expand **fact_Stocks_Daily_Prices** and check
-  the box next to **ClosePrice**. This adds the field to the **Y-axis**.
-
-- On the **Data** pane, expand **dim_Symbol** and check the box next
-  to **Symbol**. This adds the field to the **Legend**.
+    - On the **Data** pane, expand **fact_Stocks_Daily_Prices**  and check
+      the box next to **PriceDateKey**. This creates a column chart and adds
+      the field to the **X-axis**.
+    
+    - On the **Data** pane, expand **fact_Stocks_Daily_Prices** and check
+      the box next to **ClosePrice**. This adds the field to the **Y-axis**.
+    
+    - On the **Data** pane, expand **dim_Symbol** and check the box next
+      to **Symbol**. This adds the field to the **Legend**.
       ![](./media/image174.png)
 
 11. Under **Filters,** select **PriceDateKey** and enter the below
     details. Click on the **Apply filter**
 
-- Filter type: **Relative date**
-
-- Show items when the value: **is in the last 45 days**
+    - Filter type: **Relative date**
+    
+    - Show items when the value: **is in the last 45 days**
 
      ![](./media/image175.png)
      ![](./media/image176.png)
@@ -1039,7 +1042,7 @@ reporting, and create a simple Power BI report.
 
 13. In the Save your report dialog box, enter 
     +++StocksDimensional+++ as the name of your report and select
-    **your workspace**. Click on the **Save** button**.**
+    **your workspace**. Click on the **Save** button.
 
      ![](./media/image178.png)
 
