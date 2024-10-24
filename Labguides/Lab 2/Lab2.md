@@ -264,9 +264,9 @@ updating.
     refresh interval** of **1 Seconds**. Then, click on the **Apply**
     button.
 
-**Note**: Depending on your administrative permissions, this setting may
-not be available. Note that this change may take several minutes to
-complete.
+    **Note**: Depending on your administrative permissions, this setting may
+    not be available. Note that this change may take several minutes to
+    complete.
        ![](./media/image27.png)
        ![](./media/image28.png)
 
