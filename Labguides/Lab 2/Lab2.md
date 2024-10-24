@@ -53,26 +53,26 @@ complexity to support different business uses.
 6.  In the query editor, copy and paste the following code. Select the
     entire text and click on the **Run** button to execute the query.
     After the query is executed, you will see the results.
-```
-// Use "take" to view a sample number of records in the table and check the data.
-StockPrice
-| take 100;
-
-// See how many records are in the table.
-StockPrice
-| count;
-
-// This query returns the number of ingestions per hour in the given table.
-StockPrice
-| summarize IngestionCount = count() by bin(ingestion_time(), 1h);
-```
-**Note:** To run a single query when there are multiple queries in the
-editor, you can highlight the query text or place your cursor so the
-cursor is in the context of the query (for example, at the beginning or
-end of the query) -- the current query should highlight in blue. To run
-the query, click *Run* in the toolbar. If you'd like to run all 3 to
-display the results in 3 different tables, each query will need to have
-a semicolon (;) after the statement, as shown below.*
+    ```
+    // Use "take" to view a sample number of records in the table and check the data.
+    StockPrice
+    | take 100;
+    
+    // See how many records are in the table.
+    StockPrice
+    | count;
+    
+    // This query returns the number of ingestions per hour in the given table.
+    StockPrice
+    | summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+    ```
+    **Note:** To run a single query when there are multiple queries in the
+    editor, you can highlight the query text or place your cursor so the
+    cursor is in the context of the query (for example, at the beginning or
+    end of the query) -- the current query should highlight in blue. To run
+    the query, click *Run* in the toolbar. If you'd like to run all 3 to
+    display the results in 3 different tables, each query will need to have
+    a semicolon (;) after the statement, as shown below.*
      ![](./media/image6.png)
 7.  The results will be displayed in 3 different tables as shown in the
     below image. Click on each table tab to review the data.
@@ -148,21 +148,21 @@ a semicolon (;) after the statement, as shown below.*
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-```
-StockPrice
-| project symbol, price, timestamp
-| partition by symbol
-(
-    order by timestamp asc
-    | extend prev_price = prev(price, 1)
-    | extend prev_price_10min = prev(price, 600)
-)
-| order by timestamp asc, symbol asc
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-| order by timestamp asc, symbol asc
-| summarize arg_max(pricedifference_10min, *) by symbol
-```
+    ```
+    StockPrice
+    | project symbol, price, timestamp
+    | partition by symbol
+    (
+        order by timestamp asc
+        | extend prev_price = prev(price, 1)
+        | extend prev_price_10min = prev(price, 600)
+    )
+    | order by timestamp asc, symbol asc
+    | extend pricedifference_10min = round(price - prev_price_10min, 2)
+    | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+    | order by timestamp asc, symbol asc
+    | summarize arg_max(pricedifference_10min, *) by symbol
+    ```
    ![](./media/image16.png)
    ![](./media/image17.png)
 
@@ -190,7 +190,7 @@ StockPrice
      StockPrice
      | summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
      | sort by timestamp asc, symbol asc
-      ```
+     ```
       ![](./media/image20.png)
 
 4.  This is particularly useful when creating reports that aggregate
@@ -214,23 +214,23 @@ StockPrice
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-```
-StockPrice
-| where timestamp > ago(75m)
-| project symbol, price, timestamp
-| partition by symbol
-(
-    order by timestamp asc
-    | extend prev_price = prev(price, 1)
-    | extend prev_price_10min = prev(price, 600)
-)
-| where timestamp > ago(60m)
-| order by timestamp asc, symbol asc
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-| extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-| order by timestamp asc, symbol asc
-| render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
-```
+    ```
+    StockPrice
+    | where timestamp > ago(75m)
+    | project symbol, price, timestamp
+    | partition by symbol
+    (
+        order by timestamp asc
+        | extend prev_price = prev(price, 1)
+        | extend prev_price_10min = prev(price, 600)
+    )
+    | where timestamp > ago(60m)
+    | order by timestamp asc, symbol asc
+    | extend pricedifference_10min = round(price - prev_price_10min, 2)
+    | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+    | order by timestamp asc, symbol asc
+    | render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
+    ```
    ![](./media/image23.png)
 4.  This will render a line chart as shown in the below image.
     ![](./media/image24.png)
@@ -289,7 +289,6 @@ updating.
 3.  Select the query and run to view the results. Click on the
     **Build Power BI report** button in the command bar to bring this
     query into Power BI.
-
      ![](./media/image32.png)
      ![](./media/image33.png)
 
@@ -297,11 +296,11 @@ updating.
     select a **line chart** to the design surface, and configure the
     report as follows. See the image below as a reference.
 
-- Legend: **symbol**
-
-- X-axis: **timestamp**
-
-- Y-axis:**price**
+    - Legend: **symbol**
+    
+    - X-axis: **timestamp**
+    
+    - Y-axis:**price**
       ![](./media/image34.png)
 
 5.  In the Power BI (preview) page, from the ribbon, click on
