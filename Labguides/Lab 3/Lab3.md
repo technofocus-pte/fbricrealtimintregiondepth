@@ -225,7 +225,7 @@ the table, prepending the historical data.
      ![](./media/image37.png)
 
 3.  Under **Explorer**, navigate and select the **Lakehouse**, then
-    click on the **Add* ***button as shown in the below images*.*
+    click on the **Add** button as shown in the below images.
 
  **Important Note**: You’ll need to add the Lakehouse to every imported
  notebook -- do this each time you open a notebook for the first time.
@@ -249,23 +249,26 @@ the cell in the notebook.
     that appears on the left side of the cell.
      ![](./media/new14.png)
      ![](./media/image44.png)
-8.  Similarly, run the 2<sup>nd</sup> and 3<sup>rd</sup> cells.
+8.  Similarly, run the 2<sup>nd</sup> cell.
      ![](./media/new15.png)
      
 9.  To download and unzip historical data to the Lakehouse unmanaged
-    files, run 4<sup>th</sup> and 5<sup>th</sup> <sup>d</sup> cells as
-    shown in the below images.
+    files, run 3<sup>nd</sup> cell as shown in the below images.
      ![](./media/new16.png)
      ![](./media/new16-1.png)
      
-10. Verify/Create Table, find earliest date, select and run the 6<sup>th</sup>
+10. Verify/Create Table, find earliest date, select and run the 4<sup>th</sup>
     cell.
      ![](./media/new17.png)
-11. Run the 7<sup>th</sup> cell, 8<sup>th</sup> cell , and
-    9<sup>th</sup> cell.
+11. Run the 5<sup>th</sup> cell, 6<sup>th</sup> cell , and
+    7<sup>th</sup> cell.
      ![](./media/new18.png)
      ![](./media/new19.png)
-     ![](./media/new20.png)
+  >**Important**:While verifying CSV files, if you encounter the error shown below, restart the kernel and run the cell again.
+      ![](./media/image-5.png)
+     
+   ![](./media/new20.png)
+   
      
 13. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
