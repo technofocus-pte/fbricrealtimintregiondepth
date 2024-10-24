@@ -221,33 +221,33 @@ To auto-deploy the resources, use these steps below.
 5.  On the **Azure Event Hubs** configuration page, enter the below
     details and click on **Add** button.
 
-<!-- -->
-
-- Configure connection settings: Click on the **New connection** and
-    enter the below details then click on **Create** button.
-
-<!-- -->
-
-a.  In Event Hub namespace-Enter Event Hub name (the values that you
-    have saved in your notepad)
-
-b.  Event Hub : **+++StockEventHub+++**
-
-c.  Shared Access Key Name:**+++stockeventhub_sas+++**
-
-d.  Shared Access Key- Enter Primary Key (the value that you have saved
-    in your notepad in the **Task 4**)
-
-<!-- -->
-
-e.  Consumer group: **$Default**
-
-f.  Data format: **JSON** and click on **Next** button
-     ![](./media/image30.png)
-      ![](./media/image31.png)
-      ![](./media/image32.png)
-      ![](./media/image33.png)
-      ![](./media/image34.png)
+     <!-- -->
+     
+     - Configure connection settings: Click on the **New connection** and
+         enter the below details then click on **Create** button.
+     
+     <!-- -->
+     
+     a.  In Event Hub namespace-Enter Event Hub name (the values that you
+         have saved in your notepad)
+     
+     b.  Event Hub : **+++StockEventHub+++**
+     
+     c.  Shared Access Key Name:**+++stockeventhub_sas+++**
+     
+     d.  Shared Access Key- Enter Primary Key (the value that you have saved
+         in your notepad in the **Task 4**)
+     
+     <!-- -->
+     
+     e.  Consumer group: **$Default**
+     
+     f.  Data format: **JSON** and click on **Next** button
+          ![](./media/image30.png)
+           ![](./media/image31.png)
+           ![](./media/image32.png)
+           ![](./media/image33.png)
+           ![](./media/image34.png)
 
 6.  You will see a notification stating **Successfully added The source
     “StockEventHub,Azure Event Hubs”** was added.
