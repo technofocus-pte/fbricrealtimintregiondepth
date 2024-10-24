@@ -93,7 +93,7 @@ of resources.
       ![](./media/image7.png)
 
 2.  On **Upgrade to a free Microsoft Fabric** trial dialog box, click on
-    **Start trial** button**.**
+    **Start trial** button.
 
      ![](./media/image8.png)
 
@@ -129,10 +129,10 @@ reports.
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-| **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
-|----|----|
-| **Advanced** | Select Trail |
-| **Default storage format** | **Small dataset storage format** |
+  | **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
+  |----|----|
+  | **Advanced** | Select Trail |
+  | **Default storage format** | **Small dataset storage format** |
 
    ![](./media/image14.png)
    ![](./media/image15.png)
@@ -154,11 +154,11 @@ To auto-deploy the resources, use these steps below.
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
     the following details and click on the **Review+create** button.
 
-|               |                                                                |
-|---------------|----------------------------------------------------------------|
-|Subscription   |Select the assigned subscription	                               |
-|Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
-|Region         |Select West US 3	|
+   |               |                                                                |
+   |---------------|----------------------------------------------------------------|
+   |Subscription   |Select the assigned subscription	                               |
+   |Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
+   |Region         |Select West US 3	|
      ![](./media/image16.png)
      ![](./media/image17.png)
 3.  In the **Review + create** tab, navigate and click on the **Create**
@@ -220,14 +220,10 @@ To auto-deploy the resources, use these steps below.
      ![](./media/image29.png)
 5.  On the **Azure Event Hubs** configuration page, enter the below
     details and click on **Add** button.
-
-     <!-- -->
-     
+      
      - Configure connection settings: Click on the **New connection** and
          enter the below details then click on **Create** button.
-     
-     <!-- -->
-     
+               
      a.  In Event Hub namespace-Enter Event Hub name (the values that you
          have saved in your notepad)
      
@@ -237,9 +233,7 @@ To auto-deploy the resources, use these steps below.
      
      d.  Shared Access Key- Enter Primary Key (the value that you have saved
          in your notepad in the **Task 4**)
-     
-     <!-- -->
-     
+            
      e.  Consumer group: **$Default**
      
      f.  Data format: **JSON** and click on **Next** button
