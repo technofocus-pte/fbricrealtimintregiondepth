@@ -313,7 +313,7 @@ Lakehouse if it is not already added.
     ![](./media/image55.png)
 
 3.  Under Explorer, navigate and select the **Lakehouse**, then click on
-    the **Add* ***button.
+    the **Add**button.
 
      ![](./media/image56.png)
 
@@ -328,16 +328,16 @@ Lakehouse if it is not already added.
 
      ![](./media/image41.png)
 
-6.  To build Aggregate Tables, select and run the 1<sup>st</sup> ,
-    2<sup>nd</sup> , 3<sup>rd</sup> , and 4<sup>th</sup> cells.
+6.  To build Aggregate Tables, select and run the **1<sup>st</sup> ,
+    2<sup>nd</sup> , 3<sup>rd</sup>** , and **4<sup>th</sup>** cells.
 
      ![](./media/image58.png)
      ![](./media/image59.png)
      ![](./media/image60.png)
      ![](./media/image61.png)
 
-7.  Then, select and run the 5<sup>th</sup> , 6<sup>th</sup>,
-    7<sup>th</sup> , and 8<sup>th</sup> cells.
+7.  Then, select and run the **5<sup>th</sup> , 6<sup>th</sup>,
+    7<sup>th</sup>** , and **8<sup>th</sup>** cells.
 
     ![](./media/image62.png)
     ![](./media/image62.png)
@@ -360,15 +360,15 @@ Lakehouse if it is not already added.
 
      ![](./media/image66.png)
 
-11. To remove null/empty values, under *Operations*, click on the
+11. To remove null/empty values, under **Operations**, click on the
     dropdown beside **Find and replace**, then navigate and click on
     **Drop missing values**.
 
      ![](./media/image67.png)
 
 12. From the **Target columns** dropdown, select
-    the **symbol** and **price**columns and then click on **Apply
-    button** below it as shown in the image.
+    the **symbol** and **price**columns and then click on **Apply**
+    button below it as shown in the image.
 
      ![](./media/image68.png)
      ![](./media/image69.png)
@@ -378,8 +378,8 @@ Lakehouse if it is not already added.
     filter**, then click on **Filter** as shown in the below image. 
 
      ![](./media/image71.png)
-14. **Uncheck** *Keep matching rows*, select **price** as the target
-    column, and set the condition to ***Equal* to *0*.**
+14. **Uncheck** Keep matching rows, select **price** as the target
+    column, and set the condition to **Equal** to **0**
     Click **Apply**in the **Operations** panel beneath the Filter
 
      Note: The rows with zero are marked red as they will be dropped (if
@@ -402,18 +402,18 @@ Lakehouse if it is not already added.
      ![](./media/image77.png)
      ![](./media/image78.png)
 
-    The function created, *clean_data*, contains all of the steps in
+    The function created, **clean_data**, contains all of the steps in
     sequence and can be modified as needed. Notice that each step performed
     in data wrangler is commented. Because data wrangler was loaded with
-    the *anomaly_df*, the method is written to take that dataframe by name,
+    the **anomaly_df**, the method is written to take that dataframe by name,
     but this can be any dataframe that matches the schema.
 
 18. Modify the function name
-    from **clean_data** to *remove_invalid_rows*, and change the
-    line *anomaly_df_clean = clean_data(anomaly_df)* to *df_stocks_clean
-    = remove_invalid_rows(df_stocks)* . Also, while not necessary for
+    from **clean_data** to **remove_invalid_rows**, and change the
+    line **anomaly_df_clean = clean_data(anomaly_df)** to **df_stocks_clean
+    = remove_invalid_rows(df_stocks)** . Also, while not necessary for
     functionality, you can change the name of the dataframe used in the
-    function to simply *df* as shown below
+    function to simply **df** as shown below
 
 19. Run this cell and observe the output.
     ```
@@ -433,9 +433,9 @@ Lakehouse if it is not already added.
      ![](./media/image79.png)
     
 20. This function will now remove the invalid rows from
-    our *df_stocks* dataframe and return a new dataframe
-    called *df_stocks_clean*. It is common to use a different name for
-    the output dataframe (such as *df_stocks_clean*) to make the cell
+    our **df_stocks** dataframe and return a new dataframe
+    called **df_stocks_clean**. It is common to use a different name for
+    the output dataframe (such as **df_stocks_clean**) to make the cell
     idempotent -- this way, we can go back and re-run the cell, make
     modifications, etc., without having to reload our original data.
      ![](./media/image80.png)
@@ -514,9 +514,9 @@ the notebook to help fix any issues after.
     ```
      ![](./media/image90.png)
 
- 9.  Same as with the hour column, create a new ***minute* **column. In
-    the new *minute* column, enter a minute for any given row. For
-    example, if the *timestamp* is *2024-02-07 09:54:00* enter *54*. You
+ 9.  Same as with the hour column, create a new **minute**column. In
+    the new **minute** column, enter a minute for any given row. For
+    example, if the **timestamp** is **2024-02-07 09:54:00** enter **54**. You
     may need to enter example values for several rows.
      ![](./media/image91.png)
 
