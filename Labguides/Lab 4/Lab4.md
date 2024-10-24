@@ -80,10 +80,10 @@ kind of exploration.
       ![](./media/image7.png)
 
 7.  Under the Explorer, select **Lakehouse** and click on the
-    **Add* *button.**
+    **Add** button.
 
-> ***Important*:** You will need to add the Lakehouse to every imported
-> notebook -- do this each time you open a notebook for the first time.
+  **Important**: You will need to add the Lakehouse to every imported
+    notebook -- do this each time you open a notebook for the first time.
      ![](./media/image8.png)
      ![](./media/image9.png)
 
@@ -91,7 +91,7 @@ kind of exploration.
     radio button, then click on the **Add** button.
      ![](./media/image10.png)
 
-9.  On the OneLake data hub window, select the ***StockLakehouse*** and
+9.  On the OneLake data hub window, select the **StockLakehouse** and
     click on the **Add** button.
      ![](../media/image11.png)
      ![](./media/image12.png)
@@ -128,8 +128,8 @@ the model. As part of an overall solution, we'd then supplement the
 historical data with new real-time data in our Lakehouse, re-training
 the model as necessary (daily/weekly/monthly).
 
-1.  In 1<sup>st</sup> cell uncomment the STOCK_SYMBOL=”IDGD” and
-    STOCK_SYMBOL=”BCUZ”, then select and **Run** the cell.
+1.  In 1<sup>st</sup> cell uncomment the **STOCK_SYMBOL=”IDGD”** and
+    **STOCK_SYMBOL=”BCUZ”**, then select and **Run** the cell.
 
      ![](./media/image13.png)
 
@@ -235,7 +235,7 @@ completes these tasks at a high level:
 
      ![](./media/image53.png)
 3.  Under the Explorer, select the **Lakehouse**, then click on the
-    **Add* ***button*.*
+    **Add** button.
 
      ![](./media/image54.png)
 
@@ -246,7 +246,7 @@ completes these tasks at a high level:
 
      ![](./media/image10.png)
 
-5.  On the OneLake data hub window, select the ***StockLakehouse*** and
+5.  On the OneLake data hub window, select the **StockLakehouse** and
     click on the **Add** button.
 
      ![](./media/image11.png)
@@ -286,7 +286,7 @@ completes these tasks at a high level:
       ![](./media/image66.png)
 
 5.  When all cells have been run, refresh the schema by clicking on the
-    three dots **(...)** beside *Tables,* then navigate and click on
+    three dots **(...)** beside **Tables,** then navigate and click on
     **Refresh**.
       ![](./media/image67.png)
       ![](./media/image68.png)
@@ -344,7 +344,7 @@ a few key things:
 
      ![](./media/image48.png)
 
-2.  *In the **RealTimeWorkspace***, click on the **DS 3-Forecast All**
+2.  *In the **RealTimeWorkspace**, click on the **DS 3-Forecast All**
     notebook.
 
      ![](./media/image69.png)
@@ -411,13 +411,13 @@ and enrichments like measures to make developing reports easier
 
      ![](./media/image90.png)
 
-3.  In the ***StocksLakehouse*** page*,* click on **New semantic
+3.  In the **StocksLakehouse** page, click on **New semantic
     model** in the command bar.
 
      ![](./media/image91.png)
 
 4.  In the **New semantic model** pane **Name** field, enter the name of
-    the model as ***StocksLakehousePredictions***, select the
+    the model as **StocksLakehousePredictions**, select the
     **stock_prediction**, and **dim_symbol** tables. Then, click on the
     **Confirm** button as shown in the below image.
 
@@ -436,19 +436,19 @@ and enrichments like measures to make developing reports easier
 
 7.  In the **New relationship** dialog box:
 
-- **From table** is populated with **stock_prediction** and the column
-  of **Symbol.**
-
-- **To table** is populated with **dim_symbol**  and the column of
-  **Symbol.**
-
-- Cardinality: **Many to one (\*:1)**
-
-- Cross filter direction: **Single**
-
-- Leave the box next to **Make this relationship active** selected.
-
-- Select **Save**
+    - **From table** is populated with **stock_prediction** and the column
+      of **Symbol.**
+    
+    - **To table** is populated with **dim_symbol**  and the column of
+      **Symbol.**
+    
+    - Cardinality: **Many to one (\*:1)**
+    
+    - Cross filter direction: **Single**
+    
+    - Leave the box next to **Make this relationship active** selected.
+    
+    - Select **Save**
 
     ![](./media/image95.png)
 
@@ -457,7 +457,7 @@ and enrichments like measures to make developing reports easier
 ## Task 2: Build the report in Power BI Desktop
 
 1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL: <https://powerbi.microsoft.com/en-us/desktop/> ,
+    the following URL: +++https://powerbi.microsoft.com/en-us/desktop/+++ ,
     then press the **Enter** button.
 
 2.  Click on the **Download now** button.
@@ -477,20 +477,20 @@ and enrichments like measures to make developing reports easier
 
      ![](./media/image100.png)
 
-6.  Enter your **Microsoft Office 365** **tenant** credentials and click
+6.  Enter your **given**  credentials and click
     on the **Next** button.
 
       ![](./media/image101.png)
 
 7.  Enter the **Administrative password** from the **Resources** tab and
-    click on the **Sign in** button**.**
+    click on the **Sign in** button.
 
      ![](./media/image102.png)
 8.  In Power BI Desktop, select **Blank report.**
 
      ![](./media/image103.png)
 
-9.  On the *Home* ribbon, click the ***OneLake data hub*** and select
+9.  On the **Home** ribbon, click the **OneLake data hub** and select
     **KQL Database.**
 
      ![](./media/image104.png)
@@ -506,7 +506,7 @@ and enrichments like measures to make developing reports easier
      ![](./media/image106.png)
 
 12. Enter the **Administrative password** from the **Resources** tab and
-    click on the **Sign in** button**.**
+    click on the **Sign in** button.
 
       ![](./media/image107.png)
 
@@ -520,7 +520,7 @@ and enrichments like measures to make developing reports easier
 
      ![](./media/image109.png)
 
-15. On the ***Home*** ribbon, click the ***OneLake data hub*** and
+15. On the **Home** ribbon, click the **OneLake data hub** and
     select **Power BI semantic models** as shown in the below image.
 
      ![](./media/image110.png)
@@ -540,21 +540,20 @@ and enrichments like measures to make developing reports easier
      ![](./media/image113.png)
 
      ![](./media/image114.png)
-19. Click on ***Modeling*** in the command bar, then click on ***Manage
-    relationships.***
+19. Click on **Modeling** in the command bar, then click on **Manage relationships.**
 
      ![](./media/image115.png)
 
-20. In the **Manage relationships** pane, select +**New relationship**
+20. In the **Manage relationships** pane, select **+New relationship**
     as shown in the below image.
 
       ![](./media/image116.png)
 
-21. Create a **New relationship** between the ***StockPrice*** -**From
-    table** and the ***stocks_prediction*** – ***To table* **(after
+21. Create a **New relationship** between the **StockPrice** -**From
+    table** and the **stocks_prediction** – **To table**(after
     selecting the table, ensure to select the symbol columns in each
-    table). Set the cross filter direction to ***Both***, and make sure
-    the cardinality is set to ***Many-to-many*.** Then, click on the
+    table). Set the cross filter direction to **Both**, and make sure
+    the cardinality is set to **Many-to-many** Then, click on the
     **Save** button.
 
       ![](./media/image117.png)
@@ -567,18 +566,18 @@ and enrichments like measures to make developing reports easier
 23. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **StockPrice**  and check the box next
-  to **timestamp**. This creates a column chart and adds the field to
-  the **X-axis**.
-
-- On the **Data** pane, expand **StockPrice** and check the box next
-  to **Price**. This adds the field to the **Y-axis**.
-
-- On the **Data** pane, expand **StockPrice** and check the box next
-  to **Symbol**. This adds the field to the **Legend**.
-
-- **Filter**: **timestamp** to ***Relative time** is in the last* **15
-  minutes**.
+    - On the **Data** pane, expand **StockPrice**  and check the box next
+      to **timestamp**. This creates a column chart and adds the field to
+      the **X-axis**.
+    
+    - On the **Data** pane, expand **StockPrice** and check the box next
+      to **Price**. This adds the field to the **Y-axis**.
+    
+    - On the **Data** pane, expand **StockPrice** and check the box next
+      to **Symbol**. This adds the field to the **Legend**.
+    
+    - **Filter**: **timestamp** to ***Relative time** is in the last* **15
+      minutes**.
 
      ![](./media/image119.png)
 
@@ -587,18 +586,17 @@ and enrichments like measures to make developing reports easier
 24. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **StockPrice**  and check the box next
-  to **timestamp**. This creates a column chart and adds the field to
-  the **X-axis**.
-
-- On the **Data** pane, expand **StockPrice** and check the box next
-  to **Price**. This adds the field to the **Y-axis**.
-
-- On the **Data** pane, expand **dim_symbol** and check the box next
-  to **Market**. This adds the field to the **Legend**.
-
-- **Filter**: **timestamp** to ***Relative time** is in the last* **1
-  hour**.
+  - On the **Data** pane, expand **StockPrice**  and check the box next
+    to **timestamp**. This creates a column chart and adds the field to
+    the **X-axis**.
+  
+  - On the **Data** pane, expand **StockPrice** and check the box next
+    to **Price**. This adds the field to the **Y-axis**.
+  
+  - On the **Data** pane, expand **dim_symbol** and check the box next
+    to **Market**. This adds the field to the **Legend**.
+  
+  - **Filter**: **timestamp** to ***Relative time** is in the last* **1 hour**.
 
      ![](./media/image121.png)
      ![](./media/image122.png)
@@ -607,18 +605,18 @@ and enrichments like measures to make developing reports easier
 25. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **Stock_prediction**  and check the box
-  next to **predict_time**. This creates a column chart and adds the
-  field to the **X-axis**.
-
-- On the **Data** pane, expand **Stock_prediction**  and check the box
-  next to **yhat**. This adds the field to the **Y-axis**.
-
-- On the **Data** pane, expand **Stock_prediction** and check the box
-  next to **Symbol**. This adds the field to the **Legend**.
-
-- **Filter**: **predict_time** to ***Relative date** in the last* **3
-  days**.
+    - On the **Data** pane, expand **Stock_prediction**  and check the box
+      next to **predict_time**. This creates a column chart and adds the
+      field to the **X-axis**.
+    
+    - On the **Data** pane, expand **Stock_prediction**  and check the box
+      next to **yhat**. This adds the field to the **Y-axis**.
+    
+    - On the **Data** pane, expand **Stock_prediction** and check the box
+      next to **Symbol**. This adds the field to the **Legend**.
+    
+    - **Filter**: **predict_time** to **Relative date** in the last* **3
+      days**.
 
      ![](./media/image125.png)
      ![](./media/image126.png)
@@ -626,28 +624,28 @@ and enrichments like measures to make developing reports easier
      ![](./media/image128.png)
 
 26. In the **Power BI** page, under **Data,** right click
-    the ***stocks_prediction*** table and select ***New measure.***
+    the **stocks_prediction** table and select **New measure.**
 
       ![](./media/image129.png)
 
 27. Measures are formulas written in the Data Analysis Expressions (DAX)
-    language; for this DAX formula, enter +++***currdate = NOW()+++* **
+    language; for this DAX formula, enter +++currdate = NOW()+++
 
       ![](./media/image130.png)
 
 28. With the prediction chart selected, navigate to the additional
     visualization options i.e., the magnifying glass/chart icon and add
-    a **new *X-Axis Constant Line***.
+    a new **X-Axis Constant Line**.
 
       ![](./media/image131.png)
 
-29. Under *Value*, use the formula button **(fx)** to choose a field.
+29. Under **Value**, use the formula button **(fx)** to choose a field.
 
      ![](./media/image132.png)
 
 30. In **Value -Apply settings to** page, click on the dropdown under
     **what field should we base this on?**, then click on the dropdown
-    of **stocks_prediction**, select the ***currdate* **measure. Then,
+    of **stocks_prediction**, select the **currdate**measure. Then,
     click on the **OK** button.
 
      ![](./media/image133.png)
@@ -655,8 +653,7 @@ and enrichments like measures to make developing reports easier
      ![](./media/image134.png)
 
 31. Navigate to the additional visualization options i.e., the
-    magnifying glass/chart icon, turn On the **Shade
-    area**.
+    magnifying glass/chart icon, turn On the **Shade area**.
       ![](./media/image135.png)
 
 33. Configured the relationships between tables, all visual should cross
