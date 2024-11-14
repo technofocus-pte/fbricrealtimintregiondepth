@@ -153,16 +153,16 @@ increase in price of a stock symbol and send a notification.
 
       ![](./media/image24.png)
 9.  Notice that the ***price* chart** should retain the summarized view,
-    averaging data in 10 minute intervals. In the ***Detect*** section,
-    configure the type of detection to ***Numeric*** \> **Increases
+    averaging data in 10 minute intervals. In the **Detect** section,
+    configure the type of detection to **Numeric** \> **Increases
     by**.
 
       ![](./media/image25.png)
 
-10. Set the type of increase to ***Percentage***. Start with a value of
+10. Set the type of increase to **Percentage**. Start with a value of
     about **6**, but you will need to modify this depending on the
-    volatility of your data. Set this value to ***From last
-    measurement*** and ***Each time***, as shown below:
+    volatility of your data. Set this value to **From last
+    measurement** and **Each time**, as shown below:
 
      ![](./media/image26.png)
 
@@ -221,15 +221,15 @@ BI, this will also make them more readable in Data Activator.
 6.  Now rename them by selecting the drop-down on each field,
     selecting **Rename for this visual**. Rename them similar to:
 
-- timestamp to **Timestamp**
+    - timestamp to **Timestamp**
       ![](./media/image35.png)
       ![](./media/image36.png)
 
-- **sum of price** to **Price**
+  - **sum of price** to **Price**
       ![](./media/image37.png)
       ![](./media/image38.png)
 
-- **symbol** to **Symbol**
+  - **symbol** to **Symbol**
      ![](./media/image39.png)
      ![](./media/image40.png)
 
@@ -240,11 +240,11 @@ BI, this will also make them more readable in Data Activator.
 8.  Now rename them by selecting the drop-down on each field,
     selecting ***Rename for this visual** .Rename them similar to:
 
-- timestamp to **Timestamp** 
-
-- symbol to **Symbol** 
-
-- avg of percentdifference_10min to **Percent Change**
+  - timestamp to **Timestamp** 
+  
+  - symbol to **Symbol** 
+  
+  - avg of percentdifference_10min to **Percent Change**
 
       ![](./media/image42.png)
 
@@ -267,22 +267,22 @@ Change value moves above a certain threshold (likely around 0.05).
     **horizontal** **ellipsis**, navigate and click on **Set alert**
     as shown in the below image.
       ![](./media/image45.png)
-2.  In the *Set an alert* pane, most settings will be pre-selected. Use
+2.  In the **Set an alert** pane, most settings will be pre-selected. Use
     the following settings as shown in the below image:
 
-- Visual: **Precent Change by Timestamp and Symbol**
-
-- Measure: **Percent Change**
-
-- Condition: **Becomes greater than**
-
-- Threshold**: 0.05** (this will be changed later)
-
-- Filters: **verify there are no filters affecting the visual**
-
-- Notification type**: Email**
-
-- Uncheck **Start my alert** and click on **Create alert** button.
+    - Visual: **Precent Change by Timestamp and Symbol**
+    
+    - Measure: **Percent Change**
+    
+    - Condition: **Becomes greater than**
+    
+    - Threshold: **0.05** (this will be changed later)
+    
+    - Filters: **verify there are no filters affecting the visual**
+    
+    - Notification type: **Email**
+    
+    - Uncheck **Start my alert** and click on **Create alert** button.
      ![](./media/image46.png)
      ![](./media/image47.png)
 3.  After the Reflex is saved, the notification should include a link to
