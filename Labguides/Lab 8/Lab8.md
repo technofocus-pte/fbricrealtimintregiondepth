@@ -54,11 +54,11 @@ larger files.
 8.  In the query editor, copy and paste the following code. Select and
     **Run** the cell to execute the query. After the query is
     successfully executed, you will see the results.
-```
-from delta.tables import *
-raw_stock_data = DeltaTable.forName (spark, "raw_stock_data”)
-raw_stock_data.optimize().executeCompaction()
-```
+      ```
+      from delta.tables import *
+      raw_stock_data = DeltaTable.forName (spark, "raw_stock_data”)
+      raw_stock_data.optimize().executeCompaction()
+      ```
    ![](./media/image7.png)
    ![](./media/image8.png)
 
@@ -71,27 +71,27 @@ raw_stock_data.optimize().executeCompaction()
     run it.
 
       ![](./media/image9.png)
-```    
-from delta.tables import *
-
-if spark.catalog.tableExists("dim_date"):
-    table = DeltaTable.forName(spark, "dim_date")
-    table.optimize().executeCompaction()
-
-if spark.catalog.tableExists("dim_symbol"):
-    table = DeltaTable.forName(spark, "dim_symbol")
-    table.optimize().executeCompaction()
-
-if spark.catalog.tableExists("fact_stocks_daily_prices"):
-    table = DeltaTable.forName(spark, "fact_stocks_daily_prices")
-    table.optimize().executeCompaction()
-
-if spark.catalog.tableExists("raw_stock_data"):
-    table = DeltaTable.forName(spark, "raw_stock_data")
-    table.optimize().executeCompaction()
-    table.vacuum()
-```
-![](./media/image10.png)
+      ```    
+      from delta.tables import *
+      
+      if spark.catalog.tableExists("dim_date"):
+          table = DeltaTable.forName(spark, "dim_date")
+          table.optimize().executeCompaction()
+      
+      if spark.catalog.tableExists("dim_symbol"):
+          table = DeltaTable.forName(spark, "dim_symbol")
+          table.optimize().executeCompaction()
+      
+      if spark.catalog.tableExists("fact_stocks_daily_prices"):
+          table = DeltaTable.forName(spark, "fact_stocks_daily_prices")
+          table.optimize().executeCompaction()
+      
+      if spark.catalog.tableExists("raw_stock_data"):
+          table = DeltaTable.forName(spark, "raw_stock_data")
+          table.optimize().executeCompaction()
+          table.vacuum()
+      ```
+      ![](./media/image10.png)
 > The *raw_stock_data* table will take the most time to optimize, and is
 > also the most important to optimize regularly. Also, notice the use
 > of *vacuum*. The *vacuum* command removes files older than the
