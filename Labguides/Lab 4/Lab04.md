@@ -39,58 +39,57 @@ Fabric 的 Data Science 功能是進行此類探索的理想場所。
 1.  在 **StockDimensionalModel** 頁面中，按一下左側導航菜單上的
     **RealTimeWorkspace**。
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
 2.  在 **Synapse Data Engineering RealTimeWorkspace**
     頁面，導航並按一下**導入**按鈕，然後選擇**筆記本**並選擇**從這台電腦**，**如下圖所示。**
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+    ![](./media/image2.png)
 
 3.  在右側出現的 "**導入狀態** "窗格中，按一下 "**上傳**"。
 
-![](./media/image3.png)
+      ![](./media/image3.png)
 
 4.  導航至 **C:\LabFiles\Lab 05** 並選擇 **DS 1-構建模型、DS
     2-預測股票價格和 DS 3-預測所有**筆記本，然後按一下 "**打開 "**按鈕。
 
-![](./media/image4.png)
+    ![](./media/image4.png)
 
 5.  您將看到一條通知，說明 "**導入成功"。**
 
-![](./media/image5.png)
-
-![](./media/image6.png)
+    ![](./media/image5.png)
+    
+    ![](./media/image6.png)
 
 6.  在 **RealTimeWorkspace** 中，按一下 **DS 1-Build Model** 筆記本。
 
-![](./media/image7.png)
+    ![](./media/image7.png)
 
 7.  在 "資源管理器 "下，選擇 **Lakehouse** 並按一下 "**添加**
     "**按鈕。**
 
-> ***重要*提示：**您需要為每本導入的筆記本添加 Lakehouse --
-> 每次首次打開筆記本時都要這樣做。
+    **重要*提示**您需要為每本導入的筆記本添加 Lakehouse --
+    每次首次打開筆記本時都要這樣做。
 
-![](./media/image8.png)
-
-![](./media/image9.png)
+      ![](./media/image8.png)
+      
+      ![](./media/image9.png)
 
 8.  在 **"添加 Lakehouse** "對話方塊中，選擇 "**現有 Lakehouse**
     "選項按鈕，然後按一下 "**添加** "按鈕。
 
-![](./media/image10.png)
+    ![](./media/image10.png)
 
 9.  在 OneLake 資料中心視窗，選擇 ***StockLakehouse***
     並點擊**添加**按鈕。
 
-![](./media/image11.png)
-
-![](./media/image12.png)
+    ![](./media/image11.png)
+    
+    ![](./media/image12.png)
 
 ## 任務 2：探索和運行筆記本
 
-*DS 1* 筆記本在整個筆記本中都有記錄，但簡而言之，該筆記本執行以下任務：
+**DS 1** 筆記本在整個筆記本中都有記錄，但簡而言之，該筆記本執行以下任務：
 
 - 允許我們配置要分析的股票（如 WHO 或 IDGD）
 
@@ -117,113 +116,103 @@ Model 時截斷未來的資料。作為整體解決方案的一部分，我們�
 1.  在 1^(st) 儲存格中，取消 STOCK_SYMBOL="IDGD" 和
     STOCK_SYMBOL="BCUZ"，然後選擇並**運行**該儲存格。
 
-![](./media/image13.png)
+    ![](./media/image13.png)
 
 2.  按一下頂部工具列中的 "***全部運行***"，跟隨工作的進展。
 
 3.  該筆記本大約需要 **15-20** 分鐘來執行 --
     某些步驟，如**模型訓練**和**交叉驗證**，需要一些時間。
 
-![](./media/image14.png)
+      ![](./media/image14.png)
+      
+      ![](./media/image15.png)
+  
+      ![](./media/image16.png)
+      
+      ![](./media/image17.png)
+      
+      ![](./media/image18.png)
+      
+      ![](./media/image19.png)
+      
+      ![](./media/image20.png)
+      
+      ![](./media/image21.png)
+      
+      ![](./media/image22.png)
+      
+      ![](./media/image23.png)
 
-![](./media/image15.png)
+       ![](./media/image24.png)
+      
+       ![](./media/image25.png)
+      
+      ![](./media/image26.png)
+      
+       ![](./media/image27.png)
+      
+       ![](./media/image28.png)
+      
+       ![](./media/image29.png)
+      
+      ![](./media/image30.png)
+      
+      ![](./media/image31.png)
+      
+      ![](./media/image32.png)
+      
+      ![](./media/image33.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image16.png)
-
-![](./media/image17.png)
-
-![](./media/image18.png)
-
-![](./media/image19.png)
-
-![](./media/image20.png)
-
-![](./media/image21.png)
-
-![](./media/image22.png)
-
-![](./media/image23.png)
-
-![A screen shot of a computer Description automatically
-generated](./media/image24.png)
-
-![A screen shot of a graph Description automatically
-generated](./media/image25.png)
-
-![](./media/image26.png)
-
-![A graph of a graph Description automatically generated with medium
-confidence](./media/image27.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image28.png)
-
-![A screen shot of a graph Description automatically
-generated](./media/image29.png)
-
-![](./media/image30.png)
-
-![](./media/image31.png)
-
-![](./media/image32.png)
-
-![](./media/image33.png)
-
-![A graph with a blue line Description automatically
-generated](./media/image34.png)
-
-![A graph showing a graph Description automatically generated with
-medium confidence](./media/image35.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image36.png)
-
-![](./media/image37.png)
-
-![](./media/image38.png)
-
-![](./media/image39.png)
-
-![](./media/image40.png)
-
-![](./media/image41.png)
-
-![](./media/image42.png)
-
-![](./media/image43.png)
-
-![](./media/image44.png)
-
-![](./media/image45.png)
-
-![](./media/image46.png)
-
-![](./media/image47.png)
+       ![](./media/image34.png)
+      
+      ![](./media/image35.png)
+      
+      ![](./media/image36.png)
+      
+      ![](./media/image37.png)
+      
+      ![](./media/image38.png)
+      
+      ![](./media/image39.png)
+      
+      ![](./media/image40.png)
+      
+      ![](./media/image41.png)
+      
+      ![](./media/image42.png)
+      
+      ![](./media/image43.png)
+      
+      ![](./media/image44.png)
+      
+      ![](./media/image45.png)
+      
+      ![](./media/image46.png)
+      
+      ![](./media/image47.png)
 
 ## 任務 3：檢查模型和運行
 
 1.  現在，點擊左側導航功能表上的 **RealTimeWorkspace**。
 
-![](./media/image48.png)
+      ![](./media/image48.png)
 
 2.  實驗和運行可在工作區資源列表中查看。
 
-![](./media/image49.png)
+      ![](./media/image49.png)
 
 3.  在 **RealTimeWorkspace** 頁面，選擇 ML Model 類型的
     **WHO-stock-prediction-model** 。
 
-![](./media/image50.png)
+      ![](./media/image50.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image51.png)
+       ![](./media/image51.png)
 
 4.  在我們的案例中，中繼資料包括我們可以調整模型的輸入參數，以及模型準確性的指標，例如均方根誤差（RMSE）。RMSE
     表示平均誤差--零表示模型與實際資料完全吻合，而數位越大則表示誤差越大。雖然數值越小越好，但
     "好 "的數值還是要根據實際情況來確定。
 
-![](./media/image52.png)
+      ![](./media/image52.png)
 
 # 練習 2-使用模型、保存到 Lakehouse、創建報告
 
@@ -246,72 +235,69 @@ write_predictions*，這有助於將邏輯封裝為更小的步驟。筆記本�
 
 1.  現在，點擊左側功能窗格中的 **RealTimeWorkspace**。
 
-![](./media/image48.png)
+    ![](./media/image48.png)
 
 2.  在 **RealTimeWorkspace** 中，按一下 **DS 2-Predict Stock Prices**
     筆記本。
 
-![](./media/image53.png)
+    ![](./media/image53.png)
 
-3.  在資源管理器下，選擇 **Lakehouse**，然後點擊**添加**按鈕*。*
+3.  在資源管理器下，選擇 **Lakehouse**，然後點擊**添加**按鈕。
 
-![](./media/image54.png)
-
-![](./media/image55.png)
+    ![](./media/image54.png)
+    
+    ![](./media/image55.png)
 
 4.  在 **"添加 Lakehouse** "對話方塊中，選擇 "**現有 Lakehouse**
     "選項按鈕，然後按一下 "**添加** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+    ![](./media/image10.png)
 
 5.  在 OneLake 資料中心視窗，選擇 ***StockLakehouse***
     並點擊**添加**按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+    ![](./media/image11.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
+    ![](./media/image56.png)
 
 ## 任務 2：運行筆記本
 
 1.  在 Lakehouse 中創建股票預測表，選擇並**運行** 1^(st) 和 2^(nd)
     儲存格。
 
-![](./media/image57.png)
-
-![](./media/image58.png)
+    ![](./media/image57.png)
+    
+    ![](./media/image58.png)
 
 2.  獲取所有股票代碼列表，選擇並**運行** 3^(rd) 和 4^(th) 儲存格。
 
-![](./media/image59.png)
-
-![](./media/image60.png)
+    ![](./media/image59.png)
+    
+    ![](./media/image60.png)
 
 3.  通過檢查 MLflow 中可用的 ML Model 創建預測列表，選擇並**運行**
     7^(th) , 8^(th) , 9^(th) , 和 10^(th) 單元。
 
-![](./media/image61.png)
-
-![](./media/image62.png)
-
-![](./media/image63.png)
-
-![](./media/image64.png)
+      ![](./media/image61.png)
+      
+      ![](./media/image62.png)
+      
+      ![](./media/image63.png)
+      
+      ![](./media/image64.png)
 
 4.  要為 Lakehouse 中的每個模型商店建立預測，請選擇並**運行** 11 個^(th)
     和 12 個^(th) 單元。
 
-![](./media/image65.png)
+    ![](./media/image65.png)
+    
+    ![](./media/image66.png)
 
-![](./media/image66.png)
+5.  運行所有儲存格後，點擊*表*旁邊的三個點 **(...)** 刷新模式，然後導航並點擊**刷新**
 
-5.  運行所有儲存格後，點擊*表*旁邊的三個點**（...）**刷新模式*，*然後導航並點擊***刷新*。**
-
-![](./media/image67.png)
-
-![](./media/image68.png)
+      ![](./media/image67.png)
+      
+      ![](./media/image68.png)
 
 # 練習 3：實際解決方案
 
@@ -347,83 +333,69 @@ ML Model 的建立和預測。這個過程將使用模組 06
 
 1.  現在，點擊左側導航功能表上的 **RealTimeWorkspace**。
 
-![](./media/image48.png)
+      ![](./media/image48.png)
 
-2.  *在**即時工作區中***，按一下 **DS 3-Forecast All** 筆記本。
+2.  在**即時工作區中**，按一下 **DS 3-Forecast All** 筆記本。
 
-![](./media/image69.png)
+      ![](./media/image69.png)
 
 3.  在資源管理器下選擇 **Lakehouse**，然後點擊***添加 。***
 
-![A screenshot of a computer Description automatically
-generated](./media/image54.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image55.png)
+      ![](./media/image54.png)
+      
+      ![](./media/image55.png)
 
 4.  在 **"添加 Lakehouse** "對話方塊中，選擇 "**現有 Lakehouse**
     "選項按鈕，然後按一下 "**添加** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+      ![](./media/image10.png)
 
 5.  在 OneLake 資料中心視窗，選擇 ***StockLakehouse***
     並點擊**添加**按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+      ![](./media/image11.png)
 
 6.  選擇並**運行** 1^(st) 儲存格。
 
-![](./media/image70.png)
+    ![](./media/image70.png)
 
 7.  按一下命令中的 "***全部運行***"，跟隨工作的進展。
 
 8.  為所有符號運行筆記本可能需要 10 分鐘。 ![](./media/image71.png)
 
-![](./media/image72.png)
+      ![](./media/image72.png)
+      
+      ![](./media/image73.png)
+      
+      ![](./media/image74.png)
+      
+      ![](./media/image75.png)
+      
+      ![](./media/image76.png)
+      
+      ![](./media/image77.png)
 
-![](./media/image73.png)
+        ![](./media/image78.png)
+        
+        ![](./media/image79.png)
+        
+        ![](./media/image80.png)
+        
+        ![](./media/image81.png)
+        
+        ![](./media/image82.png)
+        ![](./media/image83.png)
+        
+        ![](./media/image84.png)
+        
+        ![](./media/image85.png)
+        
+        ![](./media/image86.png)
 
-![](./media/image74.png)
+9.  運行所有儲存格後，按一下*表格*右側的三個點 **(...）**，然後導航並按一下
+    "***刷新***"，刷新模式。
 
-![](./media/image75.png)
-
-![](./media/image76.png)
-
-![](./media/image77.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image78.png)
-
-![A graph showing the growth of the stock market Description
-automatically generated](./media/image79.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image80.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image81.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image82.png)
-
-![A graph of different colored lines Description automatically
-generated](./media/image83.png)
-
-![A graph showing the growth of a company Description automatically
-generated](./media/image84.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image85.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image86.png)
-
-9.  運行所有儲存格後，按一下*表格*右側的三個點**（...）**，然後導航並按一下
-    "***刷新***"，刷新模式**。**
-
-![](./media/image87.png)
+      ![](./media/image87.png)
 
 # 練習 4：編寫預測報告
 
@@ -435,26 +407,25 @@ Power BI
 
 1.  按一下左側導航菜單上的 **RealTimeWorkspace**。
 
-![](./media/image88.png)
+      ![](./media/image88.png)
 
 2.  要創建語義模型，請導航並點擊 Lakehouse 即 **StackLakehouse。**
 
-![](./media/image89.png)
+      ![](./media/image89.png)
 
-![](./media/image90.png)
+      ![](./media/image90.png)
 
 3.  在 ***StocksLakehouse*** 頁面*，*點擊命令列中的***新建語義模型***。
 
-![](./media/image91.png)
+      ![](./media/image91.png)
 
 4.  在 "**新建語義模型** "窗格的 "**名稱** "欄位中，輸入模型名稱
     ***StocksLakehousePredictions***，選擇 **stock_prediction** 表和
     **dim_symbol** 表。然後，按一下 "**確認** "按鈕，如下圖所示。
 
-![](./media/image92.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image93.png)
+      ![](./media/image92.png)
+      
+      ![](./media/image93.png)
 
 5.  語義模型打開後，我們需要定義 stock_prediction 表和 dim_symbol
     表之間的關係。
@@ -463,25 +434,25 @@ generated](./media/image93.png)
     **dim_Symbol** 表中的 ***Symbol***
     欄位上，以創建關係。此時會出現**新建關係**對話方塊。
 
-![](./media/image94.png)
+      ![](./media/image94.png)
 
 7.  在**新建關係**對話方塊中：
 
-- **From** 表中有 **stock_prediction** 和 **Symbol** 列**。**
+    - **From** 表中有 **stock_prediction** 和 **Symbol** 列**。**
+    
+    - 表中有 **dim_symbol** 和 **Symbol** 列**。**
+    
+    - 卡性：**多對一 (\*:1)**
+    
+    - 交叉過濾方向：**單**
+    
+    - 選中 "**啟動此關係 "**旁邊的方框。
+    
+    - 選擇**保存**
 
-- 表中有 **dim_symbol** 和 **Symbol** 列**。**
-
-- 卡性：**多對一 (\*:1)**
-
-- 交叉過濾方向：**單**
-
-- 選中 "**啟動此關係 "**旁邊的方框。
-
-- 選擇**保存**
-
-![](./media/image95.png)
-
-![](./media/image96.png)
+      ![](./media/image95.png)
+      
+      ![](./media/image96.png)
 
 ## 任務 2：在 Power BI Desktop 中構建報告
 
@@ -491,216 +462,215 @@ generated](./media/image93.png)
 
 2.  點擊**立即下載**按鈕。
 
-> ![](./media/image97.png)
+    ![](./media/image97.png)
 
 3.  如果出現 "**本網站正試圖打開 Microsoft Store "**對話方塊，請按一下
     "**打開 "**按鈕。
 
-![](./media/image98.png)
+    ![](./media/image98.png)
 
 4.  在 **Power BI Desktop** 下，點擊 "**獲取** "按鈕。
 
-![](./media/image99.png)
+      ![](./media/image99.png)
 
 5.  現在，點擊 "**打開** "按鈕。
 
-![](./media/image100.png)
+    ![](./media/image100.png)
 
 6.  輸入 **Microsoft Office 365 租戶**憑據，然後按一下 "**下一步**
     "按鈕。
 
-![](./media/image101.png)
+      ![](./media/image101.png)
 
 7.  從 "**資源** "選項卡中輸入**管理密碼**，然後按一下 "**登錄
     "**按鈕**。**
 
-![](./media/image102.png)
+      ![](./media/image102.png)
 
 8.  在 Power BI Desktop 中，選擇**空白報告。**
 
-![](./media/image103.png)
+      ![](./media/image103.png)
 
 9.  在 *Home* 功能區，按一下 ***OneLake 資料集線器***並選擇 **KQL
     Database (資料庫)。**
 
-![](./media/image104.png)
+      ![](./media/image104.png)
 
 10. 在 **OneLake 資料中心**視窗，選擇 **StockDB** 並點擊**連接**按鈕。
 
-![](./media/image105.png)
+      ![](./media/image105.png)
 
 11. 輸入 **Microsoft Office 365** 租戶憑據，然後按一下 "**下一步**
     "按鈕。
 
-![](./media/image106.png)
+      ![](./media/image106.png)
 
 12. 從 "**資源** "選項卡中輸入**管理密碼**，然後按一下 "**登錄
     "**按鈕**。**
 
-![](./media/image107.png)
+    ![](./media/image107.png)
 
 13. 在導航器頁面的 "**顯示選項** "下，選擇 "**股票價格**表"，然後點擊
     "**載入** "按鈕。
 
-![](./media/image108.png)
+      ![](./media/image108.png)
 
 14. 在 "***連接設置*** "對話方塊中，選擇 "***直接查詢***
     "選項按鈕，然後按一下 "**確定** "按鈕。
 
-![](./media/image109.png)
+      ![](./media/image109.png)
 
 15. 在***Home***功能區，按一下 ***OneLake 資料集線器***，然後選擇
     **Power BI 語義模型**，如下圖所示。
 
-![](./media/image110.png)
+    ![](./media/image110.png)
 
 16. 在 **OneLake 資料中心**視窗，從清單中選擇
     **StockLakehousePredictions**，然後點擊**連接**按鈕。
 
-![](./media/image111.png)
+      ![](./media/image111.png)
 
 17. 在 "**連接到您的資料** "頁面中，選擇
     **dim_symbol、stock_prediction**，然後點擊 "**提交** "按鈕。
 
-![](./media/image112.png)
+      ![](./media/image112.png)
 
 18. 在這種情況下，我們可以按一下 "**確定**
     "按鈕解除**潛在安全風險**警告。
 
-![](./media/image113.png)
+      ![](./media/image113.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image114.png)
+      ![](./media/image114.png)
 
 19. 按一下命令列中的***建模***，然後按一下***管理關係。***
 
-![](./media/image115.png)
+      ![](./media/image115.png)
 
 20. 在**管理關係**窗格中，選擇 **+** 新建**關係**，如下圖所示。
 
-![](./media/image116.png)
+      ![](./media/image116.png)
 
-21. 在 ***StockPrice*** -From **表**和 ***stocks_prediction*** - ***To
-    表***之間創建**新關係**（選擇表後，確保選擇每個表中的符號列）。將交叉篩選方向設為***兩者***，並確保將卡入度設為***多對多*。**然後，按一下
+21. 在 **StockPrice** -From **表**和 ***stocks_prediction*** - ***To
+    表***之間創建**新關係**（選擇表後，確保選擇每個表中的符號列）。將交叉篩選方向設為**兩者**，並確保將卡入度設為 多對多。然後，按一下
     "**保存** "按鈕。
 
-> ![](./media/image117.png)
+      ![](./media/image117.png)
 
 22. 在 **"更改關係** "頁面，選擇 "***股票價格*** "和 ***"股票預測***
     "表，然後點擊 "**關閉** "按鈕。
 
-![](./media/image118.png)
+      ![](./media/image118.png)
 
 23. 在 **Power BI** 頁面的 "**視覺化** "下，點擊 "**折線圖**
     "圖示，為報告添加**柱狀圖**。
 
-- 在**資料**窗格中，展開**股票價格**，然後選中**時間戳記**旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到
-  **X 軸**。
-
-- 在 "**資料** "**窗格**中，展開 "**股票價格**"，然後選中 "**價格**
-  "旁邊的核取方塊。這將把欄位添加到 **Y 軸上**。
-
-- 在 "**資料** "**窗格**中，展開 "**股票價格**"，然後選中 "**符號
-  "**旁邊的核取方塊。這將把欄位添加到**圖例**中。
-
-- **篩選**：**時間戳記**到***相對時間**在最近* **15 分鐘***內*。
-
-![](./media/image119.png)
-
-![](./media/image120.png)
+      - 在**資料**窗格中，展開**股票價格**，然後選中**時間戳記**旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到
+        **X 軸**。
+      
+      - 在 "**資料** "**窗格**中，展開 "**股票價格**"，然後選中 "**價格**
+        "旁邊的核取方塊。這將把欄位添加到 **Y 軸上**。
+      
+      - 在 "**資料** "**窗格**中，展開 "**股票價格**"，然後選中 "**符號
+        "**旁邊的核取方塊。這將把欄位添加到**圖例**中。
+      
+      - **篩選**：**時間戳記**到***相對時間**在最近* **15 分鐘***內*。
+      
+      ![](./media/image119.png)
+      
+      ![](./media/image120.png)
 
 24. 在 **Power BI** 頁面的 "**視覺化** "下，點擊 "**折線圖**
     "圖示，為報告添加**柱狀圖**。
 
-- 在**資料**窗格中，展開**股票價格**，然後選中**時間戳記**旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到
-  **X 軸**。
-
-- 在 "**資料** "**窗格**中，展開 "**股票價格**"，然後選中 "**價格**
-  "旁邊的核取方塊。這將把欄位添加到 **Y 軸上**。
-
-- 在**資料**窗格中，展開
-  **dim_symbol**，然後選中**市場**旁邊的核取方塊。這將把欄位添加到**圖例**中。
-
-- **篩選器**：**時間戳記**到***相對時間**在過去* **1 小時***內*。
-
-![](./media/image121.png)
-
-![](./media/image122.png)
-
-![](./media/image123.png)
-
-![](./media/image124.png)
+      - 在**資料**窗格中，展開**股票價格**，然後選中**時間戳記**旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到
+        **X 軸**。
+      
+      - 在 "**資料** "**窗格**中，展開 "**股票價格**"，然後選中 "**價格**
+        "旁邊的核取方塊。這將把欄位添加到 **Y 軸上**。
+      
+      - 在**資料**窗格中，展開
+        **dim_symbol**，然後選中**市場**旁邊的核取方塊。這將把欄位添加到**圖例**中。
+      
+      - **篩選器**：**時間戳記**到***相對時間**在過去* **1 小時***內*。
+      
+      ![](./media/image121.png)
+      
+      ![](./media/image122.png)
+      
+      ![](./media/image123.png)
+      
+      ![](./media/image124.png)
 
 25. 在 **Power BI** 頁面的 "**視覺化** "下，點擊 "**折線圖**
     "圖示，為報告添加**柱狀圖**。
 
-- 在**資料**窗格中，展開 **Stock_prediction**，然後選中 **predict_time**
-  旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到 **X 軸上**。
-
-- 在**資料**窗格中，展開 **Stock_prediction**，然後選中 **yhat**
-  旁邊的核取方塊。這將把欄位添加到 **Y 軸**。
-
-- 在**資料**窗格中，展開
-  **Stock_prediction**，然後選中**符號**旁邊的核取方塊。這將把欄位添加到**圖例**中。
-
-- **篩選器**：**predict_time** 為*最近* **3 天內***的**相對日期***。
-
-![](./media/image125.png)
-
-![](./media/image126.png)
-
-![](./media/image127.png)
-
-![](./media/image128.png)
+      - 在**資料**窗格中，展開 **Stock_prediction**，然後選中 **predict_time**
+        旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到 **X 軸上**。
+      
+      - 在**資料**窗格中，展開 **Stock_prediction**，然後選中 **yhat**
+        旁邊的核取方塊。這將把欄位添加到 **Y 軸**。
+      
+      - 在**資料**窗格中，展開
+        **Stock_prediction**，然後選中**符號**旁邊的核取方塊。這將把欄位添加到**圖例**中。
+      
+      - **篩選器**：**predict_time** 為*最近* **3 天內***的**相對日期***。
+      
+      ![](./media/image125.png)
+      
+      ![](./media/image126.png)
+      
+      ![](./media/image127.png)
+      
+      ![](./media/image128.png)
 
 26. 在 **Power BI** 頁面的 "**資料** "下**，**右擊
     ***stocks_prediction*** 表，選擇 ***"新建措施***"***。***
 
-![](./media/image129.png)
+    ![](./media/image129.png)
 
 27. 度量是用資料分析運算式（DAX）語言編寫的公式；對於此 DAX 公式，請輸入
-    ***+++currdate = NOW()*+++++**
+    **+++currdate = NOW()+++**
 
-![](./media/image130.png)
+      ![](./media/image130.png)
 
 28. 選擇預測圖表後，導航至附加視覺化選項，即放大鏡/圖表圖示，並添加**新的
     *X 軸恒定線***。
 
-![](./media/image131.png)
+      ![](./media/image131.png)
 
 29. 在 "*值* "下，使用公式按鈕 **(fx)** 選擇一個欄位。
 
-![](./media/image132.png)
+      ![](./media/image132.png)
 
 30. 在 **"值"-"將設置應用於**頁面 "中，按一下
     "**我們應以哪個欄位**為**基礎？**"下的下拉式功能表，然後按一下
-    "**股票預測** "下拉式功能表，選擇 "***當前日期***"。然後點擊
+    "**股票預測** "下拉式功能表，選擇 "**當前日期**"。然後點擊
     "**確定** "按鈕。
 
-![](./media/image133.png)
-
-![](./media/image134.png)
+      ![](./media/image133.png)
+      
+      ![](./media/image134.png)
 
 31. 導航至其他視覺化選項，即放大鏡/圖表圖示，打開**陰影區域**。![](./media/image135.png)
 
 32. 配置好表格之間的關係後，所有視覺效果都會交叉過濾；在圖表上選擇符號或市場時，所有視覺效果都會做出相應反應。如下圖所示，在右上角的市場圖表中選擇了**納斯達克**市場：
 
-![](./media/image136.png)
-
-![](./media/image137.png)
+    ![](./media/image136.png)
+    
+    ![](./media/image137.png)
 
 33. 點擊命令列中的 "**發佈**"。
 
-![](./media/image138.png)
+    ![](./media/image138.png)
 
 34. 在 **Microsoft Power BI Desktop** 對話方塊中，點擊**保存**按鈕。
 
-![](./media/image139.png)
+      ![](./media/image139.png)
 
 35. 在 **"保存此檔** "對話方塊中，輸入 "**預測報告
     "**名稱並選擇位置。然後，按一下 "**保存** "按鈕。
 
-![](./media/image140.png)
+      ![](./media/image140.png)
 
 ## **摘要**
 
