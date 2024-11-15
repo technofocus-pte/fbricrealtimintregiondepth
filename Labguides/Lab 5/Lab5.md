@@ -812,31 +812,25 @@ Data Pipeline。
 1.  按一下 "運***行***
     "按鈕運行管道，並驗證管道是否運行以及是否載入了事實表和維度表。
 
-![A screenshot of a computer Description automatically
-generated](./media/image77.png)
+    ![](./media/image77.png)
 
 2.  在 "**保存並運行？**"對話方塊中，按一下 "**保存並運行 "**按鈕
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image37.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image78.png)
+    ![](./media/image37.png)
+    
+    ![](./media/image78.png)
 
 ## 任務 9：安排管道
 
 1.  接下來，安排管道定期運行。這將因業務情況而異，但可以頻繁運行（每幾分鐘一次）或全天運行。
 
-> **注意**：在這種特定情況下，由於每天大約有 700k 條記錄，而 KQL
-> 將查詢結果限制在 500k，因此管道必須每天至少運行兩次才能保持最新狀態。
+     **注意**：在這種特定情況下，由於每天大約有 700k 條記錄，而 KQL
+     將查詢結果限制在 500k，因此管道必須每天至少運行兩次才能保持最新狀態。
 
 2.  要對管道進行計畫，請按一下計畫按鈕（*運行*按鈕旁邊）並設置一個週期性計畫，如每小時或每幾分鐘一次。
 
-![A screenshot of a computer Description automatically
-generated](./media/image79.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image80.png)
+    ![](./media/image79.png)
+    ![](./media/image80.png)
 
 # 練習 3：語義建模
 
@@ -858,46 +852,36 @@ Power BI
 
 1.  在 **PL_Refresh_DWH** 頁面，點擊左側導航菜單上的 **StockDW**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image81.png)
+      ![](./media/image81.png)
 
 2.  點擊**刷新**圖示，如下圖所示。
 
-![A screenshot of a computer Description automatically
-generated](./media/image82.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image83.png)
+    ![](./media/image82.png)
+    ![](./media/image83.png)
 
 3.  在 StockDW 頁面，選擇 "***報告*** "選項卡，然後選擇
     "***新建語義模型***"。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image84.png)
+    ![](./media/image84.png)
 
 4.  在 "新建語義模型 "選項卡中，輸入名稱
-    ***StocksModel*，**並只選擇事實表和維度表**，**因為我們關注的是
-    fact***\_Stocks_Daily_Prices*、*dim_Date* 和**
-    dim***\_Symbol***。按一下 "**確認** "按鈕。
+    **StocksModel**，**並只選擇事實表和維度表**，**因為我們關注的是
+    fact_Stocks_Daily_Prices**、**dim_Date** 和**dim_Symbol**。按一下 "**確認** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image85.png)
+     ![](./media/image85.png)
 
 ## 任務 2.添加關係
 
 1.  在 **StockDW** 頁面上，點擊左側導航功能表上的
     **RealTimeWorkspace**，然後選擇 **StockModel**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image86.png)
+     ![](./media/image86.png)
 
 2.  創建上述語義模型後，模型設計器應該會自動打開。如果沒有打開，或者您想稍後再返回設計器，可以從工作區的資源清單中打開模型，然後從語義模型項中選擇打開資料模型。
 
-![A screenshot of a computer Description automatically
-generated](./media/image87.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image88.png)
+     ![](./media/image87.png)
+    
+     ![](./media/image88.png)
 
 3.  要在事實表和維度表之間創建關係，可將事實表中的鍵拖到維度表中的相應鍵上。
 
@@ -907,62 +891,53 @@ generated](./media/image88.png)
     **PriceDateKey** 欄位並將其放置在 **dim_Date** 表中的 **DateKey**
     欄位上，以創建關係。此時會出現**新建關係**對話方塊。
 
-> ![](./media/image89.png)
+      ![](./media/image89.png)
 
 5.  在**新建關係**對話方塊中：
 
-- **From** 表中填充了 **fact_Stocks_Daily_Prices** 和 **PriceDateKey**
-  列**。**
+    - **From** 表中填充了 **fact_Stocks_Daily_Prices** 和 **PriceDateKey**
+      列**。**
+    
+    - 表中已填充 **dim_Date** 和 DateKey 列
+    
+    - 卡性：**多對一 (\*:1)**
+    
+    - 交叉過濾方向：**單**
+    
+    - 選中 "**啟動此關係 "**旁邊的方框。
+    
+    - 選擇 **"確定"。**
 
-- 表中已填充 **dim_Date** 和 DateKey 列
-
-- 卡性：**多對一 (\*:1)**
-
-- 交叉過濾方向：**單**
-
-- 選中 "**啟動此關係 "**旁邊的方框。
-
-- 選擇 **"確定"。**
-
-![A screenshot of a computer Description automatically
-generated](./media/image90.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image91.png)
+     ![](./media/image90.png)
+     ![](./media/image91.png)
 
 6.  從 **fact_Stocks_Daily_Prices** 表中拖動 **Symbol_SK**
     欄位，並將其拖放到 **dim_Symbol** 表中的 **Symbol_SK**
     欄位上，以創建關係。此時將出現**新建關係**對話方塊。
 
-![A screenshot of a computer Description automatically
-generated](./media/image92.png)
+     ![](./media/image92.png)
 
 7.  在**新建關係**對話方塊中：
 
-- 從表中填入 **fact_Stocks_Daily_Prices** 和 **Symbol_Sk** 列**。**
+      - 從表中填入 **fact_Stocks_Daily_Prices** 和 **Symbol_Sk** 列**。**
+      
+      - 表中有 **dim_Symabol** 和 Symbol_Sk 列
+      
+      - 卡性：**多對一 (\*:1)**
+      
+      - 交叉過濾方向：**單**
+      
+      - 選中 "**啟動此關係 "**旁邊的方框。
+      
+      - 選擇 **"確定"。**
 
-- 表中有 **dim_Symabol** 和 Symbol_Sk 列
-
-- 卡性：**多對一 (\*:1)**
-
-- 交叉過濾方向：**單**
-
-- 選中 "**啟動此關係 "**旁邊的方框。
-
-- 選擇 **"確定"。**
-
-![A screenshot of a computer Description automatically
-generated](./media/image93.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image94.png)
-
+     ![](./media/image93.png)
+      ![](./media/image94.png)
 ## 任務 3.創建一份簡單的報告
 
 1.  點擊 "***新建報告***"，在 Power BI 中載入語義模型。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image95.png)
+     ![](./media/image95.png)
 
 2.  雖然我們還不會有太多的資料，無法做出太多的報告，但從概念上講，我們可以建立一個類似下圖的報告，顯示實驗室運行一周左右後的報告（Data
     Lakehouse
@@ -971,34 +946,29 @@ generated](./media/image94.png)
 3.  在 **Power BI** 頁面的 "**視覺化** "下，按一下 "**折線圖**
     "圖示，為報告添加**柱狀圖**。
 
-- 在**資料**窗格中，展開 **fact_Stocks_Daily_Prices**，然後選中
-  **PriceDateKey** 旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到
-  **X 軸**。
+    - 在**資料**窗格中，展開 **fact_Stocks_Daily_Prices**，然後選中
+      **PriceDateKey** 旁邊的核取方塊。這將創建一個柱狀圖，並將欄位添加到
+      **X 軸**。
+    
+    - 在**資料**窗格中，展開 **fact_Stocks_Daily_Prices**，然後選中
+      **ClosePrice** 旁邊的核取方塊。這將把該欄位添加到 **Y 軸。**
+    
+    - 在**資料**窗格中，展開
+      **dim_Symbol**，然後選中**符號**旁邊的核取方塊。這將把欄位添加到**圖例**中。
 
-- 在**資料**窗格中，展開 **fact_Stocks_Daily_Prices**，然後選中
-  **ClosePrice** 旁邊的核取方塊。這將把該欄位添加到 **Y 軸。**
-
-- 在**資料**窗格中，展開
-  **dim_Symbol**，然後選中**符號**旁邊的核取方塊。這將把欄位添加到**圖例**中。
-
-![A screenshot of a computer Description automatically
-generated](./media/image96.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image97.png)
+     ![](./media/image96.png)
+      ![](./media/image97.png)
 
 4.  從功能區選擇**檔** \> **保存。**
 
-![A screenshot of a computer Description automatically
-generated](./media/image98.png)
+       ![](./media/image98.png)
 
 5.  在 "保存報告 "對話方塊中，輸入 +++ **語義報告** +++
     作為報告名稱，並選擇**工作區**。按一下**保存按鈕**。
 
-![](./media/image99.png)
+      ![](./media/image99.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image100.png)
+     ![](./media/image100.png)
 
 ## **摘要**
 
