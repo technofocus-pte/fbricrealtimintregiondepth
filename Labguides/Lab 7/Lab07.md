@@ -1,3 +1,4 @@
+# **實驗室 07-高級 KQL** 
 **導言**
 
 在本實驗室中，您將探索更多 KQL 概念。
@@ -15,53 +16,38 @@
 
 1.  按一下左側導航菜單上的 **RealTimeWorkspace** 工作區。
 
-> ![](./media/image1.png)
+     ![](./media/image1.png)
 
 2.  在 **RealTimeWorkspace** 窗格中，選擇 KQL Queryset 類型的
     StockQueryset。
-
-> ![](./media/image2.png)
->
-> ![](./media/image3.png)
+    
+      ![](./media/image2.png)
+     
+      ![](./media/image3.png)
 
 3.  調用原始的 **StockByTime** 查詢，選擇查詢並按一下 "**運行**
     "按鈕執行查詢。查詢成功執行後，您將看到結果。
-
-StockPrice
-
-| where timestamp \> ago(75m)
-
-| project symbol, price, timestamp
-
-| partition by symbol
-
-(
-
-order by timestamp asc
-
-| extend prev_price = prev(price, 1)
-
-| extend prev_price_10min = prev(price, 600)
-
-)
-
-| where timestamp \> ago(60m)
-
-| order by timestamp asc, symbol asc
-
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-
-| extend percentdifference_10min = round(round(price - prev_price_10min,
-2) / prev_price_10min, 4)
-
-| order by timestamp asc, symbol asc
-
-![](./media/image4.png)
+      ```
+      StockPrice
+      | where timestamp > ago(75m)
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc
+          | extend prev_price = prev(price, 1)
+          | extend prev_price_10min = prev(price, 600)
+      )
+      | where timestamp > ago(60m)
+      | order by timestamp asc, symbol asc
+      | extend pricedifference_10min = round(price - prev_price_10min, 2)
+      | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+      | order by timestamp asc, symbol asc
+      ```
+      ![](./media/image4.png)
 
 4.  該查詢同時利用了分區和前一個函數。對資料進行了分區，以確保前一個函數只考慮匹配相同符號的行。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image5.png)
+    ![](./media/image5.png)
 
 ## 任務 2：使用掃描運算子
 
@@ -76,49 +62,35 @@ order by timestamp asc
 
 2.  點擊視窗頂部的 "***+***"**圖示**，在查詢集內創建一個新標籤頁。
 
-![](./media/image6.png)
+    ![](./media/image6.png)
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。
 
-複製
-
-> StockPrice
->
-> | where timestamp \> ago(60m)
->
-> | project timestamp, price, symbol
->
-> ,previousprice = 0.00
->
-> ,pricedifference = 0.00
->
-> ,percentdifference = 0.00
->
-> | partition hint.strategy=native by symbol
->
-> (
->
-> order by timestamp asc
->
-> | scan with (step s: true =\> previousprice = s.price;)
->
-> )
->
-> | project timestamp, symbol, price, previousprice
->
-> ,pricedifference = round((price-previousprice),2)
->
-> ,percentdifference = round((price-previousprice)/previousprice,4)
->
-> | order by timestamp asc, symbol asc
-
-![](./media/image7.png)
+      複製
+      ```
+      StockPrice
+      | where timestamp > ago(60m)
+      | project timestamp, price, symbol
+       ,previousprice = 0.00
+       ,pricedifference = 0.00
+       ,percentdifference = 0.00
+      | partition hint.strategy=native by symbol
+        (
+          order by timestamp asc 
+          | scan with (step s: true => previousprice = s.price;)
+        )
+      | project timestamp, symbol, price, previousprice
+          ,pricedifference = round((price-previousprice),2)
+          ,percentdifference = round((price-previousprice)/previousprice,4)
+      | order by timestamp asc, symbol asc
+      ```
+      
+      ![](./media/image7.png)
 
 4.  這個查詢的結構與我們最初的查詢類似，只是掃描操作符不再使用 prev()
     函數查看分區資料的前一行，而是可以掃描前幾行。
 
-![A screenshot of a computer Description automatically
-generated](./media/image8.png)
+      ![](./media/image8.png)
 
 ## 任務 3：通過掃描挖掘資料
 
@@ -133,145 +105,82 @@ generated](./media/image8.png)
 
 2.  點擊視窗頂部的 "***+***"**圖示**，在查詢集內創建一個新標籤頁。
 
-![](./media/image9.png)
+    ![](./media/image9.png)
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。
 
-**複製**
-
-> StockPrice
->
-> | project symbol, price, timestamp
->
-> | partition by symbol
->
-> (
->
-> order by timestamp asc
->
-> | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
->
-> | extend delta = round(price - prev_price,2)
->
-> | scan with_match_id=m_id declare(down:bool=false, step:string) with
->
-> (
->
-> // if state of s1 is empty we require price increase, else continue as
-> long as price doesn't decrease
->
-> step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-> step = 's1';
->
-> // exit the 'rally' when price decrease, also forcing a single match
->
-> step s2: delta \< 0.0 and s2.down == false =\> down = true, step =
-> 's2';
->
-> )
->
-> )
->
-> | where step == 's1' // select only records with price increase
->
-> | summarize
->
-> (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
->
-> (end_timestamp, end_price)=arg_max(timestamp, price),
->
-> run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
->
-> | extend delta_pct = round(total_delta\*100.0/start_price,4)
->
-> | extend run_duration_s = datetime_diff('second', end_timestamp,
-> start_timestamp)
->
-> | summarize arg_max(delta_pct, \*) by symbol
->
-> | project symbol, start_timestamp, start_price, end_timestamp,
-> end_price,
->
-> total_delta, delta_pct, run_duration_s, run_length
->
-> | order by delta_pct
->
-> ![](./media/image10.png)
->
-> ![](./media/image11.png)
+      **複製**
+      ```
+      StockPrice
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc 
+          | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+          | extend delta = round(price - prev_price,2)
+          | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+          (
+              // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+              step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+              // exit the 'rally' when price decrease, also forcing a single match 
+              step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+          )
+      )
+      | where step == 's1' // select only records with price increase
+      | summarize 
+          (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+          (end_timestamp, end_price)=arg_max(timestamp, price),
+          run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+      | extend delta_pct = round(total_delta*100.0/start_price,4)
+      | extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+      | summarize arg_max(delta_pct, *) by symbol
+      | project symbol, start_timestamp, start_price, end_timestamp, end_price,
+          total_delta, delta_pct, run_duration_s, run_length
+      | order by delta_pct
+      ```
+      ![](./media/image10.png)
+     
+      ![](./media/image11.png)
 
 4.  上面的結果是尋找反彈中漲幅最大的百分比，而不管時間長短。如果我們想查看最長的反彈，可以改變匯總方式：
 
 5.  如下圖所示，點擊 "***+***"**圖示**，在查詢集內創建一個新標籤頁。
 
-![](./media/image9.png)
+    ![](./media/image9.png)
 
 6.  在查詢編輯器中，複製並粘貼以下代碼。選擇**運行**按鈕執行查詢
 
-> **複製**
->
-> StockPrice
->
-> | project symbol, price, timestamp
->
-> | partition by symbol
->
-> (
->
-> order by timestamp asc
->
-> | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
->
-> | extend delta = round(price - prev_price,2)
->
-> | scan with_match_id=m_id declare(down:bool=false, step:string) with
->
-> (
->
-> // if state of s1 is empty we require price increase, else continue as
-> long as price doesn't decrease
->
-> step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-> step = 's1';
->
-> // exit the 'rally' when price decrease, also forcing a single match
->
-> step s2: delta \< 0.0 and s2.down == false =\> down = true, step =
-> 's2';
->
-> )
->
-> )
->
-> | where step == 's1' // select only records with price increase
->
-> | summarize
->
-> (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
->
-> (end_timestamp, end_price)=arg_max(timestamp, price),
->
-> run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
->
-> | extend delta_pct = round(total_delta\*100.0/start_price,4)
->
-> | extend run_duration_s = datetime_diff('second', end_timestamp,
-> start_timestamp)
->
-> | summarize arg_max(run_duration_s, \*) by symbol
->
-> | project symbol, start_timestamp, start_price, end_timestamp,
-> end_price,
->
-> total_delta, delta_pct, run_duration_s, run_length
->
-> | order by run_duration_s
->
-> ![](./media/image12.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image13.png)
-
+      **複製**
+      ```
+      StockPrice
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc 
+          | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+          | extend delta = round(price - prev_price,2)
+          | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+          (
+              // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+              step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+              // exit the 'rally' when price decrease, also forcing a single match 
+              step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+          )
+      )
+      | where step == 's1' // select only records with price increase
+      | summarize 
+          (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+          (end_timestamp, end_price)=arg_max(timestamp, price),
+          run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+      | extend delta_pct = round(total_delta*100.0/start_price,4)
+      | extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+      | summarize arg_max(run_duration_s, *) by symbol
+      | project symbol, start_timestamp, start_price, end_timestamp, end_price,
+          total_delta, delta_pct, run_duration_s, run_length
+      | order by run_duration_s
+      ```
+      ![](./media/image12.png)
+      ![](./media/image13.png)
 ## 任務 4：添加垃圾桶
 
 在本任務中，我們將更仔細地研究一個基本的 KQL 聚合語句：[bin
@@ -286,48 +195,34 @@ generated](./media/image13.png)
 
 3.  點擊視窗頂部的 "***+***"**圖示**，在查詢集內創建一個新標籤頁。
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+      ![](./media/image9.png)
 
 4.  在查詢編輯器中，複製並粘貼以下代碼。選擇**運行**按鈕執行查詢
 
-**複製**
-
-> StockPrice
->
-> | summarize arg_max(timestamp,\*) by bin(timestamp, 1d), symbol
->
-> | project symbol, price, timestamp
->
-> ,previousprice = 0.00
->
-> ,pricedifference = 0.00
->
-> ,percentdifference = 0.00
->
-> | partition hint.strategy=native by symbol
->
-> (
->
-> order by timestamp asc
->
-> | scan with (step s output=all: true =\> previousprice = s.price;)
->
-> )
->
-> | project timestamp, symbol, price, previousprice
->
-> ,pricedifference = round((price-previousprice),2)
->
-> ,percentdifference = round((price-previousprice)/previousprice,4)
->
-> | order by timestamp asc, symbol asc
-
-![](./media/image14.png)
+      **複製**
+      ```
+      StockPrice
+      | summarize arg_max(timestamp,*) by bin(timestamp, 1d), symbol
+      | project symbol, price, timestamp
+      ,previousprice = 0.00
+      ,pricedifference = 0.00
+      ,percentdifference = 0.00
+      | partition hint.strategy=native by symbol
+        (
+          order by timestamp asc 
+          | scan with (step s output=all: true => previousprice = s.price;)
+        )
+      | project timestamp, symbol, price, previousprice
+          ,pricedifference = round((price-previousprice),2)
+          ,percentdifference = round((price-previousprice)/previousprice,4)
+      | order by timestamp asc, symbol asc
+      ```
+      
+      ![](./media/image14.png)
 
 5.  該查詢利用*匯總*和*二進位*語句按日和符號對資料進行分組。結果是每檔股票每天的收盤價。我們還可以根據需要添加最小/最大/平均價格，並根據需要更改分選時間。
 
-![](./media/image15.png)
+    ![](./media/image15.png)
 
 ## 任務 5：組合垃圾箱和掃描
 
@@ -337,74 +232,44 @@ generated](./media/image9.png)
 
 2.  點擊 "***+***"**圖示**，在查詢集內創建一個新標籤頁。
 
-![A screenshot of a computer Description automatically
-generated](./media/image9.png)
+      ![](./media/image9.png)
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。
 
-**複製**
-
-StockPrice
-
-| summarize arg_max(timestamp,\*) by bin(timestamp, 1m), symbol
-
-| project symbol, price, timestamp
-
-| partition by symbol
-
-(
-
-order by timestamp asc
-
-| extend prev_timestamp=prev(timestamp), prev_price=prev(price)
-
-| extend delta = round(price - prev_price,2)
-
-| scan with_match_id=m_id declare(down:bool=false, step:string) with
-
-(
-
-// if state of s1 is empty we require price increase, else continue as
-long as price doesn't decrease
-
-step s1: delta \>= 0.0 and (delta \> 0.0 or isnotnull(s1.delta)) =\>
-step = 's1';
-
-// exit the 'rally' when price decrease, also forcing a single match
-
-step s2: delta \< 0.0 and s2.down == false =\> down = true, step = 's2';
-
-)
-
-)
-
-| where step == 's1' // select only records with price increase
-
-| summarize
-
-(start_timestamp, start_price)=arg_min(prev_timestamp, prev_price),
-
-(end_timestamp, end_price)=arg_max(timestamp, price),
-
-run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
-
-| extend delta_pct = round(total_delta\*100.0/start_price,4)
-
-| extend run_duration_s = datetime_diff('second', end_timestamp,
-start_timestamp)
-
-| summarize arg_max(delta_pct, \*) by symbol
-
-| project symbol, start_timestamp, start_price, end_timestamp,
-end_price,
-
-total_delta, delta_pct, run_duration_s, run_length
-
-| order by delta_pct
-
-![](./media/image16.png)
-
-![](./media/image17.png)
+      **複製**
+      ```
+      StockPrice
+      | summarize arg_max(timestamp,*) by bin(timestamp, 1m), symbol
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc 
+          | extend prev_timestamp=prev(timestamp), prev_price=prev(price)
+          | extend delta = round(price - prev_price,2)
+          | scan with_match_id=m_id declare(down:bool=false, step:string) with 
+          (
+              // if state of s1 is empty we require price increase, else continue as long as price doesn't decrease 
+              step s1: delta >= 0.0 and (delta > 0.0 or isnotnull(s1.delta)) => step = 's1';
+              // exit the 'rally' when price decrease, also forcing a single match 
+              step s2: delta < 0.0 and s2.down == false => down = true, step = 's2';
+          )
+      )
+      | where step == 's1' // select only records with price increase
+      | summarize 
+          (start_timestamp, start_price)=arg_min(prev_timestamp, prev_price), 
+          (end_timestamp, end_price)=arg_max(timestamp, price),
+          run_length=count(), total_delta=round(sum(delta),2) by symbol, m_id
+      | extend delta_pct = round(total_delta*100.0/start_price,4)
+      | extend run_duration_s = datetime_diff('second', end_timestamp, start_timestamp)
+      | summarize arg_max(delta_pct, *) by symbol
+      | project symbol, start_timestamp, start_price, end_timestamp, end_price,
+          total_delta, delta_pct, run_duration_s, run_length
+      | order by delta_pct
+      
+      ```
+      ![](./media/image16.png)
+      
+      ![](./media/image17.png)
 
 ## **摘要**
 
