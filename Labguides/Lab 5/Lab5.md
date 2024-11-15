@@ -624,265 +624,188 @@ Data Pipeline。
     查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。下一步我們將開始構建模式。
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+     ![](./media/image49.png)
 
 2.  創建視圖，支援載入過程中的資料聚合。當 Data Pipeline
     運行時，資料會從 KQL
     資料庫複製到我們的暫存表中，我們將在暫存表中把每檔股票的所有資料聚合成每天的最低價、最高價和收盤價。
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。
+      ```
+      /* 4 - Create Staging Views.sql */
+      
+      CREATE VIEW [stg].[vw_StocksDailyPrices] 
+      AS 
+      SELECT 
+          Symbol = symbol
+          ,PriceDate = datestamp
+          ,MIN(price) as MinPrice
+          ,MAX(price) as MaxPrice
+          ,(SELECT TOP 1 price FROM [stg].[StocksPrices] sub
+          WHERE sub.symbol = prices.symbol and sub.datestamp = prices.datestamp
+          ORDER BY sub.timestamp DESC
+          ) as ClosePrice
+      FROM 
+          [stg].[StocksPrices] prices
+      GROUP BY
+          symbol, datestamp
+      GO
+      /**************************************/
+      CREATE VIEW stg.vw_StocksDailyPricesEX
+      AS
+      SELECT
+          ds.[Symbol_SK]
+          ,dd.DateKey as PriceDateKey
+          ,MinPrice
+          ,MaxPrice
+          ,ClosePrice
+      FROM 
+          [stg].[vw_StocksDailyPrices] sdp
+      INNER JOIN [dbo].[dim_Date] dd
+          ON dd.DateKey = sdp.PriceDate
+      INNER JOIN [dbo].[dim_Symbol] ds
+          ON ds.Symbol = sdp.Symbol
+      GO
+      
+      ```
 
-/\* 4 - Create Staging Views.sql \*/
-
-CREATE VIEW \[stg\].\[vw_StocksDailyPrices\]
-
-AS
-
-SELECT
-
-Symbol = symbol
-
-,PriceDate = datestamp
-
-,MIN(price) as MinPrice
-
-,MAX(price) as MaxPrice
-
-,(SELECT TOP 1 price FROM \[stg\].\[StocksPrices\] sub
-
-WHERE sub.symbol = prices.symbol and sub.datestamp = prices.datestamp
-
-ORDER BY sub.timestamp DESC
-
-) as ClosePrice
-
-FROM
-
-\[stg\].\[StocksPrices\] prices
-
-GROUP BY
-
-symbol, datestamp
-
-GO
-
-/\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*/
-
-CREATE VIEW stg.vw_StocksDailyPricesEX
-
-AS
-
-SELECT
-
-ds.\[Symbol_SK\]
-
-,dd.DateKey as PriceDateKey
-
-,MinPrice
-
-,MaxPrice
-
-,ClosePrice
-
-FROM
-
-\[stg\].\[vw_StocksDailyPrices\] sdp
-
-INNER JOIN \[dbo\].\[dim_Date\] dd
-
-ON dd.DateKey = sdp.PriceDate
-
-INNER JOIN \[dbo\].\[dim_Symbol\] ds
-
-ON ds.Symbol = sdp.Symbol
-
-GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image60.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image61.png)
+      ![](./media/image60.png)
+      ![](./media/image61.png)
 
 4.  重命名查詢以供參考。按右鍵資源管理器中的 **SQL
     查詢**，然後選擇**重命名**。
 
-![](./media/image62.png)
+    ![](./media/image62.png)
 
-5.  在**重命名**對話方塊中，在**名稱**欄位下輸入 +++ **創建暫存視圖
-    +++**，然後按一下**重命名**按鈕。
+5.  在**重命名**對話方塊中，在**名稱**欄位下輸入 +++Create Staging Views+++，然後按一下**重命名**按鈕。
 
-![A screenshot of a computer screen Description automatically
-generated](./media/image63.png)
+    ![](./media/image63.png)
 
 ## 任務 5：添加載入符號的活動
 
 1.  在 **StockDW** 頁面，點擊左側導航菜單上的 **PL_Refresh_DWH**。
 
-![](./media/image64.png)
+      ![](./media/image64.png)
 
 2.  在管道中，添加名為 "***填充符號維度
     "***的新***存儲過程***活動，該活動將執行載入股票 符號的存儲過程。
 
 3.  這應該連接到 ForEach 活動的成功輸出（而不是 ForEach 活動內部）。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image65.png)
+      ![](./media/image65.png)
+4.  在**常規**選項卡上**，**在**名稱欄位**中輸入 +++Populate Symbols Dimension+++
 
-4.  在**常規**選項卡上**，**在**名稱欄位**中輸入 +++ 填充**符號尺寸**
-    +++
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image66.png)
+      ![](./media/image66.png)
 
 5.  按一下 "**設置** "選項卡，輸入以下設置。
 
-[TABLE]
+    |  |  |
+    |----|---|
+    |Connection|	Workspace|
+    |Stored procedure name|	[ETL].[sp_Dim_Symbol_Load]|
 
-![](./media/image67.png)
+    ![](./media/image67.png)
 
 ## 任務 6：創建載入每日價格的程式
 
 1.  在 **PL_Refresh_DWH** 頁面，點擊左側導航菜單上的 **StockDW**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image68.png)
+      ![](./media/image68.png)
 
 2.  點擊命令列中的***新建 SQL
     查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。下一步我們將開始構建模式。
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+      ![](./media/image49.png)
 
 3.  接下來，運行下面的腳本，創建用於構建事實表的存儲過程。該過程將暫存資料合併到事實表中。如果管道全天運行，則會更新值，以反映最低價、最高價和收盤價的任何變化。
 
-> **注意**：目前，Fabric 資料 Warehouse 不支援 T-SQL
-> 合併語句；因此，將根據需要更新資料，然後插入。
+     **注意**：目前，Fabric 資料 Warehouse 不支援 T-SQL
+    合併語句；因此，將根據需要更新資料，然後插入。
 
 4.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。
+      ```
+      /* 5 - ETL.sp_Fact_Stocks_Daily_Prices_Load.sql */
+      
+      CREATE PROCEDURE [ETL].[sp_Fact_Stocks_Daily_Prices_Load]
+      AS
+      BEGIN
+      BEGIN TRANSACTION
+      
+          UPDATE fact
+          SET 
+              fact.MinPrice = CASE 
+                              WHEN fact.MinPrice IS NULL THEN stage.MinPrice
+                              ELSE CASE WHEN fact.MinPrice < stage.MinPrice THEN fact.MinPrice ELSE stage.MinPrice END
+                          END
+              ,fact.MaxPrice = CASE 
+                              WHEN fact.MaxPrice IS NULL THEN stage.MaxPrice
+                              ELSE CASE WHEN fact.MaxPrice > stage.MaxPrice THEN fact.MaxPrice ELSE stage.MaxPrice END
+                          END
+              ,fact.ClosePrice = CASE 
+                              WHEN fact.ClosePrice IS NULL THEN stage.ClosePrice
+                              WHEN stage.ClosePrice IS NULL THEN fact.ClosePrice
+                              ELSE stage.ClosePrice
+                          END 
+          FROM [dbo].[fact_Stocks_Daily_Prices] fact  
+          INNER JOIN [stg].[vw_StocksDailyPricesEX] stage
+              ON fact.PriceDateKey = stage.PriceDateKey
+              AND fact.Symbol_SK = stage.Symbol_SK
+      
+          INSERT INTO [dbo].[fact_Stocks_Daily_Prices]  
+              (Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice)
+          SELECT
+              Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice
+          FROM 
+              [stg].[vw_StocksDailyPricesEX] stage
+          WHERE NOT EXISTS (
+              SELECT * FROM [dbo].[fact_Stocks_Daily_Prices] fact
+              WHERE fact.PriceDateKey = stage.PriceDateKey
+                  AND fact.Symbol_SK = stage.Symbol_SK
+          )
+      
+      COMMIT
+      
+      END
+      GO
+      ```
 
-/\* 5 - ETL.sp_Fact_Stocks_Daily_Prices_Load.sql \*/
-
-CREATE PROCEDURE \[ETL\].\[sp_Fact_Stocks_Daily_Prices_Load\]
-
-AS
-
-BEGIN
-
-BEGIN TRANSACTION
-
-UPDATE fact
-
-SET
-
-fact.MinPrice = CASE
-
-WHEN fact.MinPrice IS NULL THEN stage.MinPrice
-
-ELSE CASE WHEN fact.MinPrice \< stage.MinPrice THEN fact.MinPrice ELSE
-stage.MinPrice END
-
-END
-
-,fact.MaxPrice = CASE
-
-WHEN fact.MaxPrice IS NULL THEN stage.MaxPrice
-
-ELSE CASE WHEN fact.MaxPrice \> stage.MaxPrice THEN fact.MaxPrice ELSE
-stage.MaxPrice END
-
-END
-
-,fact.ClosePrice = CASE
-
-WHEN fact.ClosePrice IS NULL THEN stage.ClosePrice
-
-WHEN stage.ClosePrice IS NULL THEN fact.ClosePrice
-
-ELSE stage.ClosePrice
-
-END
-
-FROM \[dbo\].\[fact_Stocks_Daily_Prices\] fact
-
-INNER JOIN \[stg\].\[vw_StocksDailyPricesEX\] stage
-
-ON fact.PriceDateKey = stage.PriceDateKey
-
-AND fact.Symbol_SK = stage.Symbol_SK
-
-INSERT INTO \[dbo\].\[fact_Stocks_Daily_Prices\]
-
-(Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice)
-
-SELECT
-
-Symbol_SK, PriceDateKey, MinPrice, MaxPrice, ClosePrice
-
-FROM
-
-\[stg\].\[vw_StocksDailyPricesEX\] stage
-
-WHERE NOT EXISTS (
-
-SELECT \* FROM \[dbo\].\[fact_Stocks_Daily_Prices\] fact
-
-WHERE fact.PriceDateKey = stage.PriceDateKey
-
-AND fact.Symbol_SK = stage.Symbol_SK
-
-)
-
-COMMIT
-
-END
-
-GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image69.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image70.png)
+      ![](./media/image69.png)
+      ![](./media/image70.png)
 
 6.  重命名查詢以供參考。按右鍵資源管理器中的 **SQL
     查詢**，然後選擇**重命名**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image71.png)
+    ![](./media/image71.png)
 
-7.  在 "**重命名** "對話方塊中，在 "**名稱** "欄位下輸入 +++
-    ETL.sp\_**Fact**\_Stocks_Daily_Prices_Load++++，然後按一下
+7.  在 "**重命名** "對話方塊中，在 "**名稱** "欄位下輸入 +++ETL.sp_Fact_Stocks_Daily_Prices_Load+++，然後按一下
     "**重命名** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image72.png)
+    ![](./media/image72.png)
 
 ## 任務 7：為管道添加活動以載入每日股票價格
 
 1.  在 **StockDW** 頁面，點擊左側導航菜單上的 **PL_Refresh_DWH**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image73.png)
+     ![](./media/image73.png)
 
 2.  在管道中添加另一個名為 "***填充事實股票每日價格***
     "的***存儲過程***活動，將股票價格從暫存載入到事實表中。將 *Populate
     Symbols Dimension* 的成功輸出連接到新的 *Populate Fact Stocks Daily
     Prices* 活動。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image74.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image75.png)
+     ![](./media/image74.png)
+      ![](./media/image75.png)
 
 3.  按一下 "**設置** "選項卡，輸入以下設置。
 
-[TABLE]
-
-![](./media/image76.png)
+      |   |   |
+      |----|----|
+      |Connection|	Select StocksDW from the dropdown list|
+      |Stored procedure name|	[ETL].[sp_Fact_Stocks_Daily_Prices_Load]|
+      
+      
+      ![](./media/image76.png)
 
 ## 任務 8.運行管道
 
