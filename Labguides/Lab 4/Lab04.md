@@ -375,22 +375,22 @@ ML Model 的建立和預測。這個過程將使用模組 06
       
       ![](./media/image77.png)
 
-        ![](./media/image78.png)
+     ![](./media/image78.png)
         
-        ![](./media/image79.png)
+     ![](./media/image79.png)
         
-        ![](./media/image80.png)
+     ![](./media/image80.png)
         
-        ![](./media/image81.png)
+     ![](./media/image81.png)
         
-        ![](./media/image82.png)
-        ![](./media/image83.png)
+     ![](./media/image82.png)
+      ![](./media/image83.png)
+       
+      ![](./media/image84.png)
         
-        ![](./media/image84.png)
+    ![](./media/image85.png)
         
-        ![](./media/image85.png)
-        
-        ![](./media/image86.png)
+    ![](./media/image86.png)
 
 9.  運行所有儲存格後，按一下*表格*右側的三個點 **(...）**，然後導航並按一下
     "***刷新***"，刷新模式。
