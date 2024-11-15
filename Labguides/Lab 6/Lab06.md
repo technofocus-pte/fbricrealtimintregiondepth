@@ -120,9 +120,9 @@ Activator Reflex 是保存資料連接、事件和觸發器所需全部資訊的
     分鐘**。在頁面右上角，將時間視窗設置為***最後一小時***，如下圖所示。這一步將對
     10 分鐘的資料塊進行平均 - 這將有助於發現較大的價格波動。
 
-    ![](./media/image16.png)
+     ![](./media/image16.png)
 
-   ![](./media/image17.png)
+     ![](./media/image17.png)
 
 5.  要添加新觸發器，請在頂部巡覽列中按一下 "***新建觸發器***
     "按鈕。在**未保存更改**對話方塊中，按一下**保存**按鈕。
@@ -213,22 +213,21 @@ BI 中更易讀，同時也會讓它們在 Data Activator 中更易讀。
 
 6.  現在，選擇每個欄位的下拉式功能表，***為該視覺效果***選擇重命名，重新命名它們**。**重命名如下
 
-        - 將 *timestamp* 改為 **Timestamp**
+    - 將 *timestamp* 改為 **Timestamp**
+     ![](./media/image35.png)
         
-        ![](./media/image35.png)
+     ![](./media/image36.png)
         
-        ![](./media/image36.png)
+   - *價格*與*價格*之*和*
         
-        - *價格*與*價格*之*和*
+     ![](./media/image37.png)
+     ![](./media/image38.png)
         
-        ![](./media/image37.png)
-        ![](./media/image38.png)
+     - *符號*到**符號**
         
-        - *符號*到**符號**
+      ![](./media/image39.png)
         
-        ![](./media/image39.png)
-        
-        ![](./media/image40.png)
+      ![](./media/image40.png)
 
 7.  在**即時股票**頁面，**按時間戳記和符號**選擇**百分比差 10
     分鐘之和**。
