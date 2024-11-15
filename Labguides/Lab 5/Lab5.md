@@ -48,26 +48,26 @@ ETL（提取、轉換和載入）流程中，我們將提取所有尚未導入�
 
 1.  點擊頁面左側底部的**即時分析圖示**，導航並點擊**資料倉庫**，如下圖所示。
 
-![](./media/image1.png)
+    ![](./media/image1.png)
 
-2.  選擇 ***"Warehouse*** "瓦片，創建新的 Synapse Data Warehouse。
+2.  選擇 **"Warehouse** "瓦片，創建新的 Synapse Data Warehouse。
 
-![](./media/image2.png)
+    ![](./media/image2.png)
 
-3.  在**新建倉庫**對話方塊中，輸入 ***+++StocksDW+++***
+3.  在**新建倉庫**對話方塊中，輸入 **+++StocksDW+++**
     作為名稱，然後按一下**創建**按鈕。
 
-![](./media/image3.png)
+      ![](./media/image3.png)
 
 4.  倉庫基本上是空的。
 
-![](./media/image4.png)
+    ![](./media/image4.png)
 
 5.  點擊命令列中的***新建 SQL
     查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。我們將在下一個任務中開始構建模式。
 
-![](./media/image5.png)
+    ![](./media/image5.png)
 
 ## 任務 2：創建暫存和 ETL 對象
 
@@ -80,164 +80,138 @@ ETL（提取、轉換和載入）流程中，我們將提取所有尚未導入�
 2.  請注意，浮水印的開始日期被任意選擇為某個以前的日期（1/1/2022），以確保捕獲所有資料--該日期將在每次成功運行時更新。
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。執行查詢後，您將看到結果。
-
-> **複製**
-
-/\* 1 - Create Staging and ETL.sql \*/
-
--- STAGING TABLES
-
-CREATE SCHEMA stg
-
-GO
-
-CREATE TABLE stg.StocksPrices
-
-(
-
-symbol VARCHAR(5) NOT NULL
-
-,timestamp VARCHAR(30) NOT NULL
-
-,price FLOAT NOT NULL
-
-,datestamp VARCHAR(12) NOT NULL
-
-)
-
-GO
-
--- ETL TABLES
-
-CREATE SCHEMA ETL
-
-GO
-
-CREATE TABLE ETL.IngestSourceInfo
-
-(
-
-ObjectName VARCHAR(50) NOT NULL
-
-,WaterMark DATETIME2(6)
-
-,IsActiveFlag VARCHAR(1)
-
-)
-
-INSERT \[ETL\].\[IngestSourceInfo\]
-
-SELECT 'StocksPrices', '1/1/2022 23:59:59', 'Y'
-
-![](./media/image6.png)
-
-![](./media/image7.png)
+      ```
+      /* 1 - Create Staging and ETL.sql */
+      
+      -- STAGING TABLES
+      CREATE SCHEMA stg
+      GO
+      
+      CREATE TABLE stg.StocksPrices
+      (
+         symbol VARCHAR(5) NOT NULL
+         ,timestamp VARCHAR(30) NOT NULL
+         ,price FLOAT NOT NULL
+         ,datestamp VARCHAR(12) NOT NULL
+      )
+      GO
+      
+      -- ETL TABLES
+      CREATE SCHEMA ETL
+      GO
+      CREATE TABLE ETL.IngestSourceInfo
+      (
+          ObjectName VARCHAR(50) NOT NULL
+          ,WaterMark DATETIME2(6)
+          ,IsActiveFlag VARCHAR(1)
+      )
+      
+      INSERT [ETL].[IngestSourceInfo]
+      SELECT 'StocksPrices', '1/1/2022 23:59:59', 'Y'
+      
+      ```
+      
+      ![](./media/image6.png)
+      
+      ![](./media/image7.png)
 
 4.  重命名查詢以供參考。按右鍵**資源管理器中**的 **SQL 查詢
     1**，然後選擇**重命名**。
 
-![](./media/image8.png)
+    ![](./media/image8.png)
 
-5.  在**重命名**對話方塊中，在**名稱**欄位下輸入 +++Create **stocks and
-    metadata+++**，然後按一下**重命名**按鈕。
-
-> ![](./media/image9.png)
+5.  在**重命名**對話方塊中，在**名稱**欄位下輸入 +++Create stocks and metadata+++，然後按一下**重命名**按鈕。
+      ![](./media/image9.png)
 
 6.  點擊命令列中的***新建 SQL
     查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。下一步我們將開始構建模式：
 
-![](./media/image10.png)
+      ![](./media/image10.png)
 
 7.  存儲過程 *sp_IngestSourceInfo_Update*
     會更新浮水印；這可確保我們跟蹤哪些記錄已被導入
 
 8.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。執行查詢後，您將看到結果。
 
-**複製**
-
-/\* 1 - Create Staging and ETL.sql \*/
-
-CREATE PROC \[ETL\].\[sp_IngestSourceInfo_Update\]
-
-@ObjectName VARCHAR(50)
-
-,@WaterMark DATETIME2(6)
-
-AS
-
-BEGIN
-
-UPDATE \[ETL\].\[IngestSourceInfo\]
-
-SET WaterMark = @WaterMark
-
-WHERE
-
-ObjectName = @ObjectName
-
-END
-
-GO
-
-![](./media/image11.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image12.png)
+      **複製**
+      ```
+      /* 1 - Create Staging and ETL.sql */
+      
+      CREATE PROC [ETL].[sp_IngestSourceInfo_Update]
+      @ObjectName VARCHAR(50)
+      ,@WaterMark DATETIME2(6)
+      AS
+      BEGIN
+      
+      UPDATE [ETL].[IngestSourceInfo]
+          SET WaterMark = @WaterMark
+      WHERE 
+          ObjectName  = @ObjectName
+      
+      END
+      
+      GO
+      ```
+      
+      ![](./media/image11.png)
+      
+     ![](./media/image12.png)
 
 6.  重命名查詢，以便以後參考。按右鍵**資源管理器中**的 **SQL 查詢
     1**，然後選擇**重命名**。
 
-![](./media/image13.png)
+    ![](./media/image13.png)
 
 7.  在 "**重命名** "對話方塊中，在 "**名稱** "欄位下輸入
-    +++**ETL.sql_IngestSource++++**，然後按一下 "**重命名** "按鈕。
+    +++ETL.sql_IngestSource+++，然後按一下 "**重命名** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+     ![](./media/image14.png)
 
-這應該類似於
+    這應該類似於
 
-![DW First Queries](./media/image15.png)
+     ![](./media/image15.png)
 
 ## 任務 3：創建資料管道
 
 1.  在 **StockDW** 頁面上，按一下左側導航菜單上的 **RealTimeWorkspace**
     工作區。
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
 2.  在 **Synapse Data Warehouse RealTimeWorkhouse** 主頁上，在
     **RealTimeWorkhouse** 下按一下 **+New**，然後選擇 **Data
     Pipeline。**
 
-![](./media/image17.png)
+    ![](./media/image17.png)
 
-3.  **新管道**對話方塊將出現，在**名稱**欄位中輸入 +++
-    ***PL\_***Refresh***\_DWH++++***，然後按一下 "**創建 "**按鈕**。**
+3.  **新管道**對話方塊將出現，在**名稱**欄位中輸入 +++PL_Refresh_DWH+++，然後按一下 "**創建 "**按鈕**。**
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+      ![](./media/image18.png)
 
 4.  在 ***PL_Refresh_DWH*** 頁面中，導航到
     "**構建資料管道以組織和移動資料**部分"，然後按一下 "管道**活動**"。
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
 5.  然後，導航並選擇***查找***活動，如下圖所示。
 
-![](./media/image20.png)
+    ![](./media/image20.png)
 
-6.  在**常規**選項卡上**，**在**名稱欄位**中輸入 ***+++Get***
-    WaterMark++++
+6.  在**常規**選項卡上**，**在**名稱欄位**中輸入 +++Get WaterMark+++
 
-![](./media/image21.png)
+      ![](./media/image21.png)
 
 7.  按一下 "**設置** "選項卡，輸入下圖所示的詳細資訊。
 
-[TABLE]
-
-![](./media/image22.png)
+      |    |  |
+      |---|---|
+      |Connection|	Click on the dropdown and select StocksDW from the list.|
+      |Use query|	Query|
+      |Query| 	+++SELECT * FROM [ETL].[IngestSourceInfo] WHERE IsActiveFlag = 'Y'+++|
+      |First row only| 	unchecked.|
+      
+      ![](./media/image22.png)
 
 ## 任務 4：構建 ForEach 活動
 
@@ -246,191 +220,185 @@ generated](./media/image18.png)
 
 1.  在 "**查找 - 獲取浮水印
     "**框中，導航並按一下右箭頭**添加活動**。然後，導航並選擇
-    ***ForEach*** 活動，如下圖所示。
+    **ForEach** 活動，如下圖所示。
 
-![](./media/image23.png)
+      ![](./media/image23.png)
 
-2.  按一下 "**設置** "選項卡，輸入專案 +++ **@activity('Get
-    WaterMark').output.**value+++++
+2.  按一下 "**設置** "選項卡，輸入專案 +++@activity('Get WaterMark').output.value+++
 
-看起來應該與下圖類似：
+      看起來應該與下圖類似：
 
-![](./media/image24.png)
+    ![](./media/image24.png)
 
-3.  在 *ForEach* 框中，按一下加號 (+) 添加新活動。
+3.  在 **ForEach** 框中，按一下加號 (+) 添加新活動。
 
-> ![](./media/image25.png)
+      ![](./media/image25.png)
 
-4.  在 *ForEach* 中選擇並添加***複製資料***活動*。*
+4.  在 *ForEach* 中選擇並添加***複製資料***活動。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image26.png)
+     ![](./media/image26.png)
 
 5.  選擇**複製資料1**
-    活動圖示，在**常規**選項卡上**，**在**名稱欄位**中輸入 +++Copy
-    KQL++++
+    活動圖示，在**常規**選項卡上**，**在**名稱欄位**中輸入 +++Copy KQL+++
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image27.png)
+     ![](./media/image27.png)
 
 6.  按一下 "**源** "選項卡，輸入以下設置。
 
-[TABLE]
+    Connection :**Select StocksDB from the dropdown**
+    Use query :**Query**
+    Query     :
+    +++@concat('StockPrice  
+        | where todatetime(timestamp) >= todatetime(''', item().WaterMark,''') 
+        | order by timestamp asc
+        | extend datestamp = substring(timestamp,0,10) 
+        | project symbol, timestamp, price, datestamp 
+        | take 500000 
+        | where not(isnull(price))
+        ' ) +++
 
-活動的 "*源* "選項卡應與之相似：
 
-![](./media/image28.png)
+    活動的 "*源* "選項卡應與之相似：
+    
+    ![](./media/image28.png)
 
 7.  按一下 "**目的地** "選項卡，輸入以下設置
+    |  |  |
+    |---|---|
+    |Connection|	drop down, select StocksDW from the list|
+    |Table option|	Use existing|
+    |Table| 	stg.StocksPrices|
 
-[TABLE]
 
-- 在*高級*部分下，輸入以下***預複製腳本***，以便在載入暫存表之前截斷表：
+  - 在*高級*部分下，輸入以下***預複製腳本***，以便在載入暫存表之前截斷表：
 
-> **+++刪除 stg.StocksPrices++++**
+    +++刪除 stg.StocksPrices+++
 
-這一步首先刪除暫存表中的舊資料，然後複製 KQL
-表中的資料，從最後一個浮水印中選擇資料並插入到暫存表中。使用浮水印對於避免處理整個表非常重要；此外，KQL
-查詢的最大行數為 500,000 行。考慮到當前的資料攝取速度，這相當於一天的
-3/4。
-
-活動的 "*目的地* "選項卡應如下所示：
-
-![](./media/image29.png)
+    這一步首先刪除暫存表中的舊資料，然後複製 KQL
+    表中的資料，從最後一個浮水印中選擇資料並插入到暫存表中。使用浮水印對於避免處理整個表非常重要；此外，KQL
+    查詢的最大行數為 500,000 行。考慮到當前的資料攝取速度，這相當於一天的
+    3/4。
+    
+    活動的 "*目的地* "選項卡應如下所示：
+    
+    ![](./media/image29.png)
 
 8.  在 *ForEach* 框中，按一下加號 **(+)**，導航並選擇**查找**活動。
 
-![](./media/image30.png)
+    ![](./media/image30.png)
 
 9.  點擊 **Lookup1 圖示**，在 "**常規** "選項卡的 **"名稱 "欄位**中輸入
-    +++Get ***New WaterMark*** +++
+    +++Get New WaterMark+++
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image31.png)
+    ![](./media/image31.png)
 
 10. 按一下 "**設置** "選項卡，輸入以下設置
 
-[TABLE]
+    |  |  |
+    |----|----|
+    |Connection	|drop down, select StocksDW from the list|
+    |Use query|	Query|
+    |Query|	+++@concat('Select Max(timestamp) as WaterMark from stg.', item().ObjectName)+++|
 
-![](./media/image32.png)
+    ![](./media/image32.png)
 
 11. 在 *ForEach* 框中，按一下加號
     **(+)**，導航並選擇***存儲過程***活動。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image33.png)
-
+    ![](./media/image33.png)
 12. 按一下**存儲過程圖示**。在 "**常規** "選項卡的 **"名稱 "欄位**中輸入
-    +++ ***Update WaterMark*** +++
+    +++Update WaterMark+++
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image34.png)
+      ![](./media/image34.png)
 
 13. 按一下 "**設置** "選項卡，輸入以下設置。
+    |  |   |
+    |---|---|
+    |Workspace 	|StocksDW|
+    |Stored procedure name| 	ETL.sp_IngestSourceInfo_Update|
 
-[TABLE]
 
-- 參數（按一下*導入*可自動添加參數名稱）：
+    - 參數（按一下*導入*可自動添加參數名稱）：
 
-[TABLE]
+    |Name|	Type|	Value|
+    |----|----|
+    |ObjectName	|String|	@item().ObjectName|
+    |WaterMark	|DateTime	|@activity('Get New WaterMark').output.firstRow.WaterMark|
 
-![](./media/image35.png)
+    ![](./media/image35.png)
 
 ## 任務 5：測試管道
 
 1.  從管道中的 "***主頁*** "選項卡選擇 "***運行***"。
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image36.png)
+      ![](./media/image36.png)
 
-2.  在 "**保存並運行？**"對話方塊中，按一下 "**保存並運行 "**按鈕
+2.  在 "**保存並運行？**"對話方塊中，按一下 "**保存並運行**"按鈕
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image37.png)
+      ![](./media/image37.png)
 
 3.  這將提示首先保存管道，然後驗證以查找任何配置錯誤。初始運行將耗時片刻，並將資料複製到暫存表中。
 
-![](./media/image38.png)
+      ![](./media/image38.png)
 
 4.  在 **PL_Refresh_DWH** 頁面上，按一下左側導航菜單上的
     **RealTimeWorkspace** 工作區。
 
-![A screenshot of a computer Description automatically
-generated](./media/image39.png)
+     ![](./media/image39.png)
 
 5.  點擊**刷新**按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+      ![](./media/image40.png)
 
 6.  在資料倉庫中，數據應在暫存表中可見。在資料倉庫內，選擇一個表將顯示表中資料的預覽。按一下左側導航功能表中的
     StocksDW，然後按一下資源管理器中的 o
     **模式**。在模式下，導航並按一下 **stg**，然後按一下
     **StocksPrices**，如下圖所示。
 
-![](./media/image41.png)
+    ![](./media/image41.png)
 
 9.  點擊命令列中的***新建 SQL
     查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。下一步我們將開始構建模式：
 
-![](./media/image42.png)
+    ![](./media/image42.png)
 
 8.  當我們進入 Data Warehouse 時，在新的 SQL
     查詢視窗中運行下面的腳本來重置攝取過程。在開發過程中，重置腳本通常可以方便地進行增量測試。這將重置日期並刪除暫存表中的資料。
 
-> ***注意：**我們還沒有創建事實表或維度表，但腳本應該仍然有效。*
+     ***注意：**我們還沒有創建事實表或維度表，但腳本應該仍然有效。*
 
 9.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。執行查詢後，您將看到結果。
-
-> **複製**
-
--- Run this to 'RESET' the ingestion tables
-
-exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01
-23:59:59.000000'
-
-GO
-
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
-
-BEGIN
-
-delete stg.StocksPrices
-
-END
-
-GO
-
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
-
-BEGIN
-
-delete dbo.fact_Stocks_Daily_Prices
-
-END
-
-GO
-
-IF (EXISTS (SELECT \* FROM INFORMATION_SCHEMA.TABLES
-
-WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
-
-BEGIN
-
-delete dbo.dim_Symbol
-
-END
-
-GO
-
-![](./media/image43.png)
-
-![](./media/image44.png)
+      ```
+      -- Run this to 'RESET' the ingestion tables
+      
+      exec ETL.sp_IngestSourceInfo_Update 'StocksPrices', '2022-01-01 23:59:59.000000'
+      GO
+      
+      IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+          WHERE TABLE_SCHEMA = 'stg' AND TABLE_NAME = 'StocksPrices'))
+      BEGIN
+          delete stg.StocksPrices
+      END
+      GO
+      
+      IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+          WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'fact_Stocks_Daily_Prices'))
+      BEGIN
+          delete dbo.fact_Stocks_Daily_Prices
+      END
+      GO
+      
+      IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES 
+          WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'dim_Symbol'))
+      BEGIN
+          delete dbo.dim_Symbol
+      END
+      GO
+      ```
+      ![](./media/image43.png)
+      
+      ![](./media/image44.png)
 
 # 練習 2：構建星型模式
 
@@ -447,305 +415,208 @@ Data Pipeline。
     查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。下一步我們將開始構建模式。
 
-![](./media/image42.png)
+    ![](./media/image42.png)
 
 2.  在我們的 Data Warehouse 中，運行以下 SQL
     來創建事實表和維度表。和上一步一樣，你可以臨時運行這個查詢，也可以創建一個
     SQL 查詢來保存查詢，以備將來使用。
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。執行查詢後，您將看到結果。
-
-> **複製**
-
-/\* 2 - Create Dimension and Fact tables.sql \*/
-
--- Dimensions and Facts (dbo)
-
-CREATE TABLE dbo.fact_Stocks_Daily_Prices
-
-(
-
-Symbol_SK INT NOT NULL
-
-,PriceDateKey DATE NOT NULL
-
-,MinPrice FLOAT NOT NULL
-
-,MaxPrice FLOAT NOT NULL
-
-,ClosePrice FLOAT NOT NULL
-
-)
-
-GO
-
-CREATE TABLE dbo.dim_Symbol
-
-(
-
-Symbol_SK INT NOT NULL
-
-,Symbol VARCHAR(5) NOT NULL
-
-,Name VARCHAR(25)
-
-,Market VARCHAR(15)
-
-)
-
-GO
-
-CREATE TABLE dbo.dim_Date
-
-(
-
-\[DateKey\] DATE NOT NULL
-
-,\[DayOfMonth\] int
-
-,\[DayOfWeeK\] int
-
-,\[DayOfWeekName\] varchar(25)
-
-,\[Year\] int
-
-,\[Month\] int
-
-,\[MonthName\] varchar(25)
-
-,\[Quarter\] int
-
-,\[QuarterName\] varchar(2)
-
-)
-
-GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image45.png)
-
-![](./media/image46.png)
+    
+     **複製**
+    ```
+    /* 2 - Create Dimension and Fact tables.sql */
+    
+    -- Dimensions and Facts (dbo)
+    CREATE TABLE dbo.fact_Stocks_Daily_Prices
+    (
+       Symbol_SK INT NOT NULL
+       ,PriceDateKey DATE NOT NULL
+       ,MinPrice FLOAT NOT NULL
+       ,MaxPrice FLOAT NOT NULL
+       ,ClosePrice FLOAT NOT NULL
+    )
+    GO
+    
+    CREATE TABLE dbo.dim_Symbol
+    (
+        Symbol_SK INT NOT NULL
+        ,Symbol VARCHAR(5) NOT NULL
+        ,Name VARCHAR(25)
+        ,Market VARCHAR(15)
+    )
+    GO
+    
+    CREATE TABLE dbo.dim_Date 
+    (
+        [DateKey] DATE NOT NULL
+        ,[DayOfMonth] int
+        ,[DayOfWeeK] int
+        ,[DayOfWeekName] varchar(25)
+        ,[Year] int
+        ,[Month] int
+        ,[MonthName] varchar(25)
+        ,[Quarter] int
+        ,[QuarterName] varchar(2)
+    )
+    GO
+    ```
+      ![](./media/image45.png)
+      
+      ![](./media/image46.png)
 
 4.  重命名查詢以供參考。按右鍵資源管理器中的 **SQL
     查詢**，然後選擇**重命名**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image47.png)
+    ![](./media/image47.png)
 
-5.  在 "**重命名** "對話方塊中，在 "**名稱 "**欄位下輸入 +++
-    創建維度表和事實**表**+++，然後按一下 "**重命名** "按鈕。
+5.  在 "**重命名** "對話方塊中，在 "**名稱 "欄位下輸入 +++Create Dimension and Fact tables+++，然後按一下 "**重命名** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image48.png)
-
+     ![](./media/image48.png)
 ## 任務 2：載入日期維度
 
 1.  點擊窗口頂部的***新建 SQL 查詢***。點擊命令列中的***新建 SQL
     查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。下一步我們將開始構建模式：
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+       ![](./media/image49.png)
 
 2.  日期維度是有區別的；它可以一次性載入我們需要的所有值。運行以下腳本，創建一個存儲過程，在日期維度表中填入大量值。
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。執行查詢後，您將看到結果。
 
-> **複製**
-
-/\* 3 - Load Dimension tables.sql \*/
-
-CREATE PROC \[ETL\].\[sp_Dim_Date_Load\]
-
-@BeginDate DATE = NULL
-
-,@EndDate DATE = NULL
-
-AS
-
-BEGIN
-
-SET @BeginDate = ISNULL(@BeginDate, '2022-01-01')
-
-SET @EndDate = ISNULL(@EndDate, DATEADD(year, 2, GETDATE()))
-
-DECLARE @N AS INT = 0
-
-DECLARE @NumberOfDates INT = DATEDIFF(day,@BeginDate, @EndDate)
-
-DECLARE @SQL AS NVARCHAR(MAX)
-
-DECLARE @STR AS VARCHAR(MAX) = ''
-
-WHILE @N \<= @NumberOfDates
-
-BEGIN
-
-SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10))
-
-IF @N \< @NumberOfDates
-
-BEGIN
-
-SET @STR = @STR + ','
-
-END
-
-SET @N = @N + 1;
-
-END
-
-SET @SQL = 'INSERT INTO dbo.dim_Date (\[DateKey\]) SELECT CAST(\[value\]
-AS DATE) FROM STRING_SPLIT(@STR, '','')';
-
-EXEC sys.sp_executesql @SQL, N'@STR NVARCHAR(MAX)', @STR;
-
-UPDATE dbo.dim_Date
-
-SET
-
-\[DayOfMonth\] = DATEPART(day,DateKey)
-
-,\[DayOfWeeK\] = DATEPART(dw,DateKey)
-
-,\[DayOfWeekName\] = DATENAME(weekday, DateKey)
-
-,\[Year\] = DATEPART(yyyy,DateKey)
-
-,\[Month\] = DATEPART(month,DateKey)
-
-,\[MonthName\] = DATENAME(month, DateKey)
-
-,\[Quarter\] = DATEPART(quarter,DateKey)
-
-,\[QuarterName\] = CONCAT('Q',DATEPART(quarter,DateKey))
-
-END
-
-GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image50.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image51.png)
+      **複製**
+      ```  
+          /* 3 - Load Dimension tables.sql */
+          
+          CREATE PROC [ETL].[sp_Dim_Date_Load]
+          @BeginDate DATE = NULL
+          ,@EndDate DATE = NULL
+          AS
+          BEGIN
+          
+          SET @BeginDate = ISNULL(@BeginDate, '2022-01-01')
+          SET @EndDate = ISNULL(@EndDate, DATEADD(year, 2, GETDATE()))
+          
+          DECLARE @N AS INT = 0
+          DECLARE @NumberOfDates INT = DATEDIFF(day,@BeginDate, @EndDate)
+          DECLARE @SQL AS NVARCHAR(MAX)
+          DECLARE @STR AS VARCHAR(MAX) = ''
+          
+          WHILE @N <= @NumberOfDates
+              BEGIN
+              SET @STR = @STR + CAST(DATEADD(day,@N,@BeginDate) AS VARCHAR(10)) 
+              
+              IF @N < @NumberOfDates
+                  BEGIN
+                      SET @STR = @STR + ','
+                  END
+          
+              SET @N = @N + 1;
+              END
+          
+          SET @SQL = 'INSERT INTO dbo.dim_Date ([DateKey]) SELECT CAST([value] AS DATE) FROM STRING_SPLIT(@STR, '','')';
+          
+          EXEC sys.sp_executesql @SQL, N'@STR NVARCHAR(MAX)', @STR;
+          
+          UPDATE dbo.dim_Date
+          SET 
+              [DayOfMonth] = DATEPART(day,DateKey)
+              ,[DayOfWeeK] = DATEPART(dw,DateKey)
+              ,[DayOfWeekName] = DATENAME(weekday, DateKey)
+              ,[Year] = DATEPART(yyyy,DateKey)
+              ,[Month] = DATEPART(month,DateKey)
+              ,[MonthName] = DATENAME(month, DateKey)
+              ,[Quarter] = DATEPART(quarter,DateKey)
+              ,[QuarterName] = CONCAT('Q',DATEPART(quarter,DateKey))
+          
+          END
+          GO
+      ```        
+       ![](./media/image50.png)
+          
+       ![](./media/image51.png)
 
 4.  在同一查詢視窗中，通過運行以下腳本執行上述程式。
 
-> **複製**
-
-/\* 3 - Load Dimension tables.sql \*/
-
-Exec ETL.sp_Dim_Date_Load
-
-![A screenshot of a computer Description automatically
-generated](./media/image52.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image53.png)
+     **複製**
+    ```
+    /* 3 - Load Dimension tables.sql */
+    Exec ETL.sp_Dim_Date_Load
+    ```
+    ![](./media/image52.png)
+    ![](./media/image53.png)
 
 5.  重命名查詢以供參考。按右鍵資源管理器中的 **SQL
     查詢**，然後選擇**重命名**。
 
-![A screenshot of a computer Description automatically
-generated](./media/image54.png)
+    ![](./media/image54.png)
 
-6.  在 "**重命名** "對話方塊中，在 "**名稱 "**欄位下輸入 +++
-    **載入尺寸表**+**+++**，然後按一下 "**重命名** "按鈕。
+6.  在 "**重命名** "對話方塊中，在 "**名稱 "**欄位下輸入 +++Load Dimension tables+++，然後按一下 "**重命名** "按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image55.png)
+    ![](./media/image55.png)
 
 ## 任務 3：創建載入符號標注的存儲過程
 
-1.  點擊命令列中的***新建 SQL
-    查詢***下拉式功能表，然後選擇**空白**部分下的**新建 SQL
+1.  點擊命令列中的**新建 SQL
+    查詢**下拉式功能表，然後選擇**空白**部分下的**新建 SQL
     查詢**。下一步我們將開始構建模式。
 
-![A screenshot of a computer Description automatically
-generated](./media/image49.png)
+      ![](./media/image49.png)
 
 2.  與日期維度類似，每個股票代碼對應符號維度表中的一行。該表包含股票的詳細資訊，如公司名稱和股票上市市場。
 
 3.  在查詢編輯器中，複製並粘貼以下代碼。按一下**運行**按鈕執行查詢。這將創建載入股票代碼維度的存儲過程。我們將在管道中執行該過程，以處理可能進入源的任何新股票。
 
-> **複製**
-
-/\* 3 - Load Dimension tables.sql \*/
-
-CREATE PROC \[ETL\].\[sp_Dim_Symbol_Load\]
-
-AS
-
-BEGIN
-
-DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM
-\[dbo\].\[dim_Symbol\])
-
-INSERT \[dbo\].\[dim_Symbol\]
-
-SELECT
-
-Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)
-
-, Symbol
-
-, Name
-
-,Market
-
-FROM
-
-(SELECT DISTINCT
-
-sdp.Symbol
-
-, Name = 'Stock ' + sdp.Symbol
-
-, Market = CASE SUBSTRING(Symbol,1,1)
-
-WHEN 'B' THEN 'NASDAQ'
-
-WHEN 'W' THEN 'NASDAQ'
-
-WHEN 'I' THEN 'NYSE'
-
-WHEN 'T' THEN 'NYSE'
-
-ELSE 'No Market'
-
-END
-
-FROM
-
-\[stg\].\[vw_StocksDailyPrices\] sdp
-
-WHERE
-
-sdp.Symbol NOT IN (SELECT Symbol FROM \[dbo\].\[dim_Symbol\])
-
-) stg
-
-END
-
-GO
-
-![A screenshot of a computer Description automatically
-generated](./media/image56.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image57.png)
+      **複製**
+      ```
+      /* 3 - Load Dimension tables.sql */
+      
+      CREATE PROC [ETL].[sp_Dim_Symbol_Load]
+      AS
+      BEGIN
+      
+      DECLARE @MaxSK INT = (SELECT ISNULL(MAX(Symbol_SK),0) FROM [dbo].[dim_Symbol])
+      
+      INSERT [dbo].[dim_Symbol]
+      SELECT  
+          Symbol_SK = @MaxSK + ROW_NUMBER() OVER(ORDER BY Symbol)  
+          , Symbol
+          , Name
+          ,Market
+      FROM 
+          (SELECT DISTINCT
+          sdp.Symbol 
+          , Name  = 'Stock ' + sdp.Symbol 
+          , Market = CASE SUBSTRING(Symbol,1,1)
+                          WHEN 'B' THEN 'NASDAQ'
+                          WHEN 'W' THEN 'NASDAQ'
+                          WHEN 'I' THEN 'NYSE'
+                          WHEN 'T' THEN 'NYSE'
+                          ELSE 'No Market'
+                      END
+          FROM 
+              [stg].[vw_StocksDailyPrices] sdp
+          WHERE 
+              sdp.Symbol NOT IN (SELECT Symbol FROM [dbo].[dim_Symbol])
+          ) stg
+      
+      END
+      GO
+      ```
+      
+      ![](./media/image56.png)
+      
+      ![](./media/image57.png)
 
 7.  重命名查詢以供參考。按右鍵資源管理器中的 **SQL
     查詢**，然後選擇**重命名**。
 
-![](./media/image58.png)
+      ![](./media/image58.png)
 
-8.  在**重命名**對話方塊中，在**名稱**欄位下輸入 +++ **載入股票代碼尺寸
-    +++**，然後按一下**重命名**按鈕。
+8.  在**重命名**對話方塊中，在**名稱**欄位下輸入 +++Load the stock symbol dimension+++，然後按一下**重命名**按鈕。
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
+      ![](./media/image59.png)
 
 ## **任務 4：創建視圖**
 
