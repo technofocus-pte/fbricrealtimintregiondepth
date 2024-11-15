@@ -43,138 +43,134 @@ Activator Reflex 是保存資料連接、事件和觸發器所需全部資訊的
 1.  在 **RealTimeStocks** 頁面上，按一下左側導航菜單上的
     **RealTimeWorkspace** 工作區。
 
-![](./media/image1.png)
+      ![](./media/image1.png)
 
-2.  在 **RealTimeWorkspace** 窗口中，導航並按一下 **StockEventStream。**
+2.  在 **RealTimeWorkspace** 窗口中，導航並按一下 **StockEventStream**
 
-![](./media/image2.png)
+      ![](./media/image2.png)
 
 3.  在 **Eventstreams** 上，按一下 "**編輯** "按鈕
 
-![](./media/image3.png)
+    ![](./media/image3.png)
 
 4.  在 ***StockEventstream*** 頁面上，通過下拉式功能表 "**添加目的地**
     "**添加**新的輸出，然後選擇 ***Reflex***，如下圖所示。
 
-> ![](./media/image4.png)
+     ![](./media/image4.png)
 
-5.  對 Reflex 進行如下配置，然後按一下 "***保存*** "按鈕**：**
+5.  對 Reflex 進行如下配置，然後按一下 "***保存*** "按鈕：
 
-- 目的地名稱： **+++Reflex++++**
+      - 目的地名稱： **+++Reflex+++**
+      
+      - 工作區：**RealTimeWorkspace**（或工作區名稱）
+      
+      - 創建名為 **+++EventstreamReflex+++** 的新 Reflex，然後按一下 "**完成**
+        "按鈕。
 
-- 工作區：**RealTimeWorkspace**（或工作區名稱）
-
-- 創建名為 **+++EventstreamReflex+++** 的新 Reflex，然後按一下 "**完成**
-  "按鈕。
-
-> ![](./media/image5.png)
+      ![](./media/image5.png)
 
 6.  您將收到目的地 "Reflex "已**成功添加的**通知。
 
-> ![](./media/image6.png)
+     ![](./media/image6.png)
 
-6.  連接 **StockEventStream** 和 **Reflex。**點擊**發佈**按鈕。
+7.  連接 **StockEventStream** 和 **Reflex。**點擊**發佈**按鈕。
 
-> ![](./media/image7.png)
+      ![](./media/image7.png)
 
-7.  您將收到目的地 "Reflex "已**成功發佈的**通知。
+8.  您將收到目的地 "Reflex "已**成功發佈的**通知。
 
-> ![A screenshot of a phone Description automatically
-> generated](./media/image8.png)
+      ![](./media/image8.png)
 
-8.  添加反射後，按一下頁面底部的 "***打開專案***
+9.  添加反射後，按一下頁面底部的 "***打開專案***
     "**連結*打開***反射，如下圖所示。
 
-> ![](./media/image9.png)
->
-> **注意**：如果您在 Reflex 狀態中看到錯誤，請等待幾分鐘並刷新頁面。
->
-> ![](./media/image10.png)
+      ![](./media/image9.png)
+
+  **注意**：如果您在 Reflex 狀態中看到錯誤，請等待幾分鐘並刷新頁面。
+
+     ![](./media/image10.png)
 
 ## 任務 2：配置物件
 
 1.  在 **StockEventStram-Reflex** 視窗的 "**分配資料**
-    "窗格中輸入以下詳細資訊*。*然後點擊***保存***，選擇***保存並轉入設計模式***。
+    "窗格中輸入以下詳細資訊*。*然後點擊**保存**，選擇**保存並轉入設計模式**。
 
-- 物件名稱 - **符號**
-
-- 指定關鍵欄 **- 符號**
-
-- 指定屬性 - 選擇**價格、時間戳記**
-
-![](./media/image11.png)
-
-![](./media/image12.png)
+      - 物件名稱 - **符號**
+      
+      - 指定關鍵欄 **- 符號**
+      
+      - 指定屬性 - 選擇**價格、時間戳記**
+      
+      ![](./media/image11.png)
+      
+      ![](./media/image12.png)
 
 2.  保存後，Reflex 將載入。選擇屬性下的***價格***。
 
-> ![](./media/image13.png)
+      ![](./media/image13.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
+     ![](./media/image14.png)
 
 3.  這將載入每個符號的價格屬性視圖，因為事件正在輸入。在頁面右側，點擊***添加***旁邊的下拉式功能表，然後導航並選擇***匯總*
     \> *按時間平均***，如下圖所示。
 
-![](./media/image15.png)
+      ![](./media/image15.png)
 
 4.  將***平均時間***設置為 **10
     分鐘**。在頁面右上角，將時間視窗設置為***最後一小時***，如下圖所示。這一步將對
     10 分鐘的資料塊進行平均 - 這將有助於發現較大的價格波動。
 
-![](./media/image16.png)
+    ![](./media/image16.png)
 
-![A graph with different colored lines Description automatically
-generated](./media/image17.png)
+   ![](./media/image17.png)
 
 5.  要添加新觸發器，請在頂部巡覽列中按一下 "***新建觸發器***
     "按鈕。在**未保存更改**對話方塊中，按一下**保存**按鈕。
 
-![](./media/image18.png)
-
-![](./media/image19.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image20.png)
+      ![](./media/image18.png)
+      
+      ![](./media/image19.png)
+      
+      ![](./media/image20.png)
 
 6.  載入新觸發器頁面後，將觸發器名稱改為 "***價格上漲***"，如下圖所示。
 
-![](./media/image21.png)
+      ![](./media/image21.png)
 
 7.  在 "價格上漲 "頁面，點擊 "**選擇屬性或事件
     "欄**旁邊的**下拉式功能表**，然後選擇 "**現有屬性** \>
-    **價格**"**。**
+    **價格**"。
 
-![](./media/image22.png)
-
-![](./media/image23.png)
+      ![](./media/image22.png)
+      
+      ![](./media/image23.png)
 
 8.  確認（並根據需要更改）右上角的時間視窗設置為 "*最後一小時"*。
 
-![](./media/image24.png)
+    ![](./media/image24.png)
 
 9.  請注意，***價格*圖表**應保留匯總視圖，以 10 分鐘為間隔平均數據。在
     "***檢測 "***部分，將檢測類型配置為 "***數值***"\>***"增加***"。
 
-![](./media/image25.png)
+      ![](./media/image25.png)
 
 10. 將增加類型設置為***百分比***。起始值約為
     **6**，但需要根據資料的波動性進行修改。將該值設置為***從上次測量開始***和***每次，***如下圖所示：
 
-![](./media/image26.png)
+      ![](./media/image26.png)
 
 11. 向下滾動，按一下 "**行為** "旁邊的下拉式功能表，然後選擇
     "**電子郵件**"。然後，按一下**附加資訊**欄位中的下拉式功能表，選擇**價格**和**時間戳記**核取方塊。然後，點擊命令列中的**保存**按鈕。
 
-![](./media/image27.png)
+      ![](./media/image27.png)
 
 12. 您將收到**已保存觸發器**的通知。
 
-![](./media/image28.png)
+      ![](./media/image28.png)
 
 13. 然後點擊 "**向我發送測試警報**"。
 
-![](./media/image29.png)
+    ![](./media/image29.png)
 
 **重要提示：**試用帳戶用戶不會收到通知。
 
@@ -194,52 +190,45 @@ BI 中更易讀，同時也會讓它們在 Data Activator 中更易讀。
 
 1.  現在，點擊左側導航功能表上的 **RealTimeWorkspace**。
 
-![](./media/image30.png)
+    ![](./media/image30.png)
 
 2.  在 **RealTimeWorkspace** 窗格中，導航並按一下
     **RealTimeStocks**，如下圖所示。
 
-![](./media/image31.png)
-
-![](./media/image32.png)
+    ![](./media/image31.png)
+    
+    ![](./media/image32.png)
 
 3.  在 **RealTimeStock** 頁面上，按一下命令列中的 "**編輯**
     "按鈕打開報告編輯器。
 
-![](./media/image33.png)
+      ![](./media/image33.png)
 
 4.  在修改報告時，最好暫時關閉自動刷新功能。選擇 "視覺化 "下的
     "正式頁面"，並將 "**頁面刷新** "選擇為 "**關閉"。**
 
-![](./media/image34.png)
+      ![](./media/image34.png)
 
 5.  在 **RealTimeStock** 頁面，選擇**按時間戳記和符號計算的價格總和**。
 
 6.  現在，選擇每個欄位的下拉式功能表，***為該視覺效果***選擇重命名，重新命名它們**。**重命名如下
 
-- 將 *timestamp* 改為 **Timestamp**
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image35.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image36.png)
-
-- *價格*與*價格*之*和*
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image37.png)
->
-> ![A screenshot of a computer screen Description automatically
-> generated](./media/image38.png)
-
-- *符號*到**符號**
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image39.png)
-
-![A screenshot of a graph Description automatically
-generated](./media/image40.png)
+        - 將 *timestamp* 改為 **Timestamp**
+        
+        ![](./media/image35.png)
+        
+        ![](./media/image36.png)
+        
+        - *價格*與*價格*之*和*
+        
+        ![](./media/image37.png)
+        ![](./media/image38.png)
+        
+        - *符號*到**符號**
+        
+        ![](./media/image39.png)
+        
+        ![](./media/image40.png)
 
 7.  在**即時股票**頁面，**按時間戳記和符號**選擇**百分比差 10
     分鐘之和**。
