@@ -69,7 +69,7 @@ workspace.
      ![](./media/image1.png)
 2.  Select the **Warehouse**tile to create a new Synapse Data
     Warehouse.
-     ![](./media/image2.png)
+     ![](./media/pic26.png)
 3.  On the **New warehouse** dialog box, enter +++***StocksDW+++*** as
     the name and click on the **Create** button.
      ![](./media/image3.png)
