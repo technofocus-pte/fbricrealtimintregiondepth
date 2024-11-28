@@ -71,18 +71,18 @@ across all modules.*
 1.  Within your Fabric workspace, switch to the **Data engineering**
     persona (bottom left) as shown in the below image.
 
-    ![](./media/image2.png)
+    ![](./media/pic10.png)
 
 2.  In Synapse Data Engineering Home page, navigate and click on
     **Lakehouse** tile.
 
-    ![](./media/image3.png)
+    ![](./media/pic1.png)
 
 3.  In the **New lakehouse** dialog box, enter **+++StocksLakehouse+++** in
     the **Name** field, then click on the **Create** button. A
     **StocksLakehouse** page will appear.
 
-    ![](./media/image4.png)
+    ![](./media/pic2.png)
 
     ![](./media/image5.png)
 
@@ -122,12 +122,12 @@ across all modules.*
 
 4.  On the **StockEventStream** page, select **Edit**
 
-     ![](./media/image9.png)
+     ![](./media/pic3.png)
 5.  On the **StockEventStream** page, click on the **Add destination**
     on the output of the Eventstream to add a new destination.
     Select **Lakehouse** from the context menu.
 
-     ![](./media/image10.png)
+     ![](./media/pic4.png)
 
 6.  In the Lakehouse pane that appears on the right side, enter the
     following details and click on **Save.**
@@ -139,27 +139,31 @@ across all modules.*
     | **Delta table** | Click on **Create new**\> enter +++raw_stock_data+++ |
     | **Input data format** | Json |
      ![](./media/image11.png)
-     ![](./media/image12.png)
-6.  Connect **StockEventStream** and **Lakehouse**
+     ![](./media/pic5.png)
+7.  Connect **StockEventStream** and **Lakehouse**
      ![](./media/image13.png)
-     ![](./media/image14.png)
-     ![](./media/image15.png)
+     ![](./media/pic6.png)
+     ![](./media/pic7.png)
+     ![](./media/pic8.png)
 
-7.  Select the Lakehouse and click on **Refresh** button
-     ![](./media/image16.png)
+8.  Select the Lakehouse and click on **Refresh** button
+     ![](./media/pic9.png)
+    Note: Loading data into the lakehouse will take approximately 5-6 minutes. Please ensure that you refresh the events team during this time. 
 
-8.  After clicking **Open event processor**, various processing can be
+9.  After clicking **Open event processor**, various processing can be
     added that perform aggregations, filtering, and changing datatypes.
-     ![](./media/image17.png)
+     ![](./media/pic11.png)
+10. On the **StockEventStream** page, select **Edit**
+    
+      ![](./media/pic12.png)
 
-9.  On the **StockEventStream** page, select **stockEventStream**, and
-    click the **plus (+)** icon to add a **Mange field**. Then, select
-    **Mange field.**
-     ![](./media/image18.png)
-     ![](./media/image19.png)
-10. In the eventstreem pane select **Managefields1** pencil icon.
+11.  On the **StockEventStream** page, select **stockEventStream**, and
+     select  **Mange field.**
+     ![](./media/pic13.png)
+     ![](./media/pic14.png)
+12. In the eventstreem pane select **Managefields1** pencil icon.
      ![](./media/image20.png)
-11. In the **Manage fields** pane that opens, click **Add all
+13. In the **Manage fields** pane that opens, click **Add all
     fields** to add all columns. Then, remove the fields
     **EventProcessedUtcTime**, **PartitionId**, and
     **EventEnqueuedUtcTime** by clicking the **ellipsis (...)** to the
@@ -177,15 +181,15 @@ across all modules.*
     
      ![](./media/image26.png)
      ![](./media/new13.png)
-14. Now, click on the **Publish** button to close the event processor
-     ![](./media/image28.png)
-     ![](./media/image29.png)
+13. Now, click on the **Publish** button to close the event processor
+     ![](./media/pic15.png)
+     ![](./media/pic16.png)
      
-15.	Click on the Refresh button.
+14.	Click on the Refresh button.
      ![](./media/image-1.png)
-16. Once it is completed, the Lakehouse will receive the symbol, price,
+15. Once it is completed, the Lakehouse will receive the symbol, price,
     and timestamp.
-      ![](./media/image-3.png)
+      ![](./media/pic17.png)
 Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
 take a minute or two for data to be visible in the Lakehouse.
 
@@ -209,10 +213,10 @@ is displaying the notebook.
      ![](./media/image33.png)
 4.  Navigate and select **Lakehouse 1-Import Data, Lakehouse 2-Build
     Aggregation, Lakehouse 3-Create Star Schema** and **Lakehouse 4-Load
-    Star Schema** notebooks from **C:\LabFiles\Lab 04** and click on the
+    Star Schema** notebooks from **C:\LabFiles\Lab 03** and click on the
     **Open** button.
 
-     ![](./media/image34.png)
+     ![](./media/pic18.png)
 5.  You will see a notification stating **Imported successfully.**
 
      ![](./media/image35.png)
@@ -236,11 +240,10 @@ the table, prepending the historical data.
 
  **Important Note**: You’ll need to add the Lakehouse to every imported
    notebook -- do this each time you open a notebook for the first time.
-      ![](./media/image38.png)
+      ![](./media/pic19.png)
       ![](./media/image39.png)
-4.  In the **Add Lakehouse** dialog box, select the **Existing
-    lakehouse** radio button, then click on the **Add** button.
-     ![](./media/image40.png)
+4.  In the **Add Lakehouse** dialog box, select the **Existing lakehouse without Schema** radio button, then click on the **Add** button.
+     ![](./media/pic20.png)
 5.  On the **OneLake data hub** window, select **StockLakehouse** and
     click on the **Add** button.
       ![](./media/image41.png)
@@ -315,13 +318,12 @@ Lakehouse if it is not already added.
 3.  Under Explorer, navigate and select the **Lakehouse**, then click on
     the **Add**button.
 
-     ![](./media/image56.png)
+     ![](./media/pic21.png)
 
      ![](./media/image57.png)
-4.  In the **Add Lakehouse** dialog box, select the **Existing
-    lakehouse** dialog box, then click on the **Add** button.
+4.  In the **Add Lakehouse** dialog box, select the **Existing Lakehouse without Schema** dialog box, then click on the **Add** button.
 
-      ![](./media/image40.png)
+      ![](./media/pic20.png)
 
 5.  On the **OneLake data hub** window, select the **StockLakehouse**,
     and click on the **Add** button.
@@ -801,14 +803,14 @@ be overwritten.
 3.  Under the Explorer, navigate and click on the **Lakehouses**, then
     click on the **Add** button.
 
-      ![](./media/image126.png)
+      ![](./media/pic22.png)
 
       ![](./media/image127.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
-    lakehouse** radio button, then click on the **Add** button.
+    Lakehouse without schema** radio button, then click on the **Add** button.
 
-      ![](./media/image40.png)
+      ![](./media/pic20.png)
 
 5.  On the OneLake data hub window, select **StockLakehouse**  and click
     on the **Add** button.
