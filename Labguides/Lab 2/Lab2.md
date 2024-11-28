@@ -101,23 +101,23 @@ complexity to support different business uses.
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-   ```
-   StockPrice
-   | where timestamp > ago(75m)
-   | project symbol, price, timestamp
-   | partition by symbol
-   (
-       order by timestamp asc
-       | extend prev_price = prev(price, 1)
-       | extend prev_price_10min = prev(price, 600)
-   )
-   | where timestamp > ago(60m)
-   | order by timestamp asc, symbol asc
-   | extend pricedifference_10min = round(price - prev_price_10min, 2)
-   | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-   | order by timestamp asc, symbol asc
-   ```
-   ![](./media/image13.png) 
+     ```
+     StockPrice
+     | where timestamp > ago(75m)
+     | project symbol, price, timestamp
+     | partition by symbol
+     (
+         order by timestamp asc
+         | extend prev_price = prev(price, 1)
+         | extend prev_price_10min = prev(price, 600)
+     )
+     | where timestamp > ago(60m)
+     | order by timestamp asc, symbol asc
+     | extend pricedifference_10min = round(price - prev_price_10min, 2)
+     | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+     | order by timestamp asc, symbol asc
+     ```
+     ![](./media/image13.png) 
 4.  In this KQL query, the results are first limited to the most recent
     75 minutes. While we ultimately limit the rows to the last 60
     minutes, our initial dataset needs enough data to lookup previous
@@ -231,7 +231,7 @@ complexity to support different business uses.
     | order by timestamp asc, symbol asc
     | render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
     ```
-   ![](./media/image23.png)
+    ![](./media/image23.png)
 4.  This will render a line chart as shown in the below image.
     ![](./media/image24.png)
 
@@ -287,9 +287,9 @@ updating.
 
    ![](./media/image31.png)
 3.  Select the query and run to view the results. Click on the
-    **Build Power BI report** button in the command bar to bring this
+    **Create Power BI report** button in the command bar to bring this
     query into Power BI.
-     ![](./media/image32.png)
+     ![](./media/pic9.png)
      ![](./media/image33.png)
 
 4.  On the report preview page, we can configure our initial chart,
@@ -325,13 +325,13 @@ updating.
     for **timestamp** to display data for the last 5 minutes using
     these settings:
 
-   - Filter type: Relative time
-
-   - Show items when the value: is in the last 5 minutes
-
-Click on **Apply filter** to enable the filter. You will see a similar
-type of output as shown in the below image.
-    ![](./media/image39.png)
+     - Filter type: Relative time
+  
+     - Show items when the value: is in the last 5 minutes
+  
+  Click on **Apply filter** to enable the filter. You will see a similar
+  type of output as shown in the below image.
+      ![](./media/image39.png)
 
 ## Task 3: Creating a second visual for percent change
 
@@ -364,11 +364,11 @@ type of output as shown in the below image.
     for ***timestamp*** to display data for the last 5 minutes using
     these settings:
 
-- Filter type: Relative time
-
-- Show items when the value: is in the last 5 minutes
-
-   ![](./media/image43.png)
+  - Filter type: **Relative time**
+  
+  - Show items when the value: is in the last **5** minutes
+  
+     ![](./media/image43.png)
 
 ## Task 4: Configuring the report to auto-refresh
 
