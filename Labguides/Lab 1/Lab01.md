@@ -129,13 +129,13 @@ reports.
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-  | **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
-  |----|----|
-  | **Advanced** | Select Trail |
-  | **Default storage format** | **Small dataset storage format** |
+    | **Name** | +++RealTimeWorkspaceXXX+++(XXX can be a unique number, you can add more numbers) |
+    |----|----|
+    | **Advanced** | Select Trail |
+    | **Default storage format** | **Small dataset storage format** |
 
-   ![](./media/image14.png)
-   ![](./media/image15.png)
+     ![](./media/image14.png)
+     ![](./media/image15.png)
 
 ## **Task 4: Deploy the app via Azure Container Instance**
 
@@ -147,18 +147,16 @@ deployment of the ARM template.
 To auto-deploy the resources, use these steps below.
 
 1.  Open a new address bar and enter the following URL. If prompted to
-    Sign in, then use your O365 tenant credentials.
-
-> +++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
+    Sign in, then use your O365 tenant credentials +++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
 
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
     the following details and click on the **Review+create** button.
 
-   |               |                                                                |
-   |---------------|----------------------------------------------------------------|
-   |Subscription   |Select the assigned subscription	                               |
-   |Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
-   |Region         |Select West US 3	|
+    |               |                                                                |
+    |---------------|----------------------------------------------------------------|
+    |Subscription   |Select the assigned subscription	                               |
+    |Resource group |Click on Create new> enter +++realtimeworkshop+++ and select Ok	|
+    |Region         |Select West US 3	|
      ![](./media/image16.png)
      ![](./media/image17.png)
 3.  In the **Review + create** tab, navigate and click on the **Create**
@@ -202,15 +200,14 @@ To auto-deploy the resources, use these steps below.
 1.  Go back to the Microsoft Fabric, navigate and click on **Power BI**
     at the bottom of the page, then select **Real-Time Intelligence**.
 
-     ![](./media/image25.png)
+     ![](./media/pic1.png)
 
-2.  On the **Synapse Real-Time Analytics** home page,
+2.  On the **Real-Time Intelligence** home page,
     select **Eventstream**. Name the Eventstream
-    **+++StockEventStream+++**, check the **Enhanced Capabilities
-    (preview)*** and click on the **Create** button.
+    **+++StockEventStream+++**, and click on the **Create** button.
 
-     ![](./media/image26.png)
-     ![](./media/image27.png)
+     ![](./media/pic2.png)
+     ![](./media/pic3.png)
 3.  On the Eventstream, select **Add external source**
 
      ![](./media/image28.png)
@@ -236,7 +233,7 @@ To auto-deploy the resources, use these steps below.
             
      e.  Consumer group: **$Default**
      
-     f.  Data format: **JSON** and click on **Next** button
+     f.  Data format: **JSON** and click on **Connect** button
           ![](./media/image30.png)
            ![](./media/image31.png)
            ![](./media/image32.png)
@@ -251,12 +248,12 @@ To auto-deploy the resources, use these steps below.
 7.  With the Event Hub configured, click on ***Test result***. You
     should see events including the stock symbol, price, and timestamp.
 
-     ![](./media/image36.png)
+     ![](./media/pic4.png)
 
 8.  On the Eventstream, select **Publish.**
 
-     ![](./media/image37.png)
-     ![](./media/image38.png)
+     ![](./media/pic5.png)
+     ![](./media/pic6.png)
 
 9.  On the Eventstream, select **AzureEventHub** and click on
     **Refresh** button.
@@ -341,7 +338,7 @@ the Eventstream into the KQL DB.
 
 5.  Click on the **Publish** button
 
-      ![](./media/image54.png)
+      ![](./media/pic8.png)
       ![](./media/image55.png)
       ![](./media/image56.png)
 6.  On the Eventstream pane, select **configure** in the **KQL**
@@ -370,11 +367,11 @@ the Eventstream into the KQL DB.
 
       ![](./media/image61.png)
       ![](./media/image62.png)
-9.  Click on the **Refresh** button
+10.  Click on the **Refresh** button
 
      ![](./media/image63.png)
 
-10. Select the **KQL** destination and click on the **Refresh** button.
+11. Select the **KQL** destination and click on the **Refresh** button.
 
      ![](./media/image64.png)
      ![](./media/image65.png)
