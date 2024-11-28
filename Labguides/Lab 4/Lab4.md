@@ -84,12 +84,12 @@ kind of exploration.
 
   **Important**: You will need to add the Lakehouse to every imported
     notebook -- do this each time you open a notebook for the first time.
-     ![](./media/image8.png)
+     ![](./media/pic23.png)
      ![](./media/image9.png)
 
-8.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
+8.  In the **Add Lakehouse** dialog box, select **Existing lakehouse without schema**
     radio button, then click on the **Add** button.
-     ![](./media/image10.png)
+     ![](./media/pic20.png)
 
 9.  On the OneLake data hub window, select the **StockLakehouse** and
     click on the **Add** button.
@@ -237,14 +237,14 @@ completes these tasks at a high level:
 3.  Under the Explorer, select the **Lakehouse**, then click on the
     **Add** button.
 
-     ![](./media/image54.png)
+     ![](./media/pic24.png)
 
      ![](./media/image55.png)
 
-4.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
+4.  In the **Add Lakehouse** dialog box, select **Existing Lakehouse without Schema**
     radio button, then click on the **Add** button.
 
-     ![](./media/image10.png)
+     ![](./media/pic20.png)
 
 5.  On the OneLake data hub window, select the **StockLakehouse** and
     click on the **Add** button.
@@ -351,11 +351,11 @@ a few key things:
 
 3.  Under the Explorer select the **Lakehouse** and click on the
     **Add**
-     ![](./media/image54.png)
+     ![](./media/pic25.png)
      ![](./media/image55.png)
-4.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
+4.  In the **Add Lakehouse** dialog box, select **Existing lakehouse without Schema**
     radio button, then click on the **Add** button.
-     ![](./media/image10.png)
+     ![](./media/pic20.png)
 5.  On the OneLake data hub window, select the ***StockLakehouse*** and
     click on the **Add** button.
 
