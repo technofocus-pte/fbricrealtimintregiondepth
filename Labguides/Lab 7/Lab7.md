@@ -1,4 +1,4 @@
-# Lab 07-Advanced KQL
+# Lab 06-Advanced KQL
 **Introduction**
 
 In this lab, you’ll explore additional KQL concepts.
