@@ -1,4 +1,4 @@
-# Lab 08-Delta File Maintenance
+# Lab 07-Delta File Maintenance
 
 **Introduction**
 
