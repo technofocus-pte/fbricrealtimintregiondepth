@@ -104,7 +104,8 @@ of resources.
      ![](./media/image9.png)
      ![](./media/image10.png)
 
- ## **Task 3: Redeem Azure Pass**
+## Task 2: Redeem Azure Pass
+
 
 1.  Open a new tab on your browser and browse to the **Microsoft Azure
     Pass** website using the given link+++https://www.microsoftazurepass.com/+++.
