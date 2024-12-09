@@ -112,12 +112,11 @@ of resources.
 
 2.  Click on **Start**.
 
-     ![](./media/pic2.png)
-
+     
 3.  Enter the **Office 365 tenant credentials** from the Lab
     VM(**Resources** tab) and **Sign In**.
 
-      ![](./media/pic3.png)
+      ![](./media/pic2.png)
       ![](./media/pic4.png)
 
 4.  Verify email id and then click on **Confirm Microsoft Account**.
