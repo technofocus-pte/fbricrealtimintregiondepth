@@ -101,24 +101,25 @@ complexity to support different business uses.
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-     ```
-     StockPrice
-     | where timestamp > ago(75m)
-     | project symbol, price, timestamp
-     | partition by symbol
-     (
-         order by timestamp asc
-         | extend prev_price = prev(price, 1)
-         | extend prev_price_10min = prev(price, 600)
-     )
-     | where timestamp > ago(60m)
-     | order by timestamp asc, symbol asc
-     | extend pricedifference_10min = round(price - prev_price_10min, 2)
-     | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
-     | order by timestamp asc, symbol asc
-     ```
+      ```
+      StockPrice
+      | where timestamp > ago(75m)
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc
+          | extend prev_price = prev(price, 1)
+          | extend prev_price_10min = prev(price, 600)
+      )
+      | where timestamp > ago(60m)
+      | order by timestamp asc, symbol asc
+      | extend pricedifference_10min = round(price - prev_price_10min, 2)
+      | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+      | order by timestamp asc, symbol asc
+      ```
+     
      ![](./media/image13.png) 
-4.  In this KQL query, the results are first limited to the most recent
+5.  In this KQL query, the results are first limited to the most recent
     75 minutes. While we ultimately limit the rows to the last 60
     minutes, our initial dataset needs enough data to lookup previous
     values. The data is then partitioned to group the data by symbol,
