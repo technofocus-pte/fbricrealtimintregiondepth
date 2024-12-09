@@ -149,7 +149,8 @@ complexity to support different business uses.
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-    ```
+
+     ```
     StockPrice
     | project symbol, price, timestamp
     | partition by symbol
@@ -163,6 +164,7 @@ complexity to support different business uses.
     | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
     | order by timestamp asc, symbol asc
     | summarize arg_max(pricedifference_10min, *) by symbol
+    
     ```
    ![](./media/image16.png)
    ![](./media/image17.png)
@@ -215,6 +217,7 @@ complexity to support different business uses.
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
+    >
     ```
     StockPrice
     | where timestamp > ago(75m)
@@ -231,9 +234,11 @@ complexity to support different business uses.
     | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
     | order by timestamp asc, symbol asc
     | render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
+    
     ```
+    >
     ![](./media/image23.png)
-4.  This will render a line chart as shown in the below image.
+5.  This will render a line chart as shown in the below image.
     ![](./media/image24.png)
 
 # Exercise 2: Optimizing Power BI Reporting Efficiency
