@@ -250,13 +250,13 @@ To auto-deploy the resources, use these steps below.
 1.  Go back to the Microsoft Fabric, navigate and click on **Power BI**
     at the bottom of the page, then select **Real-Time Intelligence**.
 
-     ![](./media/pic1.png)
+     ![](./media/image25.png)
 
 2.  On the **Real-Time Intelligence** home page,
     select **Eventstream**. Name the Eventstream
     **+++StockEventStream+++**, and click on the **Create** button.
 
-     ![](./media/pic2.png)
+     ![](./media/image26.png)
      ![](./media/pic3.png)
 3.  On the Eventstream, select **Add external source**
 
