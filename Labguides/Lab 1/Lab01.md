@@ -298,12 +298,12 @@ To auto-deploy the resources, use these steps below.
 7.  With the Event Hub configured, click on ***Test result***. You
     should see events including the stock symbol, price, and timestamp.
 
-     ![](./media/pic4.png)
+     ![](./media/ima1.png)
 
 8.  On the Eventstream, select **Publish.**
 
-     ![](./media/pic5.png)
-     ![](./media/pic6.png)
+     ![](./media/ima2.png)
+     ![](./media/ima3.png)
 
 9.  On the Eventstream, select **AzureEventHub** and click on
     **Refresh** button.
