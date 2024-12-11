@@ -104,55 +104,7 @@ of resources.
      ![](./media/image9.png)
      ![](./media/image10.png)
 
-## Task 2: Redeem Azure Pass
-
-
-1.  Open a new tab on your browser and browse to the **Microsoft Azure
-    Pass** website using the given link+++https://www.microsoftazurepass.com/+++.
-
-2.  Click on **Start**.
-
-     
-3.  Enter the **Office 365 tenant credentials** from the Lab
-    VM(**Resources** tab) and **Sign In**.
-
-      ![](./media/pic2.png)
-      ![](./media/pic4.png)
-
-4.  Verify email id and then click on **Confirm Microsoft Account**.
-
-      ![](./media/pic5.png)
-
-5.  Paste the **promo code** from the Resources tab in the **Enter Promo
-    code** box and click **Claim Promo Code**.
-
-     ![](./media/pic6.png)
-
-      ![](./media/pic7.png)
-
-6.  It may take few seconds to process the redemption.
-
-7.  Fill in the details appropriately on the **Sign up** page.
-
-8.  On the **Agreement** window, select the check box - I agree to the
-    subscription agreement, offer details, and privacy statement, and
-    then click on **Sign up**.
-
-    ![](./media/pic8.png)
-
-9.  You may **Submit** the feedback while the account setup is in
-    progress.
-
-    ![](./media/pic9.png)
-    ![](./media/pic10.png)
-
-10. The account setup will take about 2-3 minutes to complete. It would
-    automatically redirect you to the **Azure Portal** and now you are
-    ready to use Azure services.
-
-     ![](./media/pic11.png)
-
-## **Task 4: Create a Fabric workspace**
+## **Task 3: Create a Fabric workspace**
 
 In this task, you create a Fabric workspace. The workspace contains all
 the items needed for this lakehouse tutorial, which includes lakehouse,
@@ -186,7 +138,7 @@ reports.
      ![](./media/image14.png)
      ![](./media/image15.png)
 
-## **Task 5: Deploy the app via Azure Container Instance**
+## **Task 4: Deploy the app via Azure Container Instance**
 
 This task deploys the stock generator app to an Azure Container Instance
 using an ARM template. The app will generate stock data that publishes
@@ -406,8 +358,8 @@ the Eventstream into the KQL DB.
 
 8.  The next page allows us to inspect and configure the schema. Be sure
     to change the format from TXT to **JSON**, if necessary. The default
-    columns of *symbol*, *price*, and *timestamp* should be formatted as
-    shown in the below image; then click on the *Finish* button.
+    columns of **symbol**, **price**, and **timestamp** should be formatted as
+    shown in the below image; then click on the **Finish** button.
 
       ![](./media/image60.png)
 
